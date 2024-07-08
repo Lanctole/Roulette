@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35013.160
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roulette", "Roulette\Roulette.csproj", "{88C3059E-5319-426F-99B6-37643F4C9246}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShikimoriSharp", "ShikimoriSharp\ShikimoriSharp.csproj", "{F71F58E2-450B-48F7-9B82-850CB3533C7F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{88C3059E-5319-426F-99B6-37643F4C9246}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88C3059E-5319-426F-99B6-37643F4C9246}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88C3059E-5319-426F-99B6-37643F4C9246}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88C3059E-5319-426F-99B6-37643F4C9246}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F71F58E2-450B-48F7-9B82-850CB3533C7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F71F58E2-450B-48F7-9B82-850CB3533C7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F71F58E2-450B-48F7-9B82-850CB3533C7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F71F58E2-450B-48F7-9B82-850CB3533C7F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4F48DDEE-8CFF-45D6-BB89-2CE6322EC21F}
+	EndGlobalSection
+EndGlobal
