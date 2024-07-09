@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Roulette.Models.Shiki;
 using Roulette.Services;
 using ShikimoriSharp;
 using ShikimoriSharp.Classes;
@@ -11,19 +12,31 @@ namespace Roulette.Controllers.Api
     [ApiController]
     public class ApiTestController : ControllerBase
     {
-        private readonly ShikimoriApiConnector _apiConnector;
+        private readonly ShikimoriApiConnectorService _apiConnectorService;
+        private readonly ShikiDataService _shikiDataService;
 
-        public ApiTestController(ShikimoriApiConnector apiConnector)
+        public ApiTestController(ShikimoriApiConnectorService apiConnectorService, ShikiDataService shikiDataService)
         {
-            _apiConnector = apiConnector;
+            _apiConnectorService = apiConnectorService;
+            _shikiDataService = shikiDataService;
+            _shikiDataService = shikiDataService;
         }
 
         [HttpGet("genres")]
         public IActionResult GetGenres()
         {
-            var genres = _apiConnector.GetGenres();
-            return Ok(genres);
+            var genres = _apiConnectorService.GetGenres();
+            var transformedGenres = _shikiDataService.TransformGenres(genres);
+            return Ok(transformedGenres);
         }
+
+        [HttpGet("studios")]
+        public IActionResult GetStudios()
+        {
+            var studios = _apiConnectorService.GetStudios();
+            return Ok(studios);
+        }
+
 
 
     }

@@ -21,8 +21,4 @@
     <ProjectReference Include="..\ShikimoriSharp\ShikimoriSharp.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Models\Shiki\" />
-  </ItemGroup>
-
 </Project>

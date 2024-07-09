@@ -2,14 +2,16 @@
 using ShikimoriSharp.Classes;
 using ShikimoriSharp.Settings;
 using ShikimoriSharp;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace Roulette.Services
 {
-    public class ShikimoriApiConnector
+    public class ShikimoriApiConnectorService
     {
         private readonly ShikimoriClient _client;
+        private readonly IMemoryCache _cache;
 
-        public ShikimoriApiConnector(IConfiguration configuration)
+        public ShikimoriApiConnectorService(IConfiguration configuration, IMemoryCache cache)
         {
             var authConfig = configuration.GetSection("Auth");
 
@@ -30,12 +32,12 @@ namespace Roulette.Services
             };
 
             _client = new ShikimoriClient(new ClientSettings(name, clientId, clientSecret));
+            _cache = cache;
         }
 
         public Genre[] GetGenres()
         {
-            Task<Genre[]> genres = _client.Genres.GetGenres();
-            return genres.Result;
+            return GetCachedData("genres_cache", () => _client.Genres.GetGenres());
         }
 
         public Anime[] GetAnimes(AnimeRequestSettings settings)
@@ -44,10 +46,28 @@ namespace Roulette.Services
             return animes.Result;
         }
 
+
         public Studio[] GetStudios()
         {
-            var studios = _client.Studios.GetStudios();
-            return studios.Result;
+            return GetCachedData("studios_cache", () => _client.Studios.GetStudios());
+        }
+
+        private T GetCachedData<T>(string cacheKey, Func<Task<T>> fetchDataFunc)
+        {
+            if (!_cache.TryGetValue(cacheKey, out T cachedData))
+            {
+                Task<T> dataTask = fetchDataFunc();
+                cachedData = dataTask.Result;
+
+                var cacheEntryOptions = new MemoryCacheEntryOptions
+                {
+                    AbsoluteExpirationRelativeToNow = TimeSpan.FromDays(7)
+                };
+
+                _cache.Set(cacheKey, cachedData, cacheEntryOptions);
+            }
+
+            return cachedData;
         }
     }
 }

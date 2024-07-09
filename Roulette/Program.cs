@@ -24,7 +24,9 @@ namespace Roulette
             builder.Services.AddControllersWithViews();
             builder.Services.AddControllers();
 
-            builder.Services.AddSingleton <ShikimoriApiConnector> ();
+            builder.Services.AddMemoryCache();
+            builder.Services.AddSingleton <ShikimoriApiConnectorService> ();
+            builder.Services.AddScoped<ShikiDataService>();
 
             var app = builder.Build();
 
