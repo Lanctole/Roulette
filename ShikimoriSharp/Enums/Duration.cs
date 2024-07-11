@@ -1,5 +1,8 @@
-﻿namespace ShikimoriSharp.Enums
+﻿using System.Text.Json.Serialization;
+
+namespace ShikimoriSharp.Enums
 {
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum Duration
     {
         /// <summary>
