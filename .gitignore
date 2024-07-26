@@ -362,3 +362,6 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 /Roulette/appsettings.json
+/BlazorApp
+/Roulette/localhost.crt
+/Roulette/cert1.cer

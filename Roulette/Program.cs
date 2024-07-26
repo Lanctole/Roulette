@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
+using Roulette.Components;
 using Roulette.Data;
 using Roulette.Services;
 using ShikimoriSharp;
@@ -16,7 +17,6 @@ namespace Roulette
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(connectionString));
@@ -27,10 +27,25 @@ namespace Roulette
             
             builder.Services.AddControllersWithViews();
             builder.Services.AddControllers();
+            builder.Services.AddRazorComponents()
+                .AddInteractiveServerComponents();
+            
+            builder.Services.AddAntDesign();
 
             builder.Services.AddMemoryCache();
             builder.Services.AddSingleton <ShikimoriApiConnectorService> ();
             builder.Services.AddScoped<ShikiDataService>();
+            builder.Services.AddHttpClient();
+            builder.Services.AddScoped(sp =>
+            {
+                var handler = new HttpClientHandler
+                {
+                    ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true
+                };
+                return new HttpClient(handler) { BaseAddress = new Uri(builder.Configuration["ApiBaseAddress"]) };
+            });
+            
+            builder.Services.AddScoped<ApiClientService>();
 
             builder.Services.AddSwaggerGen(c =>
             {
@@ -44,9 +59,8 @@ namespace Roulette
                     options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
                 });
 
-            var app = builder.Build();
 
-            
+            var app = builder.Build();
             if (app.Environment.IsDevelopment())
             {
                 app.UseMigrationsEndPoint();
@@ -61,19 +75,14 @@ namespace Roulette
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
             app.UseRouting();
-
             app.UseAuthorization();
-
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
-            app.MapRazorPages();
-
-            app.MapControllers();
-
-
+            app.UseAntiforgery();
+            app.MapRazorComponents<App>()
+                .AddInteractiveServerRenderMode();
             app.Run();
         }
     }
