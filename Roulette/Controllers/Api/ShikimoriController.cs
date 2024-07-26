@@ -15,16 +15,12 @@ namespace Roulette.Controllers.Api
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
-    public class ApiTestController : ControllerBase
+    public class ShikimoriController : ControllerBase
     {
         private readonly ShikimoriApiConnectorService _apiConnectorService;
         private readonly ShikiDataService _shikiDataService;
-        /// <summary>
-        /// Конструктор для ApiTestController.
-        /// </summary>
-        /// <param name="apiConnectorService">Сервис для работы с Shikimori API.</param>
-        /// <param name="shikiDataService">Сервис для обработки данных Shikimori.</param>
-        public ApiTestController(ShikimoriApiConnectorService apiConnectorService, ShikiDataService shikiDataService)
+       
+        public ShikimoriController(ShikimoriApiConnectorService apiConnectorService, ShikiDataService shikiDataService)
         {
             _apiConnectorService = apiConnectorService;
             _shikiDataService = shikiDataService;
@@ -53,7 +49,6 @@ namespace Roulette.Controllers.Api
             var studios = _apiConnectorService.GetStudios();
             return Ok(studios);
         }
-
 
 
         /// <summary>
