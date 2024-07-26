@@ -1,0 +1,23 @@
+﻿@page "/genres"
+@using ShikimoriSharp.Classes
+@using Roulette.Models.Shiki
+@using Roulette.Models
+@inject ApiClientService ApiClientService
+
+<SelectComponent T="GenreModel" TValue="string"
+                 Placeholder="Выберите жанры"
+                 LoadingMessage="Готовим список жанров"
+                 LoadData="LoadGenres"
+                 Transform="TransformGenre" />
+
+@code {
+    private async Task<List<GenreModel>> LoadGenres()
+    {
+        return await ApiClientService.GetGenresAsync();
+    }
+
+    private LabeledValue TransformGenre(GenreModel genre)
+    {
+        return new LabeledValue(genre.Ids.Min().ToString(), genre.Russian);
+    }
+}

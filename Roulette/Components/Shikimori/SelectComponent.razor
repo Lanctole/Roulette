@@ -1,0 +1,55 @@
+﻿@typeparam T
+@using Roulette.Models
+@typeparam TValue
+@inject ApiClientService ApiClientService
+
+<div>
+    @if (_items == null)
+    {
+        <Spin Spinning=true>
+            <Alert Message="Загрузка..."
+                   Description="@LoadingMessage"
+                   Type="info" />
+        </Spin>
+    }
+    else
+    {
+        <Select Mode="multiple"
+                Placeholder="@Placeholder"
+                DataSource="@_options"
+                @bind-Values="@_selectedValues"
+                LabelName="@nameof(LabeledValue.Label)"
+                ValueName="@nameof(LabeledValue.Value)"
+                TItemValue="string"
+                TItem="LabeledValue"
+                EnableSearch
+                EnableVirtualization
+                Style="width: 50%;">
+        </Select>
+    }
+</div>
+
+@code {
+    [Parameter] public string Placeholder { get; set; }
+    [Parameter] public string LoadingMessage { get; set; }
+    [Parameter] public Func<Task<List<T>>> LoadData { get; set; }
+    [Parameter] public Func<T, LabeledValue> Transform { get; set; }
+
+    private List<LabeledValue> _options;
+    private IEnumerable<string> _selectedValues = new List<string>();
+    private List<T>? _items;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            _items = await LoadData();
+            _options = _items.Select(Transform).ToList();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"An error occurred: {ex.Message}");
+        }
+    }
+}
+

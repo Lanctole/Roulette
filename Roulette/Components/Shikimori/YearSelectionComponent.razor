@@ -1,0 +1,82 @@
+﻿<div>
+    <h3>Выберите год "От"</h3>
+    
+    <div>
+        <Cascader @bind-Value="selectedFromYear" Options="@options" OnChange="HandleFromYearChange"></Cascader>
+    </div>
+
+    <h3>Выберите год "До"</h3>
+    <div>
+        <Cascader @bind-Value="selectedToYear" Options="@filteredOptions" Disabled="!isSecondCascaderEnabled"></Cascader>
+    </div>
+</div>
+
+@code {
+    private string selectedFromYear;
+    private string selectedToYear;
+    private bool isSecondCascaderEnabled = false;
+    private List<AntDesign.CascaderNode> options = new List<AntDesign.CascaderNode>()
+    {
+        CreateDecadeNode("197x", 1970),
+        CreateDecadeNode("198x", 1980),
+        CreateDecadeNode("199x", 1990),
+        CreateDecadeNode("200x", 2000),
+        CreateDecadeNode("201x", 2010),
+        CreateDecadeNode("202x", 2020)
+    };
+    private List<AntDesign.CascaderNode> filteredOptions = new List<AntDesign.CascaderNode>();
+
+    private static AntDesign.CascaderNode CreateDecadeNode(string label, int startYear)
+    {
+        int currentYear = DateTime.Now.Year;
+        var children = Enumerable.Range(startYear, 10)
+            .Where( year=>year < currentYear+1)
+            .Select(year => new AntDesign.CascaderNode
+                {
+                    Value = year.ToString(),
+                    Label = year.ToString()
+                })
+            .ToArray();
+
+        return new AntDesign.CascaderNode
+            {
+                Value = label,
+                Label = label,
+                Children = children
+            };
+    }
+
+    private void HandleFromYearChange(List<CascaderNode> selectedNodes, string selectedValue, string selectedLabel)
+    {
+        selectedFromYear = selectedValue;
+        if (int.TryParse(selectedFromYear, out int fromYear))
+        {
+            FilterOptions(fromYear);
+            isSecondCascaderEnabled = true;
+        }
+        else
+        {
+            isSecondCascaderEnabled = false;
+        }
+    }
+
+    private void FilterOptions(int fromYear)
+    {
+        int currentYear = DateTime.Now.Year;
+    
+        filteredOptions = options.Select(decadeNode =>
+        {
+            var filteredChildren = decadeNode.Children
+                .Where(child => int.Parse(child.Value) > fromYear && int.Parse(child.Value) <= currentYear)
+                .ToArray();
+        
+            return new AntDesign.CascaderNode
+            {
+                Value = decadeNode.Value,
+                Label = decadeNode.Label,
+                Children = filteredChildren.Length > 0 ? filteredChildren : null,
+                Disabled = filteredChildren.Length == 0
+            };
+        }).Where(node => node.Children != null).ToList();
+    }
+}

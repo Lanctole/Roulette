@@ -1,0 +1,23 @@
+﻿@page "/studios"
+@using ShikimoriSharp.Classes
+@using Roulette.Models
+@inject ApiClientService ApiClientService
+
+<SelectComponent T="Studio" TValue="string"
+                 Placeholder="Выберите студии"
+                 LoadingMessage="Готовим список студий"
+                 LoadData="LoadStudios"
+                 Transform="TransformStudio" />
+
+
+@code {
+    private async Task<List<Studio>> LoadStudios()
+    {
+        return await ApiClientService.GetStudiosAsync();
+    }
+
+    private LabeledValue TransformStudio(Studio studio)
+    {
+        return new LabeledValue(studio.Id.ToString(), studio.Name);
+    }
+}

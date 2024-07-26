@@ -1,0 +1,32 @@
+﻿@using ShikimoriSharp.Enums
+@using Roulette.Models
+
+
+<div>
+    <Select Mode="multiple"
+            Placeholder="Выберите возрастной рейтинг"
+            DataSource="@_options"
+            @bind-Values="@_selectedValues"
+            LabelName="Label"
+            ValueName="Value"
+            TItemValue="string"
+            TItem="LabeledValue"
+            EnableSearch
+            AllowClear
+            Style="width: 50%;">
+    </Select>
+</div>
+
+@code {
+
+    private List<LabeledValue> _options;
+    private IEnumerable<string> _selectedValues = new List<string>();
+
+    protected override void OnInitialized()
+    {
+        _options = Enum.GetValues(typeof(Rating))
+            .Cast<Rating>()
+            .Select(e => new LabeledValue(e.ToString(), e.ToString()))
+            .ToList();
+    }
+}
