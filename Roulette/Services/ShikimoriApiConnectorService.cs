@@ -46,6 +46,17 @@ namespace Roulette.Services
             return animes.Result;
         }
 
+        public Manga[] GetMangas(MangaRequestSettings settings)
+        {
+            Task<Manga[]> mangas = _client.Mangas.GetMangas(settings);
+            return mangas.Result;
+        }
+
+        public Ranobe[] GetRanobes(RanobeRequestSettings settings)
+        {
+            Task<Ranobe[]> ranobes = _client.Ranobes.GetRanobes(settings);
+            return ranobes.Result;
+        }
 
         public Studio[] GetStudios()
         {

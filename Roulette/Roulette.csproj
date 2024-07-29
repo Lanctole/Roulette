@@ -27,6 +27,12 @@
     <Folder Include="Views\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Components\Pages\HomeShiki.razor">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+    </Content>
+  </ItemGroup>
+
   <PropertyGroup>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
