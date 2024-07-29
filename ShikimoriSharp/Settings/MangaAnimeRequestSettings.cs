@@ -3,7 +3,7 @@ using ShikimoriSharp.Enums;
 
 namespace ShikimoriSharp.Settings
 {
-    public class MangaAnimeRequestSettingsBase : BasicSettings
+    public class MangaAnimeRanobeRequestSettingsBase : BasicSettings
     {
         public bool? censored;
         public int[]? exclude_ids;
@@ -12,7 +12,6 @@ namespace ShikimoriSharp.Settings
         public int[]? ids;
         public string? kind;
         public Rating? rating;
-        public MyList? mylist;
         public Order? order;
         public int? score;
         public string? search;

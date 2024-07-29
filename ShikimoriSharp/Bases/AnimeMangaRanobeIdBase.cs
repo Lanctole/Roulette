@@ -3,7 +3,7 @@ using ShikimoriSharp.Classes;
 
 namespace ShikimoriSharp.Bases
 {
-    public class AnimeMangaIdBase : AnimeMangaBase
+    public class AnimeMangaRanobeIdBase : AnimeMangaRanobeBase
     {
         [JsonProperty("english")] public string[] English { get; set; }
 
@@ -38,7 +38,6 @@ namespace ShikimoriSharp.Bases
 
         [JsonProperty("genres")] public Genre[] Genres { get; set; }
 
-        [JsonProperty("user_rate")] public PublicUserRate UserRate { get; set; }
     }
 
     public class Rate

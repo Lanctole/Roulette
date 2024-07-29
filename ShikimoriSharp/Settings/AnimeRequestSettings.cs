@@ -3,7 +3,7 @@ using ShikimoriSharp.Enums;
 
 namespace ShikimoriSharp.Settings
 {
-    public class AnimeRequestSettings : MangaAnimeRequestSettingsBase
+    public class AnimeRequestSettings : MangaAnimeRanobeRequestSettingsBase
     {
         public Duration? duration;
         public int? studio;

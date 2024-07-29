@@ -1,9 +1,8 @@
 ﻿using Newtonsoft.Json;
-using ShikimoriSharp.Bases;
 
-namespace ShikimoriSharp.Classes
+namespace ShikimoriSharp.Bases
 {
-    public class Character
+    public class SmallRepresentation
     {
         [JsonProperty("id")] public long Id { get; set; }
         [JsonProperty("name")] public string Name { get; set; }
