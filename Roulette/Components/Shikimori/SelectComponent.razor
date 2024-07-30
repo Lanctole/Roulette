@@ -3,7 +3,7 @@
 @typeparam TValue
 @inject ApiClientService ApiClientService
 
-<div>
+
     @if (_items == null)
     {
         <Spin Spinning=true>
@@ -27,7 +27,7 @@
                 Style="width: 50%;">
         </Select>
     }
-</div>
+
 
 @code {
     [Parameter] public string Placeholder { get; set; }
