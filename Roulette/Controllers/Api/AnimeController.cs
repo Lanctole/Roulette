@@ -10,13 +10,8 @@ namespace Roulette.Controllers.Api
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
-    public class AnimeController : ShikimoriController
+    public class AnimeController(ShikimoriApiConnectorService apiConnectorService, ShikiDataService shikiDataService) : ShikimoriController(apiConnectorService, shikiDataService)
     {
-        public AnimeController(ShikimoriApiConnectorService apiConnectorService, ShikiDataService shikiDataService) :
-            base(apiConnectorService, shikiDataService)
-        {
-
-        }
 
         /// <summary>
         /// Получить жанры.

@@ -10,13 +10,8 @@ namespace Roulette.Controllers.Api
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
-    public class RanobeController : ShikimoriController
+    public class RanobeController(ShikimoriApiConnectorService apiConnectorService, ShikiDataService shikiDataService) : ShikimoriController(apiConnectorService, shikiDataService)
     {
-        public RanobeController(ShikimoriApiConnectorService apiConnectorService, ShikiDataService shikiDataService) :
-            base(apiConnectorService, shikiDataService)
-        {
-
-        }
 
         /// <summary>
         /// Возвращает список light novel.

@@ -10,13 +10,8 @@ namespace Roulette.Controllers.Api
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
-    public class MangaController : ShikimoriController
+    public class MangaController(ShikimoriApiConnectorService apiConnectorService, ShikiDataService shikiDataService) : ShikimoriController(apiConnectorService, shikiDataService)
     {
-        public MangaController(ShikimoriApiConnectorService apiConnectorService, ShikiDataService shikiDataService) :
-            base(apiConnectorService, shikiDataService)
-        {
-
-        }
 
         /// <summary>
         /// Возвращает список манг.
@@ -37,7 +32,6 @@ namespace Roulette.Controllers.Api
         [HttpGet("mangas")]
         public IActionResult GetMangas(
             [FromQuery] int? score = null,
-            [FromQuery] Rating? rating = null,
             [FromQuery] string? kind = null,
             [FromQuery] string? season = null,
             [FromQuery] int[]? publisher = null,
@@ -53,7 +47,6 @@ namespace Roulette.Controllers.Api
             {
                 order = order,
                 score = score,
-                rating = rating,
                 kind = kind,
                 season = season,
                 publisher = publisher,
