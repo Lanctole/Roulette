@@ -3,10 +3,6 @@
     public enum Rating
     {
         /// <summary>
-        /// No rating
-        /// </summary>
-        none,
-        /// <summary>
         ///  G - All ages
         /// </summary>
         g,
