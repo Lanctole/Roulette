@@ -1,0 +1,9 @@
+﻿@using ShikimoriSharp.Enums
+
+<EnumSelector TEnum="MangaKind"
+            Placeholder="Выберите формат манги"
+            @bind-SelectedValues="@_selectedMangaKindValues" />
+
+@code {
+    private IEnumerable<string> _selectedMangaKindValues = new List<string>();
+}

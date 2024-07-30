@@ -1,0 +1,11 @@
+﻿@using ShikimoriSharp.Enums
+@using Roulette.Models
+
+
+<EnumSelector TEnum="AnimeKind"
+            Placeholder="Выберите формат аниме"
+            @bind-SelectedValues="@_selectedAnimeKindValues" />
+
+@code {
+    private IEnumerable<string> _selectedAnimeKindValues = new List<string>();
+}

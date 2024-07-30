@@ -1,0 +1,32 @@
+﻿@typeparam TEnum
+@using ShikimoriSharp.Enums
+@using Roulette.Models
+
+<Select Mode="multiple"
+        Placeholder="@Placeholder"
+        DataSource="@_options"
+        @bind-Values="@SelectedValues"
+        LabelName="Label"
+        ValueName="Value"
+        TItemValue="string"
+        TItem="LabeledValue"
+        EnableSearch
+        AllowClear
+        Style="width: 50%;">
+</Select>
+
+@code {
+    [Parameter] public string Placeholder { get; set; }
+    [Parameter] public IEnumerable<string> SelectedValues { get; set; } = new List<string>();
+    [Parameter] public EventCallback<IEnumerable<string>> SelectedValuesChanged { get; set; }
+
+    private List<LabeledValue> _options;
+
+    protected override void OnInitialized()
+    {
+        _options = Enum.GetValues(typeof(TEnum))
+            .Cast<TEnum>()
+            .Select(e => new LabeledValue(e.ToString(), e.ToString()))
+            .ToList();
+    }
+}
