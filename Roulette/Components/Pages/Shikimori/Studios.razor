@@ -7,10 +7,15 @@
                  Placeholder="Выберите студии"
                  LoadingMessage="Готовим список студий"
                  LoadData="LoadStudios"
-                 Transform="TransformStudio" />
+                 Transform="TransformStudio"
+                 OnSelectedItemsChanged="UpdateSelectedStudios" />
 
-
+<p>Выбранные студии: @string.Join(", ", _selectedStudios)</p>
 @code {
+    [Parameter]
+    public EventCallback<List<string>> SelectedStudiosChanged { get; set; }
+
+    private List<string> _selectedStudios = new List<string>();
     private async Task<List<Studio>> LoadStudios()
     {
         return await ApiClientService.GetStudiosAsync();
@@ -19,5 +24,10 @@
     private LabeledValue TransformStudio(Studio studio)
     {
         return new LabeledValue(studio.Id.ToString(), studio.Name);
+    }
+    private void UpdateSelectedStudios(string selectedValues)
+    {
+        _selectedStudios = selectedValues.Split(',').ToList();
+        SelectedStudiosChanged.InvokeAsync(_selectedStudios);
     }
 }
