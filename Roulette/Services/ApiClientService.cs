@@ -43,11 +43,15 @@ public class ApiClientService
 
     public Task<List<Studio>> GetStudiosAsync()
     {
-        return GetAsync<List<Studio>>("studios");
+        return GetAsync<List<Studio>>("anime/studios");
     }
 
     public Task<List<GenreModel>> GetGenresAsync()
     {
-        return GetAsync<List<GenreModel>>("genres");
+        return GetAsync<List<GenreModel>>("anime/genres");
+    } 
+    public async Task<List<Anime>> GetAnimesAsync(string url)
+    {
+        return await GetAsync<List<Anime>>(url);
     }
 }
