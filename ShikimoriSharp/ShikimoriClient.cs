@@ -2,7 +2,6 @@
 using ShikimoriSharp.Bases;
 using ShikimoriSharp.Information;
 
-
 namespace ShikimoriSharp
 {
     public class ShikimoriClient

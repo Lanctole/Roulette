@@ -2,6 +2,7 @@ using System.Reflection;
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using Roulette.Components;
@@ -21,10 +22,18 @@ namespace Roulette
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(connectionString));
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
-
+            builder.Services.AddAntiforgery(options =>
+            {
+                options.HeaderName = "X-XSRF-TOKEN";
+            });
             builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            builder.Logging.ClearProviders();
+            builder.Logging.AddConsole();
+            builder.Logging.AddDebug();
             
+
             builder.Services.AddControllersWithViews();
             builder.Services.AddControllers();
             builder.Services.AddRazorComponents()
@@ -46,6 +55,7 @@ namespace Roulette
             });
             
             builder.Services.AddScoped<ApiClientService>();
+            builder.Services.AddSingleton<SettingsService>();
 
             builder.Services.AddSwaggerGen(c =>
             {
