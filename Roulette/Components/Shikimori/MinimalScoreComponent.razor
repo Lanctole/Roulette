@@ -1,31 +1,33 @@
-﻿<Select TItem="Item"
-        TItemValue="int"
+﻿@using Roulette.Models
+<Select TItem="LabeledValue"
+        Placeholder="Минимальная оценка"
+        TItemValue="string"
         DataSource="@_items"
-        @bind-Value="@_selectedValue"
-        ValueName="@nameof(Item.Value)"
-        LabelName="@nameof(Item.Name)"
-        @* DefaultActiveFirstOption *@
-        Style="width: 200px;"
-        >
+        @bind-Value="@SelectedScore"
+        ValueName="@nameof(LabeledValue.Value)"
+        LabelName="@nameof(LabeledValue.Label)"
+
+        OnSelectedItemChanged="OnSelectedScoreChanged"
+        Style="width: 100%;">
 </Select>
 
 @code {
-    public class Item
-    {
-        public int Value { get; set; }
-        public string Name { get; set; }
-    }
-
-    List<Item> _items;
-    int _selectedValue;
-    Item _selectedItem;
-
+    // @OnSelectedItemChanged="OnSelectedScoreChanged"
+    private List<LabeledValue> _items;
+    [Parameter]
+    public string SelectedScore { get; set; }
+    
+    [Parameter]
+    public EventCallback<string> SelectedScoreChanged { get; set; }
     protected override void OnInitialized()
     {
-        _items = Enumerable.Range(1, 9).Select(x => new Item
-            {
-                Value = x,
-                Name = $"{x}"
-            }).ToList();
+        _items = Enumerable.Range(1, 9).Select(x => new LabeledValue(x.ToString(), $"{x}"))
+            .ToList();
     }
+    private void OnSelectedScoreChanged(LabeledValue selectedItem)
+    {
+        SelectedScore = selectedItem?.Value;
+        SelectedScoreChanged.InvokeAsync(SelectedScore);
+    }
+   
 }

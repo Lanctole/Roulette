@@ -2,11 +2,38 @@
 @using Roulette.Models
 
 
-<EnumSelector TEnum="Rating"
-            Placeholder="Выберите возрастной рейтинг"
-            @bind-SelectedValues="@_selectedRatingValues" />
+<Select Mode="default"
+        Placeholder="Выберите возрастной рейтинг"
+        DataSource="@_options"
+        @bind-Value="@SelectedValue"
+        LabelName="Label"
+        ValueName="Value"
+        TItemValue="string"
+        TItem="LabeledValue"
+        EnableSearch
+        AllowClear
+        Style="width: 100%;"
+        OnSelectedItemChanged="HandleValueChange">
+</Select>
 
 @code {
-    private IEnumerable<string> _selectedRatingValues = new List<string>();
+    private List<LabeledValue> _options;
+
+    [Parameter]
+    public string SelectedValue { get; set; }
+
+    [Parameter]
+    public EventCallback<string> SelectedValueChanged { get; set; }
+
+    protected override void OnInitialized()
+    {
+        _options = EnumHelper.GetEnumValuesWithDescriptions(typeof(Rating));
+    }
+
+    private void HandleValueChange(LabeledValue newValue)
+    {
+        SelectedValue = newValue.Value;
+        SelectedValueChanged.InvokeAsync(newValue.Value);
+    }
 }
 

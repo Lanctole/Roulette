@@ -2,23 +2,38 @@
 @using Roulette.Models
 
 
-<EnumSelector TEnum="Duration"
-              Placeholder="Выберите длительность"
-              @bind-SelectedValues="@_selectedDurationValues" />
+<Select Mode="default"
+        Placeholder="Выберите длительность"
+        DataSource="@_options"
+        @bind-Value="@SelectedValue"
+        LabelName="Label"
+        ValueName="Value"
+        TItemValue="string"
+        TItem="LabeledValue"
+        EnableSearch
+        AllowClear
+        Style="width: 100%;"
+        OnSelectedItemChanged="HandleValueChange">
+</Select>
 
 @code {
-    private IEnumerable<string> _selectedDurationValues = new List<string>();
-}
-@code {
-
     private List<LabeledValue> _options;
-    private IEnumerable<string> _selectedValues = new List<string>();
+
+    [Parameter]
+    public string SelectedValue { get; set; }
+
+    [Parameter]
+    public EventCallback<string> SelectedValueChanged { get; set; }
 
     protected override void OnInitialized()
     {
-        _options = Enum.GetValues(typeof(Duration))
-            .Cast<Duration>()
-            .Select(e => new LabeledValue(e.ToString(), e.ToString()))
-            .ToList();
+        _options = EnumHelper.GetEnumValuesWithDescriptions(typeof(Duration));
+    }
+
+    private void HandleValueChange(LabeledValue newValue)
+    {
+        SelectedValue = newValue.Value;
+        SelectedValueChanged.InvokeAsync(newValue.Value);
     }
 }
+

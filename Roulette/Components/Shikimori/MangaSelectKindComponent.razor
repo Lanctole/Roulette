@@ -2,8 +2,8 @@
 
 <EnumSelector TEnum="MangaKind"
             Placeholder="Выберите формат манги"
-            @bind-SelectedValues="@_selectedMangaKindValues" />
+            @bind-SelectedValue="@_selectedMangaKindValue" />
 
 @code {
-    private IEnumerable<string> _selectedMangaKindValues = new List<string>();
+    private string _selectedMangaKindValue;
 }

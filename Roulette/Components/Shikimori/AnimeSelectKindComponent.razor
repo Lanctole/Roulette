@@ -2,10 +2,37 @@
 @using Roulette.Models
 
 
-<EnumSelector TEnum="AnimeKind"
-            Placeholder="Выберите формат аниме"
-            @bind-SelectedValues="@_selectedAnimeKindValues" />
+<Select Mode="default"
+        Placeholder="Выберите формат аниме"
+        DataSource="@_options"
+        @bind-Value="@SelectedValue"
+        LabelName="Label"
+        ValueName="Value"
+        TItemValue="string"
+        TItem="LabeledValue"
+        EnableSearch
+        AllowClear
+        Style="width: 100%;"
+        OnSelectedItemChanged="HandleValueChange">
+</Select>
 
 @code {
-    private IEnumerable<string> _selectedAnimeKindValues = new List<string>();
+    private List<LabeledValue> _options;
+
+    [Parameter]
+    public string SelectedValue { get; set; }
+
+    [Parameter]
+    public EventCallback<string> SelectedValueChanged { get; set; }
+
+    protected override void OnInitialized()
+    {
+        _options = EnumHelper.GetEnumValuesWithDescriptions(typeof(AnimeKind));
+    }
+
+    private void HandleValueChange(LabeledValue newValue)
+    {
+        SelectedValue = newValue.Value;
+        SelectedValueChanged.InvokeAsync(newValue.Value);
+    }
 }

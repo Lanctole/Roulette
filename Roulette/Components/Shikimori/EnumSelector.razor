@@ -2,31 +2,40 @@
 @using ShikimoriSharp.Enums
 @using Roulette.Models
 
-<Select Mode="multiple"
+<Select Mode="default"
         Placeholder="@Placeholder"
         DataSource="@_options"
-        @bind-Values="@SelectedValues"
+        @bind-Value="@SelectedValue"
         LabelName="Label"
         ValueName="Value"
         TItemValue="string"
         TItem="LabeledValue"
         EnableSearch
         AllowClear
-        Style="width: 50%;">
+        Style="width: 100%;"
+        OnSelectedItemChanged="OnSelectedValueChanged">
 </Select>
 
 @code {
     [Parameter] public string Placeholder { get; set; }
-    [Parameter] public IEnumerable<string> SelectedValues { get; set; } = new List<string>();
-    [Parameter] public EventCallback<IEnumerable<string>> SelectedValuesChanged { get; set; }
+    [Parameter] public string SelectedValue { get; set; }
+    [Parameter] public EventCallback<string> SelectedValueChanged { get; set; }
 
     private List<LabeledValue> _options;
 
     protected override void OnInitialized()
     {
-        _options = Enum.GetValues(typeof(TEnum))
-            .Cast<TEnum>()
-            .Select(e => new LabeledValue(e.ToString(), e.ToString()))
-            .ToList();
+        if (!typeof(TEnum).IsEnum)
+        {
+            throw new ArgumentException($"{typeof(TEnum)} must be an enum");
+        }
+
+        _options = EnumHelper.GetEnumValuesWithDescriptions(typeof(TEnum));
     }
+    private void OnSelectedValueChanged(LabeledValue selectedItem)
+    {
+        SelectedValue = selectedItem?.Value;
+        SelectedValueChanged.InvokeAsync(SelectedValue);
+    }
+   
 }
