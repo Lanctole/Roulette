@@ -1,0 +1,68 @@
+﻿@using Roulette.Models
+@using Roulette.Services
+@using ShikimoriSharp.Classes
+@inject SettingsService SettingsService
+
+<div class="anime-item">
+    <img src="@($"{BaseUrl}{Anime.Image.Preview}")" alt="@Anime.Name" />
+    <h4>@Anime.Russian (@Anime.Name)</h4>
+    <p>Эпизоды: @Anime.Episodes</p>
+    <p>Тип: @Anime.Kind</p>
+    <Rate Disabled AllowHalf="true" Value="@scoreDecimal" />
+    @Anime.Score
+    <p>Рейтинг: </p>
+    <p>Статус: @Anime.Status</p>
+    <p>Дата выхода: @Anime.AiredOn?.ToString("yyyy-MM-dd")</p>
+    <a href="@($"{BaseUrl}{Anime.Url}")" target="_blank">Подробнее</a>
+</div>
+
+@code {
+    [Parameter]
+    public Anime Anime { get; set; }
+    private string BaseUrl;
+    private decimal scoreDecimal;
+
+    protected override void OnInitialized()
+    {
+        BaseUrl = SettingsService.GetShikimoriSettings().BaseUrl;
+        
+    }
+
+    protected override Task OnParametersSetAsync()
+    {
+        scoreDecimal = Round(Convert.ToDecimal(Anime.Score) / 2);
+        return Task.CompletedTask;
+    }
+
+    public static decimal Round(decimal value)
+    {
+        decimal integralPart = Math.Floor(value);
+        decimal fractionalPart = value - integralPart;
+
+        if (fractionalPart < 0.25m)
+        {
+            return integralPart;
+        }
+        if (fractionalPart > 0.75m)
+        {
+            return integralPart + 1;
+        }
+        return value;
+    }
+}
+
+
+
+<style>
+    .anime-item {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 5px;
+    }
+
+        .anime-item img {
+            width: 96px;
+            height: auto;
+        }
+</style>
