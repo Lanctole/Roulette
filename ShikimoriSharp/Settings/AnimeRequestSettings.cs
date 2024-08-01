@@ -6,6 +6,6 @@ namespace ShikimoriSharp.Settings
     public class AnimeRequestSettings : MangaAnimeRanobeRequestSettingsBase
     {
         public Duration? duration;
-        public int? studio;
+        public string? studio;
     }
 }

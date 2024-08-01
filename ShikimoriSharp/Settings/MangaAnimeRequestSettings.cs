@@ -8,7 +8,7 @@ namespace ShikimoriSharp.Settings
         public bool? censored;
         public int[]? exclude_ids;
         public int[]? franchise;
-        public int? genre;
+        public string? genre;
         public int[]? ids;
         public string? kind;
         public Rating? rating;

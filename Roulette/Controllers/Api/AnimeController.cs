@@ -41,7 +41,7 @@ namespace Roulette.Controllers.Api
         /// Возвращает список аниме.
         /// </summary>
         /// <param name="score">Минимальная оценка [0-10].</param>
-        /// <param name="rating">Рейтинг [none, g, pg, pg_13, r, r_plus, rx] </param>
+        /// <param name="rating">Рейтинг [ g, pg, pg_13, r, r_plus, rx] </param>
         /// <param name="kind">Формат распространения [tv, movie, ova, ona, special, tv_special, music, pv, cm, tv_13, tv_24, tv_48]</param>
         /// <param name="season">Время выхода [summer_2017, 2016]</param>
         /// <param name="studio">Студия</param>
@@ -60,8 +60,8 @@ namespace Roulette.Controllers.Api
             [FromQuery] Rating? rating = null,
             [FromQuery] string? kind = null,
             [FromQuery] string? season = null,
-            [FromQuery] int? studio = null,
-            [FromQuery] int? genre = null,
+            [FromQuery] string? studio = null,
+            [FromQuery] string? genre = null,
             [FromQuery] bool? censored = null,
             [FromQuery] string? search = null,
             [FromQuery] Duration? duration = null,
@@ -89,5 +89,12 @@ namespace Roulette.Controllers.Api
             var animes = _apiConnectorService.GetAnimes(settings);
             return Ok(animes);
         }
+
+        //[HttpPost("animes")]
+        //public IActionResult PostAnimes([FromBody] AnimeRequestSettings settings)
+        //{
+        //    var animes = _apiConnectorService.GetAnimes(settings);
+        //    return Ok(animes);
+        //}
     }
 }
