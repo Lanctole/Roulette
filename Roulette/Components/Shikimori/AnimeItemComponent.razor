@@ -1,6 +1,7 @@
 ﻿@using Roulette.Models
 @using Roulette.Services
 @using ShikimoriSharp.Classes
+@using System.Globalization
 @inject SettingsService SettingsService
 
 <div class="anime-item">
@@ -30,7 +31,11 @@
 
     protected override Task OnParametersSetAsync()
     {
-        scoreDecimal = Round(Convert.ToDecimal(Anime.Score) / 2);
+        var cultureInfo = new CultureInfo("en-US"); 
+        if (Decimal.TryParse(Anime.Score, NumberStyles.Any, cultureInfo, out var score))
+        {
+            scoreDecimal = Round(score / 2);
+        }
         return Task.CompletedTask;
     }
 

@@ -1,8 +1,11 @@
-﻿using ShikimoriSharp.Bases;
+﻿using System;
+using System.Threading.Tasks;
+using Microsoft.Extensions.Caching.Memory;
+using Microsoft.Extensions.Configuration;
+using ShikimoriSharp;
+using ShikimoriSharp.Bases;
 using ShikimoriSharp.Classes;
 using ShikimoriSharp.Settings;
-using ShikimoriSharp;
-using Microsoft.Extensions.Caching.Memory;
 
 namespace Roulette.Services
 {
@@ -23,52 +26,72 @@ namespace Roulette.Services
             var clientSecret = authConfig["ClientSecret"];
             var userId = authConfig["UserId"];
 
-            long userIdLong = Convert.ToInt64(userId);
-            var token = new AccessToken
-            {
-                Access_Token = access,
-                RefreshToken = refresh,
-                Scope = scope
-            };
-
             _client = new ShikimoriClient(new ClientSettings(name, clientId, clientSecret));
             _cache = cache;
+
+            Console.WriteLine("ShikimoriApiConnectorService initialized");
         }
 
-        public Genre[] GetGenres()
+        public Task<Genre[]> GetGenres()
         {
             return GetCachedData("genres_cache", () => _client.Genres.GetGenres());
         }
 
-        public Anime[] GetAnimes(AnimeRequestSettings settings)
+        public async Task<Anime[]> GetAnimes(AnimeRequestSettings settings)
         {
-            Task<Anime[]> animes = _client.Animes.GetAnime(settings);
-            return animes.Result;
+            try
+            {
+                Console.WriteLine("Fetching animes with settings");
+                return await _client.Animes.GetAnime(settings);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error getting animes: {ex.Message}");
+                throw;
+            }
         }
 
         public Manga[] GetMangas(MangaRequestSettings settings)
         {
-            Task<Manga[]> mangas = _client.Mangas.GetMangas(settings);
-            return mangas.Result;
+            try
+            {
+                Console.WriteLine("Fetching mangas with settings");
+                Task<Manga[]> mangas = _client.Mangas.GetMangas(settings);
+                return mangas.Result;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error getting mangas: {ex.Message}");
+                throw;
+            }
         }
 
         public Ranobe[] GetRanobes(RanobeRequestSettings settings)
         {
-            Task<Ranobe[]> ranobes = _client.Ranobes.GetRanobes(settings);
-            return ranobes.Result;
+            try
+            {
+                Console.WriteLine("Fetching ranobes with settings");
+                Task<Ranobe[]> ranobes = _client.Ranobes.GetRanobes(settings);
+                return ranobes.Result;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error getting ranobes: {ex.Message}");
+                throw;
+            }
         }
 
-        public Studio[] GetStudios()
+        public Task<Studio[]> GetStudios()
         {
             return GetCachedData("studios_cache", () => _client.Studios.GetStudios());
         }
 
-        private T GetCachedData<T>(string cacheKey, Func<Task<T>> fetchDataFunc)
+        private async Task<T> GetCachedData<T>(string cacheKey, Func<Task<T>> fetchDataFunc)
         {
             if (!_cache.TryGetValue(cacheKey, out T cachedData))
             {
-                Task<T> dataTask = fetchDataFunc();
-                cachedData = dataTask.Result;
+                Console.WriteLine($"Cache miss for key {cacheKey}. Fetching data.");
+                cachedData = await fetchDataFunc();
 
                 var cacheEntryOptions = new MemoryCacheEntryOptions
                 {
@@ -76,6 +99,11 @@ namespace Roulette.Services
                 };
 
                 _cache.Set(cacheKey, cachedData, cacheEntryOptions);
+                Console.WriteLine($"Cache updated for key {cacheKey}");
+            }
+            else
+            {
+                Console.WriteLine($"Cache hit for key {cacheKey}");
             }
 
             return cachedData;

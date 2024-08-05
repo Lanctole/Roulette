@@ -21,17 +21,17 @@ namespace ShikimoriSharp.Bases
         }
 
         public Version Version { get; }
-        private string Site => $"https://shikimori.me/api/{GetThing()}";
+        private string Site => $"https://shikimori.me/api/{GetApiVersionPath()}";
 
         protected bool Requires(AccessToken token, IEnumerable<string> scopes)
         {
-            var scope = token.Scope.Split(" ");
-            if (!scopes.All(it => scope.Any(x => x == it)))
+            var tokenScopes = token.Scope.Split(" ");
+            if (!scopes.All(scope => tokenScopes.Contains(scope)))
                 throw new NotInScopeException();
             return true;
         }
 
-        private string GetThing()
+        private string GetApiVersionPath()
         {
             return Version switch
             {
@@ -40,65 +40,105 @@ namespace ShikimoriSharp.Bases
             };
         }
 
-        private static HttpContent DeserializeToRequest<T>(T obj)
+        private static HttpContent SerializeToHttpContent<T>(T obj)
         {
+            Console.WriteLine("We in private static HttpContent SerializeToHttpContent<T>(T obj)");
             if (obj is null) return null;
-            var typeooft = obj.GetType();
-            var type = typeooft.GetFields(BindingFlags.Public | BindingFlags.Instance);
-            var typeEnum = type.Select(it => new
-                {
-                    it.Name, Value = typeooft.GetField(it.Name)?.GetValue(obj)
-                })
-                .Where(it => !(it.Value is null));
-            var content = new MultipartFormDataContent();
-            foreach (var i in typeEnum)
-                if (i.Value is bool b)
-                {
-                    content.Add(new StringContent(b ? "true" : "false"));
-                }
-                else
-                {
-                    content.Add(new StringContent(i.Value.ToString()), i.Name);
-                }
+            var fields = obj.GetType().GetFields(BindingFlags.Public | BindingFlags.Instance);
 
+            var content = new MultipartFormDataContent();
+            foreach (var field in fields)
+            {
+                var value = field.GetValue(obj);
+                if (value is null) continue;
+
+                var stringContent = value switch
+                {
+                    bool boolValue => new StringContent(boolValue ? "true" : "false"),
+                    _ => new StringContent(value.ToString())
+                };
+
+                content.Add(stringContent, field.Name);
+            }
 
             return content;
         }
 
-        public async Task<TResult> Request<TResult, TSettings>(string apiMethod, TSettings settings,
+        public async Task<TResult> RequestAsync<TResult, TSettings>(string apiMethod, TSettings settings,
             AccessToken token = null, string method = "GET")
         {
-            var settingsInfo = DeserializeToRequest(settings);
-            return await _apiClient.RequestForm<TResult>($"{Site}{apiMethod}", settingsInfo, token, method);
+            try
+            {
+                Console.WriteLine("We in public async Task<TResult> RequestAsync<TResult, TSettings>");
+                var settingsContent = SerializeToHttpContent(settings);
+                return await _apiClient.RequestForm<TResult>($"{Site}{apiMethod}", settingsContent, token, method);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error during RequestAsync for {apiMethod}: {ex.Message}");
+                throw;
+            }
         }
 
-        private static async Task<string> SerializeToJson(object obj)
+        private static async Task<string> SerializeToJsonAsync(object obj)
         {
             return await Task.Factory.StartNew(() => JsonConvert.SerializeObject(obj));
         }
 
-        public async Task<TResult> SendJson<TResult>(string apiMethod, object content, AccessToken token,
+        public async Task<TResult> SendJsonAsync<TResult>(string apiMethod, object content, AccessToken token,
             string method = "POST")
         {
-            var json = new StringContent(await SerializeToJson(content), Encoding.UTF8, "application/json");
-            return await _apiClient.RequestForm<TResult>($"{Site}{apiMethod}", json, token, method);
+            try
+            {
+                var json = new StringContent(await SerializeToJsonAsync(content), Encoding.UTF8, "application/json");
+                return await _apiClient.RequestForm<TResult>($"{Site}{apiMethod}", json, token, method);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error during SendJsonAsync for {apiMethod}: {ex.Message}");
+                throw;
+            }
         }
 
-        public async Task<TResult> Request<TResult>(string apiMethod, AccessToken token = null, string method = "GET")
+        public async Task<TResult> RequestAsync<TResult>(string apiMethod, AccessToken token = null, string method = "GET")
         {
-            return await _apiClient.RequestForm<TResult>($"{Site}{apiMethod}", token);
+            try
+            {
+                return await _apiClient.RequestForm<TResult>($"{Site}{apiMethod}", token);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error during RequestAsync for {apiMethod}: {ex.Message}");
+                throw;
+            }
         }
 
-        public async Task NoResponseRequest(string apiMethod, AccessToken token, string method = "POST")
+        public async Task NoResponseRequestAsync(string apiMethod, AccessToken token, string method = "POST")
         {
-            await _apiClient.RequestWithNoResponse($"{Site}{apiMethod}", null, token, method);
+            try
+            {
+                await _apiClient.RequestWithNoResponse($"{Site}{apiMethod}", null, token, method);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error during NoResponseRequestAsync for {apiMethod}: {ex.Message}");
+                throw;
+            }
         }
 
-        public async Task NoResponseRequest<TSettings>(string apiMethod, TSettings setting, AccessToken token,
+        public async Task NoResponseRequestAsync<TSettings>(string apiMethod, TSettings settings, AccessToken token,
             string method = "POST")
         {
-            var settings = DeserializeToRequest(setting);
-            await _apiClient.RequestWithNoResponse($"{Site}{apiMethod}", settings, token);
+            try
+            {
+                var settingsContent = SerializeToHttpContent(settings);
+                await _apiClient.RequestWithNoResponse($"{Site}{apiMethod}", settingsContent, token, method);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error during NoResponseRequestAsync for {apiMethod}: {ex.Message}");
+                throw;
+            }
         }
     }
 

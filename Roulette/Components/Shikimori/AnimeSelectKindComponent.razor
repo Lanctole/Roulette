@@ -20,7 +20,7 @@
     private List<LabeledValue> _options;
 
     [Parameter]
-    public string SelectedValue { get; set; }
+    public string? SelectedValue { get; set; }
 
     [Parameter]
     public EventCallback<string> SelectedValueChanged { get; set; }
@@ -32,7 +32,7 @@
 
     private void HandleValueChange(LabeledValue newValue)
     {
-        SelectedValue = newValue.Value;
-        SelectedValueChanged.InvokeAsync(newValue.Value);
+        SelectedValue = newValue?.Value;
+        SelectedValueChanged.InvokeAsync(newValue?.Value);
     }
 }

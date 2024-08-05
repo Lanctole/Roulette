@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
 using Timer = System.Timers.Timer;
@@ -8,8 +9,8 @@ namespace ShikimoriSharp.Bases
     public class TokenBucket
     {
         private readonly SemaphoreSlim _sem;
-
         private readonly Timer _timer;
+        private readonly object _lock = new();
 
         public TokenBucket(string name, int maxTokens, double refreshTime)
         {
@@ -17,11 +18,12 @@ namespace ShikimoriSharp.Bases
             MaxTokens = maxTokens;
             RefreshTime = refreshTime;
 
-            _timer = new Timer(refreshTime);
+            _sem = new SemaphoreSlim(maxTokens, maxTokens);
+            _timer = new Timer(refreshTime)
+            {
+                AutoReset = true
+            };
             _timer.Elapsed += Refresh;
-            _timer.AutoReset = true;
-            _sem = new SemaphoreSlim(0, maxTokens);
-            _sem.Release(maxTokens);
         }
 
         public string Name { get; }
@@ -30,14 +32,21 @@ namespace ShikimoriSharp.Bases
 
         private void Refresh(object sender, ElapsedEventArgs args)
         {
-            _sem.Wait();
-            _sem.Release();
+            lock (_lock)
+            {
+                if (_sem.CurrentCount < MaxTokens)
+                {
+                    _sem.Release();
+                }
+            }
         }
 
         public async Task TokenRequest()
         {
             if (!_timer.Enabled)
+            {
                 _timer.Start();
+            }
             await _sem.WaitAsync();
         }
     }

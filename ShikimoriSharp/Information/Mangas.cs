@@ -2,6 +2,7 @@
 using ShikimoriSharp.Settings;
 using System.Threading.Tasks;
 using ShikimoriSharp.Classes;
+using Microsoft.Extensions.Logging;
 
 namespace ShikimoriSharp.Information
 {
@@ -14,7 +15,7 @@ namespace ShikimoriSharp.Information
         public async Task<Manga[]> GetMangas(MangaRequestSettings settings = null,
             AccessToken personalInformation = null)
         {
-            return await Request<Manga[], MangaRequestSettings>("mangas", settings, personalInformation);
+            return await RequestAsync<Manga[], MangaRequestSettings>("mangas", settings, personalInformation);
         }
     }
 }

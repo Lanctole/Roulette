@@ -26,6 +26,7 @@ public class ApiClientService
     {
         try
         {
+            Console.WriteLine("We in GetAsync");
             var response = await _httpClient.GetAsync(endpoint);
             response.EnsureSuccessStatusCode();
             var content = await response.Content.ReadAsStringAsync();
@@ -33,10 +34,12 @@ public class ApiClientService
         }
         catch (HttpRequestException e)
         {
+            Console.WriteLine($"HttpRequestException in GetAsync: {e.Message}");
             throw new Exception($"Request to {endpoint} failed: {e.Message}", e);
         }
         catch (JsonException e)
         {
+            Console.WriteLine($"JsonException in GetAsync: {e.Message}");
             throw new Exception($"Deserialization of response from {endpoint} failed: {e.Message}", e);
         }
     }
@@ -52,6 +55,7 @@ public class ApiClientService
     } 
     public async Task<List<Anime>> GetAnimesAsync(string url)
     {
+        Console.WriteLine("We in GetAnimesAsync");
         return await GetAsync<List<Anime>>(url);
     }
 }

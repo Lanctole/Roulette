@@ -75,6 +75,8 @@
     
     private async Task<List<Anime>> SendSelected()
     {
+        try
+        {
         _season = $"{_selectedFromYear}";
         if (!_selectedToYear.IsNullOrEmpty())
         {
@@ -94,10 +96,18 @@
                   $"order={_selectedOrder}&" +
                   $"limit={_limit}&" +
                   $"page={_page}";
+            Console.WriteLine("SendSelected before GetAnymesAsync");
         var animes = await ApiClientService.GetAnimesAsync(url);
+            Console.WriteLine("SendSelected after GetAnymesAsync");
+            Console.WriteLine("--------------------------------------------------------------------------------------------------");
         _animes = animes;
         return animes;
-  
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error in SendSelected: {ex.Message}");
+            throw;
+        }
         
     }
 }

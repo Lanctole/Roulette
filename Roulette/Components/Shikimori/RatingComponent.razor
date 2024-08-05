@@ -32,8 +32,8 @@
 
     private void HandleValueChange(LabeledValue newValue)
     {
-        SelectedValue = newValue.Value;
-        SelectedValueChanged.InvokeAsync(newValue.Value);
+        SelectedValue = newValue?.Value;
+        SelectedValueChanged.InvokeAsync(newValue?.Value);
     }
 }
 

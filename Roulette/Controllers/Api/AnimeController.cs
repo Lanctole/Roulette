@@ -18,11 +18,19 @@ namespace Roulette.Controllers.Api
         /// </summary>
         /// <returns>Возвращает список жанров, сгрупированных по названию.</returns>
         [HttpGet("genres")]
-        public IActionResult GetGenres()
+        public async Task<IActionResult> GetGenres()
         {
-            var genres = _apiConnectorService.GetGenres();
-            var transformedGenres = _shikiDataService.TransformGenres(genres);
-            return Ok(transformedGenres);
+            try
+            {
+                var genres = await _apiConnectorService.GetGenres();
+                var transformedGenres = _shikiDataService.TransformGenres(genres);
+                return Ok(transformedGenres);
+            }
+            catch (Exception ex)
+            {
+                
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
         }
 
         /// <summary>
@@ -30,10 +38,18 @@ namespace Roulette.Controllers.Api
         /// </summary>
         /// <returns>Список студий</returns>
         [HttpGet("studios")]
-        public IActionResult GetStudios()
+        public async Task<IActionResult> GetStudios()
         {
-            var studios = _apiConnectorService.GetStudios();
-            return Ok(studios);
+            try
+            {
+                var studios = await _apiConnectorService.GetStudios();
+                return Ok(studios);
+            }
+            catch (Exception ex)
+            {
+
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
         }
 
 
@@ -55,7 +71,7 @@ namespace Roulette.Controllers.Api
         /// <param name="page">Страницы</param>
         /// <returns>Список произведений удовлетворяющих условиям.</returns>
         [HttpGet("animes")]
-        public IActionResult GetAnimes(
+        public async Task<IActionResult> GetAnimes(
             [FromQuery] int? score = null,
             [FromQuery] Rating? rating = null,
             [FromQuery] string? kind = null,
@@ -86,7 +102,7 @@ namespace Roulette.Controllers.Api
                 limit = limit,
                 page = page
             };
-            var animes = _apiConnectorService.GetAnimes(settings);
+            var animes = await _apiConnectorService.GetAnimes(settings);
             return Ok(animes);
         }
 

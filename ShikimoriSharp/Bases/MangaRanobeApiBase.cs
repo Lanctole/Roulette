@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 using ShikimoriSharp.AdditionalRequests;
 using ShikimoriSharp.Classes;
 using ShikimoriSharp.Settings;
@@ -17,12 +18,12 @@ namespace ShikimoriSharp.Bases
         public async Task<Manga[]> GetBySearch(MangaRequestSettings settings = null,
             AccessToken personalInformation = null)
         {
-            return await Request<Manga[], MangaRequestSettings>($"{_query}", settings, personalInformation);
+            return await RequestAsync<Manga[], MangaRequestSettings>($"{_query}", settings, personalInformation);
         }
 
         public async Task<MangaRanobeId> GetById(long id, AccessToken personalInformation = null)
         {
-            return await Request<MangaRanobeId>($"{_query}/{id}", personalInformation);
+            return await RequestAsync<MangaRanobeId>($"{_query}/{id}", personalInformation);
         }
 
     }
