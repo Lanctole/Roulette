@@ -23,14 +23,6 @@ namespace ShikimoriSharp.Bases
         public Version Version { get; }
         private string Site => $"https://shikimori.me/api/{GetApiVersionPath()}";
 
-        protected bool Requires(AccessToken token, IEnumerable<string> scopes)
-        {
-            var tokenScopes = token.Scope.Split(" ");
-            if (!scopes.All(scope => tokenScopes.Contains(scope)))
-                throw new NotInScopeException();
-            return true;
-        }
-
         private string GetApiVersionPath()
         {
             return Version switch
@@ -80,26 +72,6 @@ namespace ShikimoriSharp.Bases
             }
         }
 
-        private static async Task<string> SerializeToJsonAsync(object obj)
-        {
-            return await Task.Factory.StartNew(() => JsonConvert.SerializeObject(obj));
-        }
-
-        public async Task<TResult> SendJsonAsync<TResult>(string apiMethod, object content, AccessToken token,
-            string method = "POST")
-        {
-            try
-            {
-                var json = new StringContent(await SerializeToJsonAsync(content), Encoding.UTF8, "application/json");
-                return await _apiClient.RequestForm<TResult>($"{Site}{apiMethod}", json, token, method);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error during SendJsonAsync for {apiMethod}: {ex.Message}");
-                throw;
-            }
-        }
-
         public async Task<TResult> RequestAsync<TResult>(string apiMethod, AccessToken token = null, string method = "GET")
         {
             try
@@ -109,34 +81,6 @@ namespace ShikimoriSharp.Bases
             catch (Exception ex)
             {
                 Console.WriteLine($"Error during RequestAsync for {apiMethod}: {ex.Message}");
-                throw;
-            }
-        }
-
-        public async Task NoResponseRequestAsync(string apiMethod, AccessToken token, string method = "POST")
-        {
-            try
-            {
-                await _apiClient.RequestWithNoResponse($"{Site}{apiMethod}", null, token, method);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error during NoResponseRequestAsync for {apiMethod}: {ex.Message}");
-                throw;
-            }
-        }
-
-        public async Task NoResponseRequestAsync<TSettings>(string apiMethod, TSettings settings, AccessToken token,
-            string method = "POST")
-        {
-            try
-            {
-                var settingsContent = SerializeToHttpContent(settings);
-                await _apiClient.RequestWithNoResponse($"{Site}{apiMethod}", settingsContent, token, method);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error during NoResponseRequestAsync for {apiMethod}: {ex.Message}");
                 throw;
             }
         }

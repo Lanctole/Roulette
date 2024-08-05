@@ -40,12 +40,6 @@ namespace ShikimoriSharp
             return await requester.ResponseAsType<AccessToken>(dest, "POST", content);
         }
 
-        public async Task RequestWithNoResponse(string destination, HttpContent settings, AccessToken token = null, string method = "GET")
-        {
-            var requester = Request(token);
-            await requester.ResponseExecutor(destination, method, settings);
-        }
-
         public async Task<TResult> RequestForm<TResult>(string destination, HttpContent settings, AccessToken token = null, string method = "GET")
         {
             Console.WriteLine("We in public async Task<TResult> RequestForm<TResult>(string destination, HttpContent settings, AccessToken token = null, string method = \"GET\")");
