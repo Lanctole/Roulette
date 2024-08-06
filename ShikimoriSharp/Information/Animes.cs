@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Threading.Tasks;
 using ShikimoriSharp.AdditionalRequests;
+using ShikimoriSharp.ApiServices;
 using ShikimoriSharp.Bases;
 using ShikimoriSharp.Classes;
 using ShikimoriSharp.Settings;
-using Version = ShikimoriSharp.Bases.Version;
+using Version = ShikimoriSharp.Enums.Version;
 
 namespace ShikimoriSharp.Information
 {

@@ -3,18 +3,19 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using ShikimoriSharp.Bases;
 
-namespace ShikimoriSharp
+namespace ShikimoriSharp.ApiServices
 {
     public class AuthorizationManager
     {
-        private const string TokenUrl = "https://shikimori.one/oauth/token";
+        private readonly string _tokenUrl;
         private readonly ClientSettings _settings;
         private readonly Func<string, HttpContent, Task<AccessToken>> _refreshFunc;
 
-        public AuthorizationManager(ClientSettings settings, Func<string, HttpContent, Task<AccessToken>> refreshFunc)
+        public AuthorizationManager(ClientSettings settings, Func<string, HttpContent, Task<AccessToken>> refreshFunc, Uri baseUrl)
         {
             _settings = settings;
             _refreshFunc = refreshFunc;
+            _tokenUrl = new Uri(baseUrl, "oauth/token").ToString();
         }
 
         public async Task<AccessToken> GetAccessToken(string authCode)
@@ -42,7 +43,7 @@ namespace ShikimoriSharp
 
         private async Task<AccessToken> GetAccessTokenRequest(HttpContent stringData)
         {
-            return await _refreshFunc(TokenUrl, stringData);
+            return await _refreshFunc(_tokenUrl, stringData);
         }
     }
 

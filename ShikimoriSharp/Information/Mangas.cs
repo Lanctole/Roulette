@@ -3,6 +3,8 @@ using ShikimoriSharp.Settings;
 using System.Threading.Tasks;
 using ShikimoriSharp.Classes;
 using Microsoft.Extensions.Logging;
+using ShikimoriSharp.Enums;
+using ShikimoriSharp.ApiServices;
 
 namespace ShikimoriSharp.Information
 {

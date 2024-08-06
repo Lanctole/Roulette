@@ -42,9 +42,18 @@ namespace Roulette
             builder.Services.AddAntDesign();
 
             builder.Services.AddMemoryCache();
+            builder.Services.AddHttpClient();
+
+            builder.Services.AddHttpClient<ShikimoriApiConnectorService>(client =>
+            {
+                var shikimoriConfig = builder.Configuration.GetSection("Shikimori");
+                string baseUrl = shikimoriConfig.GetValue<string>("BaseUrl");
+                client.BaseAddress = new Uri(baseUrl);
+                client.DefaultRequestHeaders.Add("Accept", "application/json");
+            });
             builder.Services.AddSingleton <ShikimoriApiConnectorService> ();
             builder.Services.AddScoped<ShikiDataService>();
-            builder.Services.AddHttpClient();
+            
            
             builder.Services.AddHttpClient<ApiClientService>(client =>
             {
@@ -54,7 +63,6 @@ namespace Roulette
             {
                 ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true
             });
-
             builder.Services.AddSingleton<ApiClientService>();
             builder.Services.AddSingleton<SettingsService>();
            

@@ -1,27 +1,26 @@
 ﻿using System;
 using System.Net;
 using System.Net.Http;
-using System.Text.Json;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Polly;
 using ShikimoriSharp.Bases;
 using ShikimoriSharp.Exceptions;
 
-namespace ShikimoriSharp
+namespace ShikimoriSharp.ApiServices
 {
     public class RequestManager
     {
-        private static readonly HttpClient _httpClient = new HttpClient();
+        private readonly HttpClient _httpClient;
         private readonly TokenBucket _bucketRpm;
         private readonly TokenBucket _bucketRps;
         private readonly ClientSettings _settings;
         private readonly Func<AccessToken, Task<AccessToken>> _refresh;
         private AccessToken _token;
 
-        public RequestManager(TokenBucket bucketRps, TokenBucket bucketRpm, ClientSettings settings, AccessToken token, Func<AccessToken, Task<AccessToken>> refresh)
+        public RequestManager(HttpClient httpClient,TokenBucket bucketRps, TokenBucket bucketRpm, ClientSettings settings, AccessToken token, Func<AccessToken, Task<AccessToken>> refresh)
         {
+            _httpClient = httpClient;
             _bucketRps = bucketRps;
             _bucketRpm = bucketRpm;
             _settings = settings;

@@ -87,7 +87,8 @@
     {
         if (string.IsNullOrWhiteSpace(input))
             return string.Empty;
-        string pattern = @"\[(anime|character|url|b)[^\]]*\]|\[/anime\]|\[/character\]|\[/url\]|\[/b\]";
+        string pattern = @"\[[^\]]*\]";
+        //string pattern = @"\[(anime|character|url|b|person)[^\]]*\]|\[/anime\]|\[/character\]|\[/url\]|\[/b\]";
         return Regex.Replace(input, pattern, string.Empty);
     }
 
