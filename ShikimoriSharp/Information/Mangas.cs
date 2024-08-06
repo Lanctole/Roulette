@@ -17,5 +17,10 @@ namespace ShikimoriSharp.Information
         {
             return await RequestAsync<Manga[], MangaRequestSettings>("mangas", settings, personalInformation);
         }
+
+        public async Task<MangaRanobeId> GetManga(long id, AccessToken personalInformation = null)
+        {
+            return await RequestAsync<MangaRanobeId>($"mangas/{id}", personalInformation);
+        }
     }
 }

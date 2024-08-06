@@ -53,9 +53,41 @@ public class ApiClientService
     {
         return GetAsync<List<GenreModel>>("anime/genres");
     } 
+
     public async Task<List<Anime>> GetAnimesAsync(string url)
     {
         Console.WriteLine("We in GetAnimesAsync");
         return await GetAsync<List<Anime>>(url);
+    }
+
+    public async Task<List<Manga>> GetMangasAsync(string url)
+    {
+        return await GetAsync<List<Manga>>(url);
+    }
+
+    public async Task<MangaRanobeId> GetMangaByIdAsync(string url) //-V3013
+    {
+        return await GetAsync<MangaRanobeId>(url);
+    }
+
+    public async Task<List<Ranobe>> GetRanobesAsync(string url)
+    {
+        return await GetAsync<List<Ranobe>>(url);
+    }
+
+    public async Task<MangaRanobeId> GetRanobeByIdAsync(string url)
+    {
+        return await GetAsync<MangaRanobeId>(url);
+    }
+
+    public async Task<AnimeId> GetAnimeByIdAsync(string url)
+    {
+        Console.WriteLine("public async Task<List<DetailedAnime>> GetAnimeByIdAsync(string url)");
+        return await GetAsync<AnimeId>(url);
+    }
+
+    public async Task<List<Publisher>> GetPublishersAsync()
+    {
+        return await GetAsync<List<Publisher>>("manga/publishers");
     }
 }

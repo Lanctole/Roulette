@@ -14,8 +14,8 @@
 @code {
     [Parameter]
     public EventCallback<List<string>> SelectedStudiosChanged { get; set; }
+    private List<string> _selectedStudios = new();
 
-    private List<string> _selectedStudios = new List<string>();
     private async Task<List<Studio>> LoadStudios()
     {
         return await ApiClientService.GetStudiosAsync();

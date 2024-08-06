@@ -28,7 +28,7 @@ namespace Roulette.Controllers.Api
         /// <param name="page">Страницы</param>
         /// <returns>Список произведений удовлетворяющих условиям.</returns>
         [HttpGet("ranobes")]
-        public IActionResult GetMangas(
+        public IActionResult GetRanobes(
             [FromQuery] int? score = null,
             [FromQuery] string? season = null,
             [FromQuery] int[]? publisher = null,
@@ -55,6 +55,24 @@ namespace Roulette.Controllers.Api
             };
             var ranobes = _apiConnectorService.GetRanobes(settings);
             return Ok(ranobes);
+        }
+
+        [HttpGet("ranobes/{id}")]
+        public async Task<IActionResult> GetRanobeById(long id)
+        {
+            try
+            {
+                var ranobe = await _apiConnectorService.GetRanobeById(id);
+                if (ranobe == null)
+                {
+                    return NotFound($"Ranobe with ID {id} not found.");
+                }
+                return Ok(ranobe);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
         }
     }
 }

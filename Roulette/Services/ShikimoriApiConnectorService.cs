@@ -42,7 +42,20 @@ namespace Roulette.Services
             try
             {
                 Console.WriteLine("Fetching animes with settings");
-                return await _client.Animes.GetAnime(settings);
+                return await _client.Animes.GetAnimes(settings);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error getting animes: {ex.Message}");
+                throw;
+            }
+        }
+
+        public async Task<AnimeId> GetAnimeById(long id)
+        {
+            try
+            {
+                return await _client.Animes.GetAnime(id);
             }
             catch (Exception ex)
             {
@@ -66,6 +79,19 @@ namespace Roulette.Services
             }
         }
 
+        public async Task<MangaRanobeId> GetMangaById(long id)
+        {
+            try
+            {
+                return await _client.Mangas.GetManga(id);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error getting manga: {ex.Message}");
+                throw;
+            }
+        }
+
         public Ranobe[] GetRanobes(RanobeRequestSettings settings)
         {
             try
@@ -81,9 +107,27 @@ namespace Roulette.Services
             }
         }
 
+        public async Task<MangaRanobeId> GetRanobeById(long id)
+        {
+            try
+            {
+                return await _client.Ranobes.GetRanobe(id);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error getting ranobe: {ex.Message}");
+                throw;
+            }
+        }
+
         public Task<Studio[]> GetStudios()
         {
             return GetCachedData("studios_cache", () => _client.Studios.GetStudios());
+        }
+        
+        public Task<Publisher[]> GetPublishers()
+        {
+            return GetCachedData("publishers_cache", () => _client.Publishers.GetPublishers());
         }
 
         private async Task<T> GetCachedData<T>(string cacheKey, Func<Task<T>> fetchDataFunc)

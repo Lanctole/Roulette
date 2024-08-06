@@ -14,10 +14,12 @@
 
 <p>Выбранные жанры: @string.Join(", ", _selectedGenres)</p>
 @code {
+
+    [Parameter]
+    public bool IsAnime { get; set; } = true;
     [Parameter]
     public EventCallback<List<string>> SelectedGenresChanged { get; set; }
-
-    private List<string> _selectedGenres = new List<string>();
+    private List<string> _selectedGenres = new();
     
     private async Task<List<GenreModel>> LoadGenres()
     {
@@ -26,7 +28,9 @@
 
     private LabeledValue TransformGenre(GenreModel genre)
     {
-        return new LabeledValue(genre.Ids.Min().ToString(), genre.Russian);
+        if (IsAnime) return new LabeledValue(genre.Ids.Min().ToString(), genre.Russian);
+
+        return new LabeledValue(genre.Ids.Max().ToString(), genre.Russian);
     }
 
     private void UpdateSelectedGenres(string selectedValues)

@@ -11,7 +11,7 @@ namespace ShikimoriSharp.Information
         {
         }
 
-        public async Task<Publisher[]> GetPublisher()
+        public async Task<Publisher[]> GetPublishers()
         {
             return await RequestAsync<Publisher[]>("publishers");
         }

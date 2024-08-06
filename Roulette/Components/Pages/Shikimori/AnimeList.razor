@@ -1,31 +1,33 @@
 ﻿@page "/animelist"
 @using Roulette.Models
+@using ShikimoriSharp.Bases
 @using ShikimoriSharp.Classes
+@using System.Collections.Generic
 
-<h3>Список аниме</h3>
-@if (Animes.Count == 0)
+<h3>Список медиа</h3>
+@if (MediaItems!.Count == 0)
 {
     <p>Нет данных для отображения.</p>
 }
 else
 {
-    <div class="anime-list">
-        @foreach (var anime in Animes)
+    <div class="media-list">
+        @foreach (var mediaItem in MediaItems)
         {
-            <AnimeItemComponent Anime="anime" />
+            <MediaComponent Item="mediaItem" />
         }
     </div>
 }
 
 @code {
     [Parameter]
-    public List<Anime> Animes { get; set; }
+    public List<SmallRepresentation>? MediaItems { get; set; }
 
     protected override void OnInitialized()
     {
-        if (Animes == null)
+        if (MediaItems == null)
         {
-            Animes = new List<Anime>();
+            MediaItems = new List<SmallRepresentation>();
         }
     }
 }

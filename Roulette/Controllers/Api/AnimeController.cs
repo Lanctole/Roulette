@@ -28,7 +28,6 @@ namespace Roulette.Controllers.Api
             }
             catch (Exception ex)
             {
-                
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
@@ -106,11 +105,27 @@ namespace Roulette.Controllers.Api
             return Ok(animes);
         }
 
-        //[HttpPost("animes")]
-        //public IActionResult PostAnimes([FromBody] AnimeRequestSettings settings)
-        //{
-        //    var animes = _apiConnectorService.GetAnimes(settings);
-        //    return Ok(animes);
-        //}
+        /// <summary>
+        /// Возвращает аниме по его ID.
+        /// </summary>
+        /// <param name="id">ID аниме</param>
+        /// <returns>Детальная информация об аниме</returns>
+        [HttpGet("animes/{id}")]
+        public async Task<IActionResult> GetAnimeById(long id)
+        {
+            try
+            {
+                var anime = await _apiConnectorService.GetAnimeById(id);
+                if (anime == null)
+                {
+                    return NotFound($"Anime with ID {id} not found.");
+                }
+                return Ok(anime);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
     }
 }

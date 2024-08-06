@@ -1,0 +1,126 @@
+﻿@using Roulette.Models
+@using ShikimoriSharp.Bases
+@using Roulette.Services
+@using ShikimoriSharp.Classes
+@using System.Globalization
+@using System.Collections.Generic
+@using System.Text.RegularExpressions
+@inject SettingsService SettingsService
+
+<div class="media-item">
+    <img src="@($"{BaseUrl}{Item.Image.Preview}")" alt="@Item.Name" />
+    <h4>@Item.Russian (@Item.Name)</h4>
+
+    @if(Item is AnimeMangaRanobeBase basis)
+    {
+        var cultureInfo = new CultureInfo("en-US");
+        if (Decimal.TryParse(basis.Score, NumberStyles.Any, cultureInfo, out var score))
+        {
+            scoreDecimal = Round(score / 2);
+        }
+        <Rate Disabled AllowHalf="true" Value="@scoreDecimal" />
+        <p>Оценка: @basis.Score</p>
+        <p>Статус: @basis.Status</p>
+        <p>Дата выхода: @basis.AiredOn?.ToString("yyyy-MM-dd")</p>
+    }
+    @if (Item is AnimeMangaRanobeIdBase IdBasis)
+    {
+        <p>Описание: @CleanDescription(IdBasis.Description)</p>
+        <p>Жанры: @string.Join(", ", IdBasis.Genres.Select(s => s.Russian))</p>
+        <p>По-английски: @string.Join(", ", IdBasis.English.Select(s => s))</p>
+        <p>По-японски:  @string.Join(", ", IdBasis.Japanese.Select(s => s))</p>
+        <p>Другие названия: @string.Join(", ", IdBasis.Synonyms.Select(s => s))</p>
+        if (Item is AnimeId animeId)
+        {
+            <p>Длительность эпизода: @animeId.Duration</p>
+            <p>Эпизоды: @animeId.Episodes</p>
+            <p>Рейтинг: @animeId.Rating</p>
+            <p>Студии: @string.Join(", ", animeId.Studios.Select(s => s.Name))</p>
+        }
+        else if(Item is MangaRanobeId mangaRanobeId)
+        {
+            <p>Главы: @mangaRanobeId.Chapters</p>
+            <p>Тома: @mangaRanobeId.Volumes</p>
+            <p>Издатели: @string.Join(", ", mangaRanobeId.Publishers.Select(p => p.Name))</p>
+        }
+    }
+    else if (Item is Anime anime)
+    {
+        <p>Эпизоды: @anime.Episodes</p>
+    }
+    else if (Item is Manga manga)
+    {
+        <p>Тома: @manga.Volumes</p>
+        <p>Главы: @manga.Chapters</p>
+    }
+    else if (Item is Ranobe ranobe)
+    {
+        <p>Тома: @ranobe.Volumes</p>
+        <p>Главы: @ranobe.Chapters</p>
+    }
+    else if (Item is AnimeId animeId)
+    {
+        <p>Эпизоды: @animeId.Episodes</p>
+        <p>Эпизоды (вышедшие): @animeId.EpisodesAired</p>
+        <p>Рейтинг: @animeId.Rating</p>
+        <p>Продолжительность: @animeId.Duration</p>
+        <p>Обновлено: @animeId.UpdatedAt?.ToString("yyyy-MM-dd")</p>
+        <p>Следующий эпизод: @animeId.NextEpisodeAt?.ToString("yyyy-MM-dd")</p>
+        <p>Студии: @string.Join(", ", animeId.Studios.Select(s => s.Name))</p>
+    }
+
+    <a href="@($"{BaseUrl}{Item.Url}")" target="_blank">Подробнее</a>
+</div>
+
+@code {
+    [Parameter]
+    public SmallRepresentation? Item { get; set; }
+    private string? BaseUrl;
+    private decimal scoreDecimal;
+    
+    protected override void OnInitialized()
+    {
+        BaseUrl = SettingsService.GetShikimoriSettings().BaseUrl;
+    }
+
+    public static string CleanDescription(string input)
+    {
+        if (string.IsNullOrWhiteSpace(input))
+            return string.Empty;
+        string pattern = @"\[(anime|character|url)[^\]]*\]|\[/anime\]|\[/character\]|\[/url\]";
+        return Regex.Replace(input, pattern, string.Empty);
+    }
+
+    private static decimal Round(decimal value)
+    {
+        decimal integralPart = Math.Floor(value);
+        decimal fractionalPart = value - integralPart;
+
+        if (fractionalPart < 0.25m)
+        {
+            return integralPart;
+        }
+        if (fractionalPart > 0.75m)
+        {
+            return integralPart + 1;
+        }
+        return value;
+    }
+}
+
+
+
+<style>
+    .media-item {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 5px;
+    }
+
+        .media-item img {
+            width: 180px;
+            height: auto;
+        }
+</style>
+

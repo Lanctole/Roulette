@@ -17,33 +17,8 @@ namespace ShikimoriSharp.Bases
 
         [JsonProperty("description_html")] public string DescriptionHtml { get; set; }
 
-        [JsonProperty("description_source")] public string DescriptionSource { get; set; }
-        [JsonProperty("franchise")] public string Franchise { get; set; }
-
-        [JsonProperty("favoured")] public bool Favoured { get; set; }
-
-        [JsonProperty("anons")] public bool Anons { get; set; }
-
-        [JsonProperty("ongoing")] public bool Ongoing { get; set; }
-
-        [JsonProperty("thread_id")] public long? ThreadId { get; set; }
-
-        [JsonProperty("topic_id")] public long? TopicId { get; set; }
-
-        [JsonProperty("myanimelist_id")] public long? MyanimelistId { get; set; }
-
-        [JsonProperty("rates_scores_stats")] public Rate[] RatesScoresStats { get; set; }
-
-        [JsonProperty("rates_statuses_stats")] public Rate[] RatesStatusesStats { get; set; }
-
         [JsonProperty("genres")] public Genre[] Genres { get; set; }
 
     }
 
-    public class Rate
-    {
-        [JsonProperty("name")] public string Name;
-
-        [JsonProperty("value")] public long? Value;
-    }
 }

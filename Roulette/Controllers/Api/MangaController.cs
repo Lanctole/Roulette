@@ -60,5 +60,38 @@ namespace Roulette.Controllers.Api
             var mangas = _apiConnectorService.GetMangas(settings);
             return Ok(mangas);
         }
+
+        [HttpGet("mangas/{id}")]
+        public async Task<IActionResult> GetMangaById(long id)
+        {
+            try
+            {
+                var manga = await _apiConnectorService.GetMangaById(id);
+                if (manga == null)
+                {
+                    return NotFound($"Manga with ID {id} not found.");
+                }
+                return Ok(manga);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
+
+        [HttpGet("publishers")]
+        public async Task<IActionResult> GetPublishers()
+        {
+            try
+            {
+                var publishers = await _apiConnectorService.GetPublishers();
+                
+                return Ok(publishers);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
     }
 }

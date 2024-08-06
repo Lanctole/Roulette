@@ -1,0 +1,38 @@
+﻿@page "/publishers"
+@using ShikimoriSharp.Classes
+@using Roulette.Models.Shiki
+@using Roulette.Models
+@inject ApiClientService ApiClientService
+
+<SelectComponent T="Publisher" TValue="string"
+                 Placeholder="Выберите издателей"
+                 LoadingMessage="Готовим список издателей"
+                 LoadData="LoadPublishers"
+                 Transform="TransformPublisher"
+                 OnSelectedItemsChanged="UpdateSelectedPublishers" />
+
+<p>Выбранные издатели: @string.Join(", ", _selectedPublishers)</p>
+@code {
+
+    [Parameter]
+    public EventCallback<List<string>> SelectedPublishersChanged { get; set; }
+
+    private List<string> _selectedPublishers = new();
+
+    private async Task<List<Publisher>> LoadPublishers()
+    {
+        return await ApiClientService.GetPublishersAsync();
+    }
+
+    private LabeledValue TransformPublisher(Publisher publisher)
+    {
+        return new LabeledValue(publisher.Id.ToString(), publisher.Name);
+    }
+
+    private void UpdateSelectedPublishers(string selectedValues)
+    {
+        _selectedPublishers = selectedValues.Split(',').ToList();
+        SelectedPublishersChanged.InvokeAsync(_selectedPublishers);
+    }
+
+}
