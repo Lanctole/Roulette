@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 using ShikimoriSharp.Bases;
 using ShikimoriSharp.Classes.Constants;
 
@@ -12,7 +13,7 @@ namespace ShikimoriSharp.Information
 
         private async Task<ConstantsAnimeManga> Lesscode(string dest)
         {
-            return await Request<ConstantsAnimeManga>(dest);
+            return await RequestAsync<ConstantsAnimeManga>(dest);
         }
 
         public async Task<ConstantsAnimeManga> GetAnimeConstants()
@@ -25,19 +26,5 @@ namespace ShikimoriSharp.Information
             return await Lesscode("constants/manga");
         }
 
-        public async Task<ConstantsUserRate> GetUserRateConstants()
-        {
-            return await Request<ConstantsUserRate>("constants/user_rate");
-        }
-
-        public async Task<ConstantsClub> GetClubConstants()
-        {
-            return await Request<ConstantsClub>("constants/club");
-        }
-
-        public async Task<ConstantsSmileys[]> GetSmileysConstants()
-        {
-            return await Request<ConstantsSmileys[]>("constants/smileys");
-        }
     }
 }

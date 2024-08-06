@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net;
 using System.Net.Http;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
@@ -12,78 +13,109 @@ namespace ShikimoriSharp
 {
     public class RequestManager
     {
+        private static readonly HttpClient _httpClient = new HttpClient();
         private readonly TokenBucket _bucketRpm;
         private readonly TokenBucket _bucketRps;
-       
-        private readonly Func<AccessToken, Task<AccessToken>> _refresh;
         private readonly ClientSettings _settings;
+        private readonly Func<AccessToken, Task<AccessToken>> _refresh;
         private AccessToken _token;
 
-
-        public RequestManager( TokenBucket bucketRps, TokenBucket bucketRpm, ClientSettings settings,
-            AccessToken token, Func<AccessToken, Task<AccessToken>> refresh)
+        public RequestManager(TokenBucket bucketRps, TokenBucket bucketRpm, ClientSettings settings, AccessToken token, Func<AccessToken, Task<AccessToken>> refresh)
         {
-            
             _bucketRps = bucketRps;
             _bucketRpm = bucketRpm;
             _settings = settings;
-            _refresh = refresh;
             _token = token;
+            _refresh = refresh;
         }
 
         private async Task<HttpResponseMessage> Response(string dest, string method, HttpContent data)
         {
-            using var httpClient = new HttpClient();
             await _bucketRpm.TokenRequest();
             await _bucketRps.TokenRequest();
-            
 
-            var request = new HttpRequestMessage(new HttpMethod(method), dest);
+            var request = new HttpRequestMessage(new HttpMethod(method), dest)
+            {
+                Content = data
+            };
             request.Headers.TryAddWithoutValidation("User-Agent", _settings.ClientName);
-            request.Content = data;
-            if (!(_token is null))
+
+            if (_token != null)
+            {
                 request.Headers.TryAddWithoutValidation("Authorization", $"{_token.TokenType} {_token.Access_Token}");
-            var ret = await httpClient.SendAsync(request);
+            }
 
-            
+            var response = await _httpClient.SendAsync(request);
 
-            if (ret.StatusCode != HttpStatusCode.BadRequest && ret.StatusCode != HttpStatusCode.Unauthorized)
-                return ret;
-            if (_refresh is null)
-                throw new Exception($"An error occured while token refreshing: {ret.StatusCode}");
+            if (response.StatusCode != HttpStatusCode.BadRequest && response.StatusCode != HttpStatusCode.Unauthorized)
+            {
+                return response;
+            }
 
-            
+            if (_refresh == null)
+            {
+                throw new Exception($"An error occurred while token refreshing: {response.StatusCode}");
+            }
+
             _token = await _refresh(_token);
-            throw new HttpRequestException($"{ret.StatusCode}");
+            throw new HttpRequestException($"{response.StatusCode}");
         }
 
         public async Task<string> ResponseExecutor(string dest, string method, HttpContent data)
         {
+            Console.WriteLine("Entering ResponseExecutor method.");
             var policy = Policy
                 .Handle<HttpRequestException>()
                 .OrResult<HttpResponseMessage>(r => r.StatusCode == HttpStatusCode.TooManyRequests)
                 .WaitAndRetryAsync(3, i => TimeSpan.FromSeconds(Math.Pow(2, i)));
 
-            var response = await policy.ExecuteAsync(() => Response(dest, method, data));
+            HttpResponseMessage response;
+
+            try
+            {
+                Console.WriteLine($"Response try: ");
+                response = await policy.ExecuteAsync(() => Response(dest, method, data));
+                Console.WriteLine($"Response received: {response.StatusCode}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Exception during policy execution: {ex.Message}");
+                throw;
+            }
+
+            if (response == null)
+            {
+                Console.WriteLine("Response is null after retries.");
+                throw new Exception("No response received after retries.");
+            }
 
             switch (response.StatusCode)
             {
                 case HttpStatusCode.UnprocessableEntity:
+                    Console.WriteLine("Unprocessable Entity Error");
                     throw new UnprocessableEntityException();
                 case HttpStatusCode.Forbidden:
+                    Console.WriteLine("Forbidden Error");
                     throw new ForbiddenException();
             }
 
             if (!response.IsSuccessStatusCode)
+            {
+                Console.WriteLine($"Unsuccessful request: {response.StatusCode} | {response.ReasonPhrase}");
                 throw new Exception($"Unsuccessful request: {response.StatusCode} | {response.ReasonPhrase}");
+            }
 
-            return await response.Content.ReadAsStringAsync();
+            var content = await response.Content.ReadAsStringAsync();
+            Console.WriteLine("Response content successfully read.");
+            return content;
         }
+
 
         public async Task<TResult> ResponseAsType<TResult>(string dest, string method, HttpContent data)
         {
+            Console.WriteLine("We in  public async Task<TResult> ResponseAsType<TResult>(string dest, string method, HttpContent data)");
             var response = await ResponseExecutor(dest, method, data);
-            return await Task.Factory.StartNew(() => JsonConvert.DeserializeObject<TResult>(response));
+            return JsonConvert.DeserializeObject<TResult>(response);
         }
     }
 }

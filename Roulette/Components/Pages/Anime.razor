@@ -1,0 +1,73 @@
+﻿@page "/anime"
+@inherits ShikimoriComponent
+@using ShikimoriSharp.Bases
+@using Genres = Roulette.Components.Pages.Shikimori.Genres
+@using Studios = Roulette.Components.Pages.Shikimori.Studios
+@using MediaList = Roulette.Components.Pages.Shikimori.MediaList
+@inject ApiClientService ApiClientService
+
+<PageTitle>Anime</PageTitle>
+
+<Row Gutter="16">
+    <Col Xs="24" Sm="12" Md="8">
+    <Genres SelectedGenresChanged="OnSelectedGenresChanged" />
+    </Col>
+    <Col Xs="24" Sm="12" Md="8">
+    <MinimalScoreComponent @bind-SelectedScore="SelectedScore"  />
+    </Col>
+    <Col Xs="24" Sm="12" Md="8">
+    <RatingComponent @bind-SelectedValue="_selectedRating" />
+    </Col>
+</Row>
+<Divider Orientation="left"></Divider>
+
+<Row Gutter="16">
+    <Col Xs="24" Sm="12" Md="8">
+    <DurationComponent @bind-SelectedValue="_selectedDuration" />
+    </Col>
+    <Col Xs="24" Sm="12" Md="8">
+    <Studios SelectedStudiosChanged="OnSelectedStudiosChanged" />
+    </Col>
+    <Col Xs="24" Sm="12" Md="8">
+    <SelectKindComponent @bind-SelectedValue="_selectedKind" />
+    </Col>
+</Row>
+<Divider Orientation="left"></Divider>
+
+<YearSelectionComponent @bind-selectedFromYear="SelectedFromYear" @bind-selectedToYear="SelectedToYear" />
+<p>Временной период: с @SelectedFromYear до @SelectedToYear</p>
+
+<Button OnClick="SendSelected">Roll!</Button> <Checkbox @bind-Value="GetDetailedData">
+    Получить полные данные
+</Checkbox>
+
+<MediaList MediaItems="_animes" />
+
+@code {
+    private string? _selectedRating;
+    private string? _selectedKind;
+    private string? _selectedDuration;
+    private List<string> _selectedStudios = new();
+    private List<SmallRepresentation>? _animes;
+
+    private void OnSelectedStudiosChanged(List<string> selectedStudios)
+    {
+        _selectedStudios = selectedStudios;
+    }
+
+    private async Task SendSelected()
+    {
+        string studios = string.Join(",", _selectedStudios);
+        var aniUrl = 
+                  $"rating={_selectedRating}&" +
+                  $"kind={_selectedKind}&" +
+                  $"studio={studios}&" +
+                  $"duration={_selectedDuration}&";
+       
+        _animes = await GetMediaItemsAsync($"anime/animes?{aniUrl}", async (id) =>
+        {
+            var url = $"anime/animes/{id}?{aniUrl}";
+            return await ApiClientService.GetAnimeByIdAsync(url);
+        });
+    }
+}

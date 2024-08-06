@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ShikimoriSharp.Bases.SmallRepresentation">
+    <Position X="4.75" Y="0.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACAAAAAAAAAAAQAAAAAABAACAAAAAAAAAA=</HashCode>
+      <FileName>Bases\SmallRepresentation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShikimoriSharp.Bases.AnimeMangaRanobeBase">
+    <Position X="4.5" Y="2.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAEAABAAAgAAAAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Bases\AnimeMangaRanobeBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShikimoriSharp.Bases.AnimeMangaRanobeIdBase">
+    <Position X="0.5" Y="4.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAgAAAAAAIAQAAABAAEAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Bases\AnimeMangaRanobeIdBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShikimoriSharp.Classes.Anime">
+    <Position X="10.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Anime.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShikimoriSharp.Classes.Manga">
+    <Position X="5.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Manga.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShikimoriSharp.Classes.Ranobe">
+    <Position X="8" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Ranobe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShikimoriSharp.Classes.HistoryTarget">
+    <Position X="10.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\History.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShikimoriSharp.Classes.AnimeId">
+    <Position X="0.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAGAiCAACAAAAAAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\AnimeId.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShikimoriSharp.Classes.MangaRanobeId">
+    <Position X="3.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEBAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\MangaRanobeId.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

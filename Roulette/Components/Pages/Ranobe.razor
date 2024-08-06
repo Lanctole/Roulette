@@ -1,0 +1,42 @@
+﻿@page "/ranobe"
+@inherits ShikimoriComponent
+@using ShikimoriSharp.Bases
+@using Genres = Roulette.Components.Pages.Shikimori.Genres
+@using MediaList = Roulette.Components.Pages.Shikimori.MediaList
+@inject ApiClientService ApiClientService
+
+<PageTitle>Ranobe</PageTitle>
+
+<Row Gutter="16">
+    <Col Xs="24" Sm="12" Md="8">
+    <Genres IsAnime="false" SelectedGenresChanged="OnSelectedGenresChanged" />
+    </Col>
+    <Col Xs="24" Sm="12" Md="8">
+    <MinimalScoreComponent @bind-SelectedScore="SelectedScore" />
+    </Col>
+
+</Row>
+<Divider Orientation="left"></Divider>
+
+<YearSelectionComponent @bind-selectedFromYear="SelectedFromYear" @bind-selectedToYear="SelectedToYear" />
+
+<p>Временной период: с @SelectedFromYear до @SelectedToYear</p>
+
+<Button OnClick="SendSelected">Roll!</Button> <Checkbox @bind-Value="GetDetailedData">
+    Получить полные данные
+</Checkbox>
+
+<MediaList MediaItems="_ranobes" />
+
+@code {
+    private List<SmallRepresentation>? _ranobes;
+
+    private async Task SendSelected()
+    {
+        _ranobes = await GetMediaItemsAsync("ranobe/ranobes?", async (id) =>
+        {
+            var url = $"ranobe/ranobes/{id}?";
+            return await ApiClientService.GetRanobeByIdAsync(url);
+        });
+    }
+}

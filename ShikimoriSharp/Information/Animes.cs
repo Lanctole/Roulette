@@ -1,8 +1,10 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using ShikimoriSharp.AdditionalRequests;
 using ShikimoriSharp.Bases;
 using ShikimoriSharp.Classes;
 using ShikimoriSharp.Settings;
+using Version = ShikimoriSharp.Bases.Version;
 
 namespace ShikimoriSharp.Information
 {
@@ -12,15 +14,16 @@ namespace ShikimoriSharp.Information
         {
         }
 
-        public async Task<Anime[]> GetAnime(AnimeRequestSettings settings = null,
+        public async Task<Anime[]> GetAnimes(AnimeRequestSettings settings = null,
             AccessToken personalInformation = null)
         {
-            return await Request<Anime[], AnimeRequestSettings>("animes", settings, personalInformation);
+            Console.WriteLine("We in ShikimoriSharp.Information");
+            return await RequestAsync<Anime[], AnimeRequestSettings>("animes", settings, personalInformation);
         }
 
-        public async Task<AnimeRanobeId> GetAnime(long id, AccessToken personalInformation = null)
+        public async Task<AnimeId> GetAnime(long id, AccessToken personalInformation = null)
         {
-            return await Request<AnimeRanobeId>($"animes/{id}", personalInformation);
+            return await RequestAsync<AnimeId>($"animes/{id}", personalInformation);
         }
 
     }

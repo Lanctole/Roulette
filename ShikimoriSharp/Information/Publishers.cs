@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 using ShikimoriSharp.Bases;
 using ShikimoriSharp.Classes;
 
@@ -10,9 +11,9 @@ namespace ShikimoriSharp.Information
         {
         }
 
-        public async Task<Publisher[]> GetPublisher()
+        public async Task<Publisher[]> GetPublishers()
         {
-            return await Request<Publisher[]>("publishers");
+            return await RequestAsync<Publisher[]>("publishers");
         }
     }
 }

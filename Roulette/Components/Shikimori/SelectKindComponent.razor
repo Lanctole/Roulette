@@ -3,7 +3,7 @@
 
 
 <Select Mode="default"
-        Placeholder="Выберите формат аниме"
+        Placeholder="Выберите формат"
         DataSource="@_options"
         @bind-Value="@SelectedValue"
         LabelName="Label"
@@ -20,19 +20,26 @@
     private List<LabeledValue> _options;
 
     [Parameter]
-    public string SelectedValue { get; set; }
+    public bool IsAnime { get; set; } = true;
+
+    [Parameter]
+    public string? SelectedValue { get; set; }
 
     [Parameter]
     public EventCallback<string> SelectedValueChanged { get; set; }
 
     protected override void OnInitialized()
     {
-        _options = EnumHelper.GetEnumValuesWithDescriptions(typeof(AnimeKind));
+        if(IsAnime) _options = EnumHelper.GetEnumValuesWithDescriptions(typeof(AnimeKind));
+        else
+        {
+            _options = EnumHelper.GetEnumValuesWithDescriptions(typeof(MangaKind));
+        }
     }
 
     private void HandleValueChange(LabeledValue newValue)
     {
-        SelectedValue = newValue.Value;
-        SelectedValueChanged.InvokeAsync(newValue.Value);
+        SelectedValue = newValue?.Value;
+        SelectedValueChanged.InvokeAsync(newValue?.Value);
     }
 }

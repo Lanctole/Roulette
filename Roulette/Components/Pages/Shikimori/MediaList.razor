@@ -1,0 +1,36 @@
+﻿@page "/medialist"
+@using Roulette.Models
+@using ShikimoriSharp.Bases
+@using ShikimoriSharp.Classes
+@using System.Collections.Generic
+
+<h3>Список медиа</h3>
+@if (MediaItems!.Count == 0)
+{
+    <p>Нет данных для отображения.</p>
+}
+else
+{
+    <div class="media-list">
+        @foreach (var mediaItem in MediaItems)
+        {
+            <MediaComponent Item="mediaItem" />
+        }
+    </div>
+}
+
+@code {
+    [Parameter]
+    public List<SmallRepresentation>? MediaItems { get; set; }
+
+    protected override void OnInitialized()
+    {
+        if (MediaItems == null)
+        {
+            MediaItems = new List<SmallRepresentation>();
+        }
+    }
+}
+
+
+

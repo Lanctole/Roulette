@@ -4,7 +4,7 @@ using ShikimoriSharp.Bases;
 
 namespace ShikimoriSharp.Classes
 {
-    public class AnimeRanobeId : AnimeMangaRanobeIdBase
+    public class AnimeId : AnimeMangaRanobeIdBase
     {
         [JsonProperty("episodes")] public long Episodes { get; set; }
         [JsonProperty("episodes_aired")] public long EpisodesAired { get; set; }
@@ -13,6 +13,5 @@ namespace ShikimoriSharp.Classes
         [JsonProperty("updated_at")] public DateTimeOffset? UpdatedAt { get; set; }
         [JsonProperty("next_episode_at")] public DateTimeOffset? NextEpisodeAt { get; set; }
         [JsonProperty("studios")] public Studio[] Studios { get; set; }
-        
     }
 }

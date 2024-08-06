@@ -1,0 +1,66 @@
+﻿@page "/manga"
+@inherits ShikimoriComponent
+@using ShikimoriSharp.Bases
+@using Genres = Roulette.Components.Pages.Shikimori.Genres
+@using Publishers = Roulette.Components.Pages.Shikimori.Publishers
+@using MediaList = Roulette.Components.Pages.Shikimori.MediaList
+@inject ApiClientService ApiClientService
+
+<PageTitle>Manga</PageTitle>
+
+<Row Gutter="16">
+    <Col Xs="24" Sm="12" Md="8">
+    <Genres IsAnime="false" SelectedGenresChanged="OnSelectedGenresChanged" />
+    </Col>
+    <Col Xs="24" Sm="12" Md="8">
+    <MinimalScoreComponent @bind-SelectedScore="SelectedScore" />
+    </Col>
+
+</Row>
+<Divider Orientation="left"></Divider>
+
+<Row Gutter="16">
+
+    <Col Xs="24" Sm="12" Md="8">
+    <Publishers SelectedPublishersChanged="OnSelectedPublishersChanged" />
+    </Col>
+    <Col Xs="24" Sm="12" Md="8">
+    <SelectKindComponent IsAnime="false" @bind-SelectedValue="_selectedKind" />
+    </Col>
+</Row>
+<Divider Orientation="left"></Divider>
+
+<YearSelectionComponent @bind-selectedFromYear="SelectedFromYear" @bind-selectedToYear="SelectedToYear" />
+
+
+<p>Временной период: с @SelectedFromYear до @SelectedToYear</p>
+
+<Button OnClick="SendSelected">Roll!</Button> <Checkbox @bind-Value="GetDetailedData">
+    Получить полные данные
+</Checkbox>
+
+<MediaList MediaItems="_mangas" />
+
+@code {
+    private string? _selectedKind;
+    private List<string> _selectedPublishers = new();
+    private List<SmallRepresentation>? _mangas;
+
+    private void OnSelectedPublishersChanged(List<string> selectedPublishers)
+    {
+        _selectedPublishers = selectedPublishers;
+    }
+
+    private async Task SendSelected()
+    {
+        string publishers = string.Join(",", _selectedPublishers);
+        var mangaUrl = 
+                       $"publishers={publishers}&" +
+                       $"kind={_selectedKind}&";
+        _mangas = await GetMediaItemsAsync($"manga/mangas?{mangaUrl}", async (id) =>
+        {
+            var url = $"manga/mangas/{id}?{mangaUrl}";
+            return await ApiClientService.GetMangaByIdAsync(url);
+        });
+    }
+}

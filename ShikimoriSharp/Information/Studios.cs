@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 using ShikimoriSharp.Bases;
 using ShikimoriSharp.Classes;
 
@@ -12,7 +13,7 @@ namespace ShikimoriSharp.Information
 
         public async Task<Studio[]> GetStudios()
         {
-            return await Request<Studio[]>("studios");
+            return await RequestAsync<Studio[]>("studios");
         }
     }
 }

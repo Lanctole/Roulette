@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 using ShikimoriSharp.Bases;
 using ShikimoriSharp.Classes;
 
@@ -12,7 +13,7 @@ namespace ShikimoriSharp.Information
 
         public async Task<Genre[]> GetGenres()
         {
-            return await Request<Genre[]>("genres");
+            return await RequestAsync<Genre[]>("genres");
         }
     }
 }
