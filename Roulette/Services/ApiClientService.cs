@@ -30,12 +30,10 @@ public class ApiClientService
         }
         catch (HttpRequestException e)
         {
-            Console.WriteLine($"HttpRequestException in GetAsync: {e.Message}");
             throw new Exception($"Request to {endpoint} failed: {e.Message}", e);
         }
         catch (JsonException e)
         {
-            Console.WriteLine($"JsonException in GetAsync: {e.Message}");
             throw new Exception($"Deserialization of response from {endpoint} failed: {e.Message}", e);
         }
     }
