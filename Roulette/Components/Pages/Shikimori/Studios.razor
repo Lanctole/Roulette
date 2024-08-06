@@ -10,7 +10,6 @@
                  Transform="TransformStudio"
                  OnSelectedItemsChanged="UpdateSelectedStudios" />
 
-<p>Выбранные студии: @string.Join(", ", _selectedStudios)</p>
 @code {
     [Parameter]
     public EventCallback<List<string>> SelectedStudiosChanged { get; set; }

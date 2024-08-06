@@ -45,18 +45,19 @@ namespace Roulette
             builder.Services.AddSingleton <ShikimoriApiConnectorService> ();
             builder.Services.AddScoped<ShikiDataService>();
             builder.Services.AddHttpClient();
-            builder.Services.AddScoped(sp =>
+           
+            builder.Services.AddHttpClient<ApiClientService>(client =>
             {
-                var handler = new HttpClientHandler
-                {
-                    ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true
-                };
-                return new HttpClient(handler) { BaseAddress = new Uri(builder.Configuration["ApiBaseAddress"]) };
+                client.BaseAddress = new Uri(builder.Configuration["ApiBaseAddress"]);
+                client.DefaultRequestHeaders.Add("Accept", "application/json");
+            }).ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
+            {
+                ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true
             });
-            
-            builder.Services.AddScoped<ApiClientService>();
-            builder.Services.AddSingleton<SettingsService>();
 
+            builder.Services.AddSingleton<ApiClientService>();
+            builder.Services.AddSingleton<SettingsService>();
+           
             builder.Services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Roulette API", Version = "v1", Description = "An ASP.NET Core Web API for ROULETTE", });

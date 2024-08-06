@@ -1,14 +1,9 @@
 ﻿@page "/manga"
-@using ShikimoriSharp.Classes
-@using ShikimoriSharp.Settings
-@using Roulette.Models
-@using Microsoft.IdentityModel.Tokens
+@inherits ShikimoriComponent
 @using ShikimoriSharp.Bases
-@using System.Collections.Generic
-@using ShikimoriSharp.Information
 @using Genres = Roulette.Components.Pages.Shikimori.Genres
 @using Publishers = Roulette.Components.Pages.Shikimori.Publishers
-@using AnimeList = Roulette.Components.Pages.Shikimori.AnimeList
+@using MediaList = Roulette.Components.Pages.Shikimori.MediaList
 @inject ApiClientService ApiClientService
 
 <PageTitle>Manga</PageTitle>
@@ -18,7 +13,7 @@
     <Genres IsAnime="false" SelectedGenresChanged="OnSelectedGenresChanged" />
     </Col>
     <Col Xs="24" Sm="12" Md="8">
-    <MinimalScoreComponent @bind-SelectedScore="_selectedScore" />
+    <MinimalScoreComponent @bind-SelectedScore="SelectedScore" />
     </Col>
 
 </Row>
@@ -35,87 +30,37 @@
 </Row>
 <Divider Orientation="left"></Divider>
 
-<YearSelectionComponent @bind-selectedFromYear="_selectedFromYear" @bind-selectedToYear="_selectedToYear" />
+<YearSelectionComponent @bind-selectedFromYear="SelectedFromYear" @bind-selectedToYear="SelectedToYear" />
 
 
-<p>Временной период: с @_selectedFromYear до @_selectedToYear</p>
+<p>Временной период: с @SelectedFromYear до @SelectedToYear</p>
 
-<Button OnClick="SendSelected">Roll!</Button> <Checkbox @bind-Value="_getDetailedData">
+<Button OnClick="SendSelected">Roll!</Button> <Checkbox @bind-Value="GetDetailedData">
     Получить полные данные
 </Checkbox>
 
-<AnimeList MediaItems="_mangas" />
+<MediaList MediaItems="_mangas" />
 
 @code {
-    private string? _selectedScore;
-    private string? _selectedFromYear;
-    private string? _selectedToYear;
-    private string? _season;
     private string? _selectedKind;
-    private bool _getDetailedData;
-    private List<string> _selectedGenres = new();
     private List<string> _selectedPublishers = new();
-    private readonly string _selectedOrder = "random";
-    private readonly int _limit = 5;
-    private readonly int _page = 1;
     private List<SmallRepresentation>? _mangas;
 
-    private void OnSelectedGenresChanged(List<string> selectedGenres)
-    {
-        _selectedGenres = selectedGenres;
-    }
     private void OnSelectedPublishersChanged(List<string> selectedPublishers)
     {
         _selectedPublishers = selectedPublishers;
     }
 
-    private async Task<List<SmallRepresentation>> SendSelected()
+    private async Task SendSelected()
     {
-        try
+        string publishers = string.Join(",", _selectedPublishers);
+        var mangaUrl = 
+                       $"publishers={publishers}&" +
+                       $"kind={_selectedKind}&";
+        _mangas = await GetMediaItemsAsync($"manga/mangas?{mangaUrl}", async (id) =>
         {
-            _season = $"{_selectedFromYear}";
-            if (!_selectedToYear.IsNullOrEmpty())
-            {
-                _season += $"_{_selectedToYear}";
-            }
-            string genres = string.Join(",", _selectedGenres);
-            string publishers = string.Join(",", _selectedPublishers);
-
-            var url = "manga/mangas?" +
-                      $"score={_selectedScore}&" +
-                      $"kind={_selectedKind}&" +
-                      $"season={_season}&" +
-                      $"studio={publishers}&" +
-                      $"genre={genres}&" +
-                      $"order={_selectedOrder}&" +
-                      $"limit={_limit}&" +
-                      $"page={_page}";
-            var mangas = await ApiClientService.GetMangasAsync(url);
-            
-
-            if (_getDetailedData)
-            {
-                var detailedMangas = new List<MangaRanobeId>();
-                foreach (var manga in mangas)
-                {
-                    url = $"manga/mangas/{manga.Id}";
-                    var detailedManga = await ApiClientService.GetMangaByIdAsync(url);
-                    detailedMangas.Add(detailedManga);
-                }
-                _mangas = new List<SmallRepresentation>(detailedMangas);
-
-            }
-            else
-            {
-                _mangas = new List<SmallRepresentation>(mangas);
-            }
-            return _mangas;
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Error in SendSelected: {ex.Message}");
-            throw;
-        }
-
+            var url = $"manga/mangas/{id}?{mangaUrl}";
+            return await ApiClientService.GetMangaByIdAsync(url);
+        });
     }
 }

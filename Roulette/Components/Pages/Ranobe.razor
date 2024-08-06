@@ -1,15 +1,8 @@
 ﻿@page "/ranobe"
-
-@using ShikimoriSharp.Classes
-@using ShikimoriSharp.Settings
-@using Roulette.Models
-@using Microsoft.IdentityModel.Tokens
+@inherits ShikimoriComponent
 @using ShikimoriSharp.Bases
-@using System.Collections.Generic
-@using ShikimoriSharp.Information
 @using Genres = Roulette.Components.Pages.Shikimori.Genres
-@using Publishers = Roulette.Components.Pages.Shikimori.Publishers
-@using AnimeList = Roulette.Components.Pages.Shikimori.AnimeList
+@using MediaList = Roulette.Components.Pages.Shikimori.MediaList
 @inject ApiClientService ApiClientService
 
 <PageTitle>Ranobe</PageTitle>
@@ -19,85 +12,31 @@
     <Genres IsAnime="false" SelectedGenresChanged="OnSelectedGenresChanged" />
     </Col>
     <Col Xs="24" Sm="12" Md="8">
-    <MinimalScoreComponent @bind-SelectedScore="_selectedScore" />
+    <MinimalScoreComponent @bind-SelectedScore="SelectedScore" />
     </Col>
 
 </Row>
 <Divider Orientation="left"></Divider>
 
-<YearSelectionComponent @bind-selectedFromYear="_selectedFromYear" @bind-selectedToYear="_selectedToYear" />
+<YearSelectionComponent @bind-selectedFromYear="SelectedFromYear" @bind-selectedToYear="SelectedToYear" />
 
+<p>Временной период: с @SelectedFromYear до @SelectedToYear</p>
 
-<p>Временной период: с @_selectedFromYear до @_selectedToYear</p>
-
-<Button OnClick="SendSelected">Roll!</Button> <Checkbox @bind-Value="_getDetailedData">
+<Button OnClick="SendSelected">Roll!</Button> <Checkbox @bind-Value="GetDetailedData">
     Получить полные данные
 </Checkbox>
 
-<AnimeList MediaItems="_ranobes" />
+<MediaList MediaItems="_ranobes" />
 
 @code {
-    private string? _selectedScore;
-    private string? _selectedFromYear;
-    private string? _selectedToYear;
-    private string? _season;
-    private bool _getDetailedData;
-    private List<string> _selectedGenres = new();
-    private readonly string _selectedOrder = "random";
-    private readonly int _limit = 5;
-    private readonly int _page = 1;
     private List<SmallRepresentation>? _ranobes;
 
-    private void OnSelectedGenresChanged(List<string> selectedGenres)
+    private async Task SendSelected()
     {
-        _selectedGenres = selectedGenres;
-    }
-
-
-    private async Task<List<SmallRepresentation>> SendSelected()
-    {
-        try
+        _ranobes = await GetMediaItemsAsync("ranobe/ranobes?", async (id) =>
         {
-            _season = $"{_selectedFromYear}";
-            if (!_selectedToYear.IsNullOrEmpty())
-            {
-                _season += $"_{_selectedToYear}";
-            }
-            string genres = string.Join(",", _selectedGenres);
-
-            var url = "ranobe/ranobes?" +
-                      $"score={_selectedScore}&" +
-                      $"season={_season}&" +
-                      $"genre={genres}&" +
-                      $"order={_selectedOrder}&" +
-                      $"limit={_limit}&" +
-                      $"page={_page}";
-            var ranobes = await ApiClientService.GetRanobesAsync(url);
-
-
-            if (_getDetailedData)
-            {
-                var detailedRanobes = new List<MangaRanobeId>();
-                foreach (var ranobe in ranobes)
-                {
-                    url = $"ranobe/ranobes/{ranobe.Id}";
-                    var detailedRanobe = await ApiClientService.GetRanobeByIdAsync(url);
-                    detailedRanobes.Add(detailedRanobe);
-                }
-                _ranobes = new List<SmallRepresentation>(detailedRanobes);
-
-            }
-            else
-            {
-                _ranobes = new List<SmallRepresentation>(ranobes);
-            }
-            return _ranobes;
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Error in SendSelected: {ex.Message}");
-            throw;
-        }
-
+            var url = $"ranobe/ranobes/{id}?";
+            return await ApiClientService.GetRanobeByIdAsync(url);
+        });
     }
 }

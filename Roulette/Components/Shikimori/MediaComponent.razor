@@ -32,7 +32,7 @@
         <p>Другие названия: @string.Join(", ", IdBasis.Synonyms.Select(s => s))</p>
         if (Item is AnimeId animeId)
         {
-            <p>Длительность эпизода: @animeId.Duration</p>
+            <p>Длительность эпизода: @animeId.Duration минут</p>
             <p>Эпизоды: @animeId.Episodes</p>
             <p>Рейтинг: @animeId.Rating</p>
             <p>Студии: @string.Join(", ", animeId.Studios.Select(s => s.Name))</p>
@@ -87,7 +87,7 @@
     {
         if (string.IsNullOrWhiteSpace(input))
             return string.Empty;
-        string pattern = @"\[(anime|character|url)[^\]]*\]|\[/anime\]|\[/character\]|\[/url\]";
+        string pattern = @"\[(anime|character|url|b)[^\]]*\]|\[/anime\]|\[/character\]|\[/url\]|\[/b\]";
         return Regex.Replace(input, pattern, string.Empty);
     }
 

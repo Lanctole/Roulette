@@ -1,19 +1,14 @@
-﻿using System.Net.Http;
-using System.Net.Http.Json;
-using System.Threading.Tasks;
-using System.Collections.Generic;
-using ShikimoriSharp.Classes;
-
+﻿using ShikimoriSharp.Classes;
 using System.Text.Json;
 using Roulette.Models.Shiki;
 
 public class ApiClientService
 {
-    private readonly HttpClient _httpClient;
+    private readonly IHttpClientFactory _httpClientFactory;
 
-    public ApiClientService(HttpClient httpClient)
+    public ApiClientService(IHttpClientFactory httpClientFactory)
     {
-        _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
+        _httpClientFactory = httpClientFactory ?? throw new ArgumentNullException(nameof(httpClientFactory));
     }
 
     private static readonly JsonSerializerOptions s_readOptions = new()
@@ -22,12 +17,13 @@ public class ApiClientService
         PropertyNameCaseInsensitive = true
     };
 
-    private async Task<T> GetAsync<T>(string endpoint)
+    public async Task<T> GetAsync<T>(string endpoint)
     {
         try
         {
+            var httpClient = _httpClientFactory.CreateClient(nameof(ApiClientService));
             Console.WriteLine("We in GetAsync");
-            var response = await _httpClient.GetAsync(endpoint);
+            var response = await httpClient.GetAsync(endpoint);
             response.EnsureSuccessStatusCode();
             var content = await response.Content.ReadAsStringAsync();
             return JsonSerializer.Deserialize<T>(content, s_readOptions);
@@ -44,35 +40,20 @@ public class ApiClientService
         }
     }
 
-    public Task<List<Studio>> GetStudiosAsync()
+    public async Task<List<Studio>> GetStudiosAsync()
     {
-        return GetAsync<List<Studio>>("anime/studios");
+        return await GetAsync<List<Studio>>("anime/studios");
     }
 
-    public Task<List<GenreModel>> GetGenresAsync()
+    public async Task<List<GenreModel>> GetGenresAsync()
     {
-        return GetAsync<List<GenreModel>>("anime/genres");
+        return await GetAsync<List<GenreModel>>("anime/genres");
     } 
 
-    public async Task<List<Anime>> GetAnimesAsync(string url)
-    {
-        Console.WriteLine("We in GetAnimesAsync");
-        return await GetAsync<List<Anime>>(url);
-    }
-
-    public async Task<List<Manga>> GetMangasAsync(string url)
-    {
-        return await GetAsync<List<Manga>>(url);
-    }
 
     public async Task<MangaRanobeId> GetMangaByIdAsync(string url) //-V3013
     {
         return await GetAsync<MangaRanobeId>(url);
-    }
-
-    public async Task<List<Ranobe>> GetRanobesAsync(string url)
-    {
-        return await GetAsync<List<Ranobe>>(url);
     }
 
     public async Task<MangaRanobeId> GetRanobeByIdAsync(string url)
