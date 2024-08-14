@@ -4,7 +4,9 @@
 @using Genres = Roulette.Components.Pages.Shikimori.Genres
 @using Publishers = Roulette.Components.Pages.Shikimori.Publishers
 @using MediaList = Roulette.Components.Pages.Shikimori.MediaList
+@using Roulette.Services
 @inject ApiClientService ApiClientService
+@inject IJSRuntime JS
 
 <PageTitle>Manga</PageTitle>
 
@@ -35,10 +37,9 @@
 
 <p>Временной период: с @SelectedFromYear до @SelectedToYear</p>
 
-<Button OnClick="SendSelected">Roll!</Button> <Checkbox @bind-Value="GetDetailedData">
-    Получить полные данные
-</Checkbox>
+<Button OnClick="SendSelected">Roll!</Button> 
 
+<WheelComponent />
 <MediaList MediaItems="_mangas" />
 
 @code {
@@ -62,5 +63,19 @@
             var url = $"manga/mangas/{id}?{mangaUrl}";
             return await ApiClientService.GetMangaByIdAsync(url);
         });
+        List<String> _mediaName = new();
+        foreach (var media in _mangas)
+        {
+            if (media.Russian != "")
+            {
+                _mediaName.Add(media.Russian);
+            }
+            else
+            {
+                _mediaName.Add(media.Name);
+            }
+            
+        }
+        JS.InvokeVoidAsync("startSpin", _mediaName);
     }
 }

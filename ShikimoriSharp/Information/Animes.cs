@@ -18,7 +18,6 @@ namespace ShikimoriSharp.Information
         public async Task<Anime[]> GetAnimes(AnimeRequestSettings settings = null,
             AccessToken personalInformation = null)
         {
-            Console.WriteLine("We in ShikimoriSharp.Information");
             return await RequestAsync<Anime[], AnimeRequestSettings>("animes", settings, personalInformation);
         }
 

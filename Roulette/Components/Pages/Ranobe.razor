@@ -3,7 +3,9 @@
 @using ShikimoriSharp.Bases
 @using Genres = Roulette.Components.Pages.Shikimori.Genres
 @using MediaList = Roulette.Components.Pages.Shikimori.MediaList
+@using Roulette.Services
 @inject ApiClientService ApiClientService
+@inject IJSRuntime JS
 
 <PageTitle>Ranobe</PageTitle>
 
@@ -22,10 +24,8 @@
 
 <p>Временной период: с @SelectedFromYear до @SelectedToYear</p>
 
-<Button OnClick="SendSelected">Roll!</Button> <Checkbox @bind-Value="GetDetailedData">
-    Получить полные данные
-</Checkbox>
-
+<Button OnClick="SendSelected">Roll!</Button> 
+<WheelComponent />
 <MediaList MediaItems="_ranobes" />
 
 @code {
@@ -38,5 +38,19 @@
             var url = $"ranobe/ranobes/{id}?";
             return await ApiClientService.GetRanobeByIdAsync(url);
         });
+        List<String> _mediaName = new();
+        foreach (var media in _ranobes)
+        {
+            if (media.Russian != "")
+            {
+                _mediaName.Add(media.Russian);
+            }
+            else
+            {
+                _mediaName.Add(media.Name);
+            }
+            
+        }
+        JS.InvokeVoidAsync("startSpin", _mediaName);
     }
 }

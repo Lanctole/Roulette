@@ -15,7 +15,23 @@
 <body>
 <Routes @rendermode="RenderMode.InteractiveServer" />
 <AntContainer @rendermode="RenderMode.InteractiveServer" />
-    <script src="_framework/blazor.web.js"></script>
+<script src="_framework/blazor.web.js"></script>
+<script src="js/wheel.js"></script>
+<script src="js/Winwheel.min.js"></script>
+<script src="js/TweenMax.min.js"></script>
 </body>
 
 </html>
+
+<style>
+    body {
+    display: flex;
+    flex-direction: column;
+}
+@@media (max-width: 640.98px) {
+    body {
+        flex-direction: row;
+    }
+}
+    
+</style>

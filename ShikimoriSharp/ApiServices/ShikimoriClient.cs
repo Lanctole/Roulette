@@ -2,14 +2,13 @@
 using System.Net.Http;
 using ShikimoriSharp.Classes;
 using ShikimoriSharp.Information;
-// TODO: del Consts
+
 namespace ShikimoriSharp.ApiServices
 {
     public class ShikimoriClient
     {
         public ApiClient Client { get; }
         public Animes Animes { get; }
-        //public ConstantsAnimeManga Constants { get; }
         public Genres Genres { get; }
         public Mangas Mangas { get; }
         public Publishers Publishers { get; }
@@ -20,7 +19,6 @@ namespace ShikimoriSharp.ApiServices
         {
             Client = new ApiClient(settings,httpClient);
             Animes = new Animes(Client);
-            //Constants = new ConstantsAnimeManga(Client);
             Genres = new Genres(Client);
             Mangas = new Mangas(Client);
             Publishers = new Publishers(Client);

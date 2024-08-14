@@ -4,13 +4,13 @@
     <div class="sidebar">
         <NavMenu />
     </div>
-
-    <main>
-        <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
+    
+    <main style="">
+        <div id="topRow" class="top-row px-4 -bs-body-color: #212529;" style="">
+            
         </div>
 
-        <article class="content px-4">
+        <article  class="content px-4">
             @Body
         </article>
     </main>
@@ -21,3 +21,17 @@
     <a href="" class="reload">Reload</a>
     <a class="dismiss">🗙</a>
 </div>
+
+<style>
+    main {
+        background-color: #d7e0ff38;
+    }
+    #topRow{
+        background: linear-gradient(to right, black, #394187);
+    }
+@@media (max-width: 640.98px) {
+        #topRow {
+        display: none;
+    }
+}
+</style>

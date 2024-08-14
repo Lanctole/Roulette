@@ -1,5 +1,9 @@
 ﻿@using ShikimoriSharp.Bases
+@using Roulette.Services
+@using ShikimoriSharp.Bases
 @inject ApiClientService ApiClientService
+@inject NotificationService _notice
+
 
 @code {
 
@@ -12,13 +16,24 @@
     protected readonly string SelectedOrder = "random";
         protected readonly int Limit = 5;
         protected readonly int Page = 1;
-
+  
         protected void OnSelectedGenresChanged(List<string> selectedGenres)
         {
             SelectedGenres = selectedGenres;
         }
+    private async Task OnEmptyAnswer()
+    {
+        RenderFragment customIcon = @<Icon Type="meh" Theme="outline" Style="color:#FFC000;"></Icon>;
+        await _notice.Open(new NotificationConfig()
+        {
+            Message = "Проблем-ка!",
+            Description = "К сожалению, у нас нет контента удовлетворяющего вашим запросам. Попробуйте изменить хотелки",
+            Icon = customIcon
+        });
+    }
 
-        protected async Task<List<SmallRepresentation>> GetMediaItemsAsync(string endpoint, Func<long, Task<SmallRepresentation>> getDetailsFunc = null)
+    
+        protected async Task<List<SmallRepresentation>> GetMediaItemsAsync(string endpoint, Func<long, Task<SmallRepresentation>> getDetailsFunc )
         {
             try
             {
@@ -36,11 +51,13 @@
                           $"order={SelectedOrder}&" +
                           $"limit={Limit}&" +
                           $"page={Page}";
-
+                
                 var items = await ApiClientService.GetAsync<List<SmallRepresentation>>(url);
-
-                if (GetDetailedData && getDetailsFunc != null)
+                if (items == null || items.Count == 0)
                 {
+                    await OnEmptyAnswer();
+                }
+                 
                     var detailedItems = new List<SmallRepresentation>();
                     foreach (var item in items)
                     {
@@ -48,9 +65,7 @@
                         detailedItems.Add(detailedItem);
                     }
                     return detailedItems;
-                }
-
-                return items;
+                
             }
             catch (Exception ex)
             {
@@ -58,5 +73,6 @@
                 throw;
             }
         }
-    
+
+   
 }

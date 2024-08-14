@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 using Polly;
 using ShikimoriSharp.Bases;
 using ShikimoriSharp.Exceptions;
-
+//TODO возможно проблема с сокетами отсюда
 namespace ShikimoriSharp.ApiServices
 {
     public class RequestManager
@@ -58,11 +58,11 @@ namespace ShikimoriSharp.ApiServices
 
             _token = await _refresh(_token);
             throw new HttpRequestException($"{response.StatusCode}");
+
         }
 
         public async Task<string> ResponseExecutor(string dest, string method, HttpContent data)
         {
-            Console.WriteLine("Entering ResponseExecutor method.");
             var policy = Policy
                 .Handle<HttpRequestException>()
                 .OrResult<HttpResponseMessage>(r => r.StatusCode == HttpStatusCode.TooManyRequests)
@@ -72,47 +72,39 @@ namespace ShikimoriSharp.ApiServices
 
             try
             {
-                Console.WriteLine($"Response try: ");
                 response = await policy.ExecuteAsync(() => Response(dest, method, data));
-                Console.WriteLine($"Response received: {response.StatusCode}");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Exception during policy execution: {ex.Message}");
-                throw;
+
+                throw new Exception("An error occurred while response execution");
             }
 
             if (response == null)
             {
-                Console.WriteLine("Response is null after retries.");
                 throw new Exception("No response received after retries.");
             }
 
             switch (response.StatusCode)
             {
                 case HttpStatusCode.UnprocessableEntity:
-                    Console.WriteLine("Unprocessable Entity Error");
                     throw new UnprocessableEntityException();
                 case HttpStatusCode.Forbidden:
-                    Console.WriteLine("Forbidden Error");
                     throw new ForbiddenException();
             }
 
             if (!response.IsSuccessStatusCode)
             {
-                Console.WriteLine($"Unsuccessful request: {response.StatusCode} | {response.ReasonPhrase}");
                 throw new Exception($"Unsuccessful request: {response.StatusCode} | {response.ReasonPhrase}");
             }
 
             var content = await response.Content.ReadAsStringAsync();
-            Console.WriteLine("Response content successfully read.");
             return content;
         }
 
 
         public async Task<TResult> ResponseAsType<TResult>(string dest, string method, HttpContent data)
         {
-            Console.WriteLine("We in  public async Task<TResult> ResponseAsType<TResult>(string dest, string method, HttpContent data)");
             var response = await ResponseExecutor(dest, method, data);
             return JsonConvert.DeserializeObject<TResult>(response);
         }
