@@ -19,7 +19,7 @@ function createWheel(mediaName) {
     }));
 
     canvas = document.getElementById("rouletteCanvas");
-    clickedWhatId = document.getElementById("clickedWhatId");
+    clickedWhatId = document.getElementById("winnerId");
     canvasWidth = canvas.width;
     canvasHeight = canvas.height;
 
@@ -58,6 +58,7 @@ function createWheel(mediaName) {
             drawPointer();
             clickedWhatId.innerText = getIdByText(clickedSegment.text);
         }
+        signalizeAboutWinner(getIdByText(clickedSegment.text));
     };
 
     function resetSegmentColours() {
@@ -115,13 +116,34 @@ function getIdByText(text) {
     return formattedNamesToIdMap[text] || null;
 }
 
-function winAnimation(getIdByText) {
+let dotNetObjectRef;
+
+window.registerDotNetObject = function (dotNetObject) {
+    dotNetObjectRef = dotNetObject;
+};
+window.signalizeAboutWinner = async function (id) {
+    if (dotNetObjectRef) {
+        try {
+            const result = await dotNetObjectRef.invokeMethodAsync("ChangeID", id);
+        } catch (error) {
+            console.error('Error invoking .NET method:', error);
+        }
+    } else {
+        console.error('DotNetObjectReference is not set.');
+    }
+};
+
+
+async function winAnimation(getIdByText) {
     const winningSegmentNumber = theWheel.getIndicatedSegmentNumber();
     theWheel.segments[winningSegmentNumber].fillStyle = "yellow";
     theWheel.draw();
     drawPointer();
     const winningSegment = theWheel.getIndicatedSegment();
     clickedWhatId.innerText = getIdByText(winningSegment.text);
+    id = getIdByText(winningSegment.text);
+    var value = "C# Method called from JavaScript with parameter";
+    signalizeAboutWinner(id);
 }
 
 
