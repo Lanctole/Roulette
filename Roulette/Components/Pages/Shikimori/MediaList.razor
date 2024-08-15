@@ -1,8 +1,5 @@
 ﻿@page "/medialist"
-@using Roulette.Models
 @using ShikimoriSharp.Bases
-@using ShikimoriSharp.Classes
-@using System.Collections.Generic
 
 
 <h3>Список медиа</h3>
@@ -16,12 +13,13 @@ else
     <div class="media-list">
         @foreach (var mediaItem in MediaItems)
         {
-            <MediaComponent Item="mediaItem" />
+            <MediaComponent Item="mediaItem"/>
         }
     </div>
 }
 
 @code {
+
     [Parameter]
     public List<SmallRepresentation>? MediaItems { get; set; }
 
@@ -32,7 +30,5 @@ else
             MediaItems = new List<SmallRepresentation>();
         }
     }
+
 }
-
-
-

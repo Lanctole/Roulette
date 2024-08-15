@@ -1,24 +1,22 @@
-﻿@using Roulette.Models
-@using ShikimoriSharp.Bases
-@using Roulette.Services
+﻿@using ShikimoriSharp.Bases
 @using ShikimoriSharp.Classes
-@using System.Globalization
-@using System.Collections.Generic
+@using Roulette.Services
 @using System.Text.RegularExpressions
+@using System.Globalization
 @inject SettingsService SettingsService
 
 <div class="media-item">
-    <img src="@($"{BaseUrl}{Item.Image.Preview}")" alt="@Item.Name" />
+    <img src="@($"{BaseUrl}{Item.Image.Preview}")" alt="@Item.Name"/>
     <h4>@Item.Russian (@Item.Name)</h4>
 
-    @if(Item is AnimeMangaRanobeBase basis)
+    @if (Item is AnimeMangaRanobeBase basis)
     {
         var cultureInfo = new CultureInfo("en-US");
-        if (Decimal.TryParse(basis.Score, NumberStyles.Any, cultureInfo, out var score))
+        if (decimal.TryParse(basis.Score, NumberStyles.Any, cultureInfo, out var score))
         {
             scoreDecimal = Round(score / 2);
         }
-        <Rate Disabled AllowHalf="true" Value="@scoreDecimal" />
+        <Rate Disabled AllowHalf="true" Value="@scoreDecimal"/>
         <p>Оценка: @basis.Score</p>
         <p>Статус: @basis.Status</p>
         <p>Дата выхода: @basis.AiredOn?.ToString("yyyy-MM-dd")</p>
@@ -28,7 +26,7 @@
         <p>Описание: @CleanDescription(IdBasis.Description)</p>
         <p>Жанры: @string.Join(", ", IdBasis.Genres.Select(s => s.Russian))</p>
         <p>По-английски: @string.Join(", ", IdBasis.English.Select(s => s))</p>
-        <p>По-японски:  @string.Join(", ", IdBasis.Japanese.Select(s => s))</p>
+        <p>По-японски: @string.Join(", ", IdBasis.Japanese.Select(s => s))</p>
         <p>Другие названия: @string.Join(", ", IdBasis.Synonyms.Select(s => s))</p>
         if (Item is AnimeId animeId)
         {
@@ -37,7 +35,7 @@
             <p>Рейтинг: @animeId.Rating</p>
             <p>Студии: @string.Join(", ", animeId.Studios.Select(s => s.Name))</p>
         }
-        else if(Item is MangaRanobeId mangaRanobeId)
+        else if (Item is MangaRanobeId mangaRanobeId)
         {
             <p>Главы: @mangaRanobeId.Chapters</p>
             <p>Тома: @mangaRanobeId.Volumes</p>
@@ -73,11 +71,13 @@
 </div>
 
 @code {
+
     [Parameter]
     public SmallRepresentation? Item { get; set; }
+
     private string? BaseUrl;
     private decimal scoreDecimal;
-    
+
     protected override void OnInitialized()
     {
         BaseUrl = SettingsService.GetShikimoriSettings().BaseUrl;
@@ -87,15 +87,15 @@
     {
         if (string.IsNullOrWhiteSpace(input))
             return string.Empty;
-        string pattern = @"\[[^\]]*\]";
-        //string pattern = @"\[(anime|character|url|b|person)[^\]]*\]|\[/anime\]|\[/character\]|\[/url\]|\[/b\]";
+        var pattern = @"\[[^\]]*\]";
+    //string pattern = @"\[(anime|character|url|b|person)[^\]]*\]|\[/anime\]|\[/character\]|\[/url\]|\[/b\]";
         return Regex.Replace(input, pattern, string.Empty);
     }
 
     private static decimal Round(decimal value)
     {
-        decimal integralPart = Math.Floor(value);
-        decimal fractionalPart = value - integralPart;
+        var integralPart = Math.Floor(value);
+        var fractionalPart = value - integralPart;
 
         if (fractionalPart < 0.25m)
         {
@@ -107,8 +107,8 @@
         }
         return value;
     }
-}
 
+}
 
 
 <style>
@@ -124,4 +124,3 @@
             height: auto;
         }
 </style>
-

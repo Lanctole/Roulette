@@ -1,48 +1,44 @@
 ﻿@page "/anime"
-@inherits ShikimoriComponent
 @using ShikimoriSharp.Bases
-@using Genres = Roulette.Components.Pages.Shikimori.Genres
-@using Studios = Roulette.Components.Pages.Shikimori.Studios
-@using MediaList = Roulette.Components.Pages.Shikimori.MediaList
 @using Roulette.Services
-@inject IJSRuntime JS
+@inherits ShikimoriComponent
 @inject ApiClientService ApiClientService
 
 <PageTitle>Anime</PageTitle>
 
 <Row Gutter="16">
     <Col Xs="24" Sm="12" Md="8">
-    <Genres SelectedGenresChanged="OnSelectedGenresChanged" />
+        <Genres SelectedGenresChanged="OnSelectedGenresChanged"/>
     </Col>
     <Col Xs="24" Sm="12" Md="8">
-    <MinimalScoreComponent @bind-SelectedScore="SelectedScore"  />
+        <MinimalScoreComponent @bind-SelectedScore="SelectedScore"/>
     </Col>
     <Col Xs="24" Sm="12" Md="8">
-    <RatingComponent @bind-SelectedValue="_selectedRating" />
+        <RatingComponent @bind-SelectedValue="_selectedRating"/>
     </Col>
 </Row>
 <Divider Orientation="left"></Divider>
 
 <Row Gutter="16">
     <Col Xs="24" Sm="12" Md="8">
-    <DurationComponent @bind-SelectedValue="_selectedDuration" />
+        <DurationComponent @bind-SelectedValue="_selectedDuration"/>
     </Col>
     <Col Xs="24" Sm="12" Md="8">
-    <Studios SelectedStudiosChanged="OnSelectedStudiosChanged" />
+        <Studios SelectedStudiosChanged="OnSelectedStudiosChanged"/>
     </Col>
     <Col Xs="24" Sm="12" Md="8">
-    <SelectKindComponent @bind-SelectedValue="_selectedKind" />
+        <SelectKindComponent @bind-SelectedValue="_selectedKind"/>
     </Col>
 </Row>
 <Divider Orientation="left"></Divider>
 
-<YearSelectionComponent @bind-selectedFromYear="SelectedFromYear" @bind-selectedToYear="SelectedToYear" />
+<YearSelectionComponent @bind-selectedFromYear="SelectedFromYear" @bind-selectedToYear="SelectedToYear"/>
 <p>Временной период: с @SelectedFromYear до @SelectedToYear</p>
 
-<Button OnClick="SendSelected">Roll!</Button> 
+<Button OnClick="SendSelected">Roll!</Button>
 
-<WheelComponent />
-<MediaList MediaItems="_animes" />
+<WheelComponent/>
+<MediaList MediaItems="_animes"/>
 
 @code {
     private string? _selectedRating;
@@ -58,31 +54,18 @@
 
     private async Task SendSelected()
     {
-        string studios = string.Join(",", _selectedStudios);
-        var aniUrl = 
-                  $"rating={_selectedRating}&" +
-                  $"kind={_selectedKind}&" +
-                  $"studio={studios}&" +
-                  $"duration={_selectedDuration}&";
-       
-        _animes = await GetMediaItemsAsync($"anime/animes?{aniUrl}", async (id) =>
+        var studios = string.Join(",", _selectedStudios);
+        var aniUrl =
+            $"rating={_selectedRating}&" +
+            $"kind={_selectedKind}&" +
+            $"studio={studios}&" +
+            $"duration={_selectedDuration}&";
+
+        _animes = await GetMediaItemsAsync($"anime/animes?{aniUrl}", async id =>
         {
             var url = $"anime/animes/{id}?{aniUrl}";
             return await ApiClientService.GetAnimeByIdAsync(url);
         });
-        List<String> _mediaName = new();
-        foreach (var media in _animes)
-        {
-            if (media.Russian != "")
-            {
-                _mediaName.Add(media.Russian);
-            }
-                else
-            {
-                _mediaName.Add(media.Name);
-            }
-            
-        }
-        JS.InvokeVoidAsync("startSpin", _mediaName);
     }
+
 }
