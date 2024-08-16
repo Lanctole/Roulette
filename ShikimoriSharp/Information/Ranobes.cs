@@ -1,6 +1,8 @@
 ﻿using Microsoft.Extensions.Logging;
+using ShikimoriSharp.ApiServices;
 using ShikimoriSharp.Bases;
 using ShikimoriSharp.Classes;
+using ShikimoriSharp.Enums;
 using ShikimoriSharp.Settings;
 using System.Threading.Tasks;
 

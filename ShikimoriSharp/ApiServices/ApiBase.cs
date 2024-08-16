@@ -1,18 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Reflection;
-using System.Text;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
-using ShikimoriSharp.Exceptions;
+using ShikimoriSharp.Bases;
+using Version = ShikimoriSharp.Enums.Version;
 
-namespace ShikimoriSharp.Bases
+namespace ShikimoriSharp.ApiServices
 {
     public abstract class ApiBase
     {
         private readonly ApiClient _apiClient;
+        private readonly string _baseUrl;
 
         protected ApiBase(Version version, ApiClient apiClient)
         {
@@ -21,7 +19,7 @@ namespace ShikimoriSharp.Bases
         }
 
         public Version Version { get; }
-        private string Site => $"https://shikimori.me/api/{GetApiVersionPath()}";
+        private string Site => new Uri(_apiClient._httpClient.BaseAddress, $"api/{GetApiVersionPath()}").ToString();
 
         private string GetApiVersionPath()
         {
@@ -32,9 +30,8 @@ namespace ShikimoriSharp.Bases
             };
         }
 
-        private static HttpContent SerializeToHttpContent<T>(T obj)
+        private static MultipartFormDataContent SerializeToHttpContent<T>(T obj)
         {
-            Console.WriteLine("We in private static HttpContent SerializeToHttpContent<T>(T obj)");
             if (obj is null) return null;
             var fields = obj.GetType().GetFields(BindingFlags.Public | BindingFlags.Instance);
 
@@ -49,46 +46,21 @@ namespace ShikimoriSharp.Bases
                     bool boolValue => new StringContent(boolValue ? "true" : "false"),
                     _ => new StringContent(value.ToString())
                 };
-
                 content.Add(stringContent, field.Name);
             }
-
             return content;
         }
 
         public async Task<TResult> RequestAsync<TResult, TSettings>(string apiMethod, TSettings settings,
             AccessToken token = null, string method = "GET")
         {
-            try
-            {
-                Console.WriteLine("We in public async Task<TResult> RequestAsync<TResult, TSettings>");
-                var settingsContent = SerializeToHttpContent(settings);
+            var settingsContent = SerializeToHttpContent(settings);
                 return await _apiClient.RequestForm<TResult>($"{Site}{apiMethod}", settingsContent, token, method);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error during RequestAsync for {apiMethod}: {ex.Message}");
-                throw;
-            }
         }
 
         public async Task<TResult> RequestAsync<TResult>(string apiMethod, AccessToken token = null, string method = "GET")
         {
-            try
-            {
-                return await _apiClient.RequestForm<TResult>($"{Site}{apiMethod}", token);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error during RequestAsync for {apiMethod}: {ex.Message}");
-                throw;
-            }
+            return await _apiClient.RequestForm<TResult>($"{Site}{apiMethod}", token);
         }
-    }
-
-    public enum Version
-    {
-        v1,
-        v2
     }
 }

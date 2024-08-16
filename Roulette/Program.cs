@@ -17,6 +17,11 @@ namespace Roulette
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            
+            builder.Services.AddServerSideBlazor().AddCircuitOptions(options =>
+            {
+                options.DetailedErrors = true;
+            });
 
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -42,9 +47,20 @@ namespace Roulette
             builder.Services.AddAntDesign();
 
             builder.Services.AddMemoryCache();
+            builder.Services.AddHttpClient();
+
+            builder.Services.AddHttpClient<ShikimoriApiConnectorService>(client =>
+            {
+                string baseUrl = builder.Configuration.GetSection("Shikimori")["BaseUrl"];
+                client.BaseAddress = new Uri(baseUrl);
+                client.DefaultRequestHeaders.Add("Accept", "application/json");
+            }).SetHandlerLifetime(TimeSpan.FromMinutes(1)).ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
+            {
+                ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true
+            });//TODO настроить сертификаты
             builder.Services.AddSingleton <ShikimoriApiConnectorService> ();
             builder.Services.AddScoped<ShikiDataService>();
-            builder.Services.AddHttpClient();
+            
            
             builder.Services.AddHttpClient<ApiClientService>(client =>
             {
@@ -53,8 +69,7 @@ namespace Roulette
             }).ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
             {
                 ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true
-            });
-
+            }).SetHandlerLifetime(TimeSpan.FromMinutes(1));
             builder.Services.AddSingleton<ApiClientService>();
             builder.Services.AddSingleton<SettingsService>();
            
@@ -69,7 +84,8 @@ namespace Roulette
                 {
                     options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
                 });
-
+            
+            
 
             var app = builder.Build();
             if (app.Environment.IsDevelopment())

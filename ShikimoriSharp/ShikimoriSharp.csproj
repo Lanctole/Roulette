@@ -16,9 +16,11 @@
         <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
         <PackageReference Include="NUnit" Version="4.1.0" />
         <PackageReference Include="Polly" Version="7.2.4" />
+        <PackageReference Include="System.Threading.RateLimiting" Version="8.0.0" />
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="Classes\Constants\" />
       <Folder Include="Properties\" />
     </ItemGroup>
 

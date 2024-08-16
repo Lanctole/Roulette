@@ -1,83 +1,151 @@
-﻿@using Roulette.Models
-@using ShikimoriSharp.Bases
-@using Roulette.Services
+﻿@using ShikimoriSharp.Bases
 @using ShikimoriSharp.Classes
-@using System.Globalization
-@using System.Collections.Generic
+@using Roulette.Services
 @using System.Text.RegularExpressions
+@using System.Globalization
 @inject SettingsService SettingsService
 
 <div class="media-item">
-    <img src="@($"{BaseUrl}{Item.Image.Preview}")" alt="@Item.Name" />
-    <h4>@Item.Russian (@Item.Name)</h4>
+    <div class="row">
+        <div class="col-md-4">
+            <img src="@($"{BaseUrl}{Item.Image.Original}")" alt="@Item.Name" class="img-fluid"/>
+        </div>
+        <div class="col-md-8">
+            <h4>
+                @Item.Russian <Divider Type="DirectionVHType.Vertical" Style="border-left: 1px solid rgb(1 1 1);"/> @Item.Name
+            </h4>
 
-    @if(Item is AnimeMangaRanobeBase basis)
+            @if (Item is AnimeMangaRanobeBase basis)
+            {
+                CalculateScore(basis);
+                <Rate Disabled AllowHalf="true" Value="@scoreDecimal" class="rate"/>
+                <div class="line-container">
+                    <div class="line">
+                        <div class="key">Рейтинг:</div>
+                        <div class="value">@basis.Score</div>
+                    </div>
+                </div>
+
+                <div class="line-container">
+                    <div class="line">
+                        <div class="key">Статус:</div>
+                        <div class="value">@basis.Status</div>
+                    </div>
+                </div>
+
+                <div class="line-container">
+                    <div class="line">
+                        <div class="key">Дата выхода:</div>
+                        <div class="value">@basis.AiredOn?.ToString("yyyy-MM-dd")</div>
+                    </div>
+                </div>
+            }
+            @if (Item is AnimeMangaRanobeIdBase IdBasis)
+            {
+                <div class="line-container">
+                    <div class="line">
+                        <div class="key">Жанры:</div>
+                        <div class="value">@string.Join(", ", IdBasis.Genres.Select(s => s.Russian))</div>
+                    </div>
+                </div>
+
+                <div class="line-container">
+                    <div class="line">
+                        <div class="key">По-английски:</div>
+                        <div class="value">@string.Join(", ", IdBasis.English.Select(s => s))</div>
+                    </div>
+                </div>
+
+                <div class="line-container">
+                    <div class="line">
+                        <div class="key">По-японски:</div>
+                        <div class="value">@string.Join(", ", IdBasis.Japanese.Select(s => s))</div>
+                    </div>
+                </div>
+
+                <div class="line-container">
+                    <div class="line">
+                        <div class="key">Другие названия:</div>
+                        <div class="value">@string.Join(", ", IdBasis.Synonyms.Select(s => s))</div>
+                    </div>
+                </div>
+
+                @if (Item is AnimeId animeId)
+                {
+                    <div class="line-container">
+                        <div class="line">
+                            <div class="key">Длительность эпизода:</div>
+                            <div class="value">@animeId.Duration минут</div>
+                        </div>
+                    </div>
+
+                    <div class="line-container">
+                        <div class="line">
+                            <div class="key">Эпизоды:</div>
+                            <div class="value">@animeId.Episodes</div>
+                        </div>
+                    </div>
+
+                    <div class="line-container">
+                        <div class="line">
+                            <div class="key">Рейтинг:</div>
+                            <div class="value">@animeId.Rating</div>
+                        </div>
+                    </div>
+
+                    <div class="line-container">
+                        <div class="line">
+                            <div class="key">Студии:</div>
+                            <div class="value">@string.Join(", ", animeId.Studios.Select(s => s.Name))</div>
+                        </div>
+                    </div>
+                }
+                else if (Item is MangaRanobeId mangaRanobeId)
+                {
+                    <div class="line-container">
+                        <div class="line">
+                            <div class="key">Главы:</div>
+                            <div class="value">@mangaRanobeId.Chapters</div>
+                        </div>
+                    </div>
+
+                    <div class="line-container">
+                        <div class="line">
+                            <div class="key">Тома:</div>
+                            <div class="value">@mangaRanobeId.Volumes</div>
+                        </div>
+                    </div>
+
+                    <div class="line-container">
+                        <div class="line">
+                            <div class="key">Издатели:</div>
+                            <div class="value">@string.Join(", ", mangaRanobeId.Publishers.Select(p => p.Name))</div>
+                        </div>
+                    </div>
+                }
+            }
+            <br>
+
+        </div>
+    </div>
+    @if (Item is AnimeMangaRanobeIdBase IdBase)
     {
-        var cultureInfo = new CultureInfo("en-US");
-        if (Decimal.TryParse(basis.Score, NumberStyles.Any, cultureInfo, out var score))
-        {
-            scoreDecimal = Round(score / 2);
-        }
-        <Rate Disabled AllowHalf="true" Value="@scoreDecimal" />
-        <p>Оценка: @basis.Score</p>
-        <p>Статус: @basis.Status</p>
-        <p>Дата выхода: @basis.AiredOn?.ToString("yyyy-MM-dd")</p>
-    }
-    @if (Item is AnimeMangaRanobeIdBase IdBasis)
-    {
-        <p>Описание: @CleanDescription(IdBasis.Description)</p>
-        <p>Жанры: @string.Join(", ", IdBasis.Genres.Select(s => s.Russian))</p>
-        <p>По-английски: @string.Join(", ", IdBasis.English.Select(s => s))</p>
-        <p>По-японски:  @string.Join(", ", IdBasis.Japanese.Select(s => s))</p>
-        <p>Другие названия: @string.Join(", ", IdBasis.Synonyms.Select(s => s))</p>
-        if (Item is AnimeId animeId)
-        {
-            <p>Длительность эпизода: @animeId.Duration минут</p>
-            <p>Эпизоды: @animeId.Episodes</p>
-            <p>Рейтинг: @animeId.Rating</p>
-            <p>Студии: @string.Join(", ", animeId.Studios.Select(s => s.Name))</p>
-        }
-        else if(Item is MangaRanobeId mangaRanobeId)
-        {
-            <p>Главы: @mangaRanobeId.Chapters</p>
-            <p>Тома: @mangaRanobeId.Volumes</p>
-            <p>Издатели: @string.Join(", ", mangaRanobeId.Publishers.Select(p => p.Name))</p>
-        }
-    }
-    else if (Item is Anime anime)
-    {
-        <p>Эпизоды: @anime.Episodes</p>
-    }
-    else if (Item is Manga manga)
-    {
-        <p>Тома: @manga.Volumes</p>
-        <p>Главы: @manga.Chapters</p>
-    }
-    else if (Item is Ranobe ranobe)
-    {
-        <p>Тома: @ranobe.Volumes</p>
-        <p>Главы: @ranobe.Chapters</p>
-    }
-    else if (Item is AnimeId animeId)
-    {
-        <p>Эпизоды: @animeId.Episodes</p>
-        <p>Эпизоды (вышедшие): @animeId.EpisodesAired</p>
-        <p>Рейтинг: @animeId.Rating</p>
-        <p>Продолжительность: @animeId.Duration</p>
-        <p>Обновлено: @animeId.UpdatedAt?.ToString("yyyy-MM-dd")</p>
-        <p>Следующий эпизод: @animeId.NextEpisodeAt?.ToString("yyyy-MM-dd")</p>
-        <p>Студии: @string.Join(", ", animeId.Studios.Select(s => s.Name))</p>
+        <div class="key">Описание:</div>
+        <div class="description">@CleanDescription(IdBase.Description)</div>
+        <br/>
+        <a href="@($"{BaseUrl}{Item.Url}")" target="_blank" class="btn-primary">Подробнее</a>
     }
 
-    <a href="@($"{BaseUrl}{Item.Url}")" target="_blank">Подробнее</a>
 </div>
 
 @code {
+
     [Parameter]
     public SmallRepresentation? Item { get; set; }
+
     private string? BaseUrl;
     private decimal scoreDecimal;
-    
+
     protected override void OnInitialized()
     {
         BaseUrl = SettingsService.GetShikimoriSettings().BaseUrl;
@@ -87,14 +155,23 @@
     {
         if (string.IsNullOrWhiteSpace(input))
             return string.Empty;
-        string pattern = @"\[(anime|character|url|b)[^\]]*\]|\[/anime\]|\[/character\]|\[/url\]|\[/b\]";
+        var pattern = @"\[[^\]]*\]";
         return Regex.Replace(input, pattern, string.Empty);
+    }
+
+    private void CalculateScore(AnimeMangaRanobeBase basis)
+    {
+        var cultureInfo = new CultureInfo("en-US");
+        if (decimal.TryParse(basis.Score, NumberStyles.Any, cultureInfo, out var score))
+        {
+            scoreDecimal = Round(score / 2);
+        }
     }
 
     private static decimal Round(decimal value)
     {
-        decimal integralPart = Math.Floor(value);
-        decimal fractionalPart = value - integralPart;
+        var integralPart = Math.Floor(value);
+        var fractionalPart = value - integralPart;
 
         if (fractionalPart < 0.25m)
         {
@@ -106,21 +183,63 @@
         }
         return value;
     }
+
 }
-
-
 
 <style>
     .media-item {
-        border: 1px solid #ccc;
-        padding: 10px;
+        background-color: #e6f7ff;
+        border: 3px solid #6b61c3b0;
+        /* padding: 2px; */
         margin: 10px;
-        border-radius: 5px;
+        /* border-radius: 10px; */
     }
 
         .media-item img {
-            width: 180px;
+            width: 500px;
             height: auto;
         }
-</style>
 
+    h4{
+        margin: 0px;
+        }
+    .line-container {
+       /*  margin-bottom: 4px;  */
+    }
+
+    .key {
+        font-weight: bold; 
+        margin-right: 1px; 
+        color: #3193e1;
+        display: inline;
+    }
+
+    .value {
+        color: #123;
+        display: inline;
+    }
+
+    .btn-primary {
+        display: inline-block;
+        padding: 5px 10px;
+        margin: 1px;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        color: #fff;
+        background-color: #3193e1;
+        border: 1px solid #007bff;
+        border-radius: 4px;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+        .description{
+        margin: 1px;
+        }
+
+</style>

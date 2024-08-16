@@ -1,27 +1,30 @@
 ﻿@page "/medialist"
-@using Roulette.Models
 @using ShikimoriSharp.Bases
-@using ShikimoriSharp.Classes
-@using System.Collections.Generic
+@inject IJSRuntime JS
 
-<h3>Список медиа</h3>
-@if (MediaItems!.Count == 0)
+@if (MediaItems!.Count != 0)
 {
-    <p>Нет данных для отображения.</p>
-}
-else
-{
-    <div class="media-list">
-        @foreach (var mediaItem in MediaItems)
+    @foreach (var mediaItem in MediaItems)
+    {
+        @if (mediaItem.Id == SelectedID)
         {
-            <MediaComponent Item="mediaItem" />
+            <MediaComponent Item="mediaItem"/>
         }
-    </div>
+    }
 }
+
+<style>
+
+</style>
 
 @code {
+
     [Parameter]
     public List<SmallRepresentation>? MediaItems { get; set; }
+
+    private DotNetObjectReference<MediaList>? dotNetObjectRef;
+    private long SelectedID { get; set; }
+    private bool _isShown = false;
 
     protected override void OnInitialized()
     {
@@ -29,8 +32,21 @@ else
         {
             MediaItems = new List<SmallRepresentation>();
         }
+        dotNetObjectRef = DotNetObjectReference.Create(this);
+        JS.InvokeVoidAsync("registerDotNetObject", dotNetObjectRef);
     }
+
+    [JSInvokable]
+    public async Task<string> ChangeID(int input)
+    {
+        SelectedID = input;
+        StateHasChanged();
+        return await Task.FromResult(input.ToString());
+    }
+
+    public void Dispose()
+    {
+        dotNetObjectRef?.Dispose();
+    }
+
 }
-
-
-

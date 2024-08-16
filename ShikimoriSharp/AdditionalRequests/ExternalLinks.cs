@@ -1,6 +1,6 @@
 ﻿using System;
 using Newtonsoft.Json;
-
+// TODO: удалить
 namespace ShikimoriSharp.AdditionalRequests
 {
     public class ExternalLinks

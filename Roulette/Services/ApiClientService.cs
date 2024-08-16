@@ -2,73 +2,75 @@
 using System.Text.Json;
 using Roulette.Models.Shiki;
 
-public class ApiClientService
+namespace Roulette.Services
 {
-    private readonly IHttpClientFactory _httpClientFactory;
-
-    public ApiClientService(IHttpClientFactory httpClientFactory)
+    public class ApiClientService
     {
-        _httpClientFactory = httpClientFactory ?? throw new ArgumentNullException(nameof(httpClientFactory));
-    }
+        private readonly IHttpClientFactory _httpClientFactory;
 
-    private static readonly JsonSerializerOptions s_readOptions = new()
-    {
-        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-        PropertyNameCaseInsensitive = true
-    };
-
-    public async Task<T> GetAsync<T>(string endpoint)
-    {
-        try
+        public ApiClientService(IHttpClientFactory httpClientFactory)
         {
-            var httpClient = _httpClientFactory.CreateClient(nameof(ApiClientService));
-            Console.WriteLine("We in GetAsync");
-            var response = await httpClient.GetAsync(endpoint);
-            response.EnsureSuccessStatusCode();
-            var content = await response.Content.ReadAsStringAsync();
-            return JsonSerializer.Deserialize<T>(content, s_readOptions);
+            _httpClientFactory = httpClientFactory ?? throw new ArgumentNullException(nameof(httpClientFactory));
         }
-        catch (HttpRequestException e)
+
+        private static readonly JsonSerializerOptions s_readOptions = new()
         {
-            Console.WriteLine($"HttpRequestException in GetAsync: {e.Message}");
-            throw new Exception($"Request to {endpoint} failed: {e.Message}", e);
-        }
-        catch (JsonException e)
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+            PropertyNameCaseInsensitive = true
+        };
+
+        public async Task<T> GetAsync<T>(string endpoint)
         {
-            Console.WriteLine($"JsonException in GetAsync: {e.Message}");
-            throw new Exception($"Deserialization of response from {endpoint} failed: {e.Message}", e);
+            try
+            {
+                var httpClient = _httpClientFactory.CreateClient(nameof(ApiClientService));
+
+                using (var response = await httpClient.GetAsync(endpoint))
+                {
+                    response.EnsureSuccessStatusCode();
+                    var content = await response.Content.ReadAsStringAsync();
+                    return JsonSerializer.Deserialize<T>(content, s_readOptions);
+                }
+            }
+            catch (HttpRequestException e)
+            {
+                throw new Exception($"Request to {endpoint} failed: {e.Message}", e);
+            }
+            catch (JsonException e)
+            {
+                throw new Exception($"Deserialization of response from {endpoint} failed: {e.Message}", e);
+            }
         }
-    }
 
-    public async Task<List<Studio>> GetStudiosAsync()
-    {
-        return await GetAsync<List<Studio>>("anime/studios");
-    }
+        public async Task<List<Studio>> GetStudiosAsync()
+        {
+            return await GetAsync<List<Studio>>("anime/studios");
+        }
 
-    public async Task<List<GenreModel>> GetGenresAsync()
-    {
-        return await GetAsync<List<GenreModel>>("anime/genres");
-    } 
+        public async Task<List<GenreModel>> GetGenresAsync()
+        {
+            return await GetAsync<List<GenreModel>>("anime/genres");
+        }
 
 
-    public async Task<MangaRanobeId> GetMangaByIdAsync(string url) //-V3013
-    {
-        return await GetAsync<MangaRanobeId>(url);
-    }
+        public async Task<MangaRanobeId> GetMangaByIdAsync(string url) //-V3013
+        {
+            return await GetAsync<MangaRanobeId>(url);
+        }
 
-    public async Task<MangaRanobeId> GetRanobeByIdAsync(string url)
-    {
-        return await GetAsync<MangaRanobeId>(url);
-    }
+        public async Task<MangaRanobeId> GetRanobeByIdAsync(string url)
+        {
+            return await GetAsync<MangaRanobeId>(url);
+        }
 
-    public async Task<AnimeId> GetAnimeByIdAsync(string url)
-    {
-        Console.WriteLine("public async Task<List<DetailedAnime>> GetAnimeByIdAsync(string url)");
-        return await GetAsync<AnimeId>(url);
-    }
+        public async Task<AnimeId> GetAnimeByIdAsync(string url)
+        {
+            return await GetAsync<AnimeId>(url);
+        }
 
-    public async Task<List<Publisher>> GetPublishersAsync()
-    {
-        return await GetAsync<List<Publisher>>("manga/publishers");
+        public async Task<List<Publisher>> GetPublishersAsync()
+        {
+            return await GetAsync<List<Publisher>>("manga/publishers");
+        }
     }
 }

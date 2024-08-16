@@ -1,62 +1,87 @@
 ﻿@using ShikimoriSharp.Bases
+@using Roulette.Services
 @inject ApiClientService ApiClientService
+@inject NotificationService _notice
+@inject IJSRuntime JS
 
 @code {
-
-        protected string? SelectedScore;
-        protected string? SelectedFromYear;
-        protected string? SelectedToYear;
-        protected string? Season;
-        protected bool GetDetailedData;
-        protected List<string> SelectedGenres = new();
+    protected string? SelectedScore;
+    protected string? SelectedFromYear;
+    protected string? SelectedToYear;
+    protected string? Season;
+    protected bool GetDetailedData;
+    protected List<string> SelectedGenres = new();
     protected readonly string SelectedOrder = "random";
-        protected readonly int Limit = 5;
-        protected readonly int Page = 1;
+    protected readonly int Limit = 5;
+    protected readonly int Page = 1;
 
-        protected void OnSelectedGenresChanged(List<string> selectedGenres)
+    protected void OnSelectedGenresChanged(List<string> selectedGenres)
+    {
+        SelectedGenres = selectedGenres;
+    }
+
+    private async Task OnEmptyAnswer()
+    {
+        RenderFragment customIcon = @<Icon Type="meh" Theme="outline" Style="color:#FFC000;"></Icon>;
+        await _notice.Open(new NotificationConfig
         {
-            SelectedGenres = selectedGenres;
-        }
+            Message = "Проблем-ка!",
+            Description = "К сожалению, у нас нет контента удовлетворяющего вашим запросам. Попробуйте изменить хотелки",
+            Icon = customIcon
+        });
+    }
 
-        protected async Task<List<SmallRepresentation>> GetMediaItemsAsync(string endpoint, Func<long, Task<SmallRepresentation>> getDetailsFunc = null)
+
+    protected async Task<List<SmallRepresentation>> GetMediaItemsAsync(string endpoint, Func<long, Task<SmallRepresentation>> getDetailsFunc)
+    {
+        try
         {
-            try
+            Season = $"{SelectedFromYear}";
+            if (!string.IsNullOrEmpty(SelectedToYear))
             {
-                Season = $"{SelectedFromYear}";
-                if (!string.IsNullOrEmpty(SelectedToYear))
-                {
-                    Season += $"_{SelectedToYear}";
-                }
-                string genres = string.Join(",", SelectedGenres);
-
-                var url = $"{endpoint}" +
-                          $"score={SelectedScore}&" +
-                          $"season={Season}&" +
-                          $"genre={genres}&" +
-                          $"order={SelectedOrder}&" +
-                          $"limit={Limit}&" +
-                          $"page={Page}";
-
-                var items = await ApiClientService.GetAsync<List<SmallRepresentation>>(url);
-
-                if (GetDetailedData && getDetailsFunc != null)
-                {
-                    var detailedItems = new List<SmallRepresentation>();
-                    foreach (var item in items)
-                    {
-                        var detailedItem = await getDetailsFunc(item.Id);
-                        detailedItems.Add(detailedItem);
-                    }
-                    return detailedItems;
-                }
-
-                return items;
+                Season += $"_{SelectedToYear}";
             }
-            catch (Exception ex)
+            var genres = string.Join(",", SelectedGenres);
+
+            var url = $"{endpoint}" +
+                      $"score={SelectedScore}&" +
+                      $"season={Season}&" +
+                      $"genre={genres}&" +
+                      $"order={SelectedOrder}&" +
+                      $"limit={Limit}&" +
+                      $"page={Page}";
+
+            var items = await ApiClientService.GetAsync<List<SmallRepresentation>>(url);
+            if (items == null || items.Count == 0)
             {
-                Console.WriteLine($"Error in GetMediaItemsAsync: {ex.Message}");
-                throw;
+                await OnEmptyAnswer();
             }
+
+            var detailedItems = new List<SmallRepresentation>();
+            foreach (var item in items)
+            {
+                var detailedItem = await getDetailsFunc(item.Id);
+                detailedItems.Add(detailedItem);
+            }
+            TransferMediaPropsToSpinFunc(detailedItems);
+            return detailedItems;
         }
-    
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error in GetMediaItemsAsync: {ex.Message}");
+            throw;
+        }
+    }
+
+    private void TransferMediaPropsToSpinFunc(List<SmallRepresentation> detailedItems)
+    {
+        Dictionary<long, string> mediaName = new();
+        foreach (var media in detailedItems)
+        {
+            mediaName.Add(media.Id, media.Russian != "" ? media.Russian : media.Name);
+        }
+        JS.InvokeVoidAsync("startSpin", mediaName);
+    }
+
+   
 }

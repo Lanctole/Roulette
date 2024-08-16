@@ -1,7 +1,12 @@
-﻿namespace ShikimoriSharp.Bases
+﻿namespace ShikimoriSharp.ApiServices
 {
     public class ClientSettings
     {
+        public string ClientName { get; }
+        public string ClientId { get; }
+        public string ClientSecret { get; }
+        public string RedirectUrl { get; }
+
         public ClientSettings(string clientName, string clientId, string clientSecret,
             string redirectUrl = @"urn:ietf:wg:oauth:2.0:oob")
         {
@@ -10,10 +15,5 @@
             ClientSecret = clientSecret;
             RedirectUrl = redirectUrl;
         }
-
-        public string ClientName { get; }
-        public string ClientId { get; }
-        public string ClientSecret { get; }
-        public string RedirectUrl { get; }
     }
 }

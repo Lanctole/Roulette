@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
-using ShikimoriSharp;
+using ShikimoriSharp.ApiServices;
 using ShikimoriSharp.Bases;
 using ShikimoriSharp.Classes;
 using ShikimoriSharp.Settings;
@@ -13,9 +14,13 @@ namespace Roulette.Services
     {
         private readonly ShikimoriClient _client;
         private readonly IMemoryCache _cache;
+        private readonly IHttpClientFactory _httpClientFactory;
 
-        public ShikimoriApiConnectorService(IConfiguration configuration, IMemoryCache cache)
+        public ShikimoriApiConnectorService(IConfiguration configuration, IMemoryCache cache, IHttpClientFactory httpClientFactory)
         {
+            _httpClientFactory = httpClientFactory ?? throw new ArgumentNullException(nameof(httpClientFactory));
+            var httpClient = _httpClientFactory.CreateClient(nameof(ShikimoriApiConnectorService));
+
             var authConfig = configuration.GetSection("Auth");
 
             var scope = authConfig["Scope"];
@@ -26,7 +31,7 @@ namespace Roulette.Services
             var clientSecret = authConfig["ClientSecret"];
             var userId = authConfig["UserId"];
 
-            _client = new ShikimoriClient(new ClientSettings(name, clientId, clientSecret));
+            _client = new ShikimoriClient(new ClientSettings(name, clientId, clientSecret), httpClient);
             _cache = cache;
 
             Console.WriteLine("ShikimoriApiConnectorService initialized");

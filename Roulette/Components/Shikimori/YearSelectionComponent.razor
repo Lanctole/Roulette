@@ -1,5 +1,5 @@
-﻿<Title Level="4">Временной период:</Title>
-
+﻿<Text>Временной период:</Text>
+<br />
 <Cascader Placeholder="От" @bind-Value="selectedFromYear" Options="@options" OnChange="HandleFromYearChange"></Cascader>
 <Divider Type="DirectionVHType.Vertical" />
 <Cascader Placeholder="До" @bind-Value="selectedToYear" Options="@filteredOptions" OnChange="HandleToYearChange" Disabled="!isSecondCascaderEnabled"></Cascader>

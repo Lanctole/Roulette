@@ -1,10 +1,9 @@
-﻿using System;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
 using Timer = System.Timers.Timer;
 
-namespace ShikimoriSharp.Bases
+namespace ShikimoriSharp.ApiServices
 {
     public class TokenBucket
     {

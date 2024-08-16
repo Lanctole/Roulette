@@ -1,19 +1,18 @@
 ﻿@page "/manga"
-@inherits ShikimoriComponent
 @using ShikimoriSharp.Bases
-@using Genres = Roulette.Components.Pages.Shikimori.Genres
-@using Publishers = Roulette.Components.Pages.Shikimori.Publishers
-@using MediaList = Roulette.Components.Pages.Shikimori.MediaList
+@using Roulette.Services
+@inherits ShikimoriComponent
 @inject ApiClientService ApiClientService
+
 
 <PageTitle>Manga</PageTitle>
 
 <Row Gutter="16">
     <Col Xs="24" Sm="12" Md="8">
-    <Genres IsAnime="false" SelectedGenresChanged="OnSelectedGenresChanged" />
+        <Genres IsAnime="false" SelectedGenresChanged="OnSelectedGenresChanged"/>
     </Col>
     <Col Xs="24" Sm="12" Md="8">
-    <MinimalScoreComponent @bind-SelectedScore="SelectedScore" />
+        <MinimalScoreComponent @bind-SelectedScore="SelectedScore"/>
     </Col>
 
 </Row>
@@ -22,24 +21,32 @@
 <Row Gutter="16">
 
     <Col Xs="24" Sm="12" Md="8">
-    <Publishers SelectedPublishersChanged="OnSelectedPublishersChanged" />
+        <Publishers SelectedPublishersChanged="OnSelectedPublishersChanged"/>
     </Col>
     <Col Xs="24" Sm="12" Md="8">
-    <SelectKindComponent IsAnime="false" @bind-SelectedValue="_selectedKind" />
+        <SelectKindComponent IsAnime="false" @bind-SelectedValue="_selectedKind"/>
     </Col>
 </Row>
 <Divider Orientation="left"></Divider>
 
-<YearSelectionComponent @bind-selectedFromYear="SelectedFromYear" @bind-selectedToYear="SelectedToYear" />
+<div class="date-container">
+    <div class="item">
+        <YearSelectionComponent @bind-selectedFromYear="SelectedFromYear" @bind-selectedToYear="SelectedToYear"/>
+    </div>
+    <div class="item">
+        <Button OnClick="SendSelected">Roll!</Button>
+    </div>
+</div>
+<Divider Orientation="left"></Divider>
+<Row Gutter="8" Justify="space-between">
+    <Col Xs="24" Sm="6" Md="4" Span="4">
+        <WheelComponent/>
+    </Col>
+    <Col Xs="24" Sm="12" Md="12">
+        <MediaList MediaItems="_mangas"/>
+    </Col>
+</Row>
 
-
-<p>Временной период: с @SelectedFromYear до @SelectedToYear</p>
-
-<Button OnClick="SendSelected">Roll!</Button> <Checkbox @bind-Value="GetDetailedData">
-    Получить полные данные
-</Checkbox>
-
-<MediaList MediaItems="_mangas" />
 
 @code {
     private string? _selectedKind;
@@ -53,14 +60,15 @@
 
     private async Task SendSelected()
     {
-        string publishers = string.Join(",", _selectedPublishers);
-        var mangaUrl = 
-                       $"publishers={publishers}&" +
-                       $"kind={_selectedKind}&";
-        _mangas = await GetMediaItemsAsync($"manga/mangas?{mangaUrl}", async (id) =>
+        var publishers = string.Join(",", _selectedPublishers);
+        var mangaUrl =
+            $"publishers={publishers}&" +
+            $"kind={_selectedKind}&";
+        _mangas = await GetMediaItemsAsync($"manga/mangas?{mangaUrl}", async id =>
         {
             var url = $"manga/mangas/{id}?{mangaUrl}";
             return await ApiClientService.GetMangaByIdAsync(url);
         });
     }
+
 }
