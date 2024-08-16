@@ -54,3 +54,15 @@ h1:focus {
     border-color: #929292;
 }
 
+.date-container {
+    display: flex;
+    align-items: flex-end;
+    gap: 16px;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 0;
+}
+
+.ant-divider-horizontal{
+    margin: 12px;
+}

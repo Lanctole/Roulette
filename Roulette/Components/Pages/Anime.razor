@@ -31,14 +31,24 @@
     </Col>
 </Row>
 <Divider Orientation="left"></Divider>
+<div class="date-container">
+    <div class="item">
+        <YearSelectionComponent @bind-selectedFromYear="SelectedFromYear" @bind-selectedToYear="SelectedToYear"/>
+    </div>
+    <div class="item">
+        <Button OnClick="SendSelected">Roll!</Button>
+    </div>
+</div>
+<Divider Orientation="left"></Divider>
+<Row Gutter="8" Justify="space-between">
+    <Col Xs="24" Sm="6" Md="4" Span="4">
+        <WheelComponent/>
+    </Col>
+    <Col Xs="24" Sm="12" Md="12">
+        <MediaList MediaItems="_animes"/>
+    </Col>
+</Row>
 
-<YearSelectionComponent @bind-selectedFromYear="SelectedFromYear" @bind-selectedToYear="SelectedToYear"/>
-<p>Временной период: с @SelectedFromYear до @SelectedToYear</p>
-
-<Button OnClick="SendSelected">Roll!</Button>
-
-<WheelComponent/>
-<MediaList MediaItems="_animes"/>
 
 @code {
     private string? _selectedRating;

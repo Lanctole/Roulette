@@ -40,7 +40,7 @@ function createWheel(mediaName) {
         {
             'type': "spinToStop",
             'duration': 3,
-            'spins': 5,
+            'spins': 2,
             'callbackFinished': "winAnimation(getIdByText)",
             'callbackAfter': "drawPointer()"
         }
@@ -53,7 +53,7 @@ function createWheel(mediaName) {
         resetSegmentColours();
         const clickedSegment = theWheel.getSegmentAt(e.clientX, e.clientY);
         if (clickedSegment) {
-            clickedSegment.fillStyle = "yellow";
+            clickedSegment.fillStyle = "#6b61c3b0";
             theWheel.draw();
             drawPointer();
             clickedWhatId.innerText = getIdByText(clickedSegment.text);
@@ -136,7 +136,7 @@ window.signalizeAboutWinner = async function (id) {
 
 async function winAnimation(getIdByText) {
     const winningSegmentNumber = theWheel.getIndicatedSegmentNumber();
-    theWheel.segments[winningSegmentNumber].fillStyle = "yellow";
+    theWheel.segments[winningSegmentNumber].fillStyle = "#6b61c3b0";
     theWheel.draw();
     drawPointer();
     const winningSegment = theWheel.getIndicatedSegment();
