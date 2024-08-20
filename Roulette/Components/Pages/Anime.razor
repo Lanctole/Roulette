@@ -73,7 +73,7 @@
 
         _animes = await GetMediaItemsAsync($"anime/animes?{aniUrl}", async id =>
         {
-            var url = $"anime/animes/{id}?{aniUrl}";
+            var url = $"anime/animes/{id}";
             return await ApiClientService.GetAnimeByIdAsync(url);
         });
     }
