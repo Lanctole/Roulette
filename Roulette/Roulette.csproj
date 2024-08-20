@@ -64,4 +64,8 @@
     <None Include="Components\Shikimori\MinimalScoreComponent.razor" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ShikimoriSharp\ShikimoriSharp.csproj" />
+  </ItemGroup>
+
 </Project>

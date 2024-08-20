@@ -1,12 +1,15 @@
+using System.Configuration;
 using System.Reflection;
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using Roulette.Components;
 using Roulette.Data;
+using Roulette.Helpers;
 using Roulette.Services;
 using ShikimoriSharp;
 
@@ -56,19 +59,22 @@ namespace Roulette
                 client.DefaultRequestHeaders.Add("Accept", "application/json");
             }).SetHandlerLifetime(TimeSpan.FromMinutes(1)).ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
             {
-                ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true
+               // ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true
             });//TODO настроить сертификаты
             builder.Services.AddSingleton <ShikimoriApiConnectorService> ();
-            builder.Services.AddScoped<ShikiDataService>();
-            
-           
+            builder.Services.AddScoped<ShikiDataHelper>();
+
+            var apiUrl = Environment.GetEnvironmentVariable("API_URL") ?? builder.Configuration["ApiBaseAddress"];
+
             builder.Services.AddHttpClient<ApiClientService>(client =>
             {
-                client.BaseAddress = new Uri(builder.Configuration["ApiBaseAddress"]);
+                client.BaseAddress = new Uri(apiUrl);
+                //client.BaseAddress = new Uri(builder.Configuration.GetSection("Kestrel").GetSection("Endpoints").GetSection("Https")["Url"]);
+                //client.BaseAddress = new Uri(builder.Configuration["ApiBaseAddress"]);
                 client.DefaultRequestHeaders.Add("Accept", "application/json");
             }).ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
             {
-                ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true
+                //ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true
             }).SetHandlerLifetime(TimeSpan.FromMinutes(1));
             builder.Services.AddSingleton<ApiClientService>();
             builder.Services.AddSingleton<SettingsService>();
@@ -99,7 +105,7 @@ namespace Roulette
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
-
+            //TODO попробовать с ENV переменной и таким вот перенаправлением
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseRouting();

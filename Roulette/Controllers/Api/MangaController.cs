@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Roulette.Helpers;
 using Roulette.Services;
 using ShikimoriSharp.Enums;
 using ShikimoriSharp.Settings;
@@ -10,7 +11,7 @@ namespace Roulette.Controllers.Api
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
-    public class MangaController(ShikimoriApiConnectorService apiConnectorService, ShikiDataService shikiDataService) : ShikimoriController(apiConnectorService, shikiDataService)
+    public class MangaController(ShikimoriApiConnectorService apiConnectorService, ShikiDataHelper shikiDataHelper) : ShikimoriController(apiConnectorService, shikiDataHelper)
     {
 
         /// <summary>
