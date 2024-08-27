@@ -28,9 +28,9 @@
 
     private LabeledValue TransformGenre(GenreModel genre)
     {
-        if (IsAnime) return new LabeledValue(genre.Ids.Min().ToString(), genre.Russian);
-
-        return new LabeledValue(genre.Ids.Max().ToString(), genre.Russian);
+        return IsAnime 
+            ? new LabeledValue(genre.Ids.Min().ToString(), genre.Russian) 
+            : new LabeledValue(genre.Ids.Max().ToString(), genre.Russian);
     }
 
     private void UpdateSelectedGenres(string selectedValues)
