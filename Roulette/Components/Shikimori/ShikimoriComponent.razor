@@ -55,6 +55,7 @@
             if (items == null || items.Count == 0)
             {
                 await OnEmptyAnswer();
+                return new List<SmallRepresentation>();
             }
 
             var detailedItems = new List<SmallRepresentation>();
@@ -82,6 +83,4 @@
         }
         JS.InvokeVoidAsync("startSpin", mediaName);
     }
-
-   
 }

@@ -1,0 +1,51 @@
+﻿@using ShikimoriSharp.Bases
+@inject IJSRuntime JS
+
+@if (MediaItems!.Count != 0)
+{
+    @foreach (var mediaItem in MediaItems)
+    {
+        @if (mediaItem.Id == SelectedID)
+        {
+            <MediaComponent Item="mediaItem"/>
+        }
+    }
+}
+
+<style>
+
+</style>
+
+@code {
+
+    [Parameter]
+    public List<SmallRepresentation>? MediaItems { get; set; }
+
+    private DotNetObjectReference<MediaList>? dotNetObjectRef;
+    private long SelectedID { get; set; }
+    
+
+    protected override void OnInitialized()
+    {
+        if (MediaItems == null)
+        {
+            MediaItems = new List<SmallRepresentation>();
+        }
+        dotNetObjectRef = DotNetObjectReference.Create(this);
+        JS.InvokeVoidAsync("registerDotNetObject", dotNetObjectRef);
+    }
+
+    [JSInvokable]
+    public async Task<string> ChangeID(int input)
+    {
+        SelectedID = input;
+        StateHasChanged();
+        return await Task.FromResult(input.ToString());
+    }
+
+    public void Dispose()
+    {
+        dotNetObjectRef?.Dispose();
+    }
+
+}
