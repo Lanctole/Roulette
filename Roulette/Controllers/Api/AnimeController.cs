@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Roulette.Helpers;
 using Roulette.Services;
 using ShikimoriSharp.Enums;
 using ShikimoriSharp.Settings;
@@ -10,7 +11,7 @@ namespace Roulette.Controllers.Api
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
-    public class AnimeController(ShikimoriApiConnectorService apiConnectorService, ShikiDataService shikiDataService) : ShikimoriController(apiConnectorService, shikiDataService)
+    public class AnimeController(ShikimoriApiConnectorService apiConnectorService, ShikiDataHelper shikiDataHelper) : ShikimoriController(apiConnectorService, shikiDataHelper)
     {
 
         /// <summary>
@@ -23,7 +24,7 @@ namespace Roulette.Controllers.Api
             try
             {
                 var genres = await _apiConnectorService.GetGenres();
-                var transformedGenres = _shikiDataService.TransformGenres(genres);
+                var transformedGenres = ShikiDataHelper.TransformGenres(genres);
                 return Ok(transformedGenres);
             }
             catch (Exception ex)

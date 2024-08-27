@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Roulette.Helpers;
 using Roulette.Models.Shiki;
 using Roulette.Services;
 using ShikimoriSharp;
@@ -16,9 +17,9 @@ namespace Roulette.Controllers.Api
     /// </summary>
     //[Route("api/[controller]")]
     [ApiController]
-    public class ShikimoriController(ShikimoriApiConnectorService apiConnectorService, ShikiDataService shikiDataService) : ControllerBase
+    public class ShikimoriController(ShikimoriApiConnectorService apiConnectorService, ShikiDataHelper shikiDataHelper) : ControllerBase
     {
         protected readonly ShikimoriApiConnectorService _apiConnectorService = apiConnectorService;
-        protected readonly ShikiDataService _shikiDataService = shikiDataService;
+        protected readonly ShikiDataHelper ShikiDataHelper = shikiDataHelper;
     }
 }

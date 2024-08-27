@@ -1,9 +1,9 @@
 ﻿using Roulette.Models.Shiki;
 using ShikimoriSharp.Classes;
 
-namespace Roulette.Services
+namespace Roulette.Helpers
 {
-    public class ShikiDataService
+    public class ShikiDataHelper
     {
         public GenreModel[] TransformGenres(Genre[] genres)
         {

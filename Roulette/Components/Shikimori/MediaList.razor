@@ -1,5 +1,4 @@
-﻿@page "/medialist"
-@using ShikimoriSharp.Bases
+﻿@using ShikimoriSharp.Bases
 @inject IJSRuntime JS
 
 @if (MediaItems!.Count != 0)
@@ -24,7 +23,7 @@
 
     private DotNetObjectReference<MediaList>? dotNetObjectRef;
     private long SelectedID { get; set; }
-    private bool _isShown = false;
+    
 
     protected override void OnInitialized()
     {
