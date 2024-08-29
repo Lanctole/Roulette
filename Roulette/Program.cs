@@ -3,12 +3,14 @@ using System.Text.Json.Serialization;
 using Blazored.LocalStorage;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using Roulette.Components;
 using Roulette.Components.Account;
 using Roulette.Data;
 using Roulette.Helpers;
+using Roulette.Models;
 using Roulette.Services;
 
 namespace Roulette;
@@ -98,6 +100,11 @@ public class Program
                 options.DefaultSignInScheme = IdentityConstants.ExternalScheme;
             })
             .AddIdentityCookies();
+        //builder.Services.AddAuthorization(options =>
+        //{
+        //    options.AddPolicy("AdminOnly", policy =>
+        //        policy.RequireRole("admin"));
+        //});
 
         builder.Services.AddIdentityCore<IdentityUser>(options =>
             {
@@ -105,12 +112,15 @@ public class Program
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireUppercase = false;
             })
+            .AddRoles<IdentityRole>()
             .AddEntityFrameworkStores<ApplicationDbContext>()
             .AddSignInManager()
             .AddErrorDescriber<LocalizedIdentityErrorDescriber>()
             .AddDefaultTokenProviders();
 
-        builder.Services.AddSingleton<IEmailSender<IdentityUser>, IdentityNoOpEmailSender>();
+        builder.Services.Configure<SmtpSettings>(builder.Configuration.GetSection("Smtp"));
+        builder.Services.AddTransient<IEmailSender, EmailSender>();
+
 
 
         var app = builder.Build();

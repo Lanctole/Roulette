@@ -2,7 +2,10 @@
 @using ShikimoriSharp.Classes
 @using Roulette.Models
 @using Roulette.Services
+@using Microsoft.AspNetCore.Authorization
 @inject ApiClientService ApiClientService
+
+@attribute [Authorize(Roles = "admin")]
 
 <SelectComponent T="Studio" TValue="string"
                  Placeholder="Выберите студии"

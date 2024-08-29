@@ -36,18 +36,20 @@
                 <Icon Component="RanobeSvg" Theme="outline" Style="margin-right: 10px;" /> Ranobe
             </NavLink>
         </div>
-
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="studios">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Studios
-            </NavLink>
-        </div>
+       <AuthorizeView Roles="admin">
+           <div class="nav-item px-3">
+               <NavLink class="nav-link" href="studios">
+                   <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Studios
+               </NavLink>
+           </div>
         
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="genres">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Genres
-            </NavLink>
-        </div>
+           <div class="nav-item px-3">
+               <NavLink class="nav-link" href="genres">
+                   <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Genres
+               </NavLink>
+           </div>
+       </AuthorizeView>
+        
 
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="auth">
@@ -57,7 +59,7 @@
        <AuthorizeView>
            <Authorized>
                <div class="nav-item px-3">
-                   <NavLink class="nav-link" href="Account/Manage">
+                   <NavLink class="nav-link" href="Account/Manage/Email">
                        <span class="bi bi-person-fill-nav-menu" aria-hidden="true"></span> @context.User.Identity?.Name
                    </NavLink>
                </div>
@@ -67,7 +69,7 @@
                        @* <AntiforgeryToken/> *@
                        <input type="hidden" name="ReturnUrl" value="@currentUrl"/>
                        <button type="submit" class="nav-link">
-                           <span class="bi bi-arrow-bar-left-nav-menu" aria-hidden="true"></span> Logout
+                           <span class="bi bi-arrow-bar-left-nav-menu" aria-hidden="true"></span> Выйти
                        </button>
                    </form>
                </div>
@@ -75,12 +77,12 @@
            <NotAuthorized>
                <div class="nav-item px-3">
                    <NavLink class="nav-link" href="Account/Register">
-                       <span class="bi bi-person-nav-menu" aria-hidden="true"></span> Register
+                       <span class="bi bi-person-nav-menu" aria-hidden="true"></span> Регистрация
                    </NavLink>
                </div>
                <div class="nav-item px-3">
                    <NavLink class="nav-link" href="Account/Login">
-                       <span class="bi bi-person-badge-nav-menu" aria-hidden="true"></span> Login
+                       <span class="bi bi-person-badge-nav-menu" aria-hidden="true"></span> Войти
                    </NavLink>
                </div>
            </NotAuthorized>
