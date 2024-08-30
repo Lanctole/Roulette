@@ -12,6 +12,8 @@ using Roulette.Data;
 using Roulette.Helpers;
 using Roulette.Models;
 using Roulette.Services;
+using AspNet.Security.OAuth.Yandex;
+
 
 namespace Roulette;
 
@@ -99,7 +101,14 @@ public class Program
                 options.DefaultScheme = IdentityConstants.ApplicationScheme;
                 options.DefaultSignInScheme = IdentityConstants.ExternalScheme;
             })
-            .AddIdentityCookies();
+            //.AddIdentityCookies()
+            .AddYandex(options =>
+            {
+                options.ClientId = builder.Configuration["Authentication:Yandex:ClientId"];
+                options.ClientSecret = builder.Configuration["Authentication:Yandex:ClientSecret"];
+                options.CallbackPath = new PathString("/Account/SingInYandex");
+            })
+            .AddIdentityCookies(); 
         //builder.Services.AddAuthorization(options =>
         //{
         //    options.AddPolicy("AdminOnly", policy =>
