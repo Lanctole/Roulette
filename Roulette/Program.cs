@@ -58,7 +58,7 @@ public class Program
             client.DefaultRequestHeaders.Add("Accept", "application/json");
         }).SetHandlerLifetime(TimeSpan.FromMinutes(1)).ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
         {
-            // ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true
+             ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true
         });
         builder.Services.AddSingleton<ShikimoriApiConnectorService>();
         builder.Services.AddScoped<ShikiDataHelper>();
@@ -72,7 +72,7 @@ public class Program
             //client.BaseAddress = new Uri(builder.Configuration["ApiBaseAddress"]);
         }).ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
         {
-            //ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true
+            ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true
         }).SetHandlerLifetime(TimeSpan.FromMinutes(1));
         builder.Services.AddSingleton<ApiClientService>();
         builder.Services.AddSingleton<SettingsService>();
@@ -142,10 +142,10 @@ public class Program
         else
         {
             app.UseExceptionHandler("/Home/Error");
-            app.UseHsts();
+            //app.UseHsts();
         }
 
-        app.UseHttpsRedirection();
+        //app.UseHttpsRedirection();
         app.UseStaticFiles();
         app.UseRouting();
         app.UseAuthentication();

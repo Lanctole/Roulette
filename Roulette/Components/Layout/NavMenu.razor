@@ -85,6 +85,14 @@
                        <span class="bi bi-person-badge-nav-menu" aria-hidden="true"></span> Войти
                    </NavLink>
                </div>
+
+              @*  <div class="nav-item px-3">
+                    <AntiforgeryTokenInput />
+                   <button type="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#loginModal">
+                       <span class="bi bi-arrow-bar-left-nav-menu" aria-hidden="true"></span> Войти модально
+                   </button>
+                   <LoginModal ReturnUrl="@NavigationManager.Uri"/>
+               </div> *@
            </NotAuthorized>
        </AuthorizeView>
     </nav>
@@ -101,13 +109,22 @@
 
     private void OnLocationChanged(object? sender, LocationChangedEventArgs e)
     {
-        currentUrl = NavigationManager.ToBaseRelativePath(e.Location);
-        StateHasChanged();
+        // currentUrl = NavigationManager.ToBaseRelativePath(e.Location);
+        // StateHasChanged();
+        if (currentUrl != e.Location) // Ensure we only update if there's a real change
+        {
+            currentUrl = NavigationManager.ToBaseRelativePath(e.Location);
+            InvokeAsync(StateHasChanged); // Use InvokeAsync to ensure StateHasChanged is called safely
+        }
     }
 
     public void Dispose()
     {
-        NavigationManager.LocationChanged -= OnLocationChanged;
+        // NavigationManager.LocationChanged -= OnLocationChanged;
+        if (NavigationManager != null)
+        {
+            NavigationManager.LocationChanged -= OnLocationChanged;
+        }
     }
 
 
