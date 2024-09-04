@@ -108,13 +108,13 @@ public class Program
                 options.ClientSecret = builder.Configuration["Authentication:Yandex:ClientSecret"];
                 options.CallbackPath = new PathString("/Account/SingInYandex");
             })
-            .AddIdentityCookies(); 
+            .AddIdentityCookies();
         //builder.Services.AddAuthorization(options =>
         //{
         //    options.AddPolicy("AdminOnly", policy =>
         //        policy.RequireRole("admin"));
         //});
-
+       
         builder.Services.AddIdentityCore<IdentityUser>(options =>
             {
                 options.SignIn.RequireConfirmedAccount = false;

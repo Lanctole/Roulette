@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Roulette.Data;
@@ -11,9 +12,11 @@ using Roulette.Data;
 namespace Roulette.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240904072030_LanguagesAndGenresDataTransfer")]
+    partial class LanguagesAndGenresDataTransfer
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,6 +24,36 @@ namespace Roulette.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
+
+            modelBuilder.Entity("GameGenre", b =>
+                {
+                    b.Property<long>("GamesAppID")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("GenresId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("GamesAppID", "GenresId");
+
+                    b.HasIndex("GenresId");
+
+                    b.ToTable("GameGenre");
+                });
+
+            modelBuilder.Entity("GameSupportedLanguage", b =>
+                {
+                    b.Property<long>("GamesAppID")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("SupportedLanguagesId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("GamesAppID", "SupportedLanguagesId");
+
+                    b.HasIndex("SupportedLanguagesId");
+
+                    b.ToTable("GameSupportedLanguage");
+                });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
@@ -228,9 +261,6 @@ namespace Roulette.Data.Migrations
                     b.Property<double>("Cost")
                         .HasColumnType("double precision");
 
-                    b.Property<int?>("GenreId")
-                        .HasColumnType("integer");
-
                     b.Property<string>("HeaderImage")
                         .IsRequired()
                         .HasColumnType("text");
@@ -252,46 +282,9 @@ namespace Roulette.Data.Migrations
                     b.Property<int>("SteamScore")
                         .HasColumnType("integer");
 
-                    b.Property<int?>("SupportedLanguageId")
-                        .HasColumnType("integer");
-
                     b.HasKey("AppID");
 
-                    b.HasIndex("GenreId");
-
-                    b.HasIndex("SupportedLanguageId");
-
                     b.ToTable("Games");
-                });
-
-            modelBuilder.Entity("Roulette.Models.Games.GameGenre", b =>
-                {
-                    b.Property<long>("GamesAppID")
-                        .HasColumnType("bigint");
-
-                    b.Property<int>("GenresId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("GamesAppID", "GenresId");
-
-                    b.HasIndex("GenresId");
-
-                    b.ToTable("GameGenres");
-                });
-
-            modelBuilder.Entity("Roulette.Models.Games.GameSupportedLanguage", b =>
-                {
-                    b.Property<long>("GamesAppID")
-                        .HasColumnType("bigint");
-
-                    b.Property<int>("SupportedLanguagesId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("GamesAppID", "SupportedLanguagesId");
-
-                    b.HasIndex("SupportedLanguagesId");
-
-                    b.ToTable("GameSupportedLanguages");
                 });
 
             modelBuilder.Entity("Roulette.Models.Games.Genre", b =>
@@ -326,6 +319,36 @@ namespace Roulette.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("SupportedLanguages");
+                });
+
+            modelBuilder.Entity("GameGenre", b =>
+                {
+                    b.HasOne("Roulette.Models.Games.Game", null)
+                        .WithMany()
+                        .HasForeignKey("GamesAppID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Roulette.Models.Games.Genre", null)
+                        .WithMany()
+                        .HasForeignKey("GenresId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("GameSupportedLanguage", b =>
+                {
+                    b.HasOne("Roulette.Models.Games.Game", null)
+                        .WithMany()
+                        .HasForeignKey("GamesAppID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Roulette.Models.Games.SupportedLanguage", null)
+                        .WithMany()
+                        .HasForeignKey("SupportedLanguagesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -377,72 +400,6 @@ namespace Roulette.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("Roulette.Models.Games.Game", b =>
-                {
-                    b.HasOne("Roulette.Models.Games.Genre", null)
-                        .WithMany("Games")
-                        .HasForeignKey("GenreId");
-
-                    b.HasOne("Roulette.Models.Games.SupportedLanguage", null)
-                        .WithMany("Games")
-                        .HasForeignKey("SupportedLanguageId");
-                });
-
-            modelBuilder.Entity("Roulette.Models.Games.GameGenre", b =>
-                {
-                    b.HasOne("Roulette.Models.Games.Game", "Game")
-                        .WithMany("GenresLink")
-                        .HasForeignKey("GamesAppID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Roulette.Models.Games.Genre", "Genre")
-                        .WithMany()
-                        .HasForeignKey("GenresId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Game");
-
-                    b.Navigation("Genre");
-                });
-
-            modelBuilder.Entity("Roulette.Models.Games.GameSupportedLanguage", b =>
-                {
-                    b.HasOne("Roulette.Models.Games.Game", "Game")
-                        .WithMany("SupportedLanguagesLink")
-                        .HasForeignKey("GamesAppID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Roulette.Models.Games.SupportedLanguage", "SupportedLanguage")
-                        .WithMany()
-                        .HasForeignKey("SupportedLanguagesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Game");
-
-                    b.Navigation("SupportedLanguage");
-                });
-
-            modelBuilder.Entity("Roulette.Models.Games.Game", b =>
-                {
-                    b.Navigation("GenresLink");
-
-                    b.Navigation("SupportedLanguagesLink");
-                });
-
-            modelBuilder.Entity("Roulette.Models.Games.Genre", b =>
-                {
-                    b.Navigation("Games");
-                });
-
-            modelBuilder.Entity("Roulette.Models.Games.SupportedLanguage", b =>
-                {
-                    b.Navigation("Games");
                 });
 #pragma warning restore 612, 618
         }

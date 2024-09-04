@@ -1,0 +1,122 @@
+﻿@page "/admin"
+@using Microsoft.AspNetCore.Authorization
+@using System.Text.Json
+@using Microsoft.EntityFrameworkCore
+@using Microsoft.EntityFrameworkCore.Internal
+@using Roulette.Data
+@using Roulette.Models
+@using Roulette.Models.Games
+
+@inject ApplicationDbContext DbContext
+@inject GameDataHelper GameDataHelper
+@attribute [Authorize(Roles = "admin")]
+
+<h3>AdminPanel</h3>
+
+@if (message != null)
+{
+    <div class="alert alert-info">@message</div>
+}
+<InputFile OnChange="HandleFileSelected" accept=".json" />
+<button @onclick="UploadData">Загрузить/Обновить базу данных steam</button>
+
+
+@code {
+    private IBrowserFile? uploadedFile;
+    private string? message;
+    private long maxFileSize = 100 * 1024 * 1024;
+    private int progress;
+
+    private async Task HandleFileSelected(InputFileChangeEventArgs e)
+    {
+        uploadedFile = e.File;
+        if (uploadedFile.ContentType != "application/json")
+        {
+            message = "Пожалуйста, выберите файл формата JSON.";
+            uploadedFile = null; 
+            return;
+        }
+        message = $"Файл {uploadedFile.Name} выбран.";
+    }
+
+    private async Task UploadData()
+    {
+        if (uploadedFile == null || uploadedFile.Size == 0)
+        {
+            message = "Пожалуйста, выберите файл для загрузки.";
+            return;
+        }
+        try
+        {
+            using var stream = uploadedFile.OpenReadStream(maxAllowedSize: maxFileSize);
+            using var reader = new StreamReader(stream);
+            var content = await reader.ReadToEndAsync();
+
+            var games = JsonSerializer.Deserialize<List<Game>>(content);
+            progress = 0;
+            if (games == null || games.Count == 0)
+            {
+                message = "Не удалось прочитать данные из файла.";
+                return;
+            }
+
+            var existingGames = await DbContext.Games.ToDictionaryAsync(g => g.AppID);
+
+            var newGames = new List<Game>();
+            var updatedGames = new List<Game>();
+            int processedCount = 0;
+            int totalGames = games.Count;
+
+            // var genreDictionary = await DbContext.Genres.ToDictionaryAsync(g => g.Name, g => g.Id);
+            // var languageDictionary = await DbContext.SupportedLanguages.ToDictionaryAsync(l => l.Name, l => l.Id);
+
+            foreach (var game in games)
+            {
+                processedCount++;
+
+                int newProgressPercentage = (processedCount * 100) / totalGames;
+                if (newProgressPercentage >= progress + 10)
+                {
+                    progress = newProgressPercentage;
+                    message = $"Прогресс: {progress}%";
+                    StateHasChanged(); 
+                }
+                // var genreIds = genreDictionary.Where(g => game.Genres
+                //     .Any(gen => gen.Name == g.Key)).Select(g => g.Value).ToList();
+                // var languageIds = languageDictionary.Where(l => game.SupportedLanguages
+                //     .Any(lang => lang.Name == l.Key)).Select(l => l.Value).ToList();
+                if (existingGames.TryGetValue(game.AppID, out var existingGame))
+                {
+                    existingGame.Cost = game.Cost;
+                    existingGame.ShortDescription = game.ShortDescription;
+                    existingGame.HeaderImage = game.HeaderImage;
+                    existingGame.SteamScore = game.SteamScore;
+                    existingGame.MetacriticScore = game.MetacriticScore;
+
+                    // GameDataHelper.UpdateGameGenres(existingGame, genreIds);
+                    // GameDataHelper.UpdateGameLanguages(existingGame, languageIds);
+                    updatedGames.Add(existingGame);
+                }
+                else
+                {
+                    game.ReleaseDate = DateTime.SpecifyKind(game.ReleaseDate, DateTimeKind.Utc);
+                    // GameDataHelper.AddGameGenres(game, genreIds);
+                    // GameDataHelper.AddGameLanguages(game, languageIds);
+                    newGames.Add(game);
+                }
+            }
+
+            DbContext.Games.AddRange(newGames);
+            DbContext.Games.UpdateRange(updatedGames);
+
+            await DbContext.SaveChangesAsync();
+            message = "База данных успешно обновлена.";
+        }
+        catch (Exception ex)
+        {
+            message = $"Ошибка при загрузке данных: {ex.Message}";
+        }
+    }
+
+
+}
