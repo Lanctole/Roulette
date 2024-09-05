@@ -1,6 +1,6 @@
-﻿namespace Roulette.Models.Games
+﻿namespace Games.Classes
 {
-    public class Genre
+    public class SupportedLanguage
     {
         public int Id { get; set; }
         public string Name { get; set; }

@@ -31,7 +31,7 @@ namespace Roulette.Controllers.Api
         /// <param name="page">Страницы</param>
         /// <returns>Список произведений удовлетворяющих условиям.</returns>
         [HttpGet("mangas")]
-        public IActionResult GetMangas(
+        public async Task<IActionResult> GetMangas(
             [FromQuery] int? score = null,
             [FromQuery] string? kind = null,
             [FromQuery] string? season = null,
@@ -58,7 +58,7 @@ namespace Roulette.Controllers.Api
                 limit = limit,
                 page = page
             };
-            var mangas = _apiConnectorService.GetMangas(settings);
+            var mangas = await _apiConnectorService.GetMangas(settings);
             return Ok(mangas);
         }
 

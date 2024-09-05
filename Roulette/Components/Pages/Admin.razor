@@ -1,11 +1,10 @@
 ﻿@page "/admin"
 @using Microsoft.AspNetCore.Authorization
 @using System.Text.Json
+@using Games.Classes
 @using Microsoft.EntityFrameworkCore
 @using Microsoft.EntityFrameworkCore.Internal
 @using Roulette.Data
-@using Roulette.Models
-@using Roulette.Models.Games
 
 @inject ApplicationDbContext DbContext
 @inject GameDataHelper GameDataHelper
@@ -67,8 +66,7 @@
             int processedCount = 0;
             int totalGames = games.Count;
 
-            // var genreDictionary = await DbContext.Genres.ToDictionaryAsync(g => g.Name, g => g.Id);
-            // var languageDictionary = await DbContext.SupportedLanguages.ToDictionaryAsync(l => l.Name, l => l.Id);
+            
 
             foreach (var game in games)
             {
@@ -81,10 +79,7 @@
                     message = $"Прогресс: {progress}%";
                     StateHasChanged(); 
                 }
-                // var genreIds = genreDictionary.Where(g => game.Genres
-                //     .Any(gen => gen.Name == g.Key)).Select(g => g.Value).ToList();
-                // var languageIds = languageDictionary.Where(l => game.SupportedLanguages
-                //     .Any(lang => lang.Name == l.Key)).Select(l => l.Value).ToList();
+                
                 if (existingGames.TryGetValue(game.AppID, out var existingGame))
                 {
                     existingGame.Cost = game.Cost;
@@ -92,16 +87,13 @@
                     existingGame.HeaderImage = game.HeaderImage;
                     existingGame.SteamScore = game.SteamScore;
                     existingGame.MetacriticScore = game.MetacriticScore;
-
-                    // GameDataHelper.UpdateGameGenres(existingGame, genreIds);
-                    // GameDataHelper.UpdateGameLanguages(existingGame, languageIds);
+                    //TODO: потом починить чтобы жанры и страны в нужные таблицы добавлялись и связи были
                     updatedGames.Add(existingGame);
                 }
                 else
                 {
                     game.ReleaseDate = DateTime.SpecifyKind(game.ReleaseDate, DateTimeKind.Utc);
-                    // GameDataHelper.AddGameGenres(game, genreIds);
-                    // GameDataHelper.AddGameLanguages(game, languageIds);
+                    
                     newGames.Add(game);
                 }
             }

@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Roulette.Models.Games
+namespace Games.Classes
 {
     public class Game
     {

@@ -1,35 +1,29 @@
-﻿using System;
-using System.Net.Http;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Caching.Memory;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Caching.Distributed;
+using Newtonsoft.Json;
 using ShikimoriSharp.ApiServices;
-using ShikimoriSharp.Bases;
 using ShikimoriSharp.Classes;
 using ShikimoriSharp.Settings;
+using Anime = ShikimoriSharp.Classes.Anime;
+using Manga = ShikimoriSharp.Classes.Manga;
+using Ranobe = ShikimoriSharp.Classes.Ranobe;
 
 namespace Roulette.Services
 {
     public class ShikimoriApiConnectorService
     {
         private readonly ShikimoriClient _client;
-        private readonly IMemoryCache _cache;
+        private readonly IDistributedCache _cache;
         private readonly IHttpClientFactory _httpClientFactory;
 
-        public ShikimoriApiConnectorService(IConfiguration configuration, IMemoryCache cache, IHttpClientFactory httpClientFactory)
+        public ShikimoriApiConnectorService(IConfiguration configuration, IDistributedCache cache, IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory = httpClientFactory ?? throw new ArgumentNullException(nameof(httpClientFactory));
             var httpClient = _httpClientFactory.CreateClient(nameof(ShikimoriApiConnectorService));
 
             var authConfig = configuration.GetSection("Auth");
-
-            var scope = authConfig["Scope"];
-            var access = authConfig["Access"];
-            var refresh = authConfig["Refresh"];
             var name = authConfig["Name"];
             var clientId = authConfig["ClientId"];
             var clientSecret = authConfig["ClientSecret"];
-            var userId = authConfig["UserId"];
 
             _client = new ShikimoriClient(new ClientSettings(name, clientId, clientSecret), httpClient);
             _cache = cache;
@@ -37,125 +31,64 @@ namespace Roulette.Services
             Console.WriteLine("ShikimoriApiConnectorService initialized");
         }
 
+        private async Task<T> GetCachedOrApiData<T>(string cacheKey, Func<Task<T>> fetchDataFunc)
+        {
+            var cachedData = await _cache.GetStringAsync(cacheKey);
+            if (cachedData != null)
+            {
+                return JsonConvert.DeserializeObject<T>(cachedData);
+            }
+
+            var data = await fetchDataFunc();
+            var serializedData = JsonConvert.SerializeObject(data);
+            await _cache.SetStringAsync(cacheKey, serializedData);
+
+            return data;
+        }
+
+        public Task<AnimeId> GetAnimeById(long id)
+        {
+            return GetCachedOrApiData($"Anime:{id}", () => _client.Animes.GetAnime(id));
+        }
+
+        public Task<MangaRanobeId> GetMangaById(long id)
+        {
+            return GetCachedOrApiData($"Manga:{id}", () => _client.Mangas.GetManga(id));
+        }
+
+        public Task<MangaRanobeId> GetRanobeById(long id)
+        {
+            return GetCachedOrApiData($"Ranobe:{id}", () => _client.Ranobes.GetRanobe(id));
+        }
+
         public Task<Genre[]> GetGenres()
         {
-            return GetCachedData("genres_cache", () => _client.Genres.GetGenres());
-        }
-
-        public async Task<Anime[]> GetAnimes(AnimeRequestSettings settings)
-        {
-            try
-            {
-                Console.WriteLine("Fetching animes with settings");
-                return await _client.Animes.GetAnimes(settings);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error getting animes: {ex.Message}");
-                throw;
-            }
-        }
-
-        public async Task<AnimeId> GetAnimeById(long id)
-        {
-            try
-            {
-                return await _client.Animes.GetAnime(id);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error getting animes: {ex.Message}");
-                throw;
-            }
-        }
-
-        public Manga[] GetMangas(MangaRequestSettings settings)
-        {
-            try
-            {
-                Console.WriteLine("Fetching mangas with settings");
-                Task<Manga[]> mangas = _client.Mangas.GetMangas(settings);
-                return mangas.Result;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error getting mangas: {ex.Message}");
-                throw;
-            }
-        }
-
-        public async Task<MangaRanobeId> GetMangaById(long id)
-        {
-            try
-            {
-                return await _client.Mangas.GetManga(id);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error getting manga: {ex.Message}");
-                throw;
-            }
-        }
-
-        public Ranobe[] GetRanobes(RanobeRequestSettings settings)
-        {
-            try
-            {
-                Console.WriteLine("Fetching ranobes with settings");
-                Task<Ranobe[]> ranobes = _client.Ranobes.GetRanobes(settings);
-                return ranobes.Result;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error getting ranobes: {ex.Message}");
-                throw;
-            }
-        }
-
-        public async Task<MangaRanobeId> GetRanobeById(long id)
-        {
-            try
-            {
-                return await _client.Ranobes.GetRanobe(id);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error getting ranobe: {ex.Message}");
-                throw;
-            }
+            return GetCachedOrApiData("AnimeGenres_cache", () => _client.Genres.GetGenres());
         }
 
         public Task<Studio[]> GetStudios()
         {
-            return GetCachedData("studios_cache", () => _client.Studios.GetStudios());
+            return GetCachedOrApiData("Studios_cache", () => _client.Studios.GetStudios());
         }
-        
+
         public Task<Publisher[]> GetPublishers()
         {
-            return GetCachedData("publishers_cache", () => _client.Publishers.GetPublishers());
+            return GetCachedOrApiData("Publishers_cache", () => _client.Publishers.GetPublishers());
         }
 
-        private async Task<T> GetCachedData<T>(string cacheKey, Func<Task<T>> fetchDataFunc)
+        public async Task<Anime[]> GetAnimes(AnimeRequestSettings settings)
         {
-            if (!_cache.TryGetValue(cacheKey, out T cachedData))
-            {
-                Console.WriteLine($"Cache miss for key {cacheKey}. Fetching data.");
-                cachedData = await fetchDataFunc();
+            return await _client.Animes.GetAnimes(settings);
+        }
 
-                var cacheEntryOptions = new MemoryCacheEntryOptions
-                {
-                    AbsoluteExpirationRelativeToNow = TimeSpan.FromDays(7)
-                };
+        public async Task<Manga[]> GetMangas(MangaRequestSettings settings)
+        {
+            return await _client.Mangas.GetMangas(settings);
+        }
 
-                _cache.Set(cacheKey, cachedData, cacheEntryOptions);
-                Console.WriteLine($"Cache updated for key {cacheKey}");
-            }
-            else
-            {
-                Console.WriteLine($"Cache hit for key {cacheKey}");
-            }
-
-            return cachedData;
+        public async Task<Ranobe[]> GetRanobes(RanobeRequestSettings settings)
+        {
+            return await _client.Ranobes.GetRanobes(settings);
         }
     }
 }

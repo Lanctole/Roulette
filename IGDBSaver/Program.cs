@@ -3,7 +3,7 @@ using System.Text.Json;
 using System.Text.Json.Nodes;
 using CsvHelper;
 
-namespace SteamDB;
+namespace SteamCVStoJSON;
 
 internal class Program
 {

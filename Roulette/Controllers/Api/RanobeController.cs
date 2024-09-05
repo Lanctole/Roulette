@@ -29,7 +29,7 @@ namespace Roulette.Controllers.Api
         /// <param name="page">Страницы</param>
         /// <returns>Список произведений удовлетворяющих условиям.</returns>
         [HttpGet("ranobes")]
-        public IActionResult GetRanobes(
+        public async Task<IActionResult> GetRanobes(
             [FromQuery] int? score = null,
             [FromQuery] string? season = null,
             [FromQuery] int[]? publisher = null,
@@ -54,7 +54,7 @@ namespace Roulette.Controllers.Api
                 limit = limit,
                 page = page
             };
-            var ranobes = _apiConnectorService.GetRanobes(settings);
+            var ranobes = await _apiConnectorService.GetRanobes(settings);
             return Ok(ranobes);
         }
 

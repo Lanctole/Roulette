@@ -93,9 +93,13 @@ public class Program
 
         builder.Services.AddCascadingAuthenticationState();
         builder.Services.AddScoped<IdentityUserAccessor>();
-
+        builder.Services.AddStackExchangeRedisCache(options =>
+        {
+            options.Configuration = builder.Configuration.GetSection("Redis:Configuration").Value;
+            options.InstanceName = builder.Configuration.GetSection("Redis:InstanceName").Value;
+        });
         builder.Services.AddScoped<AuthenticationStateProvider, IdentityRevalidatingAuthenticationStateProvider>();
-
+        //TODO: !!!!!!!! причесать тут всё
         builder.Services.AddAuthentication(options =>
             {
                 options.DefaultScheme = IdentityConstants.ApplicationScheme;
@@ -129,7 +133,9 @@ public class Program
 
         builder.Services.Configure<SmtpSettings>(builder.Configuration.GetSection("Smtp"));
         builder.Services.AddTransient<IEmailSender, EmailSender>();
-
+        builder.Services.AddScoped<GameService>();
+        builder.Services.AddScoped<GameGenreService>();
+        builder.Services.AddScoped<GameLanguageService>();
 
 
         var app = builder.Build();

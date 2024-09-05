@@ -1,5 +1,4 @@
 ﻿using Roulette.Data;
-using Roulette.Models.Games;
 
 namespace Roulette.Helpers
 {

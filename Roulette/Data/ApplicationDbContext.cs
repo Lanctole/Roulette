@@ -1,9 +1,7 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Games.Classes;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Roulette.Helpers;
-using Roulette.Models;
-using Roulette.Models.Games;
 
 namespace Roulette.Data
 {
