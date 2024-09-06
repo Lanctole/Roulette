@@ -2,6 +2,10 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Roulette.DTOs;
+using ShikimoriSharp.Bases;
+using ShikimoriSharp.Classes;
+using Genre = Games.Classes.Genre;
 
 namespace Roulette.Data
 {
@@ -10,6 +14,9 @@ namespace Roulette.Data
         public DbSet<Game> Games { get; set; }
         public DbSet<Genre> Genres { get; set; }
         public DbSet<SupportedLanguage> SupportedLanguages{ get; set; }
+        public DbSet<AnimeDto> Animes { get; set; } 
+        public DbSet<MangaDto> Mangas { get; set; }
+        public DbSet<RanobeDto> Ranobes { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
@@ -18,6 +25,21 @@ namespace Roulette.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<AnimeDto>()
+                .ToTable("Animes")
+                .Property(a => a.Content)
+                .HasColumnType("jsonb");
+
+            modelBuilder.Entity<MangaDto>()
+                .ToTable("Mangas")
+                .Property(a => a.Content)
+                .HasColumnType("jsonb");
+
+            modelBuilder.Entity<RanobeDto>()
+                .ToTable("Ranobes")
+                .Property(a => a.Content)
+                .HasColumnType("jsonb");
+
             modelBuilder.Entity<IdentityUser>().Ignore(u => u.LockoutEnd);
             modelBuilder.Entity<IdentityUser>().Ignore(u => u.LockoutEnabled);
             modelBuilder.Entity<IdentityUser>().Ignore(u => u.TwoFactorEnabled);

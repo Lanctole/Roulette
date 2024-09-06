@@ -1,5 +1,9 @@
-﻿using Microsoft.Extensions.Caching.Distributed;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Distributed;
 using Newtonsoft.Json;
+using Roulette.Components.Pages.Shikimori;
+using Roulette.Data;
+using Roulette.DTOs;
 using ShikimoriSharp.ApiServices;
 using ShikimoriSharp.Classes;
 using ShikimoriSharp.Settings;
@@ -14,8 +18,9 @@ namespace Roulette.Services
         private readonly ShikimoriClient _client;
         private readonly IDistributedCache _cache;
         private readonly IHttpClientFactory _httpClientFactory;
+        private readonly ApplicationDbContext _context;
 
-        public ShikimoriApiConnectorService(IConfiguration configuration, IDistributedCache cache, IHttpClientFactory httpClientFactory)
+        public ShikimoriApiConnectorService(IConfiguration configuration, IDistributedCache cache, IHttpClientFactory httpClientFactory, ApplicationDbContext context)
         {
             _httpClientFactory = httpClientFactory ?? throw new ArgumentNullException(nameof(httpClientFactory));
             var httpClient = _httpClientFactory.CreateClient(nameof(ShikimoriApiConnectorService));
@@ -27,53 +32,160 @@ namespace Roulette.Services
 
             _client = new ShikimoriClient(new ClientSettings(name, clientId, clientSecret), httpClient);
             _cache = cache;
+            _context = context;
 
             Console.WriteLine("ShikimoriApiConnectorService initialized");
         }
 
-        private async Task<T> GetCachedOrApiData<T>(string cacheKey, Func<Task<T>> fetchDataFunc)
+        private async Task<T> GetDataAsync<T>(string cacheKey, Func<Task<T>> fetchFromApiFunc, Func<long, Task<T>> fetchFromDbFunc = null,
+            Action<T> saveToDbAction = null, bool isForDb = false)
         {
             var cachedData = await _cache.GetStringAsync(cacheKey);
             if (cachedData != null)
             {
                 return JsonConvert.DeserializeObject<T>(cachedData);
             }
+            
+            var id = ExtractIdFromCacheKey(cacheKey);
+            if (fetchFromDbFunc != null)
+            {
+                var dbData = await fetchFromDbFunc(id);
+                if (dbData != null)
+                {
+                    var serializedData = JsonConvert.SerializeObject(dbData);
+                    await _cache.SetStringAsync(cacheKey, serializedData);
+                    return dbData;
+                }
+            }
 
-            var data = await fetchDataFunc();
-            var serializedData = JsonConvert.SerializeObject(data);
-            await _cache.SetStringAsync(cacheKey, serializedData);
+            var apiData = await fetchFromApiFunc();
+            var serializedApiData = JsonConvert.SerializeObject(apiData);
 
-            return data;
+            if (isForDb && saveToDbAction != null)
+            {
+                saveToDbAction(apiData);
+                await _context.SaveChangesAsync();
+            }
+            await _cache.SetStringAsync(cacheKey, serializedApiData);
+
+            return apiData;
+        }
+
+        private long ExtractIdFromCacheKey(string cacheKey)
+        {
+            var parts = cacheKey.Split(':');
+            return long.Parse(parts[1]);
         }
 
         public Task<AnimeId> GetAnimeById(long id)
         {
-            return GetCachedOrApiData($"Anime:{id}", () => _client.Animes.GetAnime(id));
-        }
+            return GetDataAsync(
+                $"Anime:{id}",
+                () => _client.Animes.GetAnime(id),
+                async (id) =>
+                {
+                    var animeDto = await _context.Animes
+                        .Where(a => a.Id == id)
+                        .Select(a => new AnimeDto
+                        {
+                            Id = a.Id,
+                            Content = a.Content
+                        })
+                        .FirstOrDefaultAsync();
 
+                    return animeDto != null
+                        ? JsonConvert.DeserializeObject<AnimeId>(animeDto.Content)
+                        : null;
+                },
+                anime =>
+                {
+                    _context.Animes.Add(new AnimeDto
+                    {
+                        Id = anime.Id,
+                        Content = JsonConvert.SerializeObject(anime)
+                    });
+                },
+                true
+            );
+        }
         public Task<MangaRanobeId> GetMangaById(long id)
         {
-            return GetCachedOrApiData($"Manga:{id}", () => _client.Mangas.GetManga(id));
+            return GetDataAsync(
+                $"Manga:{id}",
+                () => _client.Mangas.GetManga(id),
+                async (id) =>
+                {
+                    var mangaDto = await _context.Mangas
+                        .Where(m => m.Id == id)
+                        .Select(m => new MangaDto
+                        {
+                            Id = m.Id,
+                            Content = m.Content
+                        })
+                        .FirstOrDefaultAsync();
+
+                    return mangaDto != null
+                        ? JsonConvert.DeserializeObject<MangaRanobeId>(mangaDto.Content)
+                        : null;
+                },
+                manga =>
+                {
+                    _context.Mangas.Add(new MangaDto
+                    {
+                        Id = manga.Id,
+                        Content = JsonConvert.SerializeObject(manga)
+                    });
+                },
+                true
+            );
         }
 
         public Task<MangaRanobeId> GetRanobeById(long id)
         {
-            return GetCachedOrApiData($"Ranobe:{id}", () => _client.Ranobes.GetRanobe(id));
-        }
+            return GetDataAsync(
+                $"Ranobe:{id}",
+                () => _client.Ranobes.GetRanobe(id),
+                async (id) =>
+                {
+                    var ranobeDto = await _context.Ranobes
+                        .Where(r => r.Id == id)
+                        .Select(r => new RanobeDto
+                        {
+                            Id = r.Id,
+                            Content = r.Content
+                        })
+                        .FirstOrDefaultAsync();
 
+                    return ranobeDto != null
+                        ? JsonConvert.DeserializeObject<MangaRanobeId>(ranobeDto.Content)
+                        : null;
+                },
+                ranobe =>
+                {
+                    _context.Ranobes.Add(new RanobeDto
+                    {
+                        Id = ranobe.Id,
+                        Content = JsonConvert.SerializeObject(ranobe)
+                    });
+                    
+                },
+                true
+            );
+        }
+        
         public Task<Genre[]> GetGenres()
         {
-            return GetCachedOrApiData("AnimeGenres_cache", () => _client.Genres.GetGenres());
+            return GetDataAsync("AnimeGenres_cache", () => _client.Genres.GetGenres());
         }
 
         public Task<Studio[]> GetStudios()
         {
-            return GetCachedOrApiData("Studios_cache", () => _client.Studios.GetStudios());
+            return GetDataAsync("Studios_cache", () => _client.Studios.GetStudios());
         }
 
         public Task<Publisher[]> GetPublishers()
         {
-            return GetCachedOrApiData("Publishers_cache", () => _client.Publishers.GetPublishers());
+            return GetDataAsync("Publishers_cache", () => _client.Publishers.GetPublishers());
         }
 
         public async Task<Anime[]> GetAnimes(AnimeRequestSettings settings)

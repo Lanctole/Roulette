@@ -60,7 +60,7 @@ public class Program
         {
              ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true
         });
-        builder.Services.AddSingleton<ShikimoriApiConnectorService>();
+        builder.Services.AddScoped<ShikimoriApiConnectorService>();
         builder.Services.AddScoped<ShikiDataHelper>();
 
         var apiUrl = Environment.GetEnvironmentVariable("API_URL") ?? builder.Configuration["ApiBaseAddress"];
