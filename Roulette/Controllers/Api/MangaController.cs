@@ -35,7 +35,7 @@ namespace Roulette.Controllers.Api
             [FromQuery] int? score = null,
             [FromQuery] string? kind = null,
             [FromQuery] string? season = null,
-            [FromQuery] int[]? publisher = null,
+            [FromQuery] string? publisher = null,
             [FromQuery] string? genre = null,
             [FromQuery] bool? censored = null,
             [FromQuery] string? search = null,

@@ -62,7 +62,7 @@
     {
         var publishers = string.Join(",", _selectedPublishers);
         var mangaUrl =
-            $"publishers={publishers}&" +
+            $"publisher={publishers}&" +
             $"kind={_selectedKind}&";
         _mangas = await GetMediaItemsAsync($"manga/mangas?{mangaUrl}", async id =>
         {

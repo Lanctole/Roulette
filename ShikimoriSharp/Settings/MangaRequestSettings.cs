@@ -3,6 +3,6 @@ namespace ShikimoriSharp.Settings
 {
     public class MangaRequestSettings : MangaAnimeRanobeRequestSettingsBase
     {
-        public int[]? publisher;
+        public string? publisher;
     }
 }
