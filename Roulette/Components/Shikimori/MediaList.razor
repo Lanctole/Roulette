@@ -1,14 +1,19 @@
 ﻿@using ShikimoriSharp.Bases
+@using Roulette.Services
+@using ShikimoriSharp.Classes
+@using Games.Classes
+@using Roulette.Models
 @inject IJSRuntime JS
+@inject UserChoiceHistoryService UserChoiceHistoryService
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject UserManager<IdentityUser> UserManager
 
-@if (MediaItems!.Count != 0)
+@if (MediaItems != null && MediaItems.Any())
 {
-    @foreach (var mediaItem in MediaItems)
+    var selectedMediaItem = MediaItems.FirstOrDefault(mi => mi.Id == SelectedID);
+    if (selectedMediaItem != null)
     {
-        @if (mediaItem.Id == SelectedID)
-        {
-            <MediaComponent Item="mediaItem"/>
-        }
+        <MediaComponent Item="selectedMediaItem" />
     }
 }
 
@@ -20,6 +25,10 @@
 
     [Parameter]
     public List<SmallRepresentation>? MediaItems { get; set; }
+    [Parameter]
+    public bool IsWinner { get; set; }
+    [Parameter]
+    public MediaType MediaType { get; set; }
 
     private DotNetObjectReference<MediaList>? dotNetObjectRef;
     private long SelectedID { get; set; }
@@ -38,6 +47,37 @@
     [JSInvokable]
     public async Task<string> ChangeID(int input)
     {
+
+        if (IsWinner)
+        {
+            IsWinner = false;
+            var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+            var userName = authState.User.Identity?.Name;
+
+            if (userName != null)
+            {
+                var user = await UserManager.FindByNameAsync(userName);
+                var userId = user?.Id; 
+            
+                SmallRepresentation? Item = MediaItems?.FirstOrDefault(mi => mi.Id == input);
+            
+                switch (MediaType)
+                {
+                    case MediaType.Anime:
+                        await UserChoiceHistoryService.AddAnimeToHistoryAsync(userId, input);
+                        break;
+                    case MediaType.Manga:
+                        await UserChoiceHistoryService.AddMangaToHistoryAsync(userId, input);
+                        break;
+                    case MediaType.Ranobe:
+                        await UserChoiceHistoryService.AddRanobeToHistoryAsync(userId, input);
+                        break;
+                    case MediaType.Game:
+                        await UserChoiceHistoryService.AddGameToHistoryAsync(userId, input);
+                        break;
+                }
+            }
+        }
         SelectedID = input;
         StateHasChanged();
         return await Task.FromResult(input.ToString());

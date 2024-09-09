@@ -1,6 +1,7 @@
 ﻿@page "/manga"
 @using ShikimoriSharp.Bases
 @using Roulette.Services
+@using Roulette.Models
 @inherits ShikimoriComponent
 @inject ApiClientService ApiClientService
 
@@ -43,7 +44,7 @@
         <WheelComponent/>
     </Col>
     <Col Xs="24" Sm="12" Md="12">
-        <MediaList MediaItems="_mangas"/>
+    <MediaList MediaItems="_mangas" IsWinner="true" MediaType="MediaType.Manga" />
     </Col>
 </Row>
 

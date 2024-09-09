@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Roulette.Data;
@@ -11,9 +12,11 @@ using Roulette.Data;
 namespace Roulette.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240909050004_AddUserChoices")]
+    partial class AddUserChoices
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -371,12 +374,6 @@ namespace Roulette.Data.Migrations
 
             modelBuilder.Entity("Roulette.Models.UserAnimeChoice", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
                     b.Property<long>("AnimeId")
                         .HasColumnType("bigint");
 
@@ -387,8 +384,6 @@ namespace Roulette.Data.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.HasKey("Id");
-
                     b.HasIndex("AnimeId");
 
                     b.HasIndex("UserId");
@@ -398,12 +393,6 @@ namespace Roulette.Data.Migrations
 
             modelBuilder.Entity("Roulette.Models.UserGameChoice", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
                     b.Property<DateTime>("ChosenAt")
                         .HasColumnType("timestamp with time zone");
 
@@ -414,8 +403,6 @@ namespace Roulette.Data.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.HasKey("Id");
-
                     b.HasIndex("GameId");
 
                     b.HasIndex("UserId");
@@ -425,12 +412,6 @@ namespace Roulette.Data.Migrations
 
             modelBuilder.Entity("Roulette.Models.UserMangaChoice", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
                     b.Property<DateTime>("ChosenAt")
                         .HasColumnType("timestamp with time zone");
 
@@ -441,8 +422,6 @@ namespace Roulette.Data.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.HasKey("Id");
-
                     b.HasIndex("MangaId");
 
                     b.HasIndex("UserId");
@@ -452,12 +431,6 @@ namespace Roulette.Data.Migrations
 
             modelBuilder.Entity("Roulette.Models.UserRanobeChoice", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
                     b.Property<DateTime>("ChosenAt")
                         .HasColumnType("timestamp with time zone");
 
@@ -467,8 +440,6 @@ namespace Roulette.Data.Migrations
                     b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("text");
-
-                    b.HasKey("Id");
 
                     b.HasIndex("RanobeId");
 

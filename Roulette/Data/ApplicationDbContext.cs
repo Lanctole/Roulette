@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Roulette.DTOs;
+using Roulette.Models;
 using ShikimoriSharp.Bases;
 using ShikimoriSharp.Classes;
 using Genre = Games.Classes.Genre;
@@ -17,6 +18,10 @@ namespace Roulette.Data
         public DbSet<AnimeDto> Animes { get; set; } 
         public DbSet<MangaDto> Mangas { get; set; }
         public DbSet<RanobeDto> Ranobes { get; set; }
+        public DbSet<UserGameChoice> UserGameChoices { get; set; }
+        public DbSet<UserAnimeChoice> UserAnimeChoices { get; set; }
+        public DbSet<UserMangaChoice> UserMangaChoices { get; set; }
+        public DbSet<UserRanobeChoice> UserRanobeChoices { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
