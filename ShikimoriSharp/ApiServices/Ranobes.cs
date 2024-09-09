@@ -1,12 +1,10 @@
-﻿using Microsoft.Extensions.Logging;
-using ShikimoriSharp.ApiServices;
+﻿using System.Threading.Tasks;
 using ShikimoriSharp.Bases;
 using ShikimoriSharp.Classes;
 using ShikimoriSharp.Enums;
 using ShikimoriSharp.Settings;
-using System.Threading.Tasks;
 
-namespace ShikimoriSharp.Information
+namespace ShikimoriSharp.ApiServices
 {
     public class Ranobes : ApiBase
     {

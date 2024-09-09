@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 using Polly;
 using ShikimoriSharp.Bases;
 using ShikimoriSharp.Exceptions;
+using ShikimoriSharp.Settings;
 //TODO возможно проблема с сокетами отсюда
 namespace ShikimoriSharp.ApiServices
 {

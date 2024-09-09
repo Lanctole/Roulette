@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net.Http;
 using ShikimoriSharp.Classes;
-using ShikimoriSharp.Information;
+using ShikimoriSharp.Settings;
 
 namespace ShikimoriSharp.ApiServices
 {

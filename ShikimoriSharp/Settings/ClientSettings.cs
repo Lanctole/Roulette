@@ -1,4 +1,4 @@
-﻿namespace ShikimoriSharp.ApiServices
+﻿namespace ShikimoriSharp.Settings
 {
     public class ClientSettings
     {

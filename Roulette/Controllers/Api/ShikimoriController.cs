@@ -6,7 +6,6 @@ using Roulette.Services;
 using ShikimoriSharp;
 using ShikimoriSharp.Classes;
 using ShikimoriSharp.Enums;
-using ShikimoriSharp.Information;
 using ShikimoriSharp.Settings;
 
 namespace Roulette.Controllers.Api

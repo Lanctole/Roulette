@@ -1,13 +1,10 @@
-﻿using System;
-using System.Threading.Tasks;
-using ShikimoriSharp.AdditionalRequests;
-using ShikimoriSharp.ApiServices;
+﻿using System.Threading.Tasks;
 using ShikimoriSharp.Bases;
 using ShikimoriSharp.Classes;
 using ShikimoriSharp.Settings;
 using Version = ShikimoriSharp.Enums.Version;
 
-namespace ShikimoriSharp.Information
+namespace ShikimoriSharp.ApiServices
 {
     public class Animes : ApiBase
     {

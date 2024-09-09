@@ -1,10 +1,8 @@
 ﻿using System.Threading.Tasks;
-using Microsoft.Extensions.Logging;
-using ShikimoriSharp.ApiServices;
 using ShikimoriSharp.Classes;
 using ShikimoriSharp.Enums;
 
-namespace ShikimoriSharp.Information
+namespace ShikimoriSharp.ApiServices
 {
     public class Studios : ApiBase
     {

@@ -2,6 +2,7 @@
 using System.Net.Http;
 using System.Threading.Tasks;
 using ShikimoriSharp.Bases;
+using ShikimoriSharp.Settings;
 
 namespace ShikimoriSharp.ApiServices
 {

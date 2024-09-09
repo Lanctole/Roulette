@@ -1,12 +1,10 @@
-﻿using ShikimoriSharp.Bases;
-using ShikimoriSharp.Settings;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using ShikimoriSharp.Bases;
 using ShikimoriSharp.Classes;
-using Microsoft.Extensions.Logging;
 using ShikimoriSharp.Enums;
-using ShikimoriSharp.ApiServices;
+using ShikimoriSharp.Settings;
 
-namespace ShikimoriSharp.Information
+namespace ShikimoriSharp.ApiServices
 {
     public class Mangas : ApiBase
     {
