@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShikimoriSharp", "Shikimori
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SteamCVStoJSON", "IGDBSaver\SteamCVStoJSON.csproj", "{A511F41C-34A6-4234-B109-E8ACD244F395}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Games", "Games\Games.csproj", "{E75F2A81-3B67-45E6-9568-B3432B6CEB2E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Games", "Games\Games.csproj", "{E75F2A81-3B67-45E6-9568-B3432B6CEB2E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

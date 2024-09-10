@@ -81,6 +81,26 @@ namespace Roulette.Services
                 .ToListAsync();
         }
 
+        public async Task<PaginatedAnimeHistory> GetUserAnimeHistoryAsync(string userId, int pageNumber, int pageSize)
+        {
+            var totalItems = await _context.UserAnimeChoices
+                .Where(uac => uac.UserId == userId)
+                .CountAsync();
+
+            var items = await _context.UserAnimeChoices
+                .Where(uac => uac.UserId == userId)
+                .OrderByDescending(uac => uac.ChosenAt)
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+
+            return new PaginatedAnimeHistory
+            {
+                Items = items,
+                TotalCount = totalItems
+            };
+        }
+
         public async Task<List<UserMangaChoice>> GetUserMangaHistoryAsync(string userId)
         {
             return await _context.UserMangaChoices
@@ -89,12 +109,52 @@ namespace Roulette.Services
                 .ToListAsync();
         }
 
+        public async Task<PaginatedMangaHistory> GetUserMangaHistoryAsync(string userId, int pageNumber, int pageSize)
+        {
+            var totalItems = await _context.UserMangaChoices
+                .Where(umc => umc.UserId == userId)
+                .CountAsync();
+
+            var items = await _context.UserMangaChoices
+                .Where(umc => umc.UserId == userId)
+                .OrderByDescending(umc => umc.ChosenAt)
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+
+            return new PaginatedMangaHistory
+            {
+                Items = items,
+                TotalCount = totalItems
+            };
+        }
+
         public async Task<List<UserRanobeChoice>> GetUserRanobeHistoryAsync(string userId)
         {
             return await _context.UserRanobeChoices
                 .Where(urc => urc.UserId == userId)
                 .OrderByDescending(urc => urc.ChosenAt)
                 .ToListAsync();
+        }
+
+        public async Task<PaginatedRanobeHistory> GetUserRanobeHistoryAsync(string userId, int pageNumber, int pageSize)
+        {
+            var totalItems = await _context.UserRanobeChoices
+                .Where(urc => urc.UserId == userId)
+                .CountAsync();
+
+            var items = await _context.UserRanobeChoices
+                .Where(urc => urc.UserId == userId)
+                .OrderByDescending(urc => urc.ChosenAt)
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+
+            return new PaginatedRanobeHistory
+            {
+                Items = items,
+                TotalCount = totalItems
+            };
         }
     }
 }

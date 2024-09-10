@@ -21,47 +21,49 @@
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="anime">
                 
-                <Icon Component="AnimeSvg" Theme="outline" Style="margin-right: 10px;" /> Anime
+                <Icon Component="AnimeSvg" Theme="outline" Style="margin-right: 10px;" /> Аниме
             </NavLink>
         </div>
         
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="manga">
-                <Icon Component="MangaSvg" Theme="outline" Style="margin-right: 10px;" /> Manga
+                <Icon Component="MangaSvg" Theme="outline" Style="margin-right: 10px;" /> Манга
             </NavLink>
         </div>
         
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="ranobe">
-                <Icon Component="RanobeSvg" Theme="outline" Style="margin-right: 10px;" /> Ranobe
+                <Icon Component="RanobeSvg" Theme="outline" Style="margin-right: 10px;" /> Ранобе
             </NavLink>
         </div>
        <AuthorizeView Roles="admin">
            <div class="nav-item px-3">
                <NavLink class="nav-link" href="studios">
-                   <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Studios
+                   <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Студии
                </NavLink>
            </div>
         
            <div class="nav-item px-3">
                <NavLink class="nav-link" href="genres">
-                   <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Genres
+                   <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Жанры
                </NavLink>
            </div>
 
             <div class="nav-item px-3">
                 <NavLink class="nav-link" href="admin">
-                    <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Admin
+                    <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Админ Панель
                 </NavLink>
             </div>
        </AuthorizeView>
         
-
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="auth">
-                <span class="bi bi-lock-nav-menu" aria-hidden="true"></span> Auth Required
-            </NavLink>
-        </div> @*TODO: delete*@
+       <AuthorizeView>
+           <div class="nav-item px-3">
+               <NavLink class="nav-link" href="history">
+                    <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> История колеса
+               </NavLink>
+           </div>
+       </AuthorizeView>
+         
        <AuthorizeView>
            <Authorized>
                <div class="nav-item px-3">
