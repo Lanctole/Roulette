@@ -1,0 +1,202 @@
+﻿@page "/games"
+@using Roulette.Models
+@using Roulette.Services
+@using Roulette.DTOs
+@using Games.Enums
+@inject ApiClientService ApiClientService
+@inject NotificationService _notice
+@inject IJSRuntime JS
+
+<PageTitle>Games</PageTitle>
+
+<Row Gutter="16">
+    <Col Xs="24" Sm="12" Md="8">
+    <GameGenres SelectedGameGenresChanged="OnSelectedGameGenresChanged" />
+    </Col>
+    <Col Xs="24" Sm="12" Md="8">
+        <GameLanguages SelectedLanguagesChanged="OnSelectedGameLanguagesChanged" />
+    </Col>
+</Row>
+<Divider Orientation="left"></Divider>
+
+<Row Gutter="16">
+    <Col Xs="24" Sm="12" Md="8">
+        <div style="display: flex; align-items: center;">
+            Минимальная оценка Steam:
+            <Slider TValue="double" Min="0" Max="100" Reverse="true" DefaultValue="70" Style="flex-grow: 1;" @bind-Value="@steam" OnChange="HandleSteamSliderChange" />
+            <AntDesign.InputNumber Size="small" Style="border: none; background-color: transparent; margin-left: -5px;" @bind-Value="@steam" Disabled="true" TValue="double" Bordered="false" />
+        </div>
+
+        <div style="display: flex; align-items: center;">
+            Минимальная оценка Metacritic:
+            <Slider TValue="double" Min="0" Max="100" Reverse="true" DefaultValue="70" Style="flex-grow: 1;" @bind-Value="@metactiric" OnChange="HandleMetacriticSliderChange" />
+            <AntDesign.InputNumber Size="small" Style="border: none; background-color: transparent; margin-left: -5px;" @bind-Value="@metactiric" Disabled="true" TValue="double" Bordered="false" />
+        </div>
+    </Col>
+
+    <Col Xs="24" Sm="12" Md="8">
+        <div style="display: flex; align-items: center;">
+            <span>Цена ($):</span>
+            <AntDesign.InputNumber  
+                Style="border: none; background-color: transparent; width: 30px; margin-left: 1px; margin-right: -1px;" 
+                @bind-Value="@costMin" 
+                Disabled="true" 
+                TValue="double" 
+                Bordered="false" 
+                Size="small" />
+            <Slider TValue="(double, double)" 
+                    Min="0" 
+                    Max="100" 
+                    DefaultValue="defaultCost" 
+                    Style="flex-grow: 1; margin-left: 0; margin-right: 0;" 
+                    OnChange="HandleCostSliderChange"/>
+            <AntDesign.InputNumber  
+                Style="border: none; background-color: transparent; width: 60px; margin-left: 5px;" 
+                @bind-Value="@costMax" 
+                Disabled="true" 
+                TValue="double" 
+                Bordered="false" 
+                Size="small" />
+        </div>
+
+        <div style="display: flex; align-items: center;">
+            <span>Дата выхода:</span>
+            <AntDesign.InputNumber Style="border: none; background-color: transparent; width: 60px; margin-left: 1px; margin-right: -10px;"
+                                   @bind-Value="@dateFrom"
+                                   Disabled="true"
+                                   TValue="double"
+                                   Bordered="false"
+                                   Size="small" />
+            <Slider TValue="(double, double)"
+                    Min="1997"
+                    Max="2024"
+                    DefaultValue="defaultDate"
+                    Style="flex-grow: 1; margin-left: 0; margin-right: 0;"
+                    OnChange="HandleDateSliderChange" />
+            <AntDesign.InputNumber Style="border: none; background-color: transparent; width: 60px; margin-left: 5px;"
+                                   @bind-Value="@dateTo"
+                                   Disabled="true"
+                                   TValue="double"
+                                   Bordered="false"
+                                   Size="small" />
+        </div>
+    </Col>
+</Row>
+<div class="item">
+    <Button OnClick="SendSelected">Roll!</Button>
+</div>
+<Divider Orientation="left"></Divider>
+
+<Row Gutter="8" Justify="space-between">
+    <Col Xs="24" Sm="6" Md="4" Span="4">
+    <WheelComponent />
+    </Col>
+    <Col Xs="24" Sm="12" Md="12">
+    <MediaList MediaItems="_games" IsWinner="true" MediaType="MediaType.Game" />
+    </Col>
+</Row>
+
+@code {
+    protected (double, double) defaultCost=(15,60);
+    protected (double, double) defaultDate=(2010,2020);
+    protected double defaultSteam=70;
+    protected double defaultMetacritic=70;
+    protected List<string> SelectedGenres = new();
+    protected List<string> SelectedGameLanguages = new();
+    protected double steam;
+    protected double metactiric;
+    protected double costMin;
+    protected double costMax;
+    protected double dateFrom;
+    protected double dateTo;
+    protected string? SelectedFromYear;
+    protected string? SelectedToYear;
+    protected List<GameDto>? _games;
+
+    protected override async Task OnInitializedAsync()
+    {
+        metactiric = defaultMetacritic;
+        steam = defaultSteam;
+        (costMin, costMax) = defaultCost;
+        (dateFrom, dateTo) = defaultDate;
+    }
+
+    private async Task SendSelected()
+    {
+        var genres = string.Join(",", SelectedGenres);
+        var languages = string.Join(",", SelectedGameLanguages);
+        var order = GameOrder.Random;
+        SelectedFromYear = dateFrom + "-01-01";
+        SelectedToYear = dateTo + "-12-31";
+        var gameUrl =
+            $"game/games?" +
+            $"genres={genres}&" +
+            $"metacriticScore={(int?)metactiric}&" +
+            $"steamScore={(int?)steam}&" +
+            $"releaseDateStart={SelectedFromYear}&" +
+            $"releaseDateEnd={SelectedToYear}&" +
+            $"supportedLanguages={languages}&" +
+            $"minCost={costMin}&" +
+            $"maxCost={costMax}&"+
+            $"order={order}";
+
+        _games = await ApiClientService.GetAsync<List<GameDto>>(gameUrl);
+        if (_games == null || _games.Count == 0)
+        {
+            await OnEmptyAnswer();
+            return;
+        }
+        TransferMediaPropsToSpinFunc(_games);
+        
+    }
+ 
+    private void TransferMediaPropsToSpinFunc(List<GameDto> detailedItems)
+    {
+        Dictionary<long, string> mediaName = new();
+        foreach (var media in detailedItems)
+        {
+            mediaName.Add(media.AppID, media.Name);
+        }
+        JS.InvokeVoidAsync("startSpin", mediaName);
+    }
+
+    private async Task OnEmptyAnswer()
+    {
+        RenderFragment customIcon = @<Icon Type="meh" Theme="outline" Style="color:#FFC000;"></Icon>;
+        await _notice.Open(new NotificationConfig
+        {
+            Message = "Проблем-ка!",
+            Description = "К сожалению, у нас нет контента удовлетворяющего вашим запросам. Попробуйте изменить хотелки",
+            Icon = customIcon
+        });
+    }
+
+    protected void OnSelectedGameGenresChanged(List<string> selectedGenres)
+    {
+        SelectedGenres = selectedGenres;
+    }
+
+    protected void OnSelectedGameLanguagesChanged(List<string> selectedGameLanguages)
+    {
+        SelectedGameLanguages = selectedGameLanguages;
+    }
+
+    private void HandleSteamSliderChange(double newValue)
+    {
+        steam = newValue;
+    }
+
+    private void HandleMetacriticSliderChange(double newValue)
+    {
+        metactiric = newValue;
+    }
+    
+    private void HandleCostSliderChange((double, double) newValue)
+    {
+        (costMin, costMax) = newValue;
+    }   
+    private void HandleDateSliderChange((double, double) newValue)
+    {
+        (dateFrom, dateTo) = newValue;
+    }
+}

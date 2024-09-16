@@ -1,0 +1,36 @@
+﻿@page "/game-languages"
+@using Microsoft.AspNetCore.Authorization
+@using Roulette.DTOs
+@using Roulette.Models
+@using Roulette.Services
+@inject GameLanguageService GameLanguageService
+@attribute [Authorize(Roles = "admin")]
+
+<SelectComponent T="SupportedLanguageDto" TValue="string"
+                 Placeholder="Выберите языки"
+                 LoadingMessage="Готовим список языков"
+                 LoadData="LoadLanguages"
+                 Transform="TransformLanguage"
+                 OnSelectedItemsChanged="UpdateSelectedLanguages" />
+
+@code {
+    [Parameter]
+    public EventCallback<List<string>> SelectedLanguagesChanged { get; set; }
+    private List<string> _selectedLanguages = new();
+
+    private async Task<List<SupportedLanguageDto>> LoadLanguages()
+    {
+        return await GameLanguageService.GetLanguagesAsync();
+    }
+
+    private LabeledValue TransformLanguage(SupportedLanguageDto language)
+    {
+        return new LabeledValue(language.Id.ToString(), language.Russian);
+    }
+
+    private void UpdateSelectedLanguages(string selectedValues)
+    {
+        _selectedLanguages = selectedValues.Split(',').ToList();
+        SelectedLanguagesChanged.InvokeAsync(_selectedLanguages);
+    }
+}

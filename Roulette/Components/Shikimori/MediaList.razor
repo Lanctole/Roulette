@@ -2,15 +2,31 @@
 @using Roulette.Services
 @using ShikimoriSharp.Classes
 @using Games.Classes
+@using Roulette.DTOs
 @using Roulette.Models
 @inject IJSRuntime JS
 @inject UserChoiceHistoryService UserChoiceHistoryService
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject UserManager<IdentityUser> UserManager
+@typeparam T
 
 @if (MediaItems != null && MediaItems.Any())
 {
-    var selectedMediaItem = MediaItems.FirstOrDefault(mi => mi.Id == SelectedID);
+    object? selectedMediaItem = null;
+    foreach (var mediaItem in MediaItems)
+    {
+        if (mediaItem is SmallRepresentation smallRep && smallRep.Id == SelectedID)
+        {
+            selectedMediaItem = smallRep;
+            break;
+        }
+        else if (mediaItem is GameDto gameDto && gameDto.AppID == SelectedID)
+        {
+            selectedMediaItem = gameDto;
+            break;
+        }
+    }
+
     if (selectedMediaItem != null)
     {
         <MediaComponent Item="selectedMediaItem" />
@@ -24,13 +40,13 @@
 @code {
 
     [Parameter]
-    public List<SmallRepresentation>? MediaItems { get; set; }
+    public List<T>? MediaItems { get; set; }
     [Parameter]
     public bool IsWinner { get; set; }
     [Parameter]
     public MediaType MediaType { get; set; }
 
-    private DotNetObjectReference<MediaList>? dotNetObjectRef;
+    private DotNetObjectReference<MediaList<T>>? dotNetObjectRef;
     private long SelectedID { get; set; }
     
 
@@ -38,7 +54,7 @@
     {
         if (MediaItems == null)
         {
-            MediaItems = new List<SmallRepresentation>();
+            MediaItems = new List<T>();
         }
         dotNetObjectRef = DotNetObjectReference.Create(this);
         JS.InvokeVoidAsync("registerDotNetObject", dotNetObjectRef);
@@ -58,9 +74,7 @@
             {
                 var user = await UserManager.FindByNameAsync(userName);
                 var userId = user?.Id; 
-            
-                SmallRepresentation? Item = MediaItems?.FirstOrDefault(mi => mi.Id == input);
-            
+
                 switch (MediaType)
                 {
                     case MediaType.Anime:

@@ -2,10 +2,13 @@
 @using Roulette.Services
 @using ShikimoriSharp.Classes
 @using Microsoft.AspNetCore.Authorization
+@using Roulette.DTOs
+@using Roulette.Models
 @inject UserChoiceHistoryService HistoryService
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject UserManager<IdentityUser> UserManager
 @inject ShikimoriApiConnectorService ShikimoriApiConnectorService
+@inject GameService GameService
 @attribute [Authorize]
 
 @* <h2>История колеса</h2> *@
@@ -118,16 +121,52 @@
             </div>
         </div>
     </TabPane>
+
+    <TabPane Key="4" Tab="Игры">
+        <div class="row">
+            <div class="col-md-5 order-md-1 order-2">
+                <h3>История игр</h3>
+                @if (_paginatedGameDetails != null)
+                {
+                    @foreach (var gameChoice in _paginatedGameDetails)
+                    {
+                        <div class="history-item" @onclick="() => SelectGame(gameChoice.Item1)">
+                            <div class="history-title">
+                                @gameChoice.Item1.Name
+                            </div>
+                            <div class="history-date">
+                                @gameChoice.Item2.ToString("dd-MM-yyyy")
+                            </div>
+                        </div>
+                    }
+
+                    <Pagination Total="@_totalGameItems"
+                                Current="@_currentGamePage"
+                                PageSize="@_pageSize"
+                                OnChange="HandleGamePageChange" />
+                }
+            </div>
+            <div class="col-md-6 order-md-2 order-1">
+                <h4>Выбранная Игра</h4>
+                @if (_selectedGame != null)
+                {
+                    <MediaComponent Item="_selectedGame" />
+                }
+            </div>
+        </div>
+    </TabPane>
 </Tabs>
 
 @code {
     private List<Tuple<AnimeId, DateTime>> _paginatedAnimeDetails;
     private List<Tuple<MangaRanobeId, DateTime>> _paginatedMangaDetails;
     private List<Tuple<MangaRanobeId, DateTime>> _paginatedRanobeDetails;
+    private List<Tuple<GameDto, DateTime>> _paginatedGameDetails;
 
     private AnimeId _selectedAnime;
     private MangaRanobeId _selectedManga;
     private MangaRanobeId _selectedRanobe;
+    private GameDto _selectedGame;
 
     private string _userId;
 
@@ -138,7 +177,8 @@
     private int _totalMangaItems;
     private int _currentRanobePage = 1;
     private int _totalRanobeItems;
-
+    private int _currentGamePage = 1;
+    private int _totalGameItems;
 
     protected override async Task OnInitializedAsync()
     {
@@ -151,6 +191,7 @@
             await LoadAnimeData();
             await LoadMangaData();
             await LoadRanobeData();
+            await LoadGameData();
         }
     }
 
@@ -231,5 +272,34 @@
     private async Task SelectRanobe(MangaRanobeId ranobe)
     {
         _selectedRanobe = ranobe;
+    }
+
+    private async Task LoadGameData(int pageNumber = 1, int pageSize = 10)
+    {
+        var gameHistory = await HistoryService.GetUserGameHistoryAsync(_userId);
+
+        _totalGameItems = gameHistory.Count;
+
+        _paginatedGameDetails = new List<Tuple<GameDto, DateTime>>();
+
+        var paginatedItems = gameHistory.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
+        foreach (var gameChoice in paginatedItems)
+        {
+            List<long> ids = new List<long>();
+            ids.Add(gameChoice.GameId);
+            var gameDetails = await GameService.GetGamesAsync(ids, 1);
+            _paginatedGameDetails.Add(Tuple.Create(gameDetails[0], gameChoice.ChosenAt));
+        }
+    }
+
+    private async Task HandleGamePageChange(PaginationEventArgs e)
+    {
+        _currentGamePage = e.Page;
+        await LoadGameData(_currentGamePage, _pageSize);
+    }
+
+    private async Task SelectGame(GameDto game)
+    {
+        _selectedGame = game;
     }
 }

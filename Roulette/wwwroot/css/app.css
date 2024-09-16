@@ -163,3 +163,9 @@ h3 {
 .pagination {
     margin-top: 15px;
 }
+
+.item {
+    display: grid;
+    place-items: center;
+    height: 100%;
+}

@@ -33,10 +33,19 @@ public class GameQueryProcessor
         if (metacriticScore.HasValue) query = query.Where(g => g.MetacriticScore >= metacriticScore.Value);
 
         if (steamScore.HasValue) query = query.Where(g => g.SteamScore >= steamScore.Value);
+        if (minCost.HasValue && maxCost.HasValue && minCost == maxCost)
+        {
+            query = query.Where(g => g.Cost >= minCost.Value-1 && g.Cost <= maxCost.Value);
+        }
+        else
+        {
+            if (minCost.HasValue)
+                query = query.Where(g => g.Cost >= minCost.Value);
 
-        if (minCost.HasValue) query = query.Where(g => g.Cost >= minCost.Value);
+            if (maxCost.HasValue)
+                query = query.Where(g => g.Cost <= maxCost.Value);
+        }
 
-        if (maxCost.HasValue) query = query.Where(g => g.Cost <= maxCost.Value);
 
         if (DateTime.TryParse(releaseDateStart, out var startDate))
         {

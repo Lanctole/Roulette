@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-
 namespace ShikimoriSharp.Bases
 {
     public class SmallRepresentation

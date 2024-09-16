@@ -10,7 +10,7 @@ namespace Roulette.Services
     {
         private readonly ApplicationDbContext _context;
         private readonly IDistributedCache _cache;
-        private const string LanguagesCacheKey = "LanguagesCacheKey";
+        private const string LanguagesCacheKey = "GameLanguages_cache";
 
         public GameLanguageService(ApplicationDbContext context, IDistributedCache cache)
         {
@@ -28,11 +28,12 @@ namespace Roulette.Services
             }
 
             var languagesFromDb = await _context.SupportedLanguages
-                .OrderBy(l => l.Name)
+                .OrderBy(l => l.Russian)
                 .Select(l => new SupportedLanguageDto
                 {
                     Id = l.Id,
-                    Name = l.Name
+                    Name = l.Name,
+                    Russian = l.Russian
                 })
                 .ToListAsync();
 

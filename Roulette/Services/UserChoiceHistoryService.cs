@@ -73,6 +73,26 @@ namespace Roulette.Services
                 .ToListAsync();
         }
 
+        public async Task<PaginatedGameHistory> GetUserGameHistoryAsync(string userId, int pageNumber, int pageSize)
+        {
+            var totalItems = await _context.UserGameChoices
+                .Where(ugc => ugc.UserId == userId)
+                .CountAsync();
+
+            var items = await _context.UserGameChoices
+                .Where(ugc => ugc.UserId == userId)
+                .OrderByDescending(ugc => ugc.ChosenAt)
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+
+            return new PaginatedGameHistory
+            {
+                Items = items,
+                TotalCount = totalItems
+            };
+        }
+
         public async Task<List<UserAnimeChoice>> GetUserAnimeHistoryAsync(string userId)
         {
             return await _context.UserAnimeChoices

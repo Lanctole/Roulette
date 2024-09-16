@@ -10,7 +10,7 @@ namespace Roulette.Services
     {
         private readonly ApplicationDbContext _context;
         private readonly IDistributedCache _cache;
-        private const string GenresCacheKey = "GenresCacheKey";
+        private const string GenresCacheKey = "GameGenres_cache";
 
         public GameGenreService(ApplicationDbContext context, IDistributedCache cache)
         {
@@ -28,11 +28,12 @@ namespace Roulette.Services
             }
 
             var genresFromDb = await _context.Genres
-                .OrderBy(g => g.Name)
+                .OrderBy(g => g.Russian)
                 .Select(g => new GenreDto
                 {
                     Id = g.Id,
-                    Name = g.Name
+                    Name = g.Name,
+                    Russian = g.Russian
                 })
                 .ToListAsync();
 

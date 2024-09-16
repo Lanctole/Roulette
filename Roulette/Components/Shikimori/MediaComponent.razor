@@ -3,17 +3,69 @@
 @using Roulette.Services
 @using System.Text.RegularExpressions
 @using System.Globalization
+@using Roulette.DTOs
 @inject SettingsService SettingsService
+@typeparam T
 
 <div class="media-item">
     <div class="row">
         <div class="col-md-4">
-            <img src="@($"{BaseUrl}{Item.Image.Original}")" alt="@Item.Name" class="img-fluid"/>
+            @if (Item is SmallRepresentation smallRep)
+            {
+                <img src="@($"{BaseUrl}{smallRep.Image.Original}")" alt="@smallRep.Name" class="img-fluid"/>
+            }
+            else if (Item is GameDto gameDto)
+            {
+                <img src="@($"{gameDto.HeaderImage}")" alt="@gameDto.Name" class="img-fluid"/>
+            }
         </div>
         <div class="col-md-8">
-            <h4>
-                @Item.Russian <Divider Type="DirectionVHType.Vertical" Style="border-left: 1px solid rgb(1 1 1);"/> @Item.Name
-            </h4>
+            @if (Item is SmallRepresentation smallRepNames)
+            {
+                <h4>
+                    @smallRepNames.Russian <Divider Type="DirectionVHType.Vertical" Style="border-left: 1px solid rgb(1 1 1);" /> @smallRepNames.Name
+                </h4>
+            }
+            else if (Item is GameDto gameDto)
+            {
+                <h4>@gameDto.Name</h4>
+                <div class="line-container">
+                    <div class="line">
+                        <div class="key">Стоимость:</div>
+                        <div class="value">@gameDto.Cost.ToString("C", new CultureInfo("en-US"))</div>
+                    </div>
+                </div>
+                <div class="line-container">
+                    <div class="line">
+                        <div class="key">Дата выхода:</div>
+                        <div class="value">@gameDto.ReleaseDate.ToString("yyyy-MM-dd")</div>
+                    </div>
+                </div>
+                <div class="line-container">
+                    <div class="line">
+                        <div class="key">Оценка Steam:</div>
+                        <div class="value">@gameDto.SteamScore</div>
+                    </div>
+                </div>
+                <div class="line-container">
+                    <div class="line">
+                        <div class="key">Оценка Metacritic:</div>
+                        <div class="value">@gameDto.MetacriticScore</div>
+                    </div>
+                </div>
+                <div class="line-container">
+                    <div class="line">
+                        <div class="key">Жанры:</div>
+                        <div class="value">@string.Join(", ", gameDto.Genres)</div>
+                    </div>
+                </div>
+                <div class="line-container">
+                    <div class="line">
+                        <div class="key">Поддерживаемые языки:</div>
+                        <div class="value">@string.Join(", ", gameDto.SupportedLanguages)</div>
+                    </div>
+                </div>
+            }
 
             @if (Item is AnimeMangaRanobeBase basis)
             {
@@ -128,12 +180,18 @@
 
         </div>
     </div>
-    @if (Item is AnimeMangaRanobeIdBase IdBase)
+    @if (Item is AnimeMangaRanobeIdBase smallRepDesc)
     {
         <div class="key">Описание:</div>
-        <div class="description">@CleanDescription(IdBase.Description)</div>
+        <div class="description">@CleanDescription(smallRepDesc.Description)</div>
         <br/>
-        <a href="@($"{BaseUrl}{Item.Url}")" target="_blank" class="btn-primary">Подробнее</a>
+        <a href="@($"{BaseUrl}{smallRepDesc.Url}")" target="_blank" class="btn-primary">Подробнее</a>
+    }
+    else if (Item is GameDto gameDto)
+    {
+        <div class="key">Описание:</div>
+        <div class="description">@gameDto.ShortDescription</div>
+        
     }
 
 </div>
@@ -141,7 +199,7 @@
 @code {
 
     [Parameter]
-    public SmallRepresentation? Item { get; set; }
+    public T? Item { get; set; }
 
     private string? BaseUrl;
     private decimal scoreDecimal;

@@ -1,4 +1,6 @@
-﻿namespace Roulette.DTOs
+﻿using Roulette.Models;
+
+namespace Roulette.DTOs
 {
     public class GameDto
     {
