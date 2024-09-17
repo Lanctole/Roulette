@@ -26,8 +26,10 @@ namespace Roulette.Controllers.Api
         [HttpGet("games")]
         public async Task<IActionResult> GetGames(
             [FromQuery] string? genres = null,
-            [FromQuery] int? metacriticScore = null,
-            [FromQuery] int? steamScore = null,
+            [FromQuery] int? metacriticScoreMin = null,
+            [FromQuery] int? metacriticScoreMax = null,
+            [FromQuery] int? steamScoreMin = null,
+            [FromQuery] int? steamScoreMax = null,
             [FromQuery] string? releaseDateStart = null,
             [FromQuery] string? releaseDateEnd = null,
             [FromQuery] string? supportedLanguages = null,
@@ -38,7 +40,8 @@ namespace Roulette.Controllers.Api
         {
             var gameIdsQuery = _context.Games.AsQueryable();
             var queryProcessor = new GameQueryProcessor();
-            gameIdsQuery = queryProcessor.ApplyFilters(gameIdsQuery, genres, supportedLanguages, metacriticScore, steamScore, minCost, maxCost, releaseDateStart, releaseDateEnd);
+            gameIdsQuery = queryProcessor.ApplyFilters(gameIdsQuery, genres, supportedLanguages, metacriticScoreMin, metacriticScoreMax, 
+                steamScoreMin, steamScoreMax, minCost, maxCost, releaseDateStart, releaseDateEnd);
             gameIdsQuery = queryProcessor.ApplySorting(gameIdsQuery, order);
 
             var gameIds = await gameIdsQuery.Select(g => g.AppID).Take(limit).ToListAsync();

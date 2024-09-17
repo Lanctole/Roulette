@@ -11,75 +11,52 @@
 
 <Row Gutter="16">
     <Col Xs="24" Sm="12" Md="8">
-    <GameGenres SelectedGameGenresChanged="OnSelectedGameGenresChanged" />
+        <AntDesign.Tooltip Title="Отметьте предпочитаемые жанры. Поиск ведется среди игр удовлетворяющих всем условиям одновременно. Если ввести 'Шутер' и 'Стратегия', 
+то отображаться будут только те игры что являются одновременно и первым и вторым.">
+            <i class="bi bi-info-circle" style="margin-right: 10px;"></i>
+        </AntDesign.Tooltip>
+        <GameGenres SelectedGameGenresChanged="OnSelectedGameGenresChanged"/>
     </Col>
     <Col Xs="24" Sm="12" Md="8">
-        <GameLanguages SelectedLanguagesChanged="OnSelectedGameLanguagesChanged" />
+        <AntDesign.Tooltip Title="Отметьте предпочитаемые языки. Выбор сужает выборку. Если ввести Английский, Русский и Суахили, 
+то получим минимум результатов из-за наличия редкого языка в списке. ">
+            <i class="bi bi-info-circle" style="margin-right: 10px;"></i>
+        </AntDesign.Tooltip>
+        <GameLanguages SelectedLanguagesChanged="OnSelectedGameLanguagesChanged"/>
     </Col>
 </Row>
 <Divider Orientation="left"></Divider>
 
 <Row Gutter="16">
     <Col Xs="24" Sm="12" Md="8">
-        <div style="display: flex; align-items: center;">
-            Минимальная оценка Steam:
-            <Slider TValue="double" Min="0" Max="100" Reverse="true" DefaultValue="70" Style="flex-grow: 1;" @bind-Value="@steam" OnChange="HandleSteamSliderChange" />
-            <AntDesign.InputNumber Size="small" Style="border: none; background-color: transparent; margin-left: -5px;" @bind-Value="@steam" Disabled="true" TValue="double" Bordered="false" />
-        </div>
+    <FilterSlider Title="Оценка на платформе Стим. Составляется из отношения положительных обзоров к общему числу обзоров.
+Поэтому наши данные могут немного отличаться. Сведите ползунки чтобы фильтровать по точному значению."
+                  Label="Оценка Steam"
+                  Min="0" Max="100"
+                  MinValue="@steamMin" MaxValue="@steamMax"
+                  OnChange="HandleSteamSliderChange" />
 
-        <div style="display: flex; align-items: center;">
-            Минимальная оценка Metacritic:
-            <Slider TValue="double" Min="0" Max="100" Reverse="true" DefaultValue="70" Style="flex-grow: 1;" @bind-Value="@metactiric" OnChange="HandleMetacriticSliderChange" />
-            <AntDesign.InputNumber Size="small" Style="border: none; background-color: transparent; margin-left: -5px;" @bind-Value="@metactiric" Disabled="true" TValue="double" Bordered="false" />
-        </div>
+    <FilterSlider Title="Оценка на платформе Метакритик. Сведите ползунки чтобы фильтровать по точному значению."
+                  Label="Оценка Metacritic"
+                  Min="0" Max="100"
+                  MinValue="@metacriticMin" MaxValue="@metacriticMax"
+                  OnChange="HandleMetacriticSliderChange" />
     </Col>
 
     <Col Xs="24" Sm="12" Md="8">
-        <div style="display: flex; align-items: center;">
-            <span>Цена ($):</span>
-            <AntDesign.InputNumber  
-                Style="border: none; background-color: transparent; width: 30px; margin-left: 1px; margin-right: -1px;" 
-                @bind-Value="@costMin" 
-                Disabled="true" 
-                TValue="double" 
-                Bordered="false" 
-                Size="small" />
-            <Slider TValue="(double, double)" 
-                    Min="0" 
-                    Max="100" 
-                    DefaultValue="defaultCost" 
-                    Style="flex-grow: 1; margin-left: 0; margin-right: 0;" 
-                    OnChange="HandleCostSliderChange"/>
-            <AntDesign.InputNumber  
-                Style="border: none; background-color: transparent; width: 60px; margin-left: 5px;" 
-                @bind-Value="@costMax" 
-                Disabled="true" 
-                TValue="double" 
-                Bordered="false" 
-                Size="small" />
-        </div>
+    <FilterSlider Title="Цена в долларах. Как вы знаете, цены часто указывают в виде 9,99 или 59,99. Эта проблема учтена,
+поэтому не обязательно задавать диапазон [59,60], можно просто указать число точное число. Сведите ползунки чтобы фильтровать по точному значению."
+                  Label="Цена ($)"
+                  Min="0" Max="100"
+                  MinValue="@costMin" MaxValue="@costMax"
+                  OnChange="HandleCostSliderChange" />
 
-        <div style="display: flex; align-items: center;">
-            <span>Дата выхода:</span>
-            <AntDesign.InputNumber Style="border: none; background-color: transparent; width: 60px; margin-left: 1px; margin-right: -10px;"
-                                   @bind-Value="@dateFrom"
-                                   Disabled="true"
-                                   TValue="double"
-                                   Bordered="false"
-                                   Size="small" />
-            <Slider TValue="(double, double)"
-                    Min="1997"
-                    Max="2024"
-                    DefaultValue="defaultDate"
-                    Style="flex-grow: 1; margin-left: 0; margin-right: 0;"
-                    OnChange="HandleDateSliderChange" />
-            <AntDesign.InputNumber Style="border: none; background-color: transparent; width: 60px; margin-left: 5px;"
-                                   @bind-Value="@dateTo"
-                                   Disabled="true"
-                                   TValue="double"
-                                   Bordered="false"
-                                   Size="small" />
-        </div>
+    <FilterSlider Title="Дата выхода. Сведите ползунки чтобы фильтровать по точному значению."
+                  Label="Дата выхода"
+                  Min="1997" Max="2024"
+                  Width="50px"
+                  MinValue="@dateFrom" MaxValue="@dateTo"
+                  OnChange="HandleDateSliderChange" />
     </Col>
 </Row>
 <div class="item">
@@ -97,27 +74,22 @@
 </Row>
 
 @code {
-    protected (double, double) defaultCost=(15,60);
-    protected (double, double) defaultDate=(2010,2020);
-    protected double defaultSteam=70;
-    protected double defaultMetacritic=70;
+    protected (double, double) defaultCost = (15, 60);
+    protected (double, double) defaultDate = (2010, 2020);
+    protected (double, double) defaultSteam = (70, 100);
+    protected (double, double) defaultMetacritic = (70, 100);
     protected List<string> SelectedGenres = new();
     protected List<string> SelectedGameLanguages = new();
-    protected double steam;
-    protected double metactiric;
-    protected double costMin;
-    protected double costMax;
-    protected double dateFrom;
-    protected double dateTo;
-    protected string? SelectedFromYear;
-    protected string? SelectedToYear;
+
+    protected double steamMin, steamMax, metacriticMin, metacriticMax, costMin, costMax, dateFrom, dateTo;
+    protected string? SelectedFromYear, SelectedToYear;
     protected List<GameDto>? _games;
     protected bool _showCanvas;
 
     protected override async Task OnInitializedAsync()
     {
-        metactiric = defaultMetacritic;
-        steam = defaultSteam;
+        (metacriticMin, metacriticMax) = defaultMetacritic;
+        (steamMin,steamMax) = defaultSteam;
         (costMin, costMax) = defaultCost;
         (dateFrom, dateTo) = defaultDate;
     }
@@ -125,33 +97,44 @@
     private async Task SendSelected()
     {
         _showCanvas = true;
-        var genres = string.Join(",", SelectedGenres);
-        var languages = string.Join(",", SelectedGameLanguages);
-        var order = GameOrder.Random;
-        SelectedFromYear = dateFrom + "-01-01";
-        SelectedToYear = dateTo + "-12-31";
-        var gameUrl =
-            $"game/games?" +
-            $"genres={genres}&" +
-            $"metacriticScore={(int?)metactiric}&" +
-            $"steamScore={(int?)steam}&" +
-            $"releaseDateStart={SelectedFromYear}&" +
-            $"releaseDateEnd={SelectedToYear}&" +
-            $"supportedLanguages={languages}&" +
-            $"minCost={costMin}&" +
-            $"maxCost={costMax}&"+
-            $"order={order}";
-
+        var gameUrl = BuildGameUrl();
         _games = await ApiClientService.GetAsync<List<GameDto>>(gameUrl);
+
         if (_games == null || _games.Count == 0)
         {
             await OnEmptyAnswer();
             return;
         }
+
         TransferMediaPropsToSpinFunc(_games);
-        
     }
  
+    private string BuildGameUrl()
+    {
+        var genres = string.Join(",", SelectedGenres);
+        var languages = string.Join(",", SelectedGameLanguages);
+        var order = GameOrder.Random;
+        
+        SelectedFromYear = $"{dateFrom}-01-01";
+        SelectedToYear = $"{dateTo}-12-31";
+
+        var gameUrl =
+            $"game/games?" +
+            $"genres={genres}&" +
+            $"metacriticScoreMin={(int?)metacriticMin}&" +
+            $"metacriticScoreMax={(int?)metacriticMax}&" +
+            $"steamScoreMin={(int?)steamMin}&" +
+            $"steamScoreMax={(int?)steamMax}&" +
+            $"releaseDateStart={SelectedFromYear}&" +
+            $"releaseDateEnd={SelectedToYear}&" +
+            $"supportedLanguages={languages}&" +
+            $"minCost={costMin}&" +
+            $"maxCost={costMax}&" +
+            $"order={order}";
+
+        return gameUrl;
+    }
+
     private void TransferMediaPropsToSpinFunc(List<GameDto> detailedItems)
     {
         Dictionary<long, string> mediaName = new();
@@ -173,32 +156,16 @@
         });
     }
 
-    protected void OnSelectedGameGenresChanged(List<string> selectedGenres)
+    protected void OnSelectedGameGenresChanged(List<string> selectedGenres) => SelectedGenres = selectedGenres;
+    protected void OnSelectedGameLanguagesChanged(List<string> selectedGameLanguages) => SelectedGameLanguages = selectedGameLanguages;
+
+    private void HandleSliderChange(ref double min, ref double max, (double, double) newValue)
     {
-        SelectedGenres = selectedGenres;
+        (min, max) = newValue;
     }
 
-    protected void OnSelectedGameLanguagesChanged(List<string> selectedGameLanguages)
-    {
-        SelectedGameLanguages = selectedGameLanguages;
-    }
-
-    private void HandleSteamSliderChange(double newValue)
-    {
-        steam = newValue;
-    }
-
-    private void HandleMetacriticSliderChange(double newValue)
-    {
-        metactiric = newValue;
-    }
-    
-    private void HandleCostSliderChange((double, double) newValue)
-    {
-        (costMin, costMax) = newValue;
-    }   
-    private void HandleDateSliderChange((double, double) newValue)
-    {
-        (dateFrom, dateTo) = newValue;
-    }
+    private void HandleSteamSliderChange((double, double) newValue) => HandleSliderChange(ref steamMin, ref steamMax, newValue);
+    private void HandleMetacriticSliderChange((double, double) newValue) => HandleSliderChange(ref metacriticMin, ref metacriticMax, newValue);
+    private void HandleCostSliderChange((double, double) newValue) => HandleSliderChange(ref costMin, ref costMax, newValue);
+    private void HandleDateSliderChange((double, double) newValue) => HandleSliderChange(ref dateFrom, ref dateTo, newValue);
 }

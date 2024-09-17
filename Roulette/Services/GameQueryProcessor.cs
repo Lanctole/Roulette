@@ -10,8 +10,10 @@ public class GameQueryProcessor
         IQueryable<Game> query,
         string? genres,
         string? supportedLanguages,
-        int? metacriticScore,
-        int? steamScore,
+        int? metacriticScoreMin,
+        int? metacriticScoreMax,
+        int? steamScoreMin,
+        int? steamScoreMax,
         double? minCost,
         double? maxCost,
         string? releaseDateStart,
@@ -30,9 +32,22 @@ public class GameQueryProcessor
                 g.SupportedLanguages.Select(lang => lang.Id).Intersect(languageIds).Count() == languageIds.Count);
         }
 
-        if (metacriticScore.HasValue) query = query.Where(g => g.MetacriticScore >= metacriticScore.Value);
+        if (metacriticScoreMin.HasValue || metacriticScoreMax.HasValue)
+        {
+            if (metacriticScoreMin.HasValue)
+                query = query.Where(g => g.MetacriticScore >= metacriticScoreMin.Value);
+            if (metacriticScoreMax.HasValue)
+                query = query.Where(g => g.MetacriticScore <= metacriticScoreMax.Value);
+        }
 
-        if (steamScore.HasValue) query = query.Where(g => g.SteamScore >= steamScore.Value);
+        if (steamScoreMin.HasValue || steamScoreMax.HasValue)
+        {
+            if (steamScoreMin.HasValue)
+                query = query.Where(g => g.SteamScore >= steamScoreMin.Value);
+            if (steamScoreMax.HasValue)
+                query = query.Where(g => g.SteamScore <= steamScoreMax.Value);
+        }
+
         if (minCost.HasValue && maxCost.HasValue && minCost == maxCost)
         {
             query = query.Where(g => g.Cost >= minCost.Value-1 && g.Cost <= maxCost.Value);
