@@ -42,13 +42,13 @@
     </div>
 </Col>
 <div class="item">
-    <Button OnClick="SendSelected">Roll!</Button>
+    <Button OnClick="OnRollButtonClick">Roll!</Button>
 </div>
 <Divider Orientation="left"></Divider>
 
 <Row Gutter="8" Justify="space-between">
     <Col Xs="24" Sm="6" Md="4" Span="4">
-        <WheelComponent/>
+    <WheelComponent @bind-showCanvas="_showCanvas" />
     </Col>
     <Col Xs="24" Sm="12" Md="12">
     <MediaList MediaItems="_ranobes" IsWinner="true" MediaType="MediaType.Ranobe" />
@@ -58,7 +58,7 @@
 @code {
     private List<SmallRepresentation>? _ranobes;
 
-    private async Task SendSelected()
+    protected override async Task SendSelected()
     {
         _ranobes = await GetMediaItemsAsync("ranobe/ranobes?", async id =>
         {

@@ -169,3 +169,25 @@ h3 {
     place-items: center;
     height: 100%;
 }
+
+main {
+    background-color: #d7e0ff38;
+}
+
+#topRow {
+    background: linear-gradient(to right, black, #394187);
+}
+
+@media (max-width: 640.98px) {
+    #topRow {
+        display: none;
+    }
+}
+
+#winnerId {
+    visibility: hidden;
+}
+
+#rouletteCanvas {
+    cursor: pointer;
+}

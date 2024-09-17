@@ -89,7 +89,7 @@
 
 <Row Gutter="8" Justify="space-between">
     <Col Xs="24" Sm="6" Md="4" Span="4">
-    <WheelComponent />
+    <WheelComponent @bind-showCanvas="_showCanvas" />
     </Col>
     <Col Xs="24" Sm="12" Md="12">
     <MediaList MediaItems="_games" IsWinner="true" MediaType="MediaType.Game" />
@@ -112,6 +112,7 @@
     protected string? SelectedFromYear;
     protected string? SelectedToYear;
     protected List<GameDto>? _games;
+    protected bool _showCanvas;
 
     protected override async Task OnInitializedAsync()
     {
@@ -123,6 +124,7 @@
 
     private async Task SendSelected()
     {
+        _showCanvas = true;
         var genres = string.Join(",", SelectedGenres);
         var languages = string.Join(",", SelectedGameLanguages);
         var order = GameOrder.Random;

@@ -5,6 +5,7 @@
 @inject IJSRuntime JS
 
 @code {
+    protected bool _showCanvas;
     protected string? SelectedScore;
     protected string? SelectedFromYear;
     protected string? SelectedToYear;
@@ -98,4 +99,20 @@
     {
         (dateFrom, dateTo) = newValue;
     }
+
+    protected void ShowCanvas()
+    {
+        _showCanvas = true;
+    }
+    protected async Task OnRollButtonClick()
+    {
+        ShowCanvas();
+        await SendSelected();
+    }
+
+    protected virtual async Task SendSelected()
+    {
+        
+    }
+
 }

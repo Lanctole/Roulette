@@ -11,7 +11,6 @@
 @inject GameService GameService
 @attribute [Authorize]
 
-@* <h2>История колеса</h2> *@
 
 <Tabs DefaultActiveKey="1" Size="@TabSize.Large" Style="margin-bottom: 32px">
     <TabPane Key="1" Tab="Аниме">
@@ -37,6 +36,7 @@
                     <Pagination Total="@_totalAnimeItems"
                                 Current="@_currentAnimePage"
                                 PageSize="@_pageSize"
+                                ShowSizeChanger ="false"
                                 OnChange="HandleAnimePageChange" />
                 }
             </div>
@@ -73,6 +73,7 @@
                     <Pagination Total="@_totalMangaItems"
                                 Current="@_currentMangaPage"
                                 PageSize="@_pageSize"
+                                ShowSizeChanger="false"
                                 OnChange="HandleMangaPageChange" />
                 }
             </div>
@@ -109,6 +110,7 @@
                     <Pagination Total="@_totalRanobeItems"
                                 Current="@_currentRanobePage"
                                 PageSize="@_pageSize"
+                                ShowSizeChanger="false"
                                 OnChange="HandleRanobePageChange" />
                 }
             </div>
@@ -143,6 +145,7 @@
                     <Pagination Total="@_totalGameItems"
                                 Current="@_currentGamePage"
                                 PageSize="@_pageSize"
+                                ShowSizeChanger="false"
                                 OnChange="HandleGamePageChange" />
                 }
             </div>
