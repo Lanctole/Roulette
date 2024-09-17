@@ -137,6 +137,7 @@ public class Program
         builder.Services.AddScoped<GameGenreService>();
         builder.Services.AddScoped<GameLanguageService>();
         builder.Services.AddScoped<UserChoiceHistoryService>();
+        builder.Services.AddScoped<BugReportService>();
 
         var app = builder.Build();
         if (app.Environment.IsDevelopment())

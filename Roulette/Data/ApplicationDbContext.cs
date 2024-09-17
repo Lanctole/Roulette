@@ -22,6 +22,7 @@ namespace Roulette.Data
         public DbSet<UserAnimeChoice> UserAnimeChoices { get; set; }
         public DbSet<UserMangaChoice> UserMangaChoices { get; set; }
         public DbSet<UserRanobeChoice> UserRanobeChoices { get; set; }
+        public DbSet<BugReport> BugReports { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)

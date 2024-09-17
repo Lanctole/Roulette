@@ -1,0 +1,79 @@
+﻿@using Roulette.Models
+@using Roulette.Services
+@inject BugReportService BugReportService
+@inject IMessageService _message
+
+@if (isVisible)
+{
+    <div class="error-widget" @onclick="ToggleForm">
+        <button class="close-button" @onclick="CloseWidget" @onclick:stopPropagation aria-label="Закрыть">
+            &times;
+        </button>
+        <span >Сообщить<br/>об ошибке</span>
+    </div>
+}
+@if (showForm)
+{
+    <div class="error-form-overlay" @onclick="CloseForm">
+        <div class="error-form" @onclick:stopPropagation>
+            <h3>Сообщите об ошибке</h3>
+
+            <EditForm Model="bugReport" OnValidSubmit="SubmitForm">
+                <DataAnnotationsValidator />
+                <ValidationSummary />
+                <AntiforgeryTokenInput />
+                <div class="form-group">
+                    <label>Тема</label>
+                    <InputText @bind-Value="bugReport.Title" maxlength="100" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Описание ошибки</label>
+                    <InputTextArea @bind-Value="bugReport.Description" maxlength="10000" class="form-control textarea" />
+                </div>
+                <div class="form-group">
+                    <label>Ваш email (необязательно)</label>
+                    <InputText @bind-Value="bugReport.UserEmail" class="form-control"/>
+                </div>
+
+                <div class="form-buttons">
+                    <button type="submit" class="btn btn-primary">Отправить</button>
+                    <button type="button" class="btn btn-secondary" @onclick="CloseForm">Отмена</button>
+                </div>
+            </EditForm>
+        </div>
+    </div>
+}
+
+@code {
+    private bool showForm = false;
+    private BugReport bugReport = new();
+    private bool isVisible = true;
+
+    private void CloseWidget()
+    {
+        isVisible = false;
+    }
+
+    private void ToggleForm()
+    {
+        showForm = !showForm;
+    }
+
+    private void CloseForm()
+    {
+        showForm = false;
+    }
+
+    private async Task SubmitForm()
+    {
+        await BugReportService.CreateBugReportAsync(bugReport);
+        showForm = false;
+        bugReport = new();
+        await Success();
+    }
+
+    private async Task Success()
+    {
+        await _message.Success("Сообщение об ошибке успешно отправлено",1);
+    }
+}
