@@ -69,11 +69,11 @@ h1:focus {
 
 
 .media-item {
-    background-color: #e6f7ff;
-    border: 3px solid #6b61c3b0;
-    /* padding: 2px; */
+    /*background-color: #e6f7ff;*/
+    border: 2px solid #5e57adb0;
+    padding: 10px;
     margin: 10px;
-    /* border-radius: 10px; */
+    border-radius: 10px;
 }
 
     .media-item img {
@@ -221,7 +221,6 @@ main {
     z-index: 1000;
     padding: 10px;
     font-weight: bold;
-    font-style: oblique;
     gap: 16px;
 }
 

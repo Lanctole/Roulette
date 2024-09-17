@@ -11,17 +11,9 @@
 
 <Row Gutter="16">
     <Col Xs="24" Sm="12" Md="8">
-        <AntDesign.Tooltip Title="Отметьте предпочитаемые жанры. Поиск ведется среди игр удовлетворяющих всем условиям одновременно. Если ввести 'Шутер' и 'Стратегия', 
-то отображаться будут только те игры что являются одновременно и первым и вторым.">
-            <i class="bi bi-info-circle" style="margin-right: 10px;"></i>
-        </AntDesign.Tooltip>
         <GameGenres SelectedGameGenresChanged="OnSelectedGameGenresChanged"/>
     </Col>
     <Col Xs="24" Sm="12" Md="8">
-        <AntDesign.Tooltip Title="Отметьте предпочитаемые языки. Выбор сужает выборку. Если ввести Английский, Русский и Суахили, 
-то получим минимум результатов из-за наличия редкого языка в списке. ">
-            <i class="bi bi-info-circle" style="margin-right: 10px;"></i>
-        </AntDesign.Tooltip>
         <GameLanguages SelectedLanguagesChanged="OnSelectedGameLanguagesChanged"/>
     </Col>
 </Row>
@@ -60,7 +52,7 @@
     </Col>
 </Row>
 <div class="item">
-    <Button OnClick="SendSelected">Roll!</Button>
+    <RollButtonComponent OnRoll="SendSelected" />
 </div>
 <Divider Orientation="left"></Divider>
 

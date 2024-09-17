@@ -42,7 +42,7 @@
     </div>
 </Col>
 <div class="item">
-    <Button OnClick="OnRollButtonClick">Roll!</Button>
+    <RollButtonComponent OnRoll="SendSelected" />
 </div>
 <Divider Orientation="left"></Divider>
 
@@ -60,6 +60,7 @@
 
     protected override async Task SendSelected()
     {
+        _showCanvas = true;
         _ranobes = await GetMediaItemsAsync("ranobe/ranobes?", async id =>
         {
             var url = $"ranobe/ranobes/{id}?";

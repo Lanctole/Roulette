@@ -53,7 +53,7 @@
     </div>
 </Col>
 <div class="item">
-    <Button OnClick="OnRollButtonClick">Roll!</Button>
+    <RollButtonComponent OnRoll="SendSelected" />
 </div>
 <Divider Orientation="left"></Divider>
 <Row Gutter="8" Justify="space-between">
@@ -78,6 +78,7 @@
 
     protected override async Task SendSelected()
     {
+        _showCanvas = true;
         var publishers = string.Join(",", _selectedPublishers);
         var mangaUrl =
             $"publisher={publishers}&" +
