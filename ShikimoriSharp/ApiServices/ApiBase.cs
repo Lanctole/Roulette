@@ -2,65 +2,117 @@
 using System.Net.Http;
 using System.Reflection;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 using ShikimoriSharp.Bases;
 using Version = ShikimoriSharp.Enums.Version;
 
-namespace ShikimoriSharp.ApiServices
+namespace ShikimoriSharp.ApiServices;
+
+/// <summary>
+/// Базовый класс  API Shikimori.
+/// </summary>
+public abstract class ApiBase
 {
-    public abstract class ApiBase
+    private readonly ApiClient _apiClient;
+    private readonly ILogger<ApiBase> _logger;
+    private readonly string _baseUrl;
+
+    protected ApiBase(Version version, ApiClient apiClient, ILogger<ApiBase> logger)
     {
-        private readonly ApiClient _apiClient;
-        private readonly string _baseUrl;
+        Version = version;
+        _apiClient = apiClient;
+        _logger = logger;
+    }
 
-        protected ApiBase(Version version, ApiClient apiClient)
+    /// <summary>
+    /// Версия API.
+    /// </summary>
+    public Version Version { get; }
+    private string Site => new Uri(_apiClient._httpClient.BaseAddress, $"api/{GetApiVersionPath()}").ToString();
+
+    private string GetApiVersionPath()
+    {
+        return Version switch
         {
-            Version = version;
-            _apiClient = apiClient;
-        }
+            Version.v1 => "",
+            _ => Version + "/"
+        };
+    }
 
-        public Version Version { get; }
-        private string Site => new Uri(_apiClient._httpClient.BaseAddress, $"api/{GetApiVersionPath()}").ToString();
+    private static MultipartFormDataContent SerializeToHttpContent<T>(T obj)
+    {
+        if (obj is null) return null;
+        var fields = obj.GetType().GetFields(BindingFlags.Public | BindingFlags.Instance);
 
-        private string GetApiVersionPath()
+        var content = new MultipartFormDataContent();
+        foreach (var field in fields)
         {
-            return Version switch
+            var value = field.GetValue(obj);
+            if (value is null) continue;
+
+            var stringContent = value switch
             {
-                Version.v1 => "",
-                _ => Version + "/"
+                bool boolValue => new StringContent(boolValue ? "true" : "false"),
+                _ => new StringContent(value.ToString())
             };
+            content.Add(stringContent, field.Name);
         }
+        return content;
+    }
 
-        private static MultipartFormDataContent SerializeToHttpContent<T>(T obj)
+    /// <summary>
+    /// Выполняет запрос к API с параметрами.
+    /// </summary>
+    /// <typeparam name="TResult">Тип результата запроса.</typeparam>
+    /// <typeparam name="TSettings">Тип настроек запроса.</typeparam>
+    /// <param name="apiMethod">Метод API.</param>
+    /// <param name="settings">Настройки запроса.</param>
+    /// <param name="token">Токен доступа (необязательно).</param>
+    /// <param name="method">HTTP метод (по умолчанию GET).</param>
+    /// <returns>Результат запроса.</returns>
+    public async Task<TResult> RequestAsync<TResult, TSettings>(string apiMethod, TSettings settings,
+        AccessToken token = null, string method = "GET")
+    {
+        try
         {
-            if (obj is null) return null;
-            var fields = obj.GetType().GetFields(BindingFlags.Public | BindingFlags.Instance);
+            _logger.LogInformation($"Выполнение запроса: {apiMethod}, Метод: {method}");
 
-            var content = new MultipartFormDataContent();
-            foreach (var field in fields)
-            {
-                var value = field.GetValue(obj);
-                if (value is null) continue;
-
-                var stringContent = value switch
-                {
-                    bool boolValue => new StringContent(boolValue ? "true" : "false"),
-                    _ => new StringContent(value.ToString())
-                };
-                content.Add(stringContent, field.Name);
-            }
-            return content;
-        }
-
-        public async Task<TResult> RequestAsync<TResult, TSettings>(string apiMethod, TSettings settings,
-            AccessToken token = null, string method = "GET")
-        {
             var settingsContent = SerializeToHttpContent(settings);
-                return await _apiClient.RequestForm<TResult>($"{Site}{apiMethod}", settingsContent, token, method);
-        }
+            var result = await _apiClient.RequestForm<TResult>($"{Site}{apiMethod}", settingsContent, token, method);
 
-        public async Task<TResult> RequestAsync<TResult>(string apiMethod, AccessToken token = null, string method = "GET")
+            _logger.LogInformation($"Запрос выполнен успешно: {apiMethod}");
+            return result;
+        }
+        catch (Exception ex)
         {
-            return await _apiClient.RequestForm<TResult>($"{Site}{apiMethod}", token);
+            _logger.LogError(ex, $"Ошибка при выполнении запроса: {apiMethod}");
+            throw;
+        }
+    }
+
+    /// <summary>
+    /// Выполняет запрос к API без параметров.
+    /// </summary>
+    /// <typeparam name="TResult">Тип результата запроса.</typeparam>
+    /// <param name="apiMethod">Метод API.</param>
+    /// <param name="token">Токен доступа (необязательно).</param>
+    /// <param name="method">HTTP метод (по умолчанию GET).</param>
+    /// <returns>Результат запроса.</returns>
+    public async Task<TResult> RequestAsync<TResult>(string apiMethod, AccessToken token = null, string method = "GET")
+    {
+        try
+        {
+            _logger.LogInformation($"Выполнение запроса: {apiMethod}, Метод: {method}");
+
+            var result = await _apiClient.RequestForm<TResult>($"{Site}{apiMethod}", token);
+
+            _logger.LogInformation($"Запрос выполнен успешно: {apiMethod}");
+            return result;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, $"Ошибка при выполнении запроса: {apiMethod}");
+            throw;
         }
     }
 }

@@ -1,11 +1,10 @@
 ﻿using Newtonsoft.Json;
 using ShikimoriSharp.Bases;
 
-namespace ShikimoriSharp.Classes
+namespace ShikimoriSharp.Classes;
+
+public class Manga : AnimeMangaRanobeBase
 {
-    public class Manga : AnimeMangaRanobeBase
-    {
-        [JsonProperty("volumes")] public long Volumes { get; set; }
-        [JsonProperty("chapters")] public long Chapters { get; set; }
-    }
+    [JsonProperty("volumes")] public long Volumes { get; set; }
+    [JsonProperty("chapters")] public long Chapters { get; set; }
 }

@@ -1,9 +1,8 @@
 ﻿#nullable enable
-namespace ShikimoriSharp.Settings
+namespace ShikimoriSharp.Settings;
+
+public class AnimeTopicSettings : BasicSettings
 {
-    public class AnimeTopicSettings : BasicSettings
-    {
-        public int? episode;
-        public string? kind;
-    }
+    public int? episode;
+    public string? kind;
 }

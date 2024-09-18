@@ -20,6 +20,7 @@ public class ShikimoriApiConnectorService
     private readonly ShikimoriClient _client;
     private readonly ApplicationDbContext _context;
     private readonly ILogger<ShikimoriApiConnectorService> _logger;
+    private readonly ILogger<ApiBase> _loggerForApi;
 
     /// <summary>
     ///     Конструктор сервиса ShikimoriApiConnectorService.
@@ -30,7 +31,7 @@ public class ShikimoriApiConnectorService
     /// <param name="context">Контекст базы данных.</param>
     /// <param name="logger">Логгер для записи информации и ошибок.</param>
     public ShikimoriApiConnectorService(IConfiguration configuration, IDistributedCache cache,
-        IHttpClientFactory httpClientFactory, ApplicationDbContext context, ILogger<ShikimoriApiConnectorService> logger)
+        IHttpClientFactory httpClientFactory, ApplicationDbContext context, ILogger<ShikimoriApiConnectorService> logger, ILogger<ApiBase> loggerForApi)
     {
         var httpClientFactory1 = httpClientFactory ?? throw new ArgumentNullException(nameof(httpClientFactory));
         var httpClient = httpClientFactory1.CreateClient(nameof(ShikimoriApiConnectorService));
@@ -43,13 +44,13 @@ public class ShikimoriApiConnectorService
         _cache = cache;
         _context = context;
         _logger = logger;
-
+        _loggerForApi = loggerForApi;
         if (name == null || clientId == null || clientSecret == null)
         {
             throw new ArgumentException("Не все параметры аутентификации заданы.");
         }
 
-        _client = new ShikimoriClient(new ClientSettings(name, clientId, clientSecret), httpClient);
+        _client = new ShikimoriClient(new ClientSettings(name, clientId, clientSecret), httpClient, loggerForApi);
 
         _logger.LogInformation("ShikimoriApiConnectorService initialized");
 

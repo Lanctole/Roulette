@@ -1,9 +1,7 @@
-﻿namespace ShikimoriSharp.Settings
-{
+﻿namespace ShikimoriSharp.Settings;
 
-    public class HistoryRequestSettings : BasicSettings
-    {
-        public string target_id;
-        public string target_type;
-    }
+public class HistoryRequestSettings : BasicSettings
+{
+    public string target_id;
+    public string target_type;
 }

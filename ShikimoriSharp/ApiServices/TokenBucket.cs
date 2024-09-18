@@ -1,52 +1,58 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
 using Timer = System.Timers.Timer;
 
-namespace ShikimoriSharp.ApiServices
+namespace ShikimoriSharp.ApiServices;
+
+public class TokenBucket : IDisposable
 {
-    public class TokenBucket
+    private readonly SemaphoreSlim _sem;
+    private readonly Timer _timer;
+    private readonly object _lock = new();
+
+    public TokenBucket(string name, int maxTokens, double refreshTime)
     {
-        private readonly SemaphoreSlim _sem;
-        private readonly Timer _timer;
-        private readonly object _lock = new();
+        Name = name;
+        MaxTokens = maxTokens;
+        RefreshTime = refreshTime;
 
-        public TokenBucket(string name, int maxTokens, double refreshTime)
+        _sem = new SemaphoreSlim(maxTokens, maxTokens);
+        _timer = new Timer(refreshTime)
         {
-            Name = name;
-            MaxTokens = maxTokens;
-            RefreshTime = refreshTime;
+            AutoReset = true
+        };
+        _timer.Elapsed += Refresh;
+    }
 
-            _sem = new SemaphoreSlim(maxTokens, maxTokens);
-            _timer = new Timer(refreshTime)
-            {
-                AutoReset = true
-            };
-            _timer.Elapsed += Refresh;
-        }
+    public string Name { get; }
+    public int MaxTokens { get; }
+    public double RefreshTime { get; }
 
-        public string Name { get; }
-        public int MaxTokens { get; }
-        public double RefreshTime { get; }
-
-        private void Refresh(object sender, ElapsedEventArgs args)
+    private void Refresh(object sender, ElapsedEventArgs args)
+    {
+        lock (_lock)
         {
-            lock (_lock)
+            if (_sem.CurrentCount < MaxTokens)
             {
-                if (_sem.CurrentCount < MaxTokens)
-                {
-                    _sem.Release();
-                }
+                _sem.Release();
             }
         }
+    }
 
-        public async Task TokenRequest()
+    public async Task TokenRequest()
+    {
+        if (!_timer.Enabled)
         {
-            if (!_timer.Enabled)
-            {
-                _timer.Start();
-            }
-            await _sem.WaitAsync();
+            _timer.Start();
         }
+        await _sem.WaitAsync();
+    }
+
+    public void Dispose()
+    {
+        _timer?.Dispose();
+        _sem?.Dispose();
     }
 }

@@ -1,8 +1,7 @@
 ﻿#nullable enable
-namespace ShikimoriSharp.Settings
+namespace ShikimoriSharp.Settings;
+
+public class RanobeRequestSettings : MangaAnimeRanobeRequestSettingsBase
 {
-    public class RanobeRequestSettings : MangaAnimeRanobeRequestSettingsBase
-    {
-        public int[]? publisher;
-    }
+    public int[]? publisher;
 }
