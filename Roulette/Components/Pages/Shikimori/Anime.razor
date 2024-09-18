@@ -28,7 +28,14 @@
         <Studios SelectedStudiosChanged="OnSelectedStudiosChanged"/>
     </Col>
     <Col Xs="24" Sm="12" Md="8">
-        <SelectKindComponent @bind-SelectedValue="_selectedKind"/>
+    <div style="display: flex; align-items: center;">
+        <AntDesign.Tooltip Title="TV-Сериал. Фильм.  OVA — сокращение термина Original Video Animation, в Японии так обозначается особый формат аниме-сериала.
+ONA - веб-аниме. Special - спецвыпуск. TV_Special - телевизионный спецвыпуск. Музыкальный клип. PV - промо-материал. CM - реклама. tv_13 - 12-13 серий. tv-24 ~ 24 серии.
+tv-48 ~ от 40 и выше">
+            <i class="bi bi-info-circle" style="margin-right: 10px;"></i>
+        </AntDesign.Tooltip>
+        <SelectKindComponent @bind-SelectedValue="_selectedKind" />
+    </div>
     </Col>
 </Row>
 <Divider Orientation="left"></Divider>

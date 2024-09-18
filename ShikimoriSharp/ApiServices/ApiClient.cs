@@ -6,7 +6,7 @@ using ShikimoriSharp.Settings;
 
 namespace ShikimoriSharp.ApiServices;
 
-public class ApiClient
+public class ApiClient : IDisposable
 {
     private const int RPS = 5;
     private const int RPM = 90;
@@ -52,5 +52,21 @@ public class ApiClient
     public async Task<TResult> RequestForm<TResult>(string destination, AccessToken token = null, string method = "GET")
     {
         return await RequestForm<TResult>(destination, null, token, method);
+    }
+
+    public void Dispose()
+    {
+        Dispose(true);
+        GC.SuppressFinalize(this);
+    }
+
+    protected virtual void Dispose(bool disposing)
+    {
+        if (disposing)
+        {
+            BucketRpm.Dispose();
+            BucketRps.Dispose();
+            _httpClient.Dispose();
+        }
     }
 }

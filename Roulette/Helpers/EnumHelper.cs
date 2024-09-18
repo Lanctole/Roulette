@@ -19,9 +19,6 @@ public static class EnumHelper
             throw new ArgumentNullException(nameof(value));
 
         var fieldName = value.ToString();
-        if (fieldName == null)
-            throw new InvalidOperationException("The enum value is invalid and does not have a corresponding field name.");
-
         var field = value.GetType().GetField(fieldName);
         var attribute = field?.GetCustomAttribute<DescriptionAttribute>();
         return attribute?.Description ?? fieldName;
