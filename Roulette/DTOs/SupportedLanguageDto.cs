@@ -1,9 +1,11 @@
-﻿namespace Roulette.DTOs
+﻿namespace Roulette.DTOs;
+
+/// <summary>
+/// Модель данных для поддерживаемых языков.
+/// </summary>
+public class SupportedLanguageDto
 {
-    public class SupportedLanguageDto
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Russian { get; set; }
-    }
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public string Russian { get; set; }
 }

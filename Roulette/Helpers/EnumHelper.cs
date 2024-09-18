@@ -2,26 +2,45 @@
 using System.ComponentModel;
 using System.Reflection;
 
-namespace Roulette.Helpers
+namespace Roulette.Helpers;
+
+public static class EnumHelper
 {
-    public static class EnumHelper
+    /// <summary>
+    /// Получает описание для значения перечисления, используя атрибут <see cref="DescriptionAttribute"/>.
+    /// </summary>
+    /// <param name="value">Значение перечисления для получения описания.</param>
+    /// <returns>Описание значения перечисления, если атрибут <see cref="DescriptionAttribute"/> присутствует; иначе возвращает строковое представление значения.</returns>
+    /// <exception cref="ArgumentNullException">Если переданное значение перечисления равно <c>null</c>.</exception>
+    /// <exception cref="InvalidOperationException">Если значение перечисления не имеет соответствующего имени поля.</exception>
+    public static string GetEnumDescription(Enum value)
     {
-        public static string GetEnumDescription(Enum value)
-        {
-            FieldInfo field = value.GetType().GetField(value.ToString());
-            DescriptionAttribute attribute = field.GetCustomAttribute<DescriptionAttribute>();
-            return attribute == null ? value.ToString() : attribute.Description;
-        }
+        if (value == null)
+            throw new ArgumentNullException(nameof(value));
 
-        public static List<LabeledValue> GetEnumValuesWithDescriptions(Type enumType)
-        {
-            if (!enumType.IsEnum)
-                throw new ArgumentException("Type must be an enum");
+        var fieldName = value.ToString();
+        if (fieldName == null)
+            throw new InvalidOperationException("The enum value is invalid and does not have a corresponding field name.");
 
-            return Enum.GetValues(enumType)
-                .Cast<Enum>()
-                .Select(e => new LabeledValue(e.ToString(), GetEnumDescription(e)))
-                .ToList();
-        }
+        var field = value.GetType().GetField(fieldName);
+        var attribute = field?.GetCustomAttribute<DescriptionAttribute>();
+        return attribute?.Description ?? fieldName;
+    }
+
+    /// <summary>
+    /// Получает список значений и их описаний для указанного перечисления.
+    /// </summary>
+    /// <param name="enumType">Тип перечисления.</param>
+    /// <returns>Список значений и их описаний.</returns>
+    /// <exception cref="ArgumentException">Если указанный тип не является перечислением.</exception>
+    public static List<LabeledValue> GetEnumValuesWithDescriptions(Type enumType)
+    {
+        if (!enumType.IsEnum)
+            throw new ArgumentException("Type must be an enum", nameof(enumType));
+
+        return Enum.GetValues(enumType)
+            .Cast<Enum>()
+            .Select(e => new LabeledValue(e.ToString(), GetEnumDescription(e)))
+            .ToList();
     }
 }

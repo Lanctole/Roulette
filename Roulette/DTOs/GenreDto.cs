@@ -1,9 +1,11 @@
-﻿namespace Roulette.DTOs
+﻿namespace Roulette.DTOs;
+
+/// <summary>
+///  Модель данных для жанров.
+/// </summary>
+public class GenreDto
 {
-    public class GenreDto
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Russian { get; set; }
-    }
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public string Russian { get; set; }
 }

@@ -4,6 +4,7 @@
 @using Roulette.Models
 @using Roulette.Services
 @inject GameLanguageService GameLanguageService
+@inject IMessageService _message
 @attribute [Authorize(Roles = "admin")]
 
 <SelectComponent T="SupportedLanguageDto" TValue="string"
@@ -20,7 +21,15 @@
 
     private async Task<List<SupportedLanguageDto>> LoadLanguages()
     {
-        return await GameLanguageService.GetLanguagesAsync();
+        try
+        {
+            return await GameLanguageService.GetLanguagesAsync();
+        }
+        catch (Exception ex)
+        {
+            await _message.Error("Произошла ошибка при загрузке списка языков. Попробуйте через какое-то время или перезагрузите страницу.");
+            return new List<SupportedLanguageDto>();
+        }
     }
 
     private LabeledValue TransformLanguage(SupportedLanguageDto language)

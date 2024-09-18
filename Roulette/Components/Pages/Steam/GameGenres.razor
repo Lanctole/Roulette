@@ -4,6 +4,8 @@
 @using Roulette.Models
 @using Roulette.Services
 @inject GameGenreService GameGenreService
+@inject IMessageService _message
+
 @attribute [Authorize(Roles = "admin")]
 
 <SelectComponent T="GenreDto" TValue="string"
@@ -20,7 +22,16 @@
 
     private async Task<List<GenreDto>> LoadGameGenres()
     {
-        return await GameGenreService.GetGenresAsync();
+        try
+        {
+            return await GameGenreService.GetGenresAsync();            
+        }
+        catch (Exception ex)
+        {
+            await _message.Error("Произошла ошибка при загрузке списка жанров. Попробуйте через какое-то время или перезагрузите страницу.");
+            return new List<GenreDto>();
+        }
+       
     }
 
     private LabeledValue TransformGameGenre(GenreDto genre)

@@ -1,8 +1,7 @@
-﻿namespace Roulette.Models
+﻿namespace Roulette.Models;
+
+public class PaginatedGameHistory
 {
-    public class PaginatedGameHistory
-    {
-        public List<UserGameChoice> Items { get; set; }
-        public int TotalCount { get; set; }
-    }
+    public List<UserGameChoice> Items { get; set; }
+    public int TotalCount { get; set; }
 }

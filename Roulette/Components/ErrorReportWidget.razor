@@ -66,10 +66,17 @@
 
     private async Task SubmitForm()
     {
-        await BugReportService.CreateBugReportAsync(bugReport);
-        showForm = false;
-        bugReport = new();
-        await Success();
+        try
+        {
+            await BugReportService.CreateBugReportAsync(bugReport);
+            showForm = false;
+            bugReport = new();
+            await Success();
+        }
+        catch (Exception ex)
+        {
+            await _message.Error("Произошла ошибка при отправке отчета об ошибке. Попробуйте снова.");
+        }
     }
 
     private async Task Success()

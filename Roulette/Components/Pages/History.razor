@@ -291,7 +291,8 @@
             List<long> ids = new List<long>();
             ids.Add(gameChoice.GameId);
             var gameDetails = await GameService.GetGamesAsync(ids, 1);
-            _paginatedGameDetails.Add(Tuple.Create(gameDetails[0], gameChoice.ChosenAt));
+            var firstGameDetail = gameDetails.ElementAt(0);
+            _paginatedGameDetails.Add(Tuple.Create(firstGameDetail, gameChoice.ChosenAt));
         }
     }
 

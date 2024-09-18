@@ -18,7 +18,7 @@ namespace ShikimoriSharp.ApiServices
             return await RequestAsync<Ranobe[], RanobeRequestSettings>("ranobe", settings, personalInformation);
         }
 
-        public async Task<MangaRanobeId> GetRanobe(long id, AccessToken personalInformation = null)
+        public async Task<MangaRanobeId?> GetRanobe(long id, AccessToken personalInformation = null)
         {
             return await RequestAsync<MangaRanobeId>($"ranobe/{id}", personalInformation);
         }

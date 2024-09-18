@@ -10,7 +10,7 @@ namespace ShikimoriSharp.ApiServices
         {
         }
 
-        public async Task<Studio[]> GetStudios()
+        public async Task<Studio[]?> GetStudios()
         {
             return await RequestAsync<Studio[]>("studios");
         }

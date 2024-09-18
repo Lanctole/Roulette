@@ -2,7 +2,9 @@
 @using Roulette.Models
 @using Roulette.Services
 @using Microsoft.AspNetCore.Authorization
+
 @inject BugReportService BugReportService
+@inject IMessageService _message
 
 @attribute [Authorize]
 <h3>Сообщения об ошибках</h3>
@@ -96,8 +98,15 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        bugReports = await BugReportService.GetAllBugReportsAsync();
-        FilterBugReports();
+        try
+        {
+            bugReports = await BugReportService.GetAllBugReportsAsync();
+            FilterBugReports();
+        }
+        catch (Exception ex)
+        {
+            await Error("Произошла ошибка при при получении всех отчетов об ошибках. Попробуйте еще раз.");
+        }
     }
 
     private async Task HandlePageChange(PaginationEventArgs e)
@@ -132,9 +141,16 @@ else
 
     private async Task UpdateBugReportStatus(int id, BugReportStatus newStatus)
     {
-        await BugReportService.UpdateBugReportStatusAsync(id, newStatus);
-        bugReports = await BugReportService.GetAllBugReportsAsync();
-        FilterBugReports();
+        try
+        {
+            await BugReportService.UpdateBugReportStatusAsync(id, newStatus);
+            bugReports = await BugReportService.GetAllBugReportsAsync();
+            FilterBugReports();
+        }
+        catch (Exception ex)
+        {
+            await Error("Произошла ошибка при обновлении статуса отчета об ошибке. Попробуйте еще раз.");
+        }
     }
 
     private void OnStatusFilterChanged(ChangeEventArgs e)
@@ -166,5 +182,10 @@ else
             BugReportStatus.Deferred => "Отложено",
             _ => status.ToString(),
         };
+    }
+
+    private async Task Error(string text)
+    {
+        await _message.Error(text);
     }
 }

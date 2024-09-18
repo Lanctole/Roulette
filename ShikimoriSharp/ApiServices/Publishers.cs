@@ -10,7 +10,7 @@ namespace ShikimoriSharp.ApiServices
         {
         }
 
-        public async Task<Publisher[]> GetPublishers()
+        public async Task<Publisher[]?> GetPublishers()
         {
             return await RequestAsync<Publisher[]>("publishers");
         }

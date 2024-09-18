@@ -10,7 +10,7 @@ namespace ShikimoriSharp.ApiServices
         {
         }
 
-        public async Task<Genre[]> GetGenres()
+        public async Task<Genre[]?> GetGenres()
         {
             return await RequestAsync<Genre[]>("genres");
         }

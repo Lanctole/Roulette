@@ -1,19 +1,21 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Roulette.Models
+namespace Roulette.Models;
+
+/// <summary>
+/// Статусы отчёта о баге, используемые для отслеживания этапов обработки.
+/// </summary>
+public enum BugReportStatus
 {
-    public enum BugReportStatus
-    {
-        [Display(Name = "Новое")]
-        New,
+    [Display(Name = "Новое")]
+    New,
 
-        [Display(Name = "В процессе")]
-        InProgress,
+    [Display(Name = "В процессе")]
+    InProgress,
 
-        [Display(Name = "Решёно")]
-        Resolved,
+    [Display(Name = "Решено")]
+    Resolved,
 
-        [Display(Name = "Отложено")]
-        Deferred
-    }
+    [Display(Name = "Отложено")]
+    Deferred
 }

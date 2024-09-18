@@ -18,7 +18,7 @@ namespace ShikimoriSharp.ApiServices
             return await RequestAsync<Anime[], AnimeRequestSettings>("animes", settings, personalInformation);
         }
 
-        public async Task<AnimeId> GetAnime(long id, AccessToken personalInformation = null)
+        public async Task<AnimeId?> GetAnime(long id, AccessToken personalInformation = null)
         {
             return await RequestAsync<AnimeId>($"animes/{id}", personalInformation);
         }

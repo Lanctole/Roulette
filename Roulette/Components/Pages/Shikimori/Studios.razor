@@ -4,6 +4,7 @@
 @using Roulette.Services
 @using Microsoft.AspNetCore.Authorization
 @inject ApiClientService ApiClientService
+@inject IMessageService _message
 
 @attribute [Authorize(Roles = "admin")]
 
@@ -21,7 +22,15 @@
 
     private async Task<List<Studio>> LoadStudios()
     {
-        return await ApiClientService.GetStudiosAsync();
+        try
+        {
+            return await ApiClientService.GetStudiosAsync();
+        }
+        catch (Exception ex)
+        {
+            await _message.Error("Произошла ошибка при загрузке списка студий. Попробуйте через какое-то время или перезагрузите страницу.");
+            return new List<Studio>();
+        }
     }
 
     private LabeledValue TransformStudio(Studio studio)

@@ -25,11 +25,6 @@
 
     protected override void OnInitialized()
     {
-        if (!typeof(TEnum).IsEnum)
-        {
-            throw new ArgumentException($"{typeof(TEnum)} must be an enum");
-        }
-
         _options = EnumHelper.GetEnumValuesWithDescriptions(typeof(TEnum));
     }
     private void OnSelectedValueChanged(LabeledValue selectedItem)

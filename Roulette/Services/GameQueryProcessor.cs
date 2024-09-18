@@ -4,8 +4,26 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Roulette.Services;
 
+/// <summary>
+///     Обрабатывает запросы к играм, применяя фильтры и сортировку.
+/// </summary>
 public class GameQueryProcessor
 {
+    /// <summary>
+    ///     Применяет фильтры к запросу играм.
+    /// </summary>
+    /// <param name="query">Запрос для фильтрации.</param>
+    /// <param name="genres">Строка с идентификаторами жанров, разделёнными запятыми.</param>
+    /// <param name="supportedLanguages">Строка с идентификаторами поддерживаемых языков, разделёнными запятыми.</param>
+    /// <param name="metacriticScoreMin">Минимальное значение оценки Metacritic.</param>
+    /// <param name="metacriticScoreMax">Максимальное значение оценки Metacritic.</param>
+    /// <param name="steamScoreMin">Минимальное значение оценки Steam.</param>
+    /// <param name="steamScoreMax">Максимальное значение оценки Steam.</param>
+    /// <param name="minCost">Минимальная стоимость игры.</param>
+    /// <param name="maxCost">Максимальная стоимость игры.</param>
+    /// <param name="releaseDateStart">Дата начала диапазона выпуска игр.</param>
+    /// <param name="releaseDateEnd">Дата окончания диапазона выпуска игр.</param>
+    /// <returns>Отфильтрованный запрос игр.</returns>
     public IQueryable<Game> ApplyFilters(
         IQueryable<Game> query,
         string? genres,
@@ -50,7 +68,7 @@ public class GameQueryProcessor
 
         if (minCost.HasValue && maxCost.HasValue && minCost == maxCost)
         {
-            query = query.Where(g => g.Cost >= minCost.Value-1 && g.Cost <= maxCost.Value);
+            query = query.Where(g => g.Cost >= minCost.Value - 1 && g.Cost <= maxCost.Value);
         }
         else
         {
@@ -77,6 +95,12 @@ public class GameQueryProcessor
         return query;
     }
 
+    /// <summary>
+    ///     Применяет сортировку к запросу играм.
+    /// </summary>
+    /// <param name="query">Запрос для сортировки.</param>
+    /// <param name="order">Параметр сортировки.</param>
+    /// <returns>Отсортированный запрос игр.</returns>
     public IQueryable<Game> ApplySorting(
         IQueryable<Game> query,
         GameOrder? order)
