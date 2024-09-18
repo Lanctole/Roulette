@@ -7,9 +7,13 @@ using Polly;
 using ShikimoriSharp.Bases;
 using ShikimoriSharp.Exceptions;
 using ShikimoriSharp.Settings;
-//TODO возможно проблема с сокетами отсюда
+
 namespace ShikimoriSharp.ApiServices;
 
+/// <summary>
+///     Класс для управления запросами к API с учетом ограничения скорости и управления токенами доступа.
+///     Обрабатывает отправку HTTP-запросов и управление токенами доступа.
+/// </summary>
 public class RequestManager
 {
     private readonly HttpClient _httpClient;
@@ -19,6 +23,15 @@ public class RequestManager
     private readonly Func<AccessToken, Task<AccessToken>> _refresh;
     private AccessToken _token;
 
+    /// <summary>
+    ///     Инициализирует новый экземпляр класса <see cref="RequestManager"/>.
+    /// </summary>
+    /// <param name="httpClient">Клиент HTTP для выполнения запросов.</param>
+    /// <param name="bucketRps">Объект <see cref="TokenBucket"/> для управления запросами в секунду.</param>
+    /// <param name="bucketRpm">Объект <see cref="TokenBucket"/> для управления запросами в минуту.</param>
+    /// <param name="settings">Настройки клиента, включая имя клиента.</param>
+    /// <param name="token">Токен доступа для аутентификации запросов.</param>
+    /// <param name="refresh">Функция для обновления токена доступа.</param>
     public RequestManager(HttpClient httpClient,TokenBucket bucketRps, TokenBucket bucketRpm, ClientSettings settings, AccessToken token, Func<AccessToken, Task<AccessToken>> refresh)
     {
         _httpClient = httpClient;
@@ -29,6 +42,14 @@ public class RequestManager
         _refresh = refresh;
     }
 
+    /// <summary>
+    ///     Выполняет HTTP-запрос к указанному URI с использованием указанного метода и данных.
+    /// </summary>
+    /// <param name="dest">URI назначения для запроса.</param>
+    /// <param name="method">HTTP метод (например, GET, POST).</param>
+    /// <param name="data">Данные запроса в формате <see cref="HttpContent"/>.</param>
+    /// <returns>Задача, представляющая результат запроса в виде <see cref="HttpResponseMessage"/>.</returns>
+    /// <exception cref="Exception">Выбрасывается при ошибке обновления токена или ошибке выполнения запроса.</exception>
     private async Task<HttpResponseMessage> Response(string dest, string method, HttpContent data)
     {
         await _bucketRpm.TokenRequest();
@@ -62,6 +83,14 @@ public class RequestManager
 
     }
 
+    /// <summary>
+    ///     Выполняет запрос и применяет политику повторных попыток в случае сбоя.
+    /// </summary>
+    /// <param name="dest">URI назначения для запроса.</param>
+    /// <param name="method">HTTP метод (например, GET, POST).</param>
+    /// <param name="data">Данные запроса в формате <see cref="HttpContent"/>.</param>
+    /// <returns>Задача, представляющая результат запроса в виде строки.</returns>
+    /// <exception cref="Exception">Выбрасывается при ошибке выполнения запроса или отсутствии ответа после повторных попыток.</exception>
     public async Task<string> ResponseExecutor(string dest, string method, HttpContent data)
     {
         var policy = Policy
@@ -103,7 +132,14 @@ public class RequestManager
         return content;
     }
 
-
+    /// <summary>
+    ///     Выполняет запрос и десериализует ответ в указанный тип.
+    /// </summary>
+    /// <typeparam name="TResult">Тип, в который нужно десериализовать ответ.</typeparam>
+    /// <param name="dest">URI назначения для запроса.</param>
+    /// <param name="method">HTTP метод (например, GET, POST).</param>
+    /// <param name="data">Данные запроса в формате <see cref="HttpContent"/>.</param>
+    /// <returns>Задача, представляющая результат запроса в виде объекта типа <typeparamref name="TResult"/>.</returns>
     public async Task<TResult> ResponseAsType<TResult>(string dest, string method, HttpContent data)
     {
         var response = await ResponseExecutor(dest, method, data);

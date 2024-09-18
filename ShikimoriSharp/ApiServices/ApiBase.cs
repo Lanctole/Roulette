@@ -9,13 +9,13 @@ using Version = ShikimoriSharp.Enums.Version;
 namespace ShikimoriSharp.ApiServices;
 
 /// <summary>
-/// Базовый класс  API Shikimori.
+///     Базовый класс  API Shikimori.
 /// </summary>
 public abstract class ApiBase
 {
     private readonly ApiClient _apiClient;
-    private readonly ILogger<ApiBase> _logger;
     private readonly string _baseUrl;
+    private readonly ILogger<ApiBase> _logger;
 
     protected ApiBase(Version version, ApiClient apiClient, ILogger<ApiBase> logger)
     {
@@ -25,9 +25,10 @@ public abstract class ApiBase
     }
 
     /// <summary>
-    /// Версия API.
+    ///     Версия API.
     /// </summary>
     public Version Version { get; }
+
     private string Site => new Uri(_apiClient._httpClient.BaseAddress, $"api/{GetApiVersionPath()}").ToString();
 
     private string GetApiVersionPath()
@@ -57,11 +58,12 @@ public abstract class ApiBase
             };
             content.Add(stringContent, field.Name);
         }
+
         return content;
     }
 
     /// <summary>
-    /// Выполняет запрос к API с параметрами.
+    ///     Выполняет запрос к API с параметрами.
     /// </summary>
     /// <typeparam name="TResult">Тип результата запроса.</typeparam>
     /// <typeparam name="TSettings">Тип настроек запроса.</typeparam>
@@ -91,7 +93,7 @@ public abstract class ApiBase
     }
 
     /// <summary>
-    /// Выполняет запрос к API без параметров.
+    ///     Выполняет запрос к API без параметров.
     /// </summary>
     /// <typeparam name="TResult">Тип результата запроса.</typeparam>
     /// <param name="apiMethod">Метод API.</param>
