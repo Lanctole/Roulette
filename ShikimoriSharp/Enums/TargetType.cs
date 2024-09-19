@@ -1,8 +1,7 @@
-﻿namespace ShikimoriSharp.Enums
+﻿namespace ShikimoriSharp.Enums;
+
+public enum TargetType
 {
-    public enum TargetType
-    {
-        Anime,
-        Manga
-    }
+    Anime,
+    Manga
 }

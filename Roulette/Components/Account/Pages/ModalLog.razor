@@ -1,0 +1,13 @@
+﻿@using Roulette.Components.Account.Pages
+<Button Type="primary" OnClick="@(()=>{ _visible = true; })">
+    Open Modal
+</Button>
+<Modal 
+    Footer="null"
+    Header="null"
+       @bind-Visible="@_visible" >
+    <LoginModal ReturnUrl="/Ranobe"  />
+</Modal>
+@code {
+    bool _visible = false;
+}

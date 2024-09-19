@@ -1,0 +1,142 @@
+﻿@using System.ComponentModel.DataAnnotations
+@using Microsoft.AspNetCore.Antiforgery
+@using Microsoft.AspNetCore.Authentication
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Mvc
+@using Roulette.Data
+@attribute [RequireAntiforgeryToken]
+@inject SignInManager<IdentityUser> SignInManager
+@inject ILogger<Login> Logger
+@inject NavigationManager NavigationManager
+@inject IdentityRedirectManager RedirectManager
+
+<PageTitle>Log in</PageTitle>
+
+<h1>Вход в аккаунт</h1>
+<div class="row">
+    <div class="col-md-12">
+        <section>
+            @if (!string.IsNullOrEmpty(errorMessage))
+            {
+                var statusMessageClass = errorMessage.StartsWith("Error") ? "danger" : "success";
+                <div class="alert alert-@statusMessageClass mb-3" role="alert">
+                    @errorMessage
+                </div>
+            }
+            @* <StatusMessage Message="@errorMessage" /> *@
+            <EditForm Model="Input" method="post" OnValidSubmit="LoginUser" FormName="login">
+                <AntiforgeryTokenInput/>
+                <DataAnnotationsValidator/>
+                <hr/>
+                <ValidationSummary class="text-danger" role="alert"/>
+                <div class="form-floating mb-3">
+                    <InputText @bind-Value="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com"/>
+                    <label for="email" class="form-label">Email</label>
+                    <ValidationMessage For="() => Input.Email" class="text-danger"/>
+                </div>
+                <div class="form-floating mb-3">
+                    <InputText type="password" @bind-Value="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" placeholder="password"/>
+                    <label for="password" class="form-label">Пароль</label>
+                    <ValidationMessage For="() => Input.Password" class="text-danger"/>
+                </div>
+                <div class="checkbox mb-3">
+                    <label class="form-label">
+                        <InputCheckbox @bind-Value="Input.RememberMe" class="darker-border-checkbox form-check-input"/>
+                        Запомнить меня
+                    </label>
+                </div>
+                <div>
+                    <button type="submit" class="w-100 btn btn-lg btn-primary">Войти</button>
+                    <AntiforgeryToken/>
+                </div>
+                <div>
+                    <p>
+                        <a href="Account/ForgotPassword">Забыли пароль?</a>
+                    </p>
+                    <p>
+                        <a href="@(NavigationManager.GetUriWithQueryParameters("Account/Register", new Dictionary<string, object?> { ["ReturnUrl"] = ReturnUrl }))">Зарегистрироваться</a>
+                    </p>
+                </div>
+            </EditForm>
+        </section>
+        <br/>
+        <section class="center-container">
+            <ExternalLoginPicker />
+        </section>
+    </div>
+</div>
+
+<style>
+    .center-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+</style>
+@code {
+    [Parameter]
+    public string? ReturnUrl { get; set; }
+    [CascadingParameter]
+    private HttpContext HttpContext { get; set; } = default!;
+    private InputModel Input { get; set; } = new();
+    private string? errorMessage;
+
+    protected override async Task OnInitializedAsync()
+    {
+        // if (HttpMethods.IsGet(HttpContext.Request.Method))
+        // {
+        //     await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
+        // }
+        //ReturnUrl ??= NavigationManager.Uri;
+    }
+
+    private async Task LoginUser()
+    {
+        try
+        {
+            NavigationManager.NavigateTo("/");
+        var result = await SignInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
+        if (result.Succeeded)
+        {
+            Logger.LogInformation("User logged in.");
+                NavigationManager.NavigateTo("/");
+            //RedirectManager.RedirectTo(ReturnUrl);
+        }
+        else if (result.RequiresTwoFactor)
+        {
+            RedirectManager.RedirectTo(
+                "Account/LoginWith2fa",
+                new() { ["returnUrl"] = ReturnUrl, ["rememberMe"] = Input.RememberMe });
+        }
+        else if (result.IsLockedOut)
+        {
+            Logger.LogWarning("User account locked out.");
+            RedirectManager.RedirectTo("Account/Lockout");
+        }
+        else
+        {
+            errorMessage = "Неверный логин и/или пароль";
+        }
+        }
+        catch (Exception ex)
+        {
+    
+            Logger.LogError(ex, "An error occurred during login.");
+            errorMessage = "Произошла ошибка при попытке входа.";
+        }
+    }
+
+    private sealed class InputModel
+    {
+        [Required(ErrorMessage = "Email обязателен.")]
+        [CustomEmail]
+        public string Email { get; set; } = "";
+
+        [Required(ErrorMessage = "Пароль обязателен.")]
+        public string Password { get; set; } = "";
+
+        public bool RememberMe { get; set; }
+    }
+}

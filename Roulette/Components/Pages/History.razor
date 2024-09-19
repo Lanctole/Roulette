@@ -1,0 +1,309 @@
+﻿@page "/history"
+@using Roulette.Services
+@using ShikimoriSharp.Classes
+@using Microsoft.AspNetCore.Authorization
+@using Roulette.DTOs
+@using Roulette.Models
+@inject UserChoiceHistoryService HistoryService
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject UserManager<IdentityUser> UserManager
+@inject ShikimoriApiConnectorService ShikimoriApiConnectorService
+@inject GameService GameService
+@attribute [Authorize]
+
+
+<Tabs DefaultActiveKey="1" Size="@TabSize.Large" Style="margin-bottom: 32px">
+    <TabPane Key="1" Tab="Аниме">
+        <div class="row">
+            <div class="col-md-5 order-md-1 order-2">
+                <h3>История</h3>
+                @if (_paginatedAnimeDetails != null)
+                {
+                    @foreach (var animeChoice in _paginatedAnimeDetails)
+                    {
+                        <div class="history-item" @onclick="() => SelectAnime(animeChoice.Item1)">
+                            <div class="history-title">
+                                @animeChoice.Item1.Name
+                                <Divider Type="DirectionVHType.Vertical" Style="border-left: 1px solid rgb(1 1 1);" /> 
+                                ( @animeChoice.Item1.Russian )
+                            </div>
+                            <div class="history-date">
+                                @animeChoice.Item2.ToString("dd-MM-yyyy")
+                            </div>
+                        </div>
+                    }
+
+                    <Pagination Total="@_totalAnimeItems"
+                                Current="@_currentAnimePage"
+                                PageSize="@_pageSize"
+                                ShowSizeChanger ="false"
+                                OnChange="HandleAnimePageChange" />
+                }
+            </div>
+            <div class="col-md-6 order-md-2 order-1">
+                <h4>Выбранное Аниме</h4>
+                @if (_selectedAnime != null)
+                {
+                    <MediaComponent Item="_selectedAnime" />
+                }
+            </div>
+        </div>
+    </TabPane>
+
+    <TabPane Key="2" Tab="Манга">
+        <div class="row">
+            <div class="col-md-5 order-md-1 order-2">
+                <h3>История Манги</h3>
+                @if (_paginatedMangaDetails != null)
+                {
+                    @foreach (var mangaChoice in _paginatedMangaDetails)
+                    {
+                        <div class="history-item" @onclick="() => SelectManga(mangaChoice.Item1)">
+                            <div class="history-title">
+                                @mangaChoice.Item1.Name 
+                                <Divider Type="DirectionVHType.Vertical" Style="border-left: 1px solid rgb(1 1 1);" /> 
+                                ( @mangaChoice.Item1.Russian )
+                            </div>
+                            <div class="history-date">
+                                @mangaChoice.Item2.ToString("dd-MM-yyyy")
+                            </div>
+                        </div>
+                    }
+
+                    <Pagination Total="@_totalMangaItems"
+                                Current="@_currentMangaPage"
+                                PageSize="@_pageSize"
+                                ShowSizeChanger="false"
+                                OnChange="HandleMangaPageChange" />
+                }
+            </div>
+            <div class="col-md-6 order-md-2 order-1">
+                <h4>Выбранная Манга</h4>
+                @if (_selectedManga != null)
+                {
+                    <MediaComponent Item="_selectedManga" />
+                }
+            </div>
+        </div>
+    </TabPane>
+
+    <TabPane Key="3" Tab="Ранобэ">
+        <div class="row">
+            <div class="col-md-5 order-md-1 order-2">
+                <h3>История Ранобэ</h3>
+                @if (_paginatedRanobeDetails != null)
+                {
+                    @foreach (var ranobeChoice in _paginatedRanobeDetails)
+                    {
+                        <div class="history-item" @onclick="() => SelectRanobe(ranobeChoice.Item1)">
+                            <div class="history-title">
+                                @ranobeChoice.Item1.Name 
+                                <Divider Type="DirectionVHType.Vertical" Style="border-left: 1px solid rgb(1 1 1);" /> 
+                                ( @ranobeChoice.Item1.Russian )
+                            </div>
+                            <div class="history-date">
+                                @ranobeChoice.Item2.ToString("dd-MM-yyyy")
+                            </div>
+                        </div>
+                    }
+
+                    <Pagination Total="@_totalRanobeItems"
+                                Current="@_currentRanobePage"
+                                PageSize="@_pageSize"
+                                ShowSizeChanger="false"
+                                OnChange="HandleRanobePageChange" />
+                }
+            </div>
+            <div class="col-md-6 order-md-2 order-1">
+                <h4>Выбранное Ранобэ</h4>
+                @if (_selectedRanobe != null)
+                {
+                    <MediaComponent Item="_selectedRanobe" />
+                }
+            </div>
+        </div>
+    </TabPane>
+
+    <TabPane Key="4" Tab="Игры">
+        <div class="row">
+            <div class="col-md-5 order-md-1 order-2">
+                <h3>История игр</h3>
+                @if (_paginatedGameDetails != null)
+                {
+                    @foreach (var gameChoice in _paginatedGameDetails)
+                    {
+                        <div class="history-item" @onclick="() => SelectGame(gameChoice.Item1)">
+                            <div class="history-title">
+                                @gameChoice.Item1.Name
+                            </div>
+                            <div class="history-date">
+                                @gameChoice.Item2.ToString("dd-MM-yyyy")
+                            </div>
+                        </div>
+                    }
+
+                    <Pagination Total="@_totalGameItems"
+                                Current="@_currentGamePage"
+                                PageSize="@_pageSize"
+                                ShowSizeChanger="false"
+                                OnChange="HandleGamePageChange" />
+                }
+            </div>
+            <div class="col-md-6 order-md-2 order-1">
+                <h4>Выбранная Игра</h4>
+                @if (_selectedGame != null)
+                {
+                    <MediaComponent Item="_selectedGame" />
+                }
+            </div>
+        </div>
+    </TabPane>
+</Tabs>
+
+@code {
+    private List<Tuple<AnimeId, DateTime>> _paginatedAnimeDetails;
+    private List<Tuple<MangaRanobeId, DateTime>> _paginatedMangaDetails;
+    private List<Tuple<MangaRanobeId, DateTime>> _paginatedRanobeDetails;
+    private List<Tuple<GameDto, DateTime>> _paginatedGameDetails;
+
+    private AnimeId _selectedAnime;
+    private MangaRanobeId _selectedManga;
+    private MangaRanobeId _selectedRanobe;
+    private GameDto _selectedGame;
+
+    private string _userId;
+
+    private int _currentAnimePage = 1;
+    private int _pageSize = 10;
+    private int _totalAnimeItems;
+    private int _currentMangaPage = 1;
+    private int _totalMangaItems;
+    private int _currentRanobePage = 1;
+    private int _totalRanobeItems;
+    private int _currentGamePage = 1;
+    private int _totalGameItems;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var userName = authState.User.Identity?.Name;
+        if (userName != null)
+        {
+            var user = await UserManager.FindByNameAsync(userName);
+            _userId = user?.Id;
+            await LoadAnimeData();
+            await LoadMangaData();
+            await LoadRanobeData();
+            await LoadGameData();
+        }
+    }
+
+    
+    private async Task LoadAnimeData( int pageNumber = 1, int pageSize = 10)
+    {
+        var animeHistory = await HistoryService.GetUserAnimeHistoryAsync(_userId, pageNumber, pageSize);
+
+        _totalAnimeItems = animeHistory.TotalCount;
+
+        _paginatedAnimeDetails = new List<Tuple<AnimeId, DateTime>>();
+
+        foreach (var animeChoice in animeHistory.Items)
+        {
+            var animeDetails = await ShikimoriApiConnectorService.GetAnimeById(animeChoice.AnimeId);
+            _paginatedAnimeDetails.Add(Tuple.Create(animeDetails, animeChoice.ChosenAt));
+        }
+    }
+
+    private async Task HandleAnimePageChange(PaginationEventArgs e)
+    {
+        _currentAnimePage = e.Page;
+        await LoadAnimeData(_currentAnimePage, _pageSize);
+    }
+    
+    private async Task SelectAnime(AnimeId anime)
+    {
+        _selectedAnime = anime;
+    }
+
+    private async Task LoadMangaData(int pageNumber = 1, int pageSize = 10)
+    {
+        var mangaHistory = await HistoryService.GetUserMangaHistoryAsync(_userId, pageNumber, pageSize);
+
+        _totalMangaItems = mangaHistory.TotalCount;
+
+        _paginatedMangaDetails = new List<Tuple<MangaRanobeId, DateTime>>();
+
+        foreach (var mangaChoice in mangaHistory.Items)
+        {
+            var mangaDetails = await ShikimoriApiConnectorService.GetMangaById(mangaChoice.MangaId);
+            _paginatedMangaDetails.Add(Tuple.Create(mangaDetails, mangaChoice.ChosenAt));
+        }
+    }
+
+    private async Task HandleMangaPageChange(PaginationEventArgs e)
+    {
+        _currentMangaPage = e.Page;
+        await LoadMangaData(_currentMangaPage, _pageSize);
+    }
+
+    private async Task SelectManga(MangaRanobeId manga)
+    {
+        _selectedManga = manga;
+    }
+
+    private async Task LoadRanobeData(int pageNumber = 1, int pageSize = 10)
+    {
+        var ranobeHistory = await HistoryService.GetUserRanobeHistoryAsync(_userId, pageNumber, pageSize);
+
+        _totalRanobeItems = ranobeHistory.TotalCount;
+
+        _paginatedRanobeDetails = new List<Tuple<MangaRanobeId, DateTime>>();
+
+        foreach (var ranobeChoice in ranobeHistory.Items)
+        {
+            var ranobeDetails = await ShikimoriApiConnectorService.GetRanobeById(ranobeChoice.RanobeId);
+            _paginatedRanobeDetails.Add(Tuple.Create(ranobeDetails, ranobeChoice.ChosenAt));
+        }
+    }
+
+    private async Task HandleRanobePageChange(PaginationEventArgs e)
+    {
+        _currentRanobePage = e.Page;
+        await LoadRanobeData(_currentRanobePage, _pageSize);
+    }
+
+    private async Task SelectRanobe(MangaRanobeId ranobe)
+    {
+        _selectedRanobe = ranobe;
+    }
+
+    private async Task LoadGameData(int pageNumber = 1, int pageSize = 10)
+    {
+        var gameHistory = await HistoryService.GetUserGameHistoryAsync(_userId);
+
+        _totalGameItems = gameHistory.Count;
+
+        _paginatedGameDetails = new List<Tuple<GameDto, DateTime>>();
+
+        var paginatedItems = gameHistory.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
+        foreach (var gameChoice in paginatedItems)
+        {
+            List<long> ids = new List<long>();
+            ids.Add(gameChoice.GameId);
+            var gameDetails = await GameService.GetGamesAsync(ids, 1);
+            var firstGameDetail = gameDetails.ElementAt(0);
+            _paginatedGameDetails.Add(Tuple.Create(firstGameDetail, gameChoice.ChosenAt));
+        }
+    }
+
+    private async Task HandleGamePageChange(PaginationEventArgs e)
+    {
+        _currentGamePage = e.Page;
+        await LoadGameData(_currentGamePage, _pageSize);
+    }
+
+    private async Task SelectGame(GameDto game)
+    {
+        _selectedGame = game;
+    }
+}

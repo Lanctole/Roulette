@@ -1,9 +1,9 @@
-namespace Roulette.Models
-{
-    public class ErrorViewModel
-    {
-        public string? RequestId { get; set; }
+namespace Roulette.Models;
 
-        public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
-    }
+/// <summary>
+/// Модель для отображения информации об ошибке, используемая в представлениях.
+/// </summary>
+public class ErrorViewModel
+{
+    public string? RequestId { get; set; }
 }

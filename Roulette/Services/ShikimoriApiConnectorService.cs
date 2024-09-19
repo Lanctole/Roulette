@@ -1,161 +1,295 @@
-﻿using System;
-using System.Net.Http;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Caching.Memory;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Distributed;
+using Newtonsoft.Json;
+using Roulette.Data;
+using Roulette.DTOs;
 using ShikimoriSharp.ApiServices;
-using ShikimoriSharp.Bases;
 using ShikimoriSharp.Classes;
 using ShikimoriSharp.Settings;
 
-namespace Roulette.Services
+namespace Roulette.Services;
+
+//TODO разбить на отдельные сервисы
+/// <summary>
+///     Сервис для работы с API Shikimori и кэшем.
+///     Обеспечивает получение данных о аниме, манге и ранобэ из API, базы данных или кэша.
+/// </summary>
+public class ShikimoriApiConnectorService
 {
-    public class ShikimoriApiConnectorService
+    private readonly IDistributedCache _cache;
+    private readonly ShikimoriClient _client;
+    private readonly ApplicationDbContext _context;
+    private readonly ILogger<ShikimoriApiConnectorService> _logger;
+    private readonly ILogger<ApiBase> _loggerForApi;
+
+    /// <summary>
+    ///     Конструктор сервиса ShikimoriApiConnectorService.
+    /// </summary>
+    /// <param name="configuration">Конфигурация приложения.</param>
+    /// <param name="cache">Кэш для распределенных данных.</param>
+    /// <param name="httpClientFactory">Фабрика HTTP-клиентов.</param>
+    /// <param name="context">Контекст базы данных.</param>
+    /// <param name="logger">Логгер для записи информации и ошибок.</param>
+    public ShikimoriApiConnectorService(IConfiguration configuration, IDistributedCache cache,
+        IHttpClientFactory httpClientFactory, ApplicationDbContext context, ILogger<ShikimoriApiConnectorService> logger, ILogger<ApiBase> loggerForApi)
     {
-        private readonly ShikimoriClient _client;
-        private readonly IMemoryCache _cache;
-        private readonly IHttpClientFactory _httpClientFactory;
+        var httpClientFactory1 = httpClientFactory ?? throw new ArgumentNullException(nameof(httpClientFactory));
+        var httpClient = httpClientFactory1.CreateClient(nameof(ShikimoriApiConnectorService));
 
-        public ShikimoriApiConnectorService(IConfiguration configuration, IMemoryCache cache, IHttpClientFactory httpClientFactory)
+        var authConfig = configuration.GetSection("Auth");
+        var name = authConfig["Name"];
+        var clientId = authConfig["ClientId"];
+        var clientSecret = authConfig["ClientSecret"];
+
+        _cache = cache;
+        _context = context;
+        _logger = logger;
+        _loggerForApi = loggerForApi;
+        if (name == null || clientId == null || clientSecret == null)
         {
-            _httpClientFactory = httpClientFactory ?? throw new ArgumentNullException(nameof(httpClientFactory));
-            var httpClient = _httpClientFactory.CreateClient(nameof(ShikimoriApiConnectorService));
-
-            var authConfig = configuration.GetSection("Auth");
-
-            var scope = authConfig["Scope"];
-            var access = authConfig["Access"];
-            var refresh = authConfig["Refresh"];
-            var name = authConfig["Name"];
-            var clientId = authConfig["ClientId"];
-            var clientSecret = authConfig["ClientSecret"];
-            var userId = authConfig["UserId"];
-
-            _client = new ShikimoriClient(new ClientSettings(name, clientId, clientSecret), httpClient);
-            _cache = cache;
-
-            Console.WriteLine("ShikimoriApiConnectorService initialized");
+            throw new ArgumentException("Не все параметры аутентификации заданы.");
         }
 
-        public Task<Genre[]> GetGenres()
-        {
-            return GetCachedData("genres_cache", () => _client.Genres.GetGenres());
-        }
+        _client = new ShikimoriClient(new ClientSettings(name, clientId, clientSecret), httpClient, loggerForApi);
 
-        public async Task<Anime[]> GetAnimes(AnimeRequestSettings settings)
-        {
-            try
-            {
-                Console.WriteLine("Fetching animes with settings");
-                return await _client.Animes.GetAnimes(settings);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error getting animes: {ex.Message}");
-                throw;
-            }
-        }
+        _logger.LogInformation("ShikimoriApiConnectorService initialized");
 
-        public async Task<AnimeId> GetAnimeById(long id)
-        {
-            try
-            {
-                return await _client.Animes.GetAnime(id);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error getting animes: {ex.Message}");
-                throw;
-            }
-        }
+    }
 
-        public Manga[] GetMangas(MangaRequestSettings settings)
+    /// <summary>
+    ///     Получает данные асинхронно из кэша, базы данных или API.
+    /// </summary>
+    /// <typeparam name="T">Тип данных.</typeparam>
+    /// <param name="cacheKey">Ключ кэша для получения данных.</param>
+    /// <param name="fetchFromApiFunc">Функция для получения данных из API.</param>
+    /// <param name="fetchFromDbFunc">Функция для получения данных из базы данных.</param>
+    /// <param name="saveToDbAction">Функция для сохранения данных в базу данных.</param>
+    /// <param name="isForDb">Флаг указывающий, что данные должны быть сохранены в базу данных.</param>
+    /// <returns>Возвращает данные типа T.</returns>
+    private async Task<T?> GetDataAsync<T>(string cacheKey, Func<Task<T>> fetchFromApiFunc,
+        Func<long, Task<T>> fetchFromDbFunc = null,
+        Action<T> saveToDbAction = null, bool isForDb = false)
+    {
+        try
         {
-            try
+            var cachedData = await _cache.GetStringAsync(cacheKey);
+            if (cachedData != null)
             {
-                Console.WriteLine("Fetching mangas with settings");
-                Task<Manga[]> mangas = _client.Mangas.GetMangas(settings);
-                return mangas.Result;
+                _logger.LogInformation("Получены данные из кэша по ключу {CacheKey}.", cacheKey);
+                return JsonConvert.DeserializeObject<T>(cachedData);
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error getting mangas: {ex.Message}");
-                throw;
-            }
-        }
 
-        public async Task<MangaRanobeId> GetMangaById(long id)
-        {
-            try
+            var id = ExtractIdFromCacheKey(cacheKey);
+            if (fetchFromDbFunc != null)
             {
-                return await _client.Mangas.GetManga(id);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error getting manga: {ex.Message}");
-                throw;
-            }
-        }
-
-        public Ranobe[] GetRanobes(RanobeRequestSettings settings)
-        {
-            try
-            {
-                Console.WriteLine("Fetching ranobes with settings");
-                Task<Ranobe[]> ranobes = _client.Ranobes.GetRanobes(settings);
-                return ranobes.Result;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error getting ranobes: {ex.Message}");
-                throw;
-            }
-        }
-
-        public async Task<MangaRanobeId> GetRanobeById(long id)
-        {
-            try
-            {
-                return await _client.Ranobes.GetRanobe(id);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error getting ranobe: {ex.Message}");
-                throw;
-            }
-        }
-
-        public Task<Studio[]> GetStudios()
-        {
-            return GetCachedData("studios_cache", () => _client.Studios.GetStudios());
-        }
-        
-        public Task<Publisher[]> GetPublishers()
-        {
-            return GetCachedData("publishers_cache", () => _client.Publishers.GetPublishers());
-        }
-
-        private async Task<T> GetCachedData<T>(string cacheKey, Func<Task<T>> fetchDataFunc)
-        {
-            if (!_cache.TryGetValue(cacheKey, out T cachedData))
-            {
-                Console.WriteLine($"Cache miss for key {cacheKey}. Fetching data.");
-                cachedData = await fetchDataFunc();
-
-                var cacheEntryOptions = new MemoryCacheEntryOptions
+                var dbData = await fetchFromDbFunc(id);
+                if (dbData != null)
                 {
-                    AbsoluteExpirationRelativeToNow = TimeSpan.FromDays(7)
-                };
-
-                _cache.Set(cacheKey, cachedData, cacheEntryOptions);
-                Console.WriteLine($"Cache updated for key {cacheKey}");
+                    var serializedData = JsonConvert.SerializeObject(dbData);
+                    await _cache.SetStringAsync(cacheKey, serializedData);
+                    _logger.LogInformation("Получены данные из базы данных и сохранены в кэш по ключу {CacheKey}.", cacheKey);
+                    return dbData;
+                }
             }
-            else
+
+            var apiData = await fetchFromApiFunc();
+            var serializedApiData = JsonConvert.SerializeObject(apiData);
+
+            if (isForDb && saveToDbAction != null)
             {
-                Console.WriteLine($"Cache hit for key {cacheKey}");
+                saveToDbAction(apiData);
+                await _context.SaveChangesAsync();
+                _logger.LogInformation("Данные сохранены в базу данных и кэш по ключу {CacheKey}.", cacheKey);
             }
 
-            return cachedData;
+            await _cache.SetStringAsync(cacheKey, serializedApiData);
+            _logger.LogInformation("Получены данные из API и сохранены в кэш по ключу {CacheKey}.", cacheKey);
+
+            return apiData;
         }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Ошибка при получении данных для ключа кэша {CacheKey}.", cacheKey);
+            throw;
+        }
+    }
+
+    /// <summary>
+    ///     Извлекает идентификатор из ключа кэша.
+    /// </summary>
+    /// <param name="cacheKey">Ключ кэша.</param>
+    /// <returns>Идентификатор в виде long.</returns>
+    private long ExtractIdFromCacheKey(string cacheKey)
+    {
+        var parts = cacheKey.Split(':');
+        return long.Parse(parts[1]);
+    }
+
+    /// <summary>
+    ///     Получает аниме по идентификатору.
+    /// </summary>
+    /// <param name="id">Идентификатор аниме.</param>
+    /// <returns>Объект AnimeId.</returns>
+    public Task<AnimeId?> GetAnimeById(long id)
+    {
+        return GetDataAsync(
+            $"Anime:{id}",
+            () => _client.Animes.GetAnime(id),
+            async id =>
+            {
+                var animeDto = await _context.Animes
+                    .Where(a => a.Id == id)
+                    .Select(a => new AnimeDto
+                    {
+                        Id = a.Id,
+                        Content = a.Content
+                    })
+                    .FirstOrDefaultAsync();
+
+                return animeDto != null
+                    ? JsonConvert.DeserializeObject<AnimeId>(animeDto.Content)
+                    : null;
+            },
+            anime =>
+            {
+                _context.Animes.Add(new AnimeDto
+                {
+                    Id = anime.Id,
+                    Content = JsonConvert.SerializeObject(anime)
+                });
+            },
+            true
+        );
+    }
+
+    /// <summary>
+    ///     Получает мангу по идентификатору.
+    /// </summary>
+    /// <param name="id">Идентификатор манги.</param>
+    /// <returns>Объект MangaRanobeId.</returns>
+    public Task<MangaRanobeId?> GetMangaById(long id)
+    {
+        return GetDataAsync(
+            $"Manga:{id}",
+            () => _client.Mangas.GetManga(id),
+            async id =>
+            {
+                var mangaDto = await _context.Mangas
+                    .Where(m => m.Id == id)
+                    .Select(m => new MangaDto
+                    {
+                        Id = m.Id,
+                        Content = m.Content
+                    })
+                    .FirstOrDefaultAsync();
+
+                return mangaDto != null
+                    ? JsonConvert.DeserializeObject<MangaRanobeId>(mangaDto.Content)
+                    : null;
+            },
+            manga =>
+            {
+                _context.Mangas.Add(new MangaDto
+                {
+                    Id = manga.Id,
+                    Content = JsonConvert.SerializeObject(manga)
+                });
+            },
+            true
+        );
+    }
+
+    /// <summary>
+    ///     Получает ранобэ по идентификатору.
+    /// </summary>
+    /// <param name="id">Идентификатор ранобэ.</param>
+    /// <returns>Объект MangaRanobeId.</returns>
+    public Task<MangaRanobeId?> GetRanobeById(long id)
+    {
+        return GetDataAsync(
+            $"Ranobe:{id}",
+            () => _client.Ranobes.GetRanobe(id),
+            async id =>
+            {
+                var ranobeDto = await _context.Ranobes
+                    .Where(r => r.Id == id)
+                    .Select(r => new RanobeDto
+                    {
+                        Id = r.Id,
+                        Content = r.Content
+                    })
+                    .FirstOrDefaultAsync();
+
+                return ranobeDto != null
+                    ? JsonConvert.DeserializeObject<MangaRanobeId>(ranobeDto.Content)
+                    : null;
+            },
+            ranobe =>
+            {
+                _context.Ranobes.Add(new RanobeDto
+                {
+                    Id = ranobe.Id,
+                    Content = JsonConvert.SerializeObject(ranobe)
+                });
+            },
+            true
+        );
+    }
+
+    /// <summary>
+    ///     Получает список жанров аниме.
+    /// </summary>
+    /// <returns>Массив объектов Genre.</returns>
+    public Task<Genre[]?> GetGenres()
+    {
+        return GetDataAsync("AnimeGenres_cache", () => _client.Genres.GetGenres());
+    }
+
+    /// <summary>
+    ///     Получает список студий.
+    /// </summary>
+    /// <returns>Массив объектов Studio.</returns>
+    public Task<Studio[]?> GetStudios()
+    {
+        return GetDataAsync("Studios_cache", () => _client.Studios.GetStudios());
+    }
+
+    /// <summary>
+    ///     Получает список издателей.
+    /// </summary>
+    /// <returns>Массив объектов Publisher.</returns>
+    public Task<Publisher[]?> GetPublishers()
+    {
+        return GetDataAsync("Publishers_cache", () => _client.Publishers.GetPublishers());
+    }
+
+    /// <summary>
+    ///     Получает список аниме по заданным параметрам.
+    /// </summary>
+    /// <param name="settings">Настройки запроса аниме.</param>
+    /// <returns>Массив объектов Anime.</returns>
+    public async Task<Anime[]> GetAnimes(AnimeRequestSettings settings)
+    {
+        return await _client.Animes.GetAnimes(settings);
+    }
+
+    /// <summary>
+    ///     Получает список манги по заданным параметрам.
+    /// </summary>
+    /// <param name="settings">Настройки запроса манги.</param>
+    /// <returns>Массив объектов Manga.</returns>
+    public async Task<Manga[]> GetMangas(MangaRequestSettings settings)
+    {
+        return await _client.Mangas.GetMangas(settings);
+    }
+
+    /// <summary>
+    ///     Получает список ранобэ по заданным параметрам.
+    /// </summary>
+    /// <param name="settings">Настройки запроса ранобэ.</param>
+    /// <returns>Массив объектов Ranobe.</returns>
+    public async Task<Ranobe[]> GetRanobes(RanobeRequestSettings settings)
+    {
+        return await _client.Ranobes.GetRanobes(settings);
     }
 }

@@ -1,12 +1,11 @@
 ﻿using System;
 
-namespace ShikimoriSharp.Exceptions
+namespace ShikimoriSharp.Exceptions;
+
+public class ForbiddenException : Exception
 {
-    public class ForbiddenException : Exception
+    public ForbiddenException() : base(
+        "You were trying to access a forbidden information.")
     {
-        public ForbiddenException() : base(
-            "You were trying to access a forbidden information.")
-        {
-        }
     }
 }

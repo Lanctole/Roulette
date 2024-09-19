@@ -1,13 +1,12 @@
-﻿namespace ShikimoriSharp.Enums
+﻿namespace ShikimoriSharp.Enums;
+
+public enum MangaKind
 {
-    public enum MangaKind
-    {
-        manga,
-        manhwa,
-        manhua,
-        light_novel,
-        novel,
-        one_shot,
-        doujin
-    }
+    manga,
+    manhwa,
+    manhua,
+    light_novel,
+    novel,
+    one_shot,
+    doujin
 }

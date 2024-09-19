@@ -1,6 +1,7 @@
 ﻿@page "/anime"
 @using ShikimoriSharp.Bases
 @using Roulette.Services
+@using Roulette.Models
 @inherits ShikimoriComponent
 @inject ApiClientService ApiClientService
 
@@ -27,25 +28,51 @@
         <Studios SelectedStudiosChanged="OnSelectedStudiosChanged"/>
     </Col>
     <Col Xs="24" Sm="12" Md="8">
-        <SelectKindComponent @bind-SelectedValue="_selectedKind"/>
+    <div style="display: flex; align-items: center;">
+        <AntDesign.Tooltip Title="TV-Сериал. Фильм.  OVA — сокращение термина Original Video Animation, в Японии так обозначается особый формат аниме-сериала.
+ONA - веб-аниме. Special - спецвыпуск. TV_Special - телевизионный спецвыпуск. Музыкальный клип. PV - промо-материал. CM - реклама. tv_13 - 12-13 серий. tv-24 ~ 24 серии.
+tv-48 ~ от 40 и выше">
+            <i class="bi bi-info-circle" style="margin-right: 10px;"></i>
+        </AntDesign.Tooltip>
+        <SelectKindComponent @bind-SelectedValue="_selectedKind" />
+    </div>
     </Col>
 </Row>
 <Divider Orientation="left"></Divider>
-<div class="date-container">
-    <div class="item">
-        <YearSelectionComponent @bind-selectedFromYear="SelectedFromYear" @bind-selectedToYear="SelectedToYear"/>
+
+<Col Xs="24" Sm="12" Md="8">
+    <div style="display: flex; align-items: center;">
+        <span>Дата выхода:</span>
+        <AntDesign.InputNumber Style="border: none; background-color: transparent; width: 60px; margin-left: 1px; margin-right: -10px;"
+                               @bind-Value="@dateFrom"
+                               Disabled="true"
+                               TValue="double"
+                               Bordered="false"
+                               Size="small" />
+        <Slider TValue="(double, double)"
+                Min="1950"
+                Max="2024"
+                DefaultValue="defaultDate"
+                Style="flex-grow: 1; margin-left: 0; margin-right: 0;"
+                OnChange="HandleDateSliderChange" />
+        <AntDesign.InputNumber Style="border: none; background-color: transparent; width: 60px; margin-left: 5px;"
+                               @bind-Value="@dateTo"
+                               Disabled="true"
+                               TValue="double"
+                               Bordered="false"
+                               Size="small" />
     </div>
-    <div class="item">
-        <Button OnClick="SendSelected">Roll!</Button>
-    </div>
+</Col>
+<div class="item">
+    <RollButtonComponent OnRoll="SendSelected" />
 </div>
 <Divider Orientation="left"></Divider>
 <Row Gutter="8" Justify="space-between">
     <Col Xs="24" Sm="6" Md="4" Span="4">
-        <WheelComponent/>
+    <WheelComponent @bind-showCanvas="_showCanvas" />
     </Col>
     <Col Xs="24" Sm="12" Md="12">
-        <MediaList MediaItems="_animes"/>
+    <MediaList MediaItems="_animes" IsWinner="true" MediaType="MediaType.Anime" />
     </Col>
 </Row>
 
@@ -54,6 +81,7 @@
     private string? _selectedRating;
     private string? _selectedKind;
     private string? _selectedDuration;
+    
     private List<string> _selectedStudios = new();
     private List<SmallRepresentation>? _animes;
 
@@ -62,8 +90,9 @@
         _selectedStudios = selectedStudios;
     }
 
-    private async Task SendSelected()
+    protected override async Task SendSelected()
     {
+        _showCanvas = true;
         var studios = string.Join(",", _selectedStudios);
         var aniUrl =
             $"rating={_selectedRating}&" +

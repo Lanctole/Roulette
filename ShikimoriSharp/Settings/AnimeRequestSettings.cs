@@ -1,11 +1,10 @@
 ﻿#nullable enable
 using ShikimoriSharp.Enums;
 
-namespace ShikimoriSharp.Settings
+namespace ShikimoriSharp.Settings;
+
+public class AnimeRequestSettings : MangaAnimeRanobeRequestSettingsBase
 {
-    public class AnimeRequestSettings : MangaAnimeRanobeRequestSettingsBase
-    {
-        public Duration? duration;
-        public string? studio;
-    }
+    public Duration? duration;
+    public string? studio;
 }

@@ -3,17 +3,27 @@
 @inject ApiClientService ApiClientService
 @inject NotificationService _notice
 @inject IJSRuntime JS
+@inject IMessageService _message
 
 @code {
+    protected bool _showCanvas;
     protected string? SelectedScore;
     protected string? SelectedFromYear;
     protected string? SelectedToYear;
+    protected double dateFrom;
+    protected double dateTo;
+    protected (double, double) defaultDate = (1995, 2024);
     protected string? Season;
     protected bool GetDetailedData;
     protected List<string> SelectedGenres = new();
     protected readonly string SelectedOrder = "random";
     protected readonly int Limit = 5;
     protected readonly int Page = 1;
+
+    protected override async Task OnInitializedAsync()
+    {
+        (dateFrom, dateTo) = defaultDate;
+    }
 
     protected void OnSelectedGenresChanged(List<string> selectedGenres)
     {
@@ -36,6 +46,8 @@
     {
         try
         {
+            SelectedFromYear = dateFrom.ToString();
+            SelectedToYear = dateTo.ToString();
             Season = $"{SelectedFromYear}";
             if (!string.IsNullOrEmpty(SelectedToYear))
             {
@@ -69,8 +81,8 @@
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error in GetMediaItemsAsync: {ex.Message}");
-            throw;
+            await _message.Error("Произошла ошибка при загрузке. Попробуйте через какое-то время, перезагрузите страницу или измените фильтры.");
+            return new List<SmallRepresentation>();
         }
     }
 
@@ -83,4 +95,25 @@
         }
         JS.InvokeVoidAsync("startSpin", mediaName);
     }
+
+    protected void HandleDateSliderChange((double, double) newValue)
+    {
+        (dateFrom, dateTo) = newValue;
+    }
+
+    protected void ShowCanvas()
+    {
+        _showCanvas = true;
+    }
+    protected async Task OnRollButtonClick()
+    {
+        ShowCanvas();
+        await SendSelected();
+    }
+
+    protected virtual async Task SendSelected()
+    {
+        
+    }
+
 }

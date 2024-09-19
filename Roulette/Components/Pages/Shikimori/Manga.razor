@@ -1,6 +1,7 @@
 ﻿@page "/manga"
 @using ShikimoriSharp.Bases
 @using Roulette.Services
+@using Roulette.Models
 @inherits ShikimoriComponent
 @inject ApiClientService ApiClientService
 
@@ -28,22 +29,39 @@
     </Col>
 </Row>
 <Divider Orientation="left"></Divider>
-
-<div class="date-container">
-    <div class="item">
-        <YearSelectionComponent @bind-selectedFromYear="SelectedFromYear" @bind-selectedToYear="SelectedToYear"/>
+<Col Xs="24" Sm="12" Md="8">
+    <div style="display: flex; align-items: center;">
+        <span>Дата выхода:</span>
+        <AntDesign.InputNumber Style="border: none; background-color: transparent; width: 60px; margin-left: 1px; margin-right: -10px;"
+                               @bind-Value="@dateFrom"
+                               Disabled="true"
+                               TValue="double"
+                               Bordered="false"
+                               Size="small" />
+        <Slider TValue="(double, double)"
+                Min="1950"
+                Max="2024"
+                DefaultValue="defaultDate"
+                Style="flex-grow: 1; margin-left: 0; margin-right: 0;"
+                OnChange="HandleDateSliderChange" />
+        <AntDesign.InputNumber Style="border: none; background-color: transparent; width: 60px; margin-left: 5px;"
+                               @bind-Value="@dateTo"
+                               Disabled="true"
+                               TValue="double"
+                               Bordered="false"
+                               Size="small" />
     </div>
-    <div class="item">
-        <Button OnClick="SendSelected">Roll!</Button>
-    </div>
+</Col>
+<div class="item">
+    <RollButtonComponent OnRoll="SendSelected" />
 </div>
 <Divider Orientation="left"></Divider>
 <Row Gutter="8" Justify="space-between">
     <Col Xs="24" Sm="6" Md="4" Span="4">
-        <WheelComponent/>
+    <WheelComponent @bind-showCanvas="_showCanvas" />
     </Col>
     <Col Xs="24" Sm="12" Md="12">
-        <MediaList MediaItems="_mangas"/>
+    <MediaList MediaItems="_mangas" IsWinner="true" MediaType="MediaType.Manga" />
     </Col>
 </Row>
 
@@ -58,11 +76,12 @@
         _selectedPublishers = selectedPublishers;
     }
 
-    private async Task SendSelected()
+    protected override async Task SendSelected()
     {
+        _showCanvas = true;
         var publishers = string.Join(",", _selectedPublishers);
         var mangaUrl =
-            $"publishers={publishers}&" +
+            $"publisher={publishers}&" +
             $"kind={_selectedKind}&";
         _mangas = await GetMediaItemsAsync($"manga/mangas?{mangaUrl}", async id =>
         {

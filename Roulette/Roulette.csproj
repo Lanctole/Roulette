@@ -9,11 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Components\Account\Pages\SingInYandex.razor" />
     <Content Remove="Components\MinimalScoreComponent.razor" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="AntDesign" Version="0.19.6" />
+    <PackageReference Include="AspNet.Security.OAuth.Yandex" Version="8.1.0" />
     <PackageReference Include="Blazored.LocalStorage" Version="4.5.0" />
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.22.0" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.6" />
@@ -25,20 +27,22 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="8.0.8" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.20.1" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.4" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.5" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.4" />
     <PackageReference Include="NUnit" Version="4.1.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Games\Games.csproj" />
     <ProjectReference Include="..\ShikimoriSharp\ShikimoriSharp.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Data\Migrations\" />
-    <Folder Include="Views\" />
+    <Folder Include="Models\Games\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -65,15 +69,21 @@
   </ItemGroup>
 
   <ItemGroup>
+    <_ContentIncludedByDefault Remove="Components\Account\Pages\SingInYandex.razor" />
     <_ContentIncludedByDefault Remove="Components\MinimalScoreComponent.razor" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Components\Account\Pages\SingInYandex.razor" />
     <None Include="Components\Shikimori\MinimalScoreComponent.razor" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\ShikimoriSharp\ShikimoriSharp.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Components\Account\Pages\SingInYandex.razor" />
   </ItemGroup>
 
 </Project>

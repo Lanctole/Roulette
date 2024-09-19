@@ -4,20 +4,22 @@
 @using System.Text
 @using System.Text.Encodings.Web
 @using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Identity.UI.Services
 @using Microsoft.AspNetCore.WebUtilities
 @using Roulette.Data
+@using Roulette.Services
 
 @inject UserManager<IdentityUser> UserManager
 @inject IUserStore<IdentityUser> UserStore
 @inject SignInManager<IdentityUser> SignInManager
-@inject IEmailSender<IdentityUser> EmailSender
+@inject IEmailSender EmailSender
 @inject ILogger<Register> Logger
 @inject NavigationManager NavigationManager
 @inject IdentityRedirectManager RedirectManager
 
-<PageTitle>Register</PageTitle>
+<PageTitle>Регистрация</PageTitle>
 
-<h1>Register</h1>
+<h1>Регистрация</h1>
 
 <div class="row">
     <div class="col-md-4">
@@ -25,7 +27,7 @@
         <EditForm Model="Input" asp-route-returnUrl="@ReturnUrl" method="post" OnValidSubmit="RegisterUser" FormName="register">
             <AntiforgeryTokenInput />
             <DataAnnotationsValidator/>
-            <h2>Create a new account.</h2>
+            <h2>Создать новый аккаунт.</h2>
             <hr/>
             <ValidationSummary class="text-danger" role="alert"/>
             <div class="form-floating mb-3">
@@ -35,36 +37,52 @@
             </div>
             <div class="form-floating mb-3">
                 <InputText type="password" @bind-Value="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password"/>
-                <label for="password">Password</label>
+                <label for="password">Пароль</label>
                 <ValidationMessage For="() => Input.Password" class="text-danger"/>
             </div>
             <div class="form-floating mb-3">
                 <InputText type="password" @bind-Value="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password"/>
-                <label for="confirm-password">Confirm Password</label>
+                <label for="confirm-password">Повторите пароль</label>
                 <ValidationMessage For="() => Input.ConfirmPassword" class="text-danger"/>
             </div>
-            <button type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
+            <button type="submit" class="w-100 btn btn-lg btn-primary">Зарегистрироваться</button>
         </EditForm>
-    </div>
-    <div class="col-md-6 col-md-offset-2">
-        <section>
-            <h3>Use another service to register.</h3>
-            <hr />
+        <section class="center-container">
             <ExternalLoginPicker />
         </section>
     </div>
-</div>
 
+</div>
+<style>
+    .center-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+</style>
 @code {
     private IEnumerable<IdentityError>? identityErrors;
 
     [SupplyParameterFromForm]
     private InputModel Input { get; set; } = new();
-
+    [CascadingParameter]
+    private Task<AuthenticationState>? authenticationState { get; set; }
     [SupplyParameterFromQuery]
     private string? ReturnUrl { get; set; }
     private string registerResult;
     private string? Message => identityErrors is null ? null : $"Error: {string.Join(", ", identityErrors.Select(error => error.Description))}";
+    protected override async Task OnInitializedAsync()
+    {
+        if (authenticationState is not null)
+        {
+            var authState = await authenticationState;
+            if (authState.User.Identity?.IsAuthenticated == true)
+            {
+                NavigationManager.NavigateTo("/");
+            }
+        }
+    }
 
     public async Task RegisterUser(EditContext editContext)
     {
@@ -77,30 +95,44 @@
 
         if (!result.Succeeded)
         {
-            //identityErrors = result.Errors;
             registerResult = string.Join(", ", result.Errors.Select(e => e.Description));
             return;
         }
 
         Logger.LogInformation("User created a new account with password.");
+        await UserManager.AddToRoleAsync(user, "common_user");
 
         var userId = await UserManager.GetUserIdAsync(user);
         var code = await UserManager.GenerateEmailConfirmationTokenAsync(user);
         code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
+
         var callbackUrl = NavigationManager.GetUriWithQueryParameters(
             NavigationManager.ToAbsoluteUri("Account/ConfirmEmail").AbsoluteUri,
             new Dictionary<string, object?> { ["userId"] = userId, ["code"] = code, ["returnUrl"] = ReturnUrl });
 
-        await EmailSender.SendConfirmationLinkAsync(user, Input.Email, HtmlEncoder.Default.Encode(callbackUrl));
+        await EmailSender.SendEmailAsync(
+            Input.Email,
+            "Подтвердите регистрацию на media-random.ru",
+            $@"
+                <html>
+                <body>
+                    <p>Приветствуем вас на media-random.ru!</p>
+                    <p>Теперь у вас есть профиль на нашем сайте. Чтобы активировать его, подтвердите ваш e-mail.</p>
+                    <p><a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>Подтвердить</a></p>
+                    <p style='font-size: smaller;'>Если честно - подтверждение ни на что не влияет</p>
+                    <p style='font-size: smaller;'>Если вы не регистрировались и получили это письмо случайно, проигнорируйте его.</p>
+                </body>
+                </html>"
+            );
 
         if (UserManager.Options.SignIn.RequireConfirmedAccount)
         {
             RedirectManager.RedirectTo(
                 "Account/RegisterConfirmation",
-                new() { ["email"] = Input.Email, ["returnUrl"] = ReturnUrl });
+                new Dictionary<string, object?> { ["email"] = Input.Email, ["returnUrl"] = ReturnUrl });
         }
 
-        await SignInManager.SignInAsync(user, isPersistent: false);
+        await SignInManager.SignInAsync(user, false);
         RedirectManager.RedirectTo(ReturnUrl);
     }
 
@@ -113,7 +145,7 @@
         catch
         {
             throw new InvalidOperationException($"Can't create an instance of '{nameof(IdentityUser)}'. " +
-                $"Ensure that '{nameof(IdentityUser)}' is not an abstract class and has a parameterless constructor.");
+                                                $"Ensure that '{nameof(IdentityUser)}' is not an abstract class and has a parameterless constructor.");
         }
     }
 

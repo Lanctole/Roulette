@@ -14,7 +14,7 @@ function createWheel(mediaName) {
         },
         {});
     const segments = formattedNames.map(nameObj => ({
-        'fillStyle': "#c0c0c0",
+        'fillStyle': "#7bc2e8",
         'text': nameObj.formattedName
     }));
 
@@ -27,13 +27,13 @@ function createWheel(mediaName) {
         'canvasId': "rouletteCanvas",
         'outerRadius': canvasHeight / 2 - 20,
         'numSegments': 5,
-        'textFontSize': 10,
+        'textFontSize': 11,
         'innerRadius': 20,
         'responsive': true,
         'textAlignment': "center",
-        'textFontFamily': "Georgia",
+        'textFontFamily': "Verdana",
         'rotationAngle': -30,
-        'fillStyle': "#e7706f",
+        'fillStyle': "#ffffff",
         'lineWidth': 3,
         'segments': segments,
         'animation':
@@ -63,7 +63,7 @@ function createWheel(mediaName) {
 
     function resetSegmentColours() {
         for (let x = 1; x < theWheel.segments.length; x++) {
-            theWheel.segments[x].fillStyle = "#c0c0c0";
+            theWheel.segments[x].fillStyle = "#7bc2e8";
         }
         theWheel.draw();
         drawPointer();

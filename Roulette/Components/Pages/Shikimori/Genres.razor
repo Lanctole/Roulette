@@ -3,7 +3,11 @@
 @using Roulette.Models.Shiki
 @using Roulette.Models
 @using Roulette.Services
+@using Microsoft.AspNetCore.Authorization
 @inject ApiClientService ApiClientService
+@inject IMessageService _message
+
+@attribute [Authorize(Roles = "admin")]
 
 <SelectComponent T="GenreModel" TValue="string"
                  Placeholder="Выберите жанры"
@@ -20,10 +24,18 @@
     [Parameter]
     public EventCallback<List<string>> SelectedGenresChanged { get; set; }
     private List<string> _selectedGenres = new();
-    
+
     private async Task<List<GenreModel>> LoadGenres()
     {
-        return await ApiClientService.GetGenresAsync();
+        try
+        {
+            return await ApiClientService.GetGenresAsync();
+        }
+        catch (Exception e)
+        {
+            await _message.Error("Произошла ошибка при загрузке списка жанров. Попробуйте через какое-то время или перезагрузите страницу.");
+            return new List<GenreModel>();
+        }
     }
 
     private LabeledValue TransformGenre(GenreModel genre)

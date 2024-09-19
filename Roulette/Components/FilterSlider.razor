@@ -1,0 +1,44 @@
+﻿<div style="display: flex; align-items: center;">
+    <AntDesign.Tooltip Title="@Title">
+        <i class="bi bi-info-circle" style="margin-right: 10px;"></i>
+    </AntDesign.Tooltip>
+    <span>@Label:</span>
+    <AntDesign.InputNumber Style="@_inputStyle"
+                           @bind-Value="MinValue"
+                           Disabled="true"
+                           TValue="double"
+                           Bordered="false"
+                           Size="small" />
+    <Slider TValue="(double, double)"
+            Min="Min"
+            Max="Max"
+            DefaultValue="(MinValue, MaxValue)"
+            Style="flex-grow: 1; margin-left: 0; margin-right: 0;"
+            OnChange="OnChangeHandler" />
+    <AntDesign.InputNumber Style="border: none; background-color: transparent; width: 60px; margin-left: 5px;"
+                           @bind-Value="MaxValue"
+                           Disabled="true"
+                           TValue="double"
+                           Bordered="false"
+                           Size="small" />
+</div>
+
+@code {
+    [Parameter] public string Title { get; set; }
+    [Parameter] public string Label { get; set; }
+    [Parameter] public double Min { get; set; }
+    [Parameter] public double Max { get; set; }
+
+    [Parameter]
+    public string Width { get; set; } = "30px";
+    [Parameter] public double MinValue { get; set; }
+    [Parameter] public double MaxValue { get; set; }
+    [Parameter] public EventCallback<(double, double)> OnChange { get; set; }
+    private string _inputStyle => $"border: none; background-color: transparent; width: {Width}; margin-left: 1px; margin-right: -1px;";
+
+    private async Task OnChangeHandler((double, double) value)
+    {
+        await OnChange.InvokeAsync(value);
+    }
+}
+

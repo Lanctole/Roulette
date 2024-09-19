@@ -3,12 +3,14 @@ using System.Text.Json.Serialization;
 using Blazored.LocalStorage;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using Roulette.Components;
 using Roulette.Components.Account;
 using Roulette.Data;
 using Roulette.Helpers;
+using Roulette.Models;
 using Roulette.Services;
 
 namespace Roulette;
@@ -54,9 +56,9 @@ public class Program
             client.DefaultRequestHeaders.Add("Accept", "application/json");
         }).SetHandlerLifetime(TimeSpan.FromMinutes(1)).ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
         {
-            // ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true
+            ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true
         });
-        builder.Services.AddSingleton<ShikimoriApiConnectorService>();
+        builder.Services.AddScoped<ShikimoriApiConnectorService>();
         builder.Services.AddScoped<ShikiDataHelper>();
 
         var apiUrl = Environment.GetEnvironmentVariable("API_URL") ?? builder.Configuration["ApiBaseAddress"];
@@ -68,7 +70,7 @@ public class Program
             //client.BaseAddress = new Uri(builder.Configuration["ApiBaseAddress"]);
         }).ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
         {
-            //ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true
+            ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true
         }).SetHandlerLifetime(TimeSpan.FromMinutes(1));
         builder.Services.AddSingleton<ApiClientService>();
         builder.Services.AddSingleton<SettingsService>();
@@ -89,7 +91,11 @@ public class Program
 
         builder.Services.AddCascadingAuthenticationState();
         builder.Services.AddScoped<IdentityUserAccessor>();
-
+        builder.Services.AddStackExchangeRedisCache(options =>
+        {
+            options.Configuration = builder.Configuration.GetSection("Redis:Configuration").Value;
+            options.InstanceName = builder.Configuration.GetSection("Redis:InstanceName").Value;
+        });
         builder.Services.AddScoped<AuthenticationStateProvider, IdentityRevalidatingAuthenticationStateProvider>();
 
         builder.Services.AddAuthentication(options =>
@@ -97,7 +103,19 @@ public class Program
                 options.DefaultScheme = IdentityConstants.ApplicationScheme;
                 options.DefaultSignInScheme = IdentityConstants.ExternalScheme;
             })
+            //.AddIdentityCookies()
+            .AddYandex(options =>
+            {
+                options.ClientId = builder.Configuration["Authentication:Yandex:ClientId"];
+                options.ClientSecret = builder.Configuration["Authentication:Yandex:ClientSecret"];
+                options.CallbackPath = new PathString("/Account/SingInYandex");
+            })
             .AddIdentityCookies();
+        //builder.Services.AddAuthorization(options =>
+        //{
+        //    options.AddPolicy("AdminOnly", policy =>
+        //        policy.RequireRole("admin"));
+        //});
 
         builder.Services.AddIdentityCore<IdentityUser>(options =>
             {
@@ -105,13 +123,19 @@ public class Program
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireUppercase = false;
             })
+            .AddRoles<IdentityRole>()
             .AddEntityFrameworkStores<ApplicationDbContext>()
             .AddSignInManager()
             .AddErrorDescriber<LocalizedIdentityErrorDescriber>()
             .AddDefaultTokenProviders();
 
-        builder.Services.AddSingleton<IEmailSender<IdentityUser>, IdentityNoOpEmailSender>();
-
+        builder.Services.Configure<SmtpSettings>(builder.Configuration.GetSection("Smtp"));
+        builder.Services.AddTransient<IEmailSender, EmailSender>();
+        builder.Services.AddScoped<GameService>();
+        builder.Services.AddScoped<GameGenreService>();
+        builder.Services.AddScoped<GameLanguageService>();
+        builder.Services.AddScoped<UserChoiceHistoryService>();
+        builder.Services.AddScoped<BugReportService>();
 
         var app = builder.Build();
         if (app.Environment.IsDevelopment())
@@ -123,10 +147,10 @@ public class Program
         else
         {
             app.UseExceptionHandler("/Home/Error");
-            app.UseHsts();
+            //app.UseHsts();
         }
 
-        app.UseHttpsRedirection();
+        //app.UseHttpsRedirection();
         app.UseStaticFiles();
         app.UseRouting();
         app.UseAuthentication();

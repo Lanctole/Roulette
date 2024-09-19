@@ -1,0 +1,163 @@
+﻿@page "/games"
+@using Roulette.Models
+@using Roulette.Services
+@using Roulette.DTOs
+@using Games.Enums
+@inject ApiClientService ApiClientService
+@inject NotificationService _notice
+@inject IJSRuntime JS
+
+<PageTitle>Games</PageTitle>
+
+<Row Gutter="16">
+    <Col Xs="24" Sm="12" Md="8">
+        <GameGenres SelectedGameGenresChanged="OnSelectedGameGenresChanged"/>
+    </Col>
+    <Col Xs="24" Sm="12" Md="8">
+        <GameLanguages SelectedLanguagesChanged="OnSelectedGameLanguagesChanged"/>
+    </Col>
+</Row>
+<Divider Orientation="left"></Divider>
+
+<Row Gutter="16">
+    <Col Xs="24" Sm="12" Md="8">
+    <FilterSlider Title="Оценка на платформе Стим. Составляется из отношения положительных обзоров к общему числу обзоров.
+Поэтому наши данные могут немного отличаться. Сведите ползунки чтобы фильтровать по точному значению."
+                  Label="Оценка Steam"
+                  Min="0" Max="100"
+                  MinValue="@steamMin" MaxValue="@steamMax"
+                  OnChange="HandleSteamSliderChange" />
+
+    <FilterSlider Title="Оценка на платформе Метакритик. Сведите ползунки чтобы фильтровать по точному значению."
+                  Label="Оценка Metacritic"
+                  Min="0" Max="100"
+                  MinValue="@metacriticMin" MaxValue="@metacriticMax"
+                  OnChange="HandleMetacriticSliderChange" />
+    </Col>
+
+    <Col Xs="24" Sm="12" Md="8">
+    <FilterSlider Title="Цена в долларах. Как вы знаете, цены часто указывают в виде 9,99 или 59,99. Эта проблема учтена,
+поэтому не обязательно задавать диапазон [59,60], можно просто указать число точное число. Сведите ползунки чтобы фильтровать по точному значению."
+                  Label="Цена ($)"
+                  Min="0" Max="100"
+                  MinValue="@costMin" MaxValue="@costMax"
+                  OnChange="HandleCostSliderChange" />
+
+    <FilterSlider Title="Дата выхода. Сведите ползунки чтобы фильтровать по точному значению."
+                  Label="Дата выхода"
+                  Min="1997" Max="2024"
+                  Width="50px"
+                  MinValue="@dateFrom" MaxValue="@dateTo"
+                  OnChange="HandleDateSliderChange" />
+    </Col>
+</Row>
+<div class="item">
+    <RollButtonComponent OnRoll="SendSelected" />
+</div>
+<Divider Orientation="left"></Divider>
+
+<Row Gutter="8" Justify="space-between">
+    <Col Xs="24" Sm="6" Md="4" Span="4">
+    <WheelComponent @bind-showCanvas="_showCanvas" />
+    </Col>
+    <Col Xs="24" Sm="12" Md="12">
+    <MediaList MediaItems="_games" IsWinner="true" MediaType="MediaType.Game" />
+    </Col>
+</Row>
+
+@code {
+    protected (double, double) defaultCost = (15, 60);
+    protected (double, double) defaultDate = (2010, 2020);
+    protected (double, double) defaultSteam = (70, 100);
+    protected (double, double) defaultMetacritic = (70, 100);
+    protected List<string> SelectedGenres = new();
+    protected List<string> SelectedGameLanguages = new();
+
+    protected double steamMin, steamMax, metacriticMin, metacriticMax, costMin, costMax, dateFrom, dateTo;
+    protected string? SelectedFromYear, SelectedToYear;
+    protected List<GameDto>? _games;
+    protected bool _showCanvas;
+
+    protected override async Task OnInitializedAsync()
+    {
+        (metacriticMin, metacriticMax) = defaultMetacritic;
+        (steamMin,steamMax) = defaultSteam;
+        (costMin, costMax) = defaultCost;
+        (dateFrom, dateTo) = defaultDate;
+    }
+
+    private async Task SendSelected()
+    {
+        _showCanvas = true;
+        var gameUrl = BuildGameUrl();
+        _games = await ApiClientService.GetAsync<List<GameDto>>(gameUrl);
+
+        if (_games == null || _games.Count == 0)
+        {
+            await OnEmptyAnswer();
+            return;
+        }
+
+        TransferMediaPropsToSpinFunc(_games);
+    }
+ 
+    private string BuildGameUrl()
+    {
+        var genres = string.Join(",", SelectedGenres);
+        var languages = string.Join(",", SelectedGameLanguages);
+        var order = GameOrder.Random;
+        
+        SelectedFromYear = $"{dateFrom}-01-01";
+        SelectedToYear = $"{dateTo}-12-31";
+
+        var gameUrl =
+            $"game/games?" +
+            $"genres={genres}&" +
+            $"metacriticScoreMin={(int?)metacriticMin}&" +
+            $"metacriticScoreMax={(int?)metacriticMax}&" +
+            $"steamScoreMin={(int?)steamMin}&" +
+            $"steamScoreMax={(int?)steamMax}&" +
+            $"releaseDateStart={SelectedFromYear}&" +
+            $"releaseDateEnd={SelectedToYear}&" +
+            $"supportedLanguages={languages}&" +
+            $"minCost={costMin}&" +
+            $"maxCost={costMax}&" +
+            $"order={order}";
+
+        return gameUrl;
+    }
+
+    private void TransferMediaPropsToSpinFunc(List<GameDto> detailedItems)
+    {
+        Dictionary<long, string> mediaName = new();
+        foreach (var media in detailedItems)
+        {
+            mediaName.Add(media.AppID, media.Name);
+        }
+        JS.InvokeVoidAsync("startSpin", mediaName);
+    }
+
+    private async Task OnEmptyAnswer()
+    {
+        RenderFragment customIcon = @<Icon Type="meh" Theme="outline" Style="color:#FFC000;"></Icon>;
+        await _notice.Open(new NotificationConfig
+        {
+            Message = "Проблем-ка!",
+            Description = "К сожалению, у нас нет контента удовлетворяющего вашим запросам. Попробуйте изменить хотелки",
+            Icon = customIcon
+        });
+    }
+
+    protected void OnSelectedGameGenresChanged(List<string> selectedGenres) => SelectedGenres = selectedGenres;
+    protected void OnSelectedGameLanguagesChanged(List<string> selectedGameLanguages) => SelectedGameLanguages = selectedGameLanguages;
+
+    private void HandleSliderChange(ref double min, ref double max, (double, double) newValue)
+    {
+        (min, max) = newValue;
+    }
+
+    private void HandleSteamSliderChange((double, double) newValue) => HandleSliderChange(ref steamMin, ref steamMax, newValue);
+    private void HandleMetacriticSliderChange((double, double) newValue) => HandleSliderChange(ref metacriticMin, ref metacriticMax, newValue);
+    private void HandleCostSliderChange((double, double) newValue) => HandleSliderChange(ref costMin, ref costMax, newValue);
+    private void HandleDateSliderChange((double, double) newValue) => HandleSliderChange(ref dateFrom, ref dateTo, newValue);
+}

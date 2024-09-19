@@ -11,6 +11,8 @@ ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["Roulette/Roulette.csproj", "Roulette/"]
 COPY ["ShikimoriSharp/ShikimoriSharp.csproj", "ShikimoriSharp/"]
+COPY ["IGDBSaver/SteamCVStoJSON.csproj", "IGDBSaver/"]
+COPY ["Games/Games.csproj", "Games/"]
 RUN dotnet restore "./Roulette/Roulette.csproj"
 COPY . .
 WORKDIR "/src/Roulette"
@@ -23,4 +25,5 @@ RUN dotnet publish "./Roulette.csproj" -c $BUILD_CONFIGURATION -o /app/publish /
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
+COPY appsettings.json .
 ENTRYPOINT ["dotnet", "Roulette.dll"]

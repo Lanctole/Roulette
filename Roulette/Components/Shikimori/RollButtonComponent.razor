@@ -1,0 +1,30 @@
+<div class="item">
+    <Button OnClick="HandleClick" Disabled="@isButtonDisabled">
+        @buttonText
+    </Button>
+</div>
+
+@code {
+    private bool isButtonDisabled = false;
+    private string buttonText = "Roll!";
+
+    [Parameter]
+    public EventCallback OnRoll { get; set; }
+
+    private async Task HandleClick()
+    {
+        isButtonDisabled = true;
+        buttonText = "Rolling...";
+        
+        if (OnRoll.HasDelegate)
+        {
+            await OnRoll.InvokeAsync(null);
+        }
+
+        await Task.Delay(3000);
+
+        isButtonDisabled = false;
+        buttonText = "Roll!";
+
+    }
+}

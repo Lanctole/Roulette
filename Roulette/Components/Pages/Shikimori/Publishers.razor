@@ -4,6 +4,7 @@
 @using Roulette.Models
 @using Roulette.Services
 @inject ApiClientService ApiClientService
+@inject IMessageService _message
 
 <SelectComponent T="Publisher" TValue="string"
                  Placeholder="Выберите издателей"
@@ -22,7 +23,15 @@
 
     private async Task<List<Publisher>> LoadPublishers()
     {
-        return await ApiClientService.GetPublishersAsync();
+        try
+        {
+            return await ApiClientService.GetPublishersAsync();
+        }
+        catch (Exception ex)
+        {
+            await _message.Error("Произошла ошибка при загрузке списка издательств. Попробуйте через какое-то время или перезагрузите страницу.");
+            return new List<Publisher>();
+        }
     }
 
     private LabeledValue TransformPublisher(Publisher publisher)

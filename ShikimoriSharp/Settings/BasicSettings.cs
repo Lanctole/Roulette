@@ -1,8 +1,7 @@
-﻿namespace ShikimoriSharp.Settings
+﻿namespace ShikimoriSharp.Settings;
+
+public class BasicSettings
 {
-    public class BasicSettings
-    {
-        public int? limit;
-        public int? page;
-    }
+    public int? limit;
+    public int? page;
 }

@@ -21,6 +21,7 @@
 
     <ItemGroup>
       <Folder Include="Classes\Constants\" />
+      <Folder Include="Information\" />
       <Folder Include="Properties\" />
     </ItemGroup>
 

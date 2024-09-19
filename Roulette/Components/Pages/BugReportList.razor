@@ -1,0 +1,191 @@
+﻿@page "/bugreports"
+@using Roulette.Models
+@using Roulette.Services
+@using Microsoft.AspNetCore.Authorization
+
+@inject BugReportService BugReportService
+@inject IMessageService _message
+
+@attribute [Authorize]
+<h3>Сообщения об ошибках</h3>
+
+<div class="mb-3">
+    <label for="statusFilter">Фильтровать по статусу:</label>
+    <select id="statusFilter" @onchange="OnStatusFilterChanged" value="@statusFilter">
+        <option value="">Все</option>
+        @foreach (BugReportStatus status in Enum.GetValues(typeof(BugReportStatus)))
+        {
+            <option value="@status" selected="@(statusFilter == status)">
+                @GetLocalizedStatus(status)
+            </option>
+        }
+    </select>
+</div>
+
+@if (bugReports == null)
+{
+    <p><em>Загрузка...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Заголовок</th>
+                <th>Описание</th>
+                <th>Статус</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var bugReport in paginatedBugReports)
+            {
+                <tr>
+                    <td>@bugReport.Id</td>
+                    <td>@bugReport.Title</td>
+                    <td>
+                        <button class="btn btn-info" @onclick="() => OpenModal(bugReport)">
+                            Просмотреть
+                        </button>
+                    </td>
+                    <td>@GetLocalizedStatus(bugReport.Status)</td>
+                    <td>
+                        <select @onchange="(e) => UpdateBugReportStatus(bugReport.Id, (BugReportStatus)Enum.Parse(typeof(BugReportStatus), e.Value.ToString()))">
+                            @foreach (BugReportStatus status in Enum.GetValues(typeof(BugReportStatus)))
+                            {
+                                <option value="@status" selected="@((bugReport.Status == status) ? true : false)">
+                                    @GetLocalizedStatus(status)
+                                </option>
+                            }
+                        </select>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <Pagination Total="@_totalItems"
+                Current="@_currentPage"
+                PageSize="@_pageSize"
+                ShowSizeChanger="false"
+                OnChange="HandlePageChange" />
+}
+
+@if (showModal)
+{
+    <div class="modal-overlay" @onclick="CloseModal">
+        <div class="modal-content" @onclick:stopPropagation>
+            <span class="close" @onclick="CloseModal">&times;</span>
+            <h4>@selectedBugReport?.Title</h4>
+            <p>@selectedBugReport?.Description</p>
+            <p><strong>Статус:</strong> @GetLocalizedStatus(selectedBugReport?.Status ?? BugReportStatus.New)</p>
+        </div>
+    </div>
+}
+
+@code {
+    private List<BugReport>? bugReports;
+    private List<BugReport>? filteredBugReports;
+    private List<BugReport>? paginatedBugReports;
+    private BugReport? selectedBugReport;
+    private bool showModal;
+    private BugReportStatus? statusFilter = BugReportStatus.New;
+
+    private int _currentPage = 1;
+    private const int _pageSize = 10;
+    private int _totalItems => filteredBugReports?.Count ?? 0;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            bugReports = await BugReportService.GetAllBugReportsAsync();
+            FilterBugReports();
+        }
+        catch (Exception ex)
+        {
+            await Error("Произошла ошибка при при получении всех отчетов об ошибках. Попробуйте еще раз.");
+        }
+    }
+
+    private async Task HandlePageChange(PaginationEventArgs e)
+    {
+        _currentPage = e.Page;
+        await LoadData();
+    }
+    private async Task LoadData()
+    {
+        if (filteredBugReports != null)
+        {
+            paginatedBugReports = filteredBugReports
+                .Skip((_currentPage - 1) * _pageSize)
+                .Take(_pageSize)
+                .ToList();
+        }
+    }
+
+    private void FilterBugReports()
+    {
+        if (statusFilter.HasValue)
+        {
+            filteredBugReports = bugReports?.Where(b => b.Status == statusFilter.Value).ToList();
+        }
+        else
+        {
+            filteredBugReports = bugReports;
+        }
+        LoadData().GetAwaiter().GetResult();
+    }
+
+
+    private async Task UpdateBugReportStatus(int id, BugReportStatus newStatus)
+    {
+        try
+        {
+            await BugReportService.UpdateBugReportStatusAsync(id, newStatus);
+            bugReports = await BugReportService.GetAllBugReportsAsync();
+            FilterBugReports();
+        }
+        catch (Exception ex)
+        {
+            await Error("Произошла ошибка при обновлении статуса отчета об ошибке. Попробуйте еще раз.");
+        }
+    }
+
+    private void OnStatusFilterChanged(ChangeEventArgs e)
+    {
+        statusFilter = string.IsNullOrEmpty(e.Value.ToString()) ? null : (BugReportStatus)Enum.Parse(typeof(BugReportStatus), e.Value.ToString());
+        _currentPage = 1;
+        FilterBugReports();
+    }
+
+    private void OpenModal(BugReport bugReport)
+    {
+        selectedBugReport = bugReport;
+        showModal = true;
+    }
+
+    private void CloseModal()
+    {
+        showModal = false;
+        selectedBugReport = null;
+    }
+
+    private string GetLocalizedStatus(BugReportStatus status)
+    {
+        return status switch
+        {
+            BugReportStatus.New => "Новое",
+            BugReportStatus.InProgress => "В процессе",
+            BugReportStatus.Resolved => "Решено",
+            BugReportStatus.Deferred => "Отложено",
+            _ => status.ToString(),
+        };
+    }
+
+    private async Task Error(string text)
+    {
+        await _message.Error(text);
+    }
+}

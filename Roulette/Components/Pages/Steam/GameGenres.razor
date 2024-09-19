@@ -1,0 +1,47 @@
+﻿@page "/game-genres"
+@using Microsoft.AspNetCore.Authorization
+@using Roulette.DTOs
+@using Roulette.Models
+@using Roulette.Services
+@inject GameGenreService GameGenreService
+@inject IMessageService _message
+
+@attribute [Authorize(Roles = "admin")]
+
+<SelectComponent T="GenreDto" TValue="string"
+                 Placeholder="Выберите жанры"
+                 LoadingMessage="Готовим список жанров игр"
+                 LoadData="LoadGameGenres"
+                 Transform="TransformGameGenre"
+                 OnSelectedItemsChanged="UpdateSelectedGameGenres" />
+
+@code {
+    [Parameter]
+    public EventCallback<List<string>> SelectedGameGenresChanged { get; set; }
+    private List<string> _selectedGameGenres = new();
+
+    private async Task<List<GenreDto>> LoadGameGenres()
+    {
+        try
+        {
+            return await GameGenreService.GetGenresAsync();            
+        }
+        catch (Exception ex)
+        {
+            await _message.Error("Произошла ошибка при загрузке списка жанров. Попробуйте через какое-то время или перезагрузите страницу.");
+            return new List<GenreDto>();
+        }
+       
+    }
+
+    private LabeledValue TransformGameGenre(GenreDto genre)
+    {
+        return new LabeledValue(genre.Id.ToString(), genre.Russian);
+    }
+
+    private void UpdateSelectedGameGenres(string selectedValues)
+    {
+        _selectedGameGenres = selectedValues.Split(',').ToList();
+        SelectedGameGenresChanged.InvokeAsync(_selectedGameGenres);
+    }
+}
