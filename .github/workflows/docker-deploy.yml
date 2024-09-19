@@ -38,16 +38,7 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           password: ${{ secrets.SERVER_PASSWORD }}
           script: |
-            echo "Contents of /tmp/app_secrets.json:"
-            cat /tmp/app_secrets.json
-            cat /tmp/app_secrets.json | jq -r 'to_entries[] | "\(.key)=\(.value)"' > /tmp/.env
-            if [ ! -f /tmp/.env ]; then
-             echo ".env file not found"
-             exit 1
-            fi
-      
-            echo "Contents of /tmp/.env:"
-            cat /tmp/.env
+            cat /tmp/app_secrets.json | jq -r 'to_entries[] | "\(.key)=\(.value | @json)"' > /tmp/.env
             
             docker pull lanctole/roulette:${{ github.sha }}
             
@@ -55,6 +46,6 @@ jobs:
             docker rm roulette_app || true
             
             docker run -d --name roulette_app \
-              -p 5000:8080 \
-              $(cat /tmp/.env | xargs -I {} echo -e "-e {}") \
-              lanctole/roulette:${{ github.sha }}
+                -p 5000:8080 \
+                $(cat /tmp/.env | sed 's/^/-e /') \
+                lanctole/roulette:${{ github.sha }}
