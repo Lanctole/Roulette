@@ -208,8 +208,8 @@ main {
     right: 20px;
     width: 60px;
     height: 60px;
-    background-color: #d5d5d5;
-    color: #000000;
+    background-color: #394187f5;
+    color: #fdf9f9;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -359,4 +359,42 @@ main {
 
     .table tbody tr:hover {
         background-color: #f1f1f1;
+    }
+
+.welcome-header {
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.welcome-text {
+    color: #000000;
+}
+
+.highlight {
+    color: #394187;
+    font-weight: bold;
+}
+
+.info-list {
+    color: #000000;
+    margin-left: 20px;
+}
+
+    .info-list li {
+        margin-bottom: 10px;
+    }
+
+.cta-button {
+    background-color: #130d81;
+    color: #ffffff;
+    border: none;
+    padding: 5px 5px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+    .cta-button:hover {
+        background-color: #1e90ff;
     }

@@ -12,8 +12,6 @@ using Roulette.Data;
 using Roulette.Helpers;
 using Roulette.Models;
 using Roulette.Services;
-using AspNet.Security.OAuth.Yandex;
-
 
 namespace Roulette;
 
@@ -58,7 +56,7 @@ public class Program
             client.DefaultRequestHeaders.Add("Accept", "application/json");
         }).SetHandlerLifetime(TimeSpan.FromMinutes(1)).ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
         {
-             ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true
+            ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true
         });
         builder.Services.AddScoped<ShikimoriApiConnectorService>();
         builder.Services.AddScoped<ShikiDataHelper>();
@@ -99,7 +97,7 @@ public class Program
             options.InstanceName = builder.Configuration.GetSection("Redis:InstanceName").Value;
         });
         builder.Services.AddScoped<AuthenticationStateProvider, IdentityRevalidatingAuthenticationStateProvider>();
-        //TODO: !!!!!!!! причесать тут всё
+
         builder.Services.AddAuthentication(options =>
             {
                 options.DefaultScheme = IdentityConstants.ApplicationScheme;
@@ -118,7 +116,7 @@ public class Program
         //    options.AddPolicy("AdminOnly", policy =>
         //        policy.RequireRole("admin"));
         //});
-       
+
         builder.Services.AddIdentityCore<IdentityUser>(options =>
             {
                 options.SignIn.RequireConfirmedAccount = false;
