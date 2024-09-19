@@ -21,9 +21,11 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
+
         builder.Services.AddServerSideBlazor().AddCircuitOptions(options => { options.DetailedErrors = true; });
         builder.Services.AddScoped<IdentityRedirectManager>();
-        var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ??
+        var connectionString = Environment.GetEnvironmentVariable("DefaultConnection") ??
+                               builder.Configuration.GetConnectionString("DefaultConnection") ??
                                throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 
         builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -51,7 +53,8 @@ public class Program
 
         builder.Services.AddHttpClient<ShikimoriApiConnectorService>(client =>
         {
-            var baseUrl = builder.Configuration.GetSection("Shikimori")["BaseUrl"];
+            var baseUrl = Environment.GetEnvironmentVariable("Shikimori:BaseUrl") ??
+                          builder.Configuration.GetSection("Shikimori:BaseUrl").Value;
             client.BaseAddress = new Uri(baseUrl);
             client.DefaultRequestHeaders.Add("Accept", "application/json");
         }).SetHandlerLifetime(TimeSpan.FromMinutes(1)).ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
@@ -61,7 +64,8 @@ public class Program
         builder.Services.AddScoped<ShikimoriApiConnectorService>();
         builder.Services.AddScoped<ShikiDataHelper>();
 
-        var apiUrl = Environment.GetEnvironmentVariable("API_URL") ?? builder.Configuration["ApiBaseAddress"];
+        var apiUrl = Environment.GetEnvironmentVariable("ApiBaseAddress") ?? 
+                     builder.Configuration["ApiBaseAddress"];
 
         builder.Services.AddHttpClient<ApiClientService>(client =>
         {
@@ -93,8 +97,10 @@ public class Program
         builder.Services.AddScoped<IdentityUserAccessor>();
         builder.Services.AddStackExchangeRedisCache(options =>
         {
-            options.Configuration = builder.Configuration.GetSection("Redis:Configuration").Value;
-            options.InstanceName = builder.Configuration.GetSection("Redis:InstanceName").Value;
+            options.Configuration = Environment.GetEnvironmentVariable("Redis:Configuration") ??
+                                    builder.Configuration.GetSection("Redis:Configuration").Value;
+            options.InstanceName = Environment.GetEnvironmentVariable("Redis:InstanceName") ??
+                                   builder.Configuration.GetSection("Redis:InstanceName").Value;
         });
         builder.Services.AddScoped<AuthenticationStateProvider, IdentityRevalidatingAuthenticationStateProvider>();
 
@@ -106,8 +112,10 @@ public class Program
             //.AddIdentityCookies()
             .AddYandex(options =>
             {
-                options.ClientId = builder.Configuration["Authentication:Yandex:ClientId"];
-                options.ClientSecret = builder.Configuration["Authentication:Yandex:ClientSecret"];
+                options.ClientId = Environment.GetEnvironmentVariable("Authentication:Yandex:ClientId") ??
+                                   builder.Configuration["Authentication:Yandex:ClientId"];
+                options.ClientSecret = Environment.GetEnvironmentVariable("Authentication:Yandex:ClientSecret") ??
+                                       builder.Configuration["Authentication:Yandex:ClientSecret"];
                 options.CallbackPath = new PathString("/Account/SingInYandex");
             })
             .AddIdentityCookies();
@@ -129,7 +137,17 @@ public class Program
             .AddErrorDescriber<LocalizedIdentityErrorDescriber>()
             .AddDefaultTokenProviders();
 
-        builder.Services.Configure<SmtpSettings>(builder.Configuration.GetSection("Smtp"));
+        builder.Services.Configure<SmtpSettings>(options =>
+        {
+            options.Host = Environment.GetEnvironmentVariable("Smtp:Host") ?? builder.Configuration["Smtp:Host"];
+            options.Port = int.Parse(Environment.GetEnvironmentVariable("Smtp:Port") ??
+                                     builder.Configuration["Smtp:Port"] ?? "2525");
+            options.EnableSsl = bool.Parse(Environment.GetEnvironmentVariable("Smtp:EnableSsl") ??
+                                           builder.Configuration["Smtp:EnableSsl"] ?? "true");
+            options.Username = Environment.GetEnvironmentVariable("Smtp:Username") ?? builder.Configuration["Smtp:Username"];
+            options.Password = Environment.GetEnvironmentVariable("Smtp:Password") ?? builder.Configuration["Smtp:Password"];
+            options.FromEmail = Environment.GetEnvironmentVariable("Smtp:FromEmail") ?? builder.Configuration["Smtp:FromEmail"];
+        });
         builder.Services.AddTransient<IEmailSender, EmailSender>();
         builder.Services.AddScoped<GameService>();
         builder.Services.AddScoped<GameGenreService>();
