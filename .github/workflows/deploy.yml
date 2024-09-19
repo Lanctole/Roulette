@@ -54,7 +54,7 @@ jobs:
             
             echo "Running Docker container..."
             docker run -d --name roulette_app \
-                -p 5000:8080 \
+                -p 5000:8080/tcp \
                 --env-file /tmp/.env \
                 lanctole/roulette:${{ github.event.inputs.docker_version }}
 
