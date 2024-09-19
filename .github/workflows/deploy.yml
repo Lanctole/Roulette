@@ -58,4 +58,4 @@ jobs:
                 --env-file /tmp/.env \
                 lanctole/roulette:${{ github.event.inputs.docker_version }}
 
-            #rm /tmp/.env
+            rm /tmp/.env
