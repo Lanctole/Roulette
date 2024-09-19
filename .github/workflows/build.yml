@@ -37,5 +37,5 @@ jobs:
           workflow: 'deploy.yml'
           token: ${{ secrets.GITHUB_TOKEN }}
           ref: master
-          inputs: |
+          inputs:
             docker_version: ${{ github.event.inputs.version }}
