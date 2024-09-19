@@ -37,9 +37,10 @@ public class ShikimoriApiConnectorService
         var httpClient = httpClientFactory1.CreateClient(nameof(ShikimoriApiConnectorService));
 
         var authConfig = configuration.GetSection("Auth");
-        var name = authConfig["Name"];
-        var clientId = authConfig["ClientId"];
-        var clientSecret = authConfig["ClientSecret"];
+        var name = Environment.GetEnvironmentVariable("Auth_Name") ?? configuration["Auth:Name"];
+        var clientId = Environment.GetEnvironmentVariable("Auth_ClientId") ?? configuration["Auth:ClientId"];
+        var clientSecret = Environment.GetEnvironmentVariable("Auth_ClientSecret") ?? configuration["Auth:ClientSecret"];
+
 
         _cache = cache;
         _context = context;
