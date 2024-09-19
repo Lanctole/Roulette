@@ -6,7 +6,7 @@ on:
       version:
         description: 'Введите версию образа (например, 1.0.0)'
         required: true
-        default: 'auto'
+        default: '0.1.0'
   pull_request:
     branches: [ "master" ]
 
@@ -24,18 +24,19 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
+      - name: Set version
+        id: set_version
+        run: |
+          if [ -z "${{ github.event.inputs.version }}" ]; then
+            echo "Setting default version"
+            echo "::set-output name=version::auto"
+          else
+            echo "::set-output name=version::${{ github.event.inputs.version }}"
+          fi
+
       - name: Build Docker image
         run: |
-          docker build -f Roulette/Dockerfile -t lanctole/roulette:${{ github.event.inputs.version }} .
+          docker build -f Roulette/Dockerfile -t lanctole/roulette:${{ steps.set_version.outputs.version }} .
 
       - name: Push Docker image to Docker Hub
-        run: docker push lanctole/roulette:${{ github.event.inputs.version }}
-
-      - name: Trigger deploy workflow
-        uses: benc-uk/workflow-dispatch@v1
-        with:
-          workflow: 'deploy.yml'
-          token: ${{ secrets.GITHUB_TOKEN }}
-          ref: master
-          inputs:
-            ${{ github.event.inputs.version }}
+        run: docker push lanctole/roulette:${{ steps.set_version.outputs.version }}
