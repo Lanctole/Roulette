@@ -22,12 +22,13 @@ function createWheel(mediaName) {
     clickedWhatId = document.getElementById("winnerId");
     canvasWidth = canvas.width;
     canvasHeight = canvas.height;
-
+    sizeOfFont = 10;
+    sizeOfFont = sizeOfFont + (canvas.width - 300) / 30;
     theWheel = new Winwheel({
         'canvasId': "rouletteCanvas",
         'outerRadius': canvasHeight / 2 - 20,
         'numSegments': 5,
-        'textFontSize': 11,
+        'textFontSize': sizeOfFont,
         'innerRadius': 20,
         'responsive': true,
         'textAlignment': "center",
@@ -176,4 +177,23 @@ function startSpin(mediaName) {
     theWheel.stopAnimation(false);
     theWheel.rotationAngle = theWheel.rotationAngle % 360;
     theWheel.startAnimation();
+}
+
+function resizeCanvas() {
+    const canvas = document.getElementById('rouletteCanvas');
+    if (canvas) {
+        if (window.innerWidth > 500) {
+            var width = window.innerWidth * 0.3;
+            var height = width;
+            canvas.width = width;
+            canvas.height = height;
+        } else {
+            var width = window.innerWidth * 0.9;
+            var height = width;
+            canvas.width = width;
+            canvas.height = height;
+        }
+        
+    }
+    /*theWheel.draw();*/
 }
