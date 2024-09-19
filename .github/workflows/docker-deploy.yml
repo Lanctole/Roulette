@@ -48,17 +48,23 @@ jobs:
             else
                 echo "No container named 'roulette_app' exists."
             fi
+                      echo "Creating .env file..."
+            cat << EOF > /tmp/.env
+            CONNECTION_STRINGS=${{ secrets.CONNECTION_STRINGS }}
+            LOGGING=${{ secrets.LOGGING }}
+            ALLOWED_HOSTS=${{ secrets.ALLOWED_HOSTS }}
+            AUTH=${{ secrets.AUTH }}
+            SMTP=${{ secrets.SMTP }}
+            REDIS=${{ secrets.REDIS }}
+            AUTHENTICATION=${{ secrets.AUTHENTICATION }}
+            API_BASE_ADDRESS=${{ secrets.API_BASE_ADDRESS }}
+            SHIKIMORI=${{ secrets.SHIKIMORI }}
+            EOF
             
             echo "Running Docker container..."
             docker run -d --name roulette_app \
                 -p 5000:8080 \
-                -e CONNECTION_STRINGS="${{ secrets.CONNECTION_STRINGS }}" \
-                -e LOGGING="${{ secrets.LOGGING }}" \
-                -e ALLOWED_HOSTS="${{ secrets.ALLOWED_HOSTS }}" \
-                -e AUTH="${{ secrets.AUTH }}" \
-                -e SMTP="${{ secrets.SMTP }}" \
-                -e REDIS="${{ secrets.REDIS }}" \
-                -e AUTHENTICATION="${{ secrets.AUTHENTICATION }}" \
-                -e API_BASE_ADDRESS="${{ secrets.API_BASE_ADDRESS }}" \
-                -e SHIKIMORI="${{ secrets.SHIKIMORI }}" \
+                --env-file /tmp/.env \
                 lanctole/roulette:${{ github.sha }}
+  
+            rm /tmp/.env
