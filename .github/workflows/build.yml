@@ -2,6 +2,11 @@ name: Build
 
 on:
   workflow_dispatch:
+    inputs:
+      version:
+        description: 'Введите версию образа (например, 1.0.0)'
+        required: true
+        default: 'auto'
   pull_request:
     branches: [ "master" ]
 
@@ -21,10 +26,10 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -f Roulette/Dockerfile -t lanctole/roulette:${{ github.sha }} .
+          docker build -f Roulette/Dockerfile -t lanctole/roulette:${{ github.event.inputs.version }} .
 
       - name: Push Docker image to Docker Hub
-        run: docker push lanctole/roulette:${{ github.sha }}
+        run: docker push lanctole/roulette:${{ github.event.inputs.version }}
 
       - name: Trigger deploy workflow
         uses: benc-uk/workflow-dispatch@v1
@@ -33,4 +38,4 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           ref: master
           inputs: |
-            docker_version: ${{ github.sha }}
+            docker_version: ${{ github.event.inputs.version }}
