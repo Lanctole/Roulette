@@ -1,0 +1,61 @@
+name: Docker Deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+      docker_version:  
+        description: 'Docker image version to deploy'
+        required: true
+        type: string
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to server using SSH
+        uses: appleboy/ssh-action@v0.1.8
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          password: ${{ secrets.SERVER_PASSWORD }}
+          script: |
+            echo "Pulling Docker image..."
+            docker pull lanctole/roulette:${{ github.event.inputs.docker_version }}
+            
+            echo "Stopping and removing existing container..."
+            if docker ps -q -f name=roulette_app; then
+                docker stop roulette_app
+                docker rm roulette_app
+            else
+                echo "No container named 'roulette_app' exists."
+            fi
+            
+            echo "Creating .env file..."
+            cat << EOF > /tmp/.env
+            DefaultConnection="${{ secrets.DefaultConnection }}"
+            AllowedHosts="${{ secrets.AllowedHosts }}"
+            Auth__Name="${{ secrets.Auth__Name }}"
+            Auth__ClientId="${{ secrets.Auth__ClientId }}"
+            Auth__ClientSecret="${{ secrets.Auth__ClientSecret }}"
+            Smtp__Host="${{ secrets.Smtp__Host }}"
+            Smtp__Port=${{ secrets.Smtp__Port }}
+            Smtp__EnableSsl=${{ secrets.Smtp__EnableSsl }}
+            Smtp__Username="${{ secrets.Smtp__Username }}"
+            Smtp__Password="${{ secrets.Smtp__Password }}"
+            Smtp__FromEmail="${{ secrets.Smtp__FromEmail }}"
+            Redis__Configuration="${{ secrets.Redis__Configuration }}"
+            Redis__InstanceName="${{ secrets.Redis__InstanceName }}"
+            Authentication__Yandex__ClientId="${{ secrets.Authentication__Yandex__ClientId }}"
+            Authentication__Yandex__ClientSecret="${{ secrets.Authentication__Yandex__ClientSecret }}"
+            ApiBaseAddress="${{ secrets.ApiBaseAddress }}"
+            Shikimori__BaseUrl="${{ secrets.Shikimori__BaseUrl }}"
+            EOF
+            
+            echo "Running Docker container..."
+            docker run -d --name roulette_app \
+                -p 5000:8080 \
+                --env-file /tmp/.env \
+                lanctole/roulette:${{ github.event.inputs.docker_version }}
+
+            #rm /tmp/.env
