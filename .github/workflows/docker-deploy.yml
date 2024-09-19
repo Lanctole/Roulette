@@ -66,5 +66,3 @@ jobs:
                 -p 5000:8080 \
                 --env-file /tmp/.env \
                 lanctole/roulette:${{ github.sha }}
-  
-            rm /tmp/.env
