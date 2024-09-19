@@ -32,31 +32,5 @@ jobs:
                 echo "No container named 'roulette_app' exists."
             fi
             
-            echo "Creating .env file..."
-            cat << EOF > /tmp/.env
-            DefaultConnection="${{ secrets.DefaultConnection }}"
-            AllowedHosts="${{ secrets.AllowedHosts }}"
-            Auth__Name="${{ secrets.Auth__Name }}"
-            Auth__ClientId="${{ secrets.Auth__ClientId }}"
-            Auth__ClientSecret="${{ secrets.Auth__ClientSecret }}"
-            Smtp__Host="${{ secrets.Smtp__Host }}"
-            Smtp__Port=${{ secrets.Smtp__Port }}
-            Smtp__EnableSsl=${{ secrets.Smtp__EnableSsl }}
-            Smtp__Username="${{ secrets.Smtp__Username }}"
-            Smtp__Password="${{ secrets.Smtp__Password }}"
-            Smtp__FromEmail="${{ secrets.Smtp__FromEmail }}"
-            Redis__Configuration="${{ secrets.Redis__Configuration }}"
-            Redis__InstanceName="${{ secrets.Redis__InstanceName }}"
-            Authentication__Yandex__ClientId="${{ secrets.Authentication__Yandex__ClientId }}"
-            Authentication__Yandex__ClientSecret="${{ secrets.Authentication__Yandex__ClientSecret }}"
-            ApiBaseAddress="${{ secrets.ApiBaseAddress }}"
-            Shikimori__BaseUrl="${{ secrets.Shikimori__BaseUrl }}"
-            EOF
-            
             echo "Running Docker container..."
-            docker run -d --name roulette_app \
-                -p 5000:8080/tcp \
-                --env-file /tmp/.env \
-                lanctole/roulette:${{ github.event.inputs.docker_version }}
-
-            rm /tmp/.env
+            docker run -d --name roulette_app -p 5000:8080/tcp lanctole/roulette:${{ github.event.inputs.docker_version }}
