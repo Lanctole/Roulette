@@ -1,8 +1,7 @@
 name: Docker Build and Deploy
 
 on:
-  push:
-    branches: [ "master" ]
+  workflow_dispatch:
   pull_request:
     branches: [ "master" ]
 
@@ -52,15 +51,22 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           password: ${{ secrets.SERVER_PASSWORD }}
           script: |
+            echo "APP_SECRETS: $APP_SECRETS"
             echo "$APP_SECRETS" > /tmp/app_secrets.json
             if [ ! -f /tmp/app_secrets.json ]; then
               echo ".env file not found"
               exit 1
             fi
-            jq -r 'to_entries[] | "\(.key)=\(.value)"' /tmp/app_secrets.json > /tmp/.env
-            set -a
-            source .env
-            set +a
+            echo "Contents of /tmp/app_secrets.json:"
+            cat /tmp/app_secrets.json
+            cat /tmp/app_secrets.json | jq -r 'to_entries[] | "\(.key)=\(.value)"' > /tmp/.env
+            if [ ! -f /tmp/.env ]; then
+             echo ".env file not found"
+             exit 1
+            fi
+
+            echo "Contents of /tmp/.env:"
+            cat /tmp/.env
             
             docker pull lanctole/roulette:${{ github.sha }}
             
@@ -69,27 +75,5 @@ jobs:
             
             docker run -d --name roulette_app \
               -p 5000:8080 \
-              -e ConnectionStrings__DefaultConnection="$ConnectionStrings__DefaultConnection" \
-              -e Logging__LogLevel__Default="$Logging__LogLevel__Default" \
-              -e Logging__LogLevel__Microsoft_AspNetCore="$Logging__LogLevel__Microsoft_AspNetCore" \
-              -e AllowedHosts="$AllowedHosts" \
-              -e Auth__Scope="$Auth__Scope" \
-              -e Auth__Access="$Auth__Access" \
-              -e Auth__Refresh="$Auth__Refresh" \
-              -e Auth__Name="$Auth__Name" \
-              -e Auth__ClientId="$Auth__ClientId" \
-              -e Auth__ClientSecret="$Auth__ClientSecret" \
-              -e Auth__UserId="$Auth__UserId" \
-              -e Smtp__Host="$Smtp__Host" \
-              -e Smtp__Port="$Smtp__Port" \
-              -e Smtp__EnableSsl="$Smtp__EnableSsl" \
-              -e Smtp__Username="$Smtp__Username" \
-              -e Smtp__Password="$Smtp__Password" \
-              -e Smtp__FromEmail="$Smtp__FromEmail" \
-              -e Redis__Configuration="$Redis__Configuration" \
-              -e Redis__InstanceName="$Redis__InstanceName" \
-              -e Authentication__Yandex__ClientId="$Authentication__Yandex__ClientId" \
-              -e Authentication__Yandex__ClientSecret="$Authentication__Yandex__ClientSecret" \
-              -e ApiBaseAddress="$ApiBaseAddress" \
-              -e Shikimori__BaseUrl="$Shikimori__BaseUrl" \
+              $(cat /tmp/.env | xargs -I {} echo -e "-e {}") \
               lanctole/roulette:${{ github.sha }}
