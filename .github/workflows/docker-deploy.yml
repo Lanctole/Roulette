@@ -38,14 +38,23 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           password: ${{ secrets.SERVER_PASSWORD }}
           script: |
-            cat /tmp/app_secrets.json | jq -r 'to_entries[] | "\(.key)=\(.value | @json)"' > /tmp/.env
-            
+            echo "Pulling Docker image..."
             docker pull lanctole/roulette:${{ github.sha }}
             
+            echo "Stopping and removing existing container..."
             docker stop roulette_app || true
             docker rm roulette_app || true
             
+            echo "Running Docker container..."
             docker run -d --name roulette_app \
                 -p 5000:8080 \
-                $(cat /tmp/.env | sed 's/^/-e /') \
+                -e CONNECTION_STRINGS="${{ secrets.CONNECTION_STRINGS }}" \
+                -e LOGGING="${{ secrets.LOGGING }}" \
+                -e ALLOWED_HOSTS="${{ secrets.ALLOWED_HOSTS }}" \
+                -e AUTH="${{ secrets.AUTH }}" \
+                -e SMTP="${{ secrets.SMTP }}" \
+                -e REDIS="${{ secrets.REDIS }}" \
+                -e AUTHENTICATION="${{ secrets.AUTHENTICATION }}" \
+                -e API_BASE_ADDRESS="${{ secrets.API_BASE_ADDRESS }}" \
+                -e SHIKIMORI="${{ secrets.SHIKIMORI }}" \
                 lanctole/roulette:${{ github.sha }}
