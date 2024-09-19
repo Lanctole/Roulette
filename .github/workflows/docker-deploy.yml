@@ -42,8 +42,13 @@ jobs:
             docker pull lanctole/roulette:${{ github.sha }}
             
             echo "Stopping and removing existing container..."
-            docker stop roulette_app || true
-            docker rm roulette_app || true
+            echo "Stopping and removing existing container..."
+            if docker ps -q -f name=roulette_app; then
+                docker stop roulette_app
+                docker rm roulette_app
+            else
+                echo "No container named 'roulette_app' exists."
+            fi
             
             echo "Running Docker container..."
             docker run -d --name roulette_app \
