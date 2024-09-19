@@ -4,8 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       docker_version:  
-        description: 'Docker image version to deploy'
+        description: 'Введите версию образа (например, 1.0.0)'
         required: true
+        default: '0.1.0'
         type: string
 
 jobs:
