@@ -26,7 +26,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t lanctole/roulette:${{ github.sha }} .
+          docker build -f Roulette/Dockerfile -t lanctole/roulette:${{ github.sha }} .
 
       - name: Push Docker image to Docker Hub
         run: docker push lanctole/roulette:${{ github.sha }}
