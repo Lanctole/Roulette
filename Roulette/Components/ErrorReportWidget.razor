@@ -1,9 +1,9 @@
 ﻿@using Roulette.Models
 @using Roulette.Services
 @inject BugReportService BugReportService
-@inject IMessageService _message
+@inject IMessageService Message
 
-@if (isVisible)
+@if (_isVisible)
 {
     <div class="error-widget" @onclick="ToggleForm">
         <button class="close-button" @onclick="CloseWidget" @onclick:stopPropagation aria-label="Закрыть">
@@ -12,27 +12,27 @@
         <span >Сообщить<br/>об ошибке</span>
     </div>
 }
-@if (showForm)
+@if (_showForm)
 {
     <div class="error-form-overlay" @onclick="CloseForm">
         <div class="error-form" @onclick:stopPropagation>
             <h3>Сообщите об ошибке</h3>
 
-            <EditForm Model="bugReport" OnValidSubmit="SubmitForm">
-                <DataAnnotationsValidator />
-                <ValidationSummary />
-                <AntiforgeryTokenInput />
+            <EditForm Model="_bugReport" OnValidSubmit="SubmitForm">
+                <DataAnnotationsValidator/>
+                <ValidationSummary/>
+                <AntiforgeryTokenInput/>
                 <div class="form-group">
                     <label>Тема</label>
-                    <InputText @bind-Value="bugReport.Title" maxlength="100" class="form-control" />
+                    <InputText @bind-Value="_bugReport.Title" maxlength="100" class="form-control"/>
                 </div>
                 <div class="form-group">
                     <label>Описание ошибки</label>
-                    <InputTextArea @bind-Value="bugReport.Description" maxlength="10000" class="form-control textarea" />
+                    <InputTextArea @bind-Value="_bugReport.Description" maxlength="10000" class="form-control textarea"/>
                 </div>
                 <div class="form-group">
                     <label>Ваш email (необязательно)</label>
-                    <InputText @bind-Value="bugReport.UserEmail" class="form-control"/>
+                    <InputText @bind-Value="_bugReport.UserEmail" class="form-control"/>
                 </div>
 
                 <div class="form-buttons">
@@ -45,42 +45,43 @@
 }
 
 @code {
-    private bool showForm = false;
-    private BugReport bugReport = new();
-    private bool isVisible = true;
+    private bool _showForm = false;
+    private BugReport _bugReport = new();
+    private bool _isVisible = true;
 
     private void CloseWidget()
     {
-        isVisible = false;
+        _isVisible = false;
     }
 
     private void ToggleForm()
     {
-        showForm = !showForm;
+        _showForm = !_showForm;
     }
 
     private void CloseForm()
     {
-        showForm = false;
+        _showForm = false;
     }
 
     private async Task SubmitForm()
     {
         try
         {
-            await BugReportService.CreateBugReportAsync(bugReport);
-            showForm = false;
-            bugReport = new();
+            await BugReportService.CreateBugReportAsync(_bugReport);
+            _showForm = false;
+            _bugReport = new BugReport();
             await Success();
         }
         catch (Exception ex)
         {
-            await _message.Error("Произошла ошибка при отправке отчета об ошибке. Попробуйте снова.");
+            await Message.Error("Произошла ошибка при отправке отчета об ошибке. Попробуйте снова.");
         }
     }
 
     private async Task Success()
     {
-        await _message.Success("Сообщение об ошибке успешно отправлено",1);
+        await Message.Success("Сообщение об ошибке успешно отправлено", 1);
     }
+
 }

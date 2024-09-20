@@ -1,7 +1,4 @@
-﻿@using Microsoft.AspNetCore.Identity
-@using Roulette.Data
-
-@inject SignInManager<IdentityUser> SignInManager
+﻿@inject SignInManager<IdentityUser> SignInManager
 
 <ul class="nav nav-pills flex-column">
     <li class="nav-item">
@@ -22,4 +19,5 @@
     {
         hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
     }
+
 }

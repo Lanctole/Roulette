@@ -9,16 +9,17 @@
     {
         var httpContextAccessor = ServiceProvider.GetRequiredService<IHttpContextAccessor>();
         var httpContext = httpContextAccessor.HttpContext;
-        
+
         if (httpContext != null)
         {
             var tokens = Antiforgery.GetAndStoreTokens(httpContext);
             requestVerificationToken = tokens.RequestToken;
         }
     }
+
 }
 
 @if (requestVerificationToken != null)
 {
-    <input type="hidden" name="__RequestVerificationToken" value="@requestVerificationToken" />
+    <input type="hidden" name="__RequestVerificationToken" value="@requestVerificationToken"/>
 }

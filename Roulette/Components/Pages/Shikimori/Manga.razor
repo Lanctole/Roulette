@@ -7,7 +7,9 @@
 
 
 <PageTitle>Manga</PageTitle>
-
+<div class="page-title-mobile">
+    <h1>Манга</h1>
+</div>
 <Row Gutter="16">
     <Col Xs="24" Sm="12" Md="8">
         <Genres IsAnime="false" SelectedGenresChanged="OnSelectedGenresChanged"/>
@@ -33,35 +35,35 @@
     <div style="display: flex; align-items: center;">
         <span>Дата выхода:</span>
         <AntDesign.InputNumber Style="border: none; background-color: transparent; width: 60px; margin-left: 1px; margin-right: -10px;"
-                               @bind-Value="@dateFrom"
+                               @bind-Value="@DateFrom"
                                Disabled="true"
                                TValue="double"
                                Bordered="false"
-                               Size="small" />
+                               Size="small"/>
         <Slider TValue="(double, double)"
                 Min="1950"
                 Max="2024"
-                DefaultValue="defaultDate"
+                DefaultValue="DefaultDate"
                 Style="flex-grow: 1; margin-left: 0; margin-right: 0;"
-                OnChange="HandleDateSliderChange" />
+                OnChange="HandleDateSliderChange"/>
         <AntDesign.InputNumber Style="border: none; background-color: transparent; width: 60px; margin-left: 5px;"
-                               @bind-Value="@dateTo"
+                               @bind-Value="@DateTo"
                                Disabled="true"
                                TValue="double"
                                Bordered="false"
-                               Size="small" />
+                               Size="small"/>
     </div>
 </Col>
 <div class="item">
-    <RollButtonComponent OnRoll="SendSelected" />
+    <RollButtonComponent OnRoll="SendSelected"/>
 </div>
 <Divider Orientation="left"></Divider>
 <Row Gutter="8" Justify="space-between">
     <Col Xs="24" Sm="6" Md="4" Span="4">
-    <WheelComponent @bind-showCanvas="_showCanvas" />
+        <WheelComponent @bind-ShowCanvas="ShowCanvas"/>
     </Col>
     <Col Xs="24" Sm="12" Md="12">
-    <MediaList MediaItems="_mangas" IsWinner="true" MediaType="MediaType.Manga" />
+        <MediaList MediaItems="_mangas" IsWinner="true" MediaType="MediaType.Manga"/>
     </Col>
 </Row>
 
@@ -78,7 +80,7 @@
 
     protected override async Task SendSelected()
     {
-        _showCanvas = true;
+        ShowCanvas = true;
         var publishers = string.Join(",", _selectedPublishers);
         var mangaUrl =
             $"publisher={publishers}&" +

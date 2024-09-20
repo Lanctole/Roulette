@@ -1,7 +1,5 @@
-﻿@using ShikimoriSharp.Enums
-@using Roulette.Models
-
-
+﻿@using Roulette.Models
+@using ShikimoriSharp.Enums
 <Select Mode="default"
         Placeholder="Выберите длительность"
         DataSource="@_options"
@@ -35,5 +33,5 @@
         SelectedValue = newValue?.Value;
         SelectedValueChanged.InvokeAsync(newValue?.Value);
     }
-}
 
+}

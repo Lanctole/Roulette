@@ -1,60 +1,59 @@
 ﻿@page "/admin"
+@using Microsoft.EntityFrameworkCore
+@using Roulette.Data
+@using Games.Classes
 @using Microsoft.AspNetCore.Authorization
 @using System.Text.Json
-@using Games.Classes
-@using Microsoft.EntityFrameworkCore
-@using Microsoft.EntityFrameworkCore.Internal
-@using Roulette.Data
 
 @inject ApplicationDbContext DbContext
 @attribute [Authorize(Roles = "admin")]
 
 <h3>AdminPanel</h3>
 
-@if (message != null)
+@if (_message != null)
 {
-    <div class="alert alert-info">@message</div>
+    <div class="alert alert-info">@_message</div>
 }
-<InputFile OnChange="HandleFileSelected" accept=".json" />
+<InputFile OnChange="HandleFileSelected" accept=".json"/>
 <button @onclick="UploadData">Загрузить/Обновить базу данных steam</button>
 
 
 @code {
-    private IBrowserFile? uploadedFile;
-    private string? message;
-    private long maxFileSize = 100 * 1024 * 1024;
-    private int progress;
+    private IBrowserFile? _uploadedFile;
+    private string? _message;
+    private readonly long _maxFileSize = 100 * 1024 * 1024;
+    private int _progress;
 
     private async Task HandleFileSelected(InputFileChangeEventArgs e)
     {
-        uploadedFile = e.File;
-        if (uploadedFile.ContentType != "application/json")
+        _uploadedFile = e.File;
+        if (_uploadedFile.ContentType != "application/json")
         {
-            message = "Пожалуйста, выберите файл формата JSON.";
-            uploadedFile = null; 
+            _message = "Пожалуйста, выберите файл формата JSON.";
+            _uploadedFile = null;
             return;
         }
-        message = $"Файл {uploadedFile.Name} выбран.";
+        _message = $"Файл {_uploadedFile.Name} выбран.";
     }
 
     private async Task UploadData()
     {
-        if (uploadedFile == null || uploadedFile.Size == 0)
+        if (_uploadedFile == null || _uploadedFile.Size == 0)
         {
-            message = "Пожалуйста, выберите файл для загрузки.";
+            _message = "Пожалуйста, выберите файл для загрузки.";
             return;
         }
         try
         {
-            using var stream = uploadedFile.OpenReadStream(maxAllowedSize: maxFileSize);
+            using var stream = _uploadedFile.OpenReadStream(_maxFileSize);
             using var reader = new StreamReader(stream);
             var content = await reader.ReadToEndAsync();
 
             var games = JsonSerializer.Deserialize<List<Game>>(content);
-            progress = 0;
+            _progress = 0;
             if (games == null || games.Count == 0)
             {
-                message = "Не удалось прочитать данные из файла.";
+                _message = "Не удалось прочитать данные из файла.";
                 return;
             }
 
@@ -62,23 +61,22 @@
 
             var newGames = new List<Game>();
             var updatedGames = new List<Game>();
-            int processedCount = 0;
-            int totalGames = games.Count;
+            var processedCount = 0;
+            var totalGames = games.Count;
 
-            
 
             foreach (var game in games)
             {
                 processedCount++;
 
-                int newProgressPercentage = (processedCount * 100) / totalGames;
-                if (newProgressPercentage >= progress + 10)
+                var newProgressPercentage = processedCount * 100 / totalGames;
+                if (newProgressPercentage >= _progress + 10)
                 {
-                    progress = newProgressPercentage;
-                    message = $"Прогресс: {progress}%";
-                    StateHasChanged(); 
+                    _progress = newProgressPercentage;
+                    _message = $"Прогресс: {_progress}%";
+                    StateHasChanged();
                 }
-                
+
                 if (existingGames.TryGetValue(game.AppID, out var existingGame))
                 {
                     existingGame.Cost = game.Cost;
@@ -86,13 +84,12 @@
                     existingGame.HeaderImage = game.HeaderImage;
                     existingGame.SteamScore = game.SteamScore;
                     existingGame.MetacriticScore = game.MetacriticScore;
-                    //TODO: потом починить чтобы жанры и страны в нужные таблицы добавлялись и связи были
                     updatedGames.Add(existingGame);
                 }
                 else
                 {
                     game.ReleaseDate = DateTime.SpecifyKind(game.ReleaseDate, DateTimeKind.Utc);
-                    
+
                     newGames.Add(game);
                 }
             }
@@ -101,13 +98,12 @@
             DbContext.Games.UpdateRange(updatedGames);
 
             await DbContext.SaveChangesAsync();
-            message = "База данных успешно обновлена.";
+            _message = "База данных успешно обновлена.";
         }
         catch (Exception ex)
         {
-            message = $"Ошибка при загрузке данных: {ex.Message}";
+            _message = $"Ошибка при загрузке данных: {ex.Message}";
         }
     }
-
 
 }

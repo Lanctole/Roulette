@@ -14,8 +14,10 @@
 
 @code {
     private List<LabeledValue> _items;
+
     [Parameter]
     public string SelectedScore { get; set; }
+
     [Parameter]
     public EventCallback<string> SelectedScoreChanged { get; set; }
 
@@ -44,7 +46,7 @@
                 }
             }
 
-            StateHasChanged(); 
+            StateHasChanged();
         }
     }
 
@@ -74,4 +76,5 @@
     {
         return await localStorage.GetItemAsync<string>("minimalScore");
     }
+
 }

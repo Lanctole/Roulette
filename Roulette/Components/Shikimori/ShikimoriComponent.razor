@@ -1,18 +1,18 @@
 ﻿@using ShikimoriSharp.Bases
 @using Roulette.Services
 @inject ApiClientService ApiClientService
-@inject NotificationService _notice
-@inject IJSRuntime JS
-@inject IMessageService _message
+@inject NotificationService Notice
+@inject IJSRuntime Js
+@inject IMessageService Message
 
 @code {
-    protected bool _showCanvas;
+    protected bool ShowCanvas;
     protected string? SelectedScore;
     protected string? SelectedFromYear;
     protected string? SelectedToYear;
-    protected double dateFrom;
-    protected double dateTo;
-    protected (double, double) defaultDate = (1995, 2024);
+    protected double DateFrom;
+    protected double DateTo;
+    protected (double, double) DefaultDate = (1995, 2024);
     protected string? Season;
     protected bool GetDetailedData;
     protected List<string> SelectedGenres = new();
@@ -22,7 +22,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        (dateFrom, dateTo) = defaultDate;
+        (DateFrom, DateTo) = DefaultDate;
     }
 
     protected void OnSelectedGenresChanged(List<string> selectedGenres)
@@ -30,10 +30,10 @@
         SelectedGenres = selectedGenres;
     }
 
-    private async Task OnEmptyAnswer()
+    private async Task ShowEmptyAnswerNotification()
     {
         RenderFragment customIcon = @<Icon Type="meh" Theme="outline" Style="color:#FFC000;"></Icon>;
-        await _notice.Open(new NotificationConfig
+        await Notice.Open(new NotificationConfig
         {
             Message = "Проблем-ка!",
             Description = "К сожалению, у нас нет контента удовлетворяющего вашим запросам. Попробуйте изменить хотелки",
@@ -41,79 +41,91 @@
         });
     }
 
-
+    /// <summary>
+    ///     Асинхронный метод получения медиа-элементов.
+    /// </summary>
+    /// <param name="endpoint">Конечная точка API.</param>
+    /// <param name="getDetailsFunc">Функция получения деталей медиа.</param>
+    /// <returns>Список медиа-элементов.</returns>
     protected async Task<List<SmallRepresentation>> GetMediaItemsAsync(string endpoint, Func<long, Task<SmallRepresentation>> getDetailsFunc)
     {
         try
         {
-            SelectedFromYear = dateFrom.ToString();
-            SelectedToYear = dateTo.ToString();
-            Season = $"{SelectedFromYear}";
-            if (!string.IsNullOrEmpty(SelectedToYear))
-            {
-                Season += $"_{SelectedToYear}";
-            }
-            var genres = string.Join(",", SelectedGenres);
+            SetSeason();
 
-            var url = $"{endpoint}" +
-                      $"score={SelectedScore}&" +
-                      $"season={Season}&" +
-                      $"genre={genres}&" +
-                      $"order={SelectedOrder}&" +
-                      $"limit={Limit}&" +
-                      $"page={Page}";
+            var genres = string.Join(",", SelectedGenres);
+            var url = BuildUrl(endpoint, genres);
 
             var items = await ApiClientService.GetAsync<List<SmallRepresentation>>(url);
             if (items == null || items.Count == 0)
             {
-                await OnEmptyAnswer();
+                await ShowEmptyAnswerNotification();
                 return new List<SmallRepresentation>();
             }
 
-            var detailedItems = new List<SmallRepresentation>();
-            foreach (var item in items)
-            {
-                var detailedItem = await getDetailsFunc(item.Id);
-                detailedItems.Add(detailedItem);
-            }
+            var detailedItems = await GetDetailedItemsAsync(items, getDetailsFunc);
             TransferMediaPropsToSpinFunc(detailedItems);
             return detailedItems;
         }
         catch (Exception ex)
         {
-            await _message.Error("Произошла ошибка при загрузке. Попробуйте через какое-то время, перезагрузите страницу или измените фильтры.");
+            await Message.Error("Произошла ошибка при загрузке. Попробуйте через какое-то время, перезагрузите страницу или измените фильтры.");
             return new List<SmallRepresentation>();
         }
     }
 
+    private void SetSeason()
+    {
+        SelectedFromYear = DateFrom.ToString();
+        SelectedToYear = DateTo.ToString();
+        Season = SelectedFromYear;
+
+        if (!string.IsNullOrWhiteSpace(SelectedToYear))
+        {
+            Season += $"_{SelectedToYear}";
+        }
+    }
+
+    private string BuildUrl(string endpoint, string genres)
+    {
+        return $"{endpoint}score={SelectedScore}&season={Season}&genre={genres}&order={SelectedOrder}&limit={Limit}&page={Page}";
+    }
+
+    private async Task<List<SmallRepresentation>> GetDetailedItemsAsync(List<SmallRepresentation> items, Func<long, Task<SmallRepresentation>> getDetailsFunc)
+    {
+        var detailedItems = new List<SmallRepresentation>();
+        foreach (var item in items)
+        {
+            var detailedItem = await getDetailsFunc(item.Id);
+            detailedItems.Add(detailedItem);
+        }
+        return detailedItems;
+    }
+
     private void TransferMediaPropsToSpinFunc(List<SmallRepresentation> detailedItems)
     {
-        Dictionary<long, string> mediaName = new();
-        foreach (var media in detailedItems)
-        {
-            mediaName.Add(media.Id, media.Russian != "" ? media.Russian : media.Name);
-        }
-        JS.InvokeVoidAsync("startSpin", mediaName);
+        var mediaName = detailedItems.ToDictionary(media => media.Id, media => string.IsNullOrWhiteSpace(media.Russian) ? media.Name : media.Russian);
+        Js.InvokeVoidAsync("startSpin", mediaName);
     }
 
     protected void HandleDateSliderChange((double, double) newValue)
     {
-        (dateFrom, dateTo) = newValue;
+        (DateFrom, DateTo) = newValue;
     }
 
-    protected void ShowCanvas()
+    protected void SetCanvasVisibilityToTrue()
     {
-        _showCanvas = true;
+        ShowCanvas = true;
     }
+
     protected async Task OnRollButtonClick()
     {
-        ShowCanvas();
+        SetCanvasVisibilityToTrue();
         await SendSelected();
     }
 
     protected virtual async Task SendSelected()
     {
-        
     }
 
 }

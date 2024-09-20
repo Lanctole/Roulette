@@ -17,11 +17,11 @@
 <div class="row">
     <div class="col-md-12">
         <section>
-            @if (!string.IsNullOrEmpty(errorMessage))
+            @if (!string.IsNullOrEmpty(_errorMessage))
             {
-                var statusMessageClass = errorMessage.StartsWith("Error") ? "danger" : "success";
+                var statusMessageClass = _errorMessage.StartsWith("Error") ? "danger" : "success";
                 <div class="alert alert-@statusMessageClass mb-3" role="alert">
-                    @errorMessage
+                    @_errorMessage
                 </div>
             }
             @* <StatusMessage Message="@errorMessage" /> *@
@@ -81,7 +81,7 @@
     [CascadingParameter]
     private HttpContext HttpContext { get; set; } = default!;
     private InputModel Input { get; set; } = new();
-    private string? errorMessage;
+    private string? _errorMessage;
 
     protected override async Task OnInitializedAsync()
     {
@@ -117,14 +117,14 @@
         }
         else
         {
-            errorMessage = "Неверный логин и/или пароль";
+            _errorMessage = "Неверный логин и/или пароль";
         }
         }
         catch (Exception ex)
         {
     
             Logger.LogError(ex, "An error occurred during login.");
-            errorMessage = "Произошла ошибка при попытке входа.";
+            _errorMessage = "Произошла ошибка при попытке входа.";
         }
     }
 

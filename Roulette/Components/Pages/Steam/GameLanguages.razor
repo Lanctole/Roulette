@@ -1,10 +1,10 @@
 ﻿@page "/game-languages"
-@using Microsoft.AspNetCore.Authorization
 @using Roulette.DTOs
 @using Roulette.Models
 @using Roulette.Services
+@using Microsoft.AspNetCore.Authorization
 @inject GameLanguageService GameLanguageService
-@inject IMessageService _message
+@inject IMessageService Message
 @attribute [Authorize(Roles = "admin")]
 
 <SelectComponent T="SupportedLanguageDto" TValue="string"
@@ -12,11 +12,13 @@
                  LoadingMessage="Готовим список языков"
                  LoadData="LoadLanguages"
                  Transform="TransformLanguage"
-                 OnSelectedItemsChanged="UpdateSelectedLanguages" />
+                 OnSelectedItemsChanged="UpdateSelectedLanguages"/>
 
 @code {
+
     [Parameter]
     public EventCallback<List<string>> SelectedLanguagesChanged { get; set; }
+
     private List<string> _selectedLanguages = new();
 
     private async Task<List<SupportedLanguageDto>> LoadLanguages()
@@ -27,7 +29,7 @@
         }
         catch (Exception ex)
         {
-            await _message.Error("Произошла ошибка при загрузке списка языков. Попробуйте через какое-то время или перезагрузите страницу.");
+            await Message.Error("Произошла ошибка при загрузке списка языков. Попробуйте через какое-то время или перезагрузите страницу.");
             return new List<SupportedLanguageDto>();
         }
     }
@@ -42,4 +44,5 @@
         _selectedLanguages = selectedValues.Split(',').ToList();
         SelectedLanguagesChanged.InvokeAsync(_selectedLanguages);
     }
+
 }

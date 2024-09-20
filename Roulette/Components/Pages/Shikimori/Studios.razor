@@ -4,7 +4,7 @@
 @using Roulette.Services
 @using Microsoft.AspNetCore.Authorization
 @inject ApiClientService ApiClientService
-@inject IMessageService _message
+@inject IMessageService Message
 
 @attribute [Authorize(Roles = "admin")]
 
@@ -13,11 +13,13 @@
                  LoadingMessage="Готовим список студий"
                  LoadData="LoadStudios"
                  Transform="TransformStudio"
-                 OnSelectedItemsChanged="UpdateSelectedStudios" />
+                 OnSelectedItemsChanged="UpdateSelectedStudios"/>
 
 @code {
+
     [Parameter]
     public EventCallback<List<string>> SelectedStudiosChanged { get; set; }
+
     private List<string> _selectedStudios = new();
 
     private async Task<List<Studio>> LoadStudios()
@@ -28,7 +30,7 @@
         }
         catch (Exception ex)
         {
-            await _message.Error("Произошла ошибка при загрузке списка студий. Попробуйте через какое-то время или перезагрузите страницу.");
+            await Message.Error("Произошла ошибка при загрузке списка студий. Попробуйте через какое-то время или перезагрузите страницу.");
             return new List<Studio>();
         }
     }
@@ -37,9 +39,11 @@
     {
         return new LabeledValue(studio.Id.ToString(), studio.Name);
     }
+
     private void UpdateSelectedStudios(string selectedValues)
     {
         _selectedStudios = selectedValues.Split(',').ToList();
         SelectedStudiosChanged.InvokeAsync(_selectedStudios);
     }
+
 }
