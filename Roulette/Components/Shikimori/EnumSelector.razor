@@ -1,6 +1,5 @@
-﻿@typeparam TEnum
-@using ShikimoriSharp.Enums
-@using Roulette.Models
+﻿@using Roulette.Models
+@typeparam TEnum
 
 <Select Mode="default"
         Placeholder="@Placeholder"
@@ -17,9 +16,15 @@
 </Select>
 
 @code {
-    [Parameter] public string Placeholder { get; set; }
-    [Parameter] public string SelectedValue { get; set; }
-    [Parameter] public EventCallback<string> SelectedValueChanged { get; set; }
+
+    [Parameter]
+    public string Placeholder { get; set; }
+
+    [Parameter]
+    public string SelectedValue { get; set; }
+
+    [Parameter]
+    public EventCallback<string> SelectedValueChanged { get; set; }
 
     private List<LabeledValue> _options;
 
@@ -27,10 +32,11 @@
     {
         _options = EnumHelper.GetEnumValuesWithDescriptions(typeof(TEnum));
     }
+
     private void OnSelectedValueChanged(LabeledValue selectedItem)
     {
         SelectedValue = selectedItem?.Value;
         SelectedValueChanged.InvokeAsync(SelectedValue);
     }
-   
+
 }

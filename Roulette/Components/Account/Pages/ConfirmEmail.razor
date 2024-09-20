@@ -1,9 +1,7 @@
 ﻿@page "/Account/ConfirmEmail"
 
 @using System.Text
-@using Microsoft.AspNetCore.Identity
 @using Microsoft.AspNetCore.WebUtilities
-@using Roulette.Data
 
 @inject UserManager<IdentityUser> UserManager
 @inject IdentityRedirectManager RedirectManager
@@ -11,10 +9,10 @@
 <PageTitle>Подтверждение почты</PageTitle>
 
 <h1>Подтверждение почты</h1>
-<StatusMessage Message="@statusMessage" />
+<StatusMessage Message="@_statusMessage" />
 
 @code {
-    private string? statusMessage;
+    private string? _statusMessage;
 
     [CascadingParameter]
     private HttpContext HttpContext { get; set; } = default!;
@@ -36,13 +34,13 @@
         if (user is null)
         {
             HttpContext.Response.StatusCode = StatusCodes.Status404NotFound;
-            statusMessage = $"Ошибка при загрузке пользователя с ID {UserId}";
+            _statusMessage = $"Ошибка при загрузке пользователя с ID {UserId}";
         }
         else
         {
             var code = Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(Code));
             var result = await UserManager.ConfirmEmailAsync(user, code);
-            statusMessage = result.Succeeded ? "Спасибо за то что подтвердили свой email." : "Ошибка при подтверждении email.";
+            _statusMessage = result.Succeeded ? "Спасибо за то что подтвердили свой email." : "Ошибка при подтверждении email.";
         }
     }
 }

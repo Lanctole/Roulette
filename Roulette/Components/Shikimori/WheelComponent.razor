@@ -1,6 +1,6 @@
 ﻿@inject IJSRuntime JSRuntime
-<div class="canvas-container" style="display: @(showCanvas ? "block" : "none")">
-    <canvas id='rouletteCanvas' width='600' height='600' @* data-responsiveminwidth="300" data-responsivescaleheight="true" data-responsivemargin="30" *@></canvas>
+<div class="canvas-container" style="display: @(ShowCanvas ? "block" : "none")">
+    <canvas id="rouletteCanvas" width="600" height="600"></canvas>
 </div>
 
 
@@ -8,21 +8,31 @@
 
 @code
 {
+    /// <summary>
+    /// Отвечает за скрытие колеса до ролла
+    /// </summary>
     [Parameter]
-    public bool showCanvas { get; set; }
-    
-    [Parameter]
-    public EventCallback<bool> showCanvasChanged { get; set; }
+    public bool ShowCanvas { get; set; }
 
+    /// <summary>
+    /// Колбэк для скрытия
+    /// </summary>
+    [Parameter]
+    public EventCallback<bool> ShowCanvasChanged { get; set; }
+
+    /// <summary>
+    /// Адаптирует размеры будущего колеса под экран
+    /// </summary>
+    /// <param name="firstRender"></param>
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
-             await JSRuntime.InvokeVoidAsync("resizeCanvas");
+            await JSRuntime.InvokeVoidAsync("resizeCanvas");
         }
     }
 }
-<script>
-    // window.addEventListener('resize', resizeCanvas);
-</script>
 
+<script>
+        // window.addEventListener('resize', resizeCanvas);
+</script>

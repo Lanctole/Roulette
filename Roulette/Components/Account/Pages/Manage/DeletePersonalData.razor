@@ -1,9 +1,5 @@
 ﻿@page "/Account/Manage/DeletePersonalData"
 
-@using System.ComponentModel.DataAnnotations
-@using Microsoft.AspNetCore.Identity
-@using Roulette.Data
-
 @inject UserManager<IdentityUser> UserManager
 @inject SignInManager<IdentityUser> SignInManager
 @inject IdentityUserAccessor UserAccessor
@@ -12,7 +8,7 @@
 
 <PageTitle>Удаление аккаунта</PageTitle>
 
-<StatusMessage Message="@message" />
+<StatusMessage Message="@_message"/>
 
 <h3>Удаление аккаунта</h3>
 
@@ -24,10 +20,10 @@
 
 <div>
     <EditForm Model="Input" FormName="delete-user" OnValidSubmit="OnValidSubmitAsync" method="post">
-        <AntiforgeryTokenInput />
+        <AntiforgeryTokenInput/>
         <DataAnnotationsValidator/>
         <ValidationSummary class="text-danger" role="alert"/>
-        @if (requirePassword)
+        @if (_requirePassword)
         {
             <div class="form-floating mb-3">
                 <InputText type="password" @bind-Value="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" placeholder="Please enter your password."/>
@@ -40,9 +36,9 @@
 </div>
 
 @code {
-    private string? message;
-    private IdentityUser user = default!;
-    private bool requirePassword;
+    private string? _message;
+    private IdentityUser _user = default!;
+    private bool _requirePassword;
 
     [CascadingParameter]
     private HttpContext HttpContext { get; set; } = default!;
@@ -52,20 +48,20 @@
 
     protected override async Task OnInitializedAsync()
     {
-        Input ??= new();
-        user = await UserAccessor.GetRequiredUserAsync(HttpContext);
-        requirePassword = await UserManager.HasPasswordAsync(user);
+        Input ??= new InputModel();
+        _user = await UserAccessor.GetRequiredUserAsync(HttpContext);
+        _requirePassword = await UserManager.HasPasswordAsync(_user);
     }
 
     private async Task OnValidSubmitAsync()
     {
-        if (requirePassword && !await UserManager.CheckPasswordAsync(user, Input.Password))
+        if (_requirePassword && !await UserManager.CheckPasswordAsync(_user, Input.Password))
         {
-            message = "Error: Incorrect password.";
+            _message = "Error: Incorrect password.";
             return;
         }
 
-        var result = await UserManager.DeleteAsync(user);
+        var result = await UserManager.DeleteAsync(_user);
         if (!result.Succeeded)
         {
             throw new InvalidOperationException("Unexpected error occurred deleting user.");
@@ -73,7 +69,7 @@
 
         await SignInManager.SignOutAsync();
 
-        var userId = await UserManager.GetUserIdAsync(user);
+        var userId = await UserManager.GetUserIdAsync(_user);
         Logger.LogInformation("User with ID '{UserId}' deleted themselves.", userId);
 
         RedirectManager.RedirectToCurrentPage();
@@ -84,4 +80,5 @@
         [DataType(DataType.Password)]
         public string Password { get; set; } = "";
     }
+
 }

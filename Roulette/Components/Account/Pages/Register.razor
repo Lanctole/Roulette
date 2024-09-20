@@ -1,13 +1,8 @@
 ﻿@page "/Account/Register"
-
-@using System.ComponentModel.DataAnnotations
 @using System.Text
 @using System.Text.Encodings.Web
-@using Microsoft.AspNetCore.Identity
 @using Microsoft.AspNetCore.Identity.UI.Services
 @using Microsoft.AspNetCore.WebUtilities
-@using Roulette.Data
-@using Roulette.Services
 
 @inject UserManager<IdentityUser> UserManager
 @inject IUserStore<IdentityUser> UserStore
@@ -23,9 +18,9 @@
 
 <div class="row">
     <div class="col-md-4">
-        <StatusMessage Message="@registerResult" />
+        <StatusMessage Message="@_registerResult"/>
         <EditForm Model="Input" asp-route-returnUrl="@ReturnUrl" method="post" OnValidSubmit="RegisterUser" FormName="register">
-            <AntiforgeryTokenInput />
+            <AntiforgeryTokenInput/>
             <DataAnnotationsValidator/>
             <h2>Создать новый аккаунт.</h2>
             <hr/>
@@ -48,7 +43,7 @@
             <button type="submit" class="w-100 btn btn-lg btn-primary">Зарегистрироваться</button>
         </EditForm>
         <section class="center-container">
-            <ExternalLoginPicker />
+            <ExternalLoginPicker/>
         </section>
     </div>
 
@@ -63,21 +58,21 @@
     }
 </style>
 @code {
-    private IEnumerable<IdentityError>? identityErrors;
+    private IEnumerable<IdentityError>? _identityErrors;
 
     [SupplyParameterFromForm]
     private InputModel Input { get; set; } = new();
     [CascadingParameter]
-    private Task<AuthenticationState>? authenticationState { get; set; }
+    private Task<AuthenticationState>? AuthenticationState { get; set; }
     [SupplyParameterFromQuery]
     private string? ReturnUrl { get; set; }
-    private string registerResult;
-    private string? Message => identityErrors is null ? null : $"Error: {string.Join(", ", identityErrors.Select(error => error.Description))}";
+    private string _registerResult;
+    private string? Message => _identityErrors is null ? null : $"Error: {string.Join(", ", _identityErrors.Select(error => error.Description))}";
     protected override async Task OnInitializedAsync()
     {
-        if (authenticationState is not null)
+        if (AuthenticationState is not null)
         {
-            var authState = await authenticationState;
+            var authState = await AuthenticationState;
             if (authState.User.Identity?.IsAuthenticated == true)
             {
                 NavigationManager.NavigateTo("/");
@@ -96,7 +91,7 @@
         catch (Exception ex)
         {
             Logger.LogError(ex, "Ошибка при создании пользователя.");
-            registerResult = "Ошибка при создании пользователя.";
+            _registerResult = "Ошибка при создании пользователя.";
             return;
         }
 
@@ -112,15 +107,15 @@
         catch (Exception ex)
         {
             Logger.LogError(ex, "Ошибка при установке имени пользователя или email.");
-            registerResult = "Ошибка при установке имени пользователя или email.";
+            _registerResult = "Ошибка при установке имени пользователя или email.";
             return;
         }
 
         var result = await UserManager.CreateAsync(user, Input.Password);
         if (!result.Succeeded)
         {
-            registerResult = string.Join(", ", result.Errors.Select(e => e.Description));
-            Logger.LogError("Ошибка при создании пользователя: {Errors}", registerResult);
+            _registerResult = string.Join(", ", result.Errors.Select(e => e.Description));
+            Logger.LogError("Ошибка при создании пользователя: {Errors}", _registerResult);
             return;
         }
 
@@ -213,4 +208,5 @@
         [Compare("Password", ErrorMessage = "Пароли не совпадают.")]
         public string ConfirmPassword { get; set; } = "";
     }
+
 }

@@ -17,12 +17,12 @@ using Roulette.Services;
 namespace Roulette;
 
 /// <summary>
-/// Главный класс
+///     Главный класс
 /// </summary>
 public class Program
 {
     /// <summary>
-    /// Точка входа в приложение
+    ///     Точка входа в приложение
     /// </summary>
     /// <param name="args"></param>
     /// <exception cref="InvalidOperationException"></exception>
@@ -30,7 +30,6 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        
         ConfigureHttpClients(builder);
         ConfigureServices(builder);
         ConfigureAuthentication(builder);
@@ -43,7 +42,6 @@ public class Program
         var app = builder.Build();
 
         ConfigureMiddleware(app);
-
         app.Run();
     }
 
@@ -84,10 +82,8 @@ public class Program
 
         var apiUrl = Environment.GetEnvironmentVariable("ApiBaseAddress") ??
                      builder.Configuration["ApiBaseAddress"];
-        builder.Services.AddHttpClient<ApiClientService>(client =>
-            {
-                client.BaseAddress = new Uri(apiUrl);
-            }).SetHandlerLifetime(TimeSpan.FromMinutes(1))
+        builder.Services.AddHttpClient<ApiClientService>(client => { client.BaseAddress = new Uri(apiUrl); })
+            .SetHandlerLifetime(TimeSpan.FromMinutes(1))
             .ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
             {
                 ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true
@@ -185,9 +181,12 @@ public class Program
                                      builder.Configuration["Smtp:Port"] ?? "2525");
             options.EnableSsl = bool.Parse(Environment.GetEnvironmentVariable("Smtp:EnableSsl") ??
                                            builder.Configuration["Smtp:EnableSsl"] ?? "true");
-            options.Username = Environment.GetEnvironmentVariable("Smtp:Username") ?? builder.Configuration["Smtp:Username"];
-            options.Password = Environment.GetEnvironmentVariable("Smtp:Password") ?? builder.Configuration["Smtp:Password"];
-            options.FromEmail = Environment.GetEnvironmentVariable("Smtp:FromEmail") ?? builder.Configuration["Smtp:FromEmail"];
+            options.Username = Environment.GetEnvironmentVariable("Smtp:Username") ??
+                               builder.Configuration["Smtp:Username"];
+            options.Password = Environment.GetEnvironmentVariable("Smtp:Password") ??
+                               builder.Configuration["Smtp:Password"];
+            options.FromEmail = Environment.GetEnvironmentVariable("Smtp:FromEmail") ??
+                                builder.Configuration["Smtp:FromEmail"];
         });
         builder.Services.AddTransient<IEmailSender, EmailSender>();
     }

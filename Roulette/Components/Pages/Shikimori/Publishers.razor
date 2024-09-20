@@ -1,17 +1,16 @@
 ﻿@page "/publishers"
 @using ShikimoriSharp.Classes
-@using Roulette.Models.Shiki
 @using Roulette.Models
 @using Roulette.Services
 @inject ApiClientService ApiClientService
-@inject IMessageService _message
+@inject IMessageService Message
 
 <SelectComponent T="Publisher" TValue="string"
                  Placeholder="Выберите издателей"
                  LoadingMessage="Готовим список издателей"
                  LoadData="LoadPublishers"
                  Transform="TransformPublisher"
-                 OnSelectedItemsChanged="UpdateSelectedPublishers" />
+                 OnSelectedItemsChanged="UpdateSelectedPublishers"/>
 
 
 @code {
@@ -29,7 +28,7 @@
         }
         catch (Exception ex)
         {
-            await _message.Error("Произошла ошибка при загрузке списка издательств. Попробуйте через какое-то время или перезагрузите страницу.");
+            await Message.Error("Произошла ошибка при загрузке списка издательств. Попробуйте через какое-то время или перезагрузите страницу.");
             return new List<Publisher>();
         }
     }

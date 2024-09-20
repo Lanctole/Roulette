@@ -1,9 +1,8 @@
 ﻿@page "/history"
-@using Roulette.Services
 @using ShikimoriSharp.Classes
-@using Microsoft.AspNetCore.Authorization
 @using Roulette.DTOs
-@using Roulette.Models
+@using Roulette.Services
+@using Microsoft.AspNetCore.Authorization
 @inject UserChoiceHistoryService HistoryService
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject UserManager<IdentityUser> UserManager
@@ -24,7 +23,7 @@
                         <div class="history-item" @onclick="() => SelectAnime(animeChoice.Item1)">
                             <div class="history-title">
                                 @animeChoice.Item1.Name
-                                <Divider Type="DirectionVHType.Vertical" Style="border-left: 1px solid rgb(1 1 1);" /> 
+                                <Divider Type="DirectionVHType.Vertical" Style="border-left: 1px solid rgb(1 1 1);"/>
                                 ( @animeChoice.Item1.Russian )
                             </div>
                             <div class="history-date">
@@ -36,15 +35,15 @@
                     <Pagination Total="@_totalAnimeItems"
                                 Current="@_currentAnimePage"
                                 PageSize="@_pageSize"
-                                ShowSizeChanger ="false"
-                                OnChange="HandleAnimePageChange" />
+                                ShowSizeChanger="false"
+                                OnChange="HandleAnimePageChange"/>
                 }
             </div>
             <div class="col-md-6 order-md-2 order-1">
                 <h4>Выбранное Аниме</h4>
                 @if (_selectedAnime != null)
                 {
-                    <MediaComponent Item="_selectedAnime" />
+                    <MediaComponent Item="_selectedAnime"/>
                 }
             </div>
         </div>
@@ -60,8 +59,8 @@
                     {
                         <div class="history-item" @onclick="() => SelectManga(mangaChoice.Item1)">
                             <div class="history-title">
-                                @mangaChoice.Item1.Name 
-                                <Divider Type="DirectionVHType.Vertical" Style="border-left: 1px solid rgb(1 1 1);" /> 
+                                @mangaChoice.Item1.Name
+                                <Divider Type="DirectionVHType.Vertical" Style="border-left: 1px solid rgb(1 1 1);"/>
                                 ( @mangaChoice.Item1.Russian )
                             </div>
                             <div class="history-date">
@@ -74,14 +73,14 @@
                                 Current="@_currentMangaPage"
                                 PageSize="@_pageSize"
                                 ShowSizeChanger="false"
-                                OnChange="HandleMangaPageChange" />
+                                OnChange="HandleMangaPageChange"/>
                 }
             </div>
             <div class="col-md-6 order-md-2 order-1">
                 <h4>Выбранная Манга</h4>
                 @if (_selectedManga != null)
                 {
-                    <MediaComponent Item="_selectedManga" />
+                    <MediaComponent Item="_selectedManga"/>
                 }
             </div>
         </div>
@@ -97,8 +96,8 @@
                     {
                         <div class="history-item" @onclick="() => SelectRanobe(ranobeChoice.Item1)">
                             <div class="history-title">
-                                @ranobeChoice.Item1.Name 
-                                <Divider Type="DirectionVHType.Vertical" Style="border-left: 1px solid rgb(1 1 1);" /> 
+                                @ranobeChoice.Item1.Name
+                                <Divider Type="DirectionVHType.Vertical" Style="border-left: 1px solid rgb(1 1 1);"/>
                                 ( @ranobeChoice.Item1.Russian )
                             </div>
                             <div class="history-date">
@@ -111,14 +110,14 @@
                                 Current="@_currentRanobePage"
                                 PageSize="@_pageSize"
                                 ShowSizeChanger="false"
-                                OnChange="HandleRanobePageChange" />
+                                OnChange="HandleRanobePageChange"/>
                 }
             </div>
             <div class="col-md-6 order-md-2 order-1">
                 <h4>Выбранное Ранобэ</h4>
                 @if (_selectedRanobe != null)
                 {
-                    <MediaComponent Item="_selectedRanobe" />
+                    <MediaComponent Item="_selectedRanobe"/>
                 }
             </div>
         </div>
@@ -146,14 +145,14 @@
                                 Current="@_currentGamePage"
                                 PageSize="@_pageSize"
                                 ShowSizeChanger="false"
-                                OnChange="HandleGamePageChange" />
+                                OnChange="HandleGamePageChange"/>
                 }
             </div>
             <div class="col-md-6 order-md-2 order-1">
                 <h4>Выбранная Игра</h4>
                 @if (_selectedGame != null)
                 {
-                    <MediaComponent Item="_selectedGame" />
+                    <MediaComponent Item="_selectedGame"/>
                 }
             </div>
         </div>
@@ -174,7 +173,7 @@
     private string _userId;
 
     private int _currentAnimePage = 1;
-    private int _pageSize = 10;
+    private readonly int _pageSize = 10;
     private int _totalAnimeItems;
     private int _currentMangaPage = 1;
     private int _totalMangaItems;
@@ -198,8 +197,8 @@
         }
     }
 
-    
-    private async Task LoadAnimeData( int pageNumber = 1, int pageSize = 10)
+
+    private async Task LoadAnimeData(int pageNumber = 1, int pageSize = 10)
     {
         var animeHistory = await HistoryService.GetUserAnimeHistoryAsync(_userId, pageNumber, pageSize);
 
@@ -219,7 +218,7 @@
         _currentAnimePage = e.Page;
         await LoadAnimeData(_currentAnimePage, _pageSize);
     }
-    
+
     private async Task SelectAnime(AnimeId anime)
     {
         _selectedAnime = anime;
@@ -288,7 +287,7 @@
         var paginatedItems = gameHistory.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
         foreach (var gameChoice in paginatedItems)
         {
-            List<long> ids = new List<long>();
+            var ids = new List<long>();
             ids.Add(gameChoice.GameId);
             var gameDetails = await GameService.GetGamesAsync(ids, 1);
             var firstGameDetail = gameDetails.ElementAt(0);
@@ -306,4 +305,5 @@
     {
         _selectedGame = game;
     }
+
 }

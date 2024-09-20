@@ -19,4 +19,3 @@
 window.getTooltipPlacement = function () {
     return window.innerWidth <= 768 ? 'right' : 'bottomLeft';
 };
-

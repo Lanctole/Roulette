@@ -1,21 +1,26 @@
 ﻿<Text>Временной период:</Text>
-<br />
-<Cascader Placeholder="От" @bind-Value="selectedFromYear" Options="@options" OnChange="HandleFromYearChange"></Cascader>
-<Divider Type="DirectionVHType.Vertical" />
-<Cascader Placeholder="До" @bind-Value="selectedToYear" Options="@filteredOptions" OnChange="HandleToYearChange" Disabled="!isSecondCascaderEnabled"></Cascader>
+<br/>
+<Cascader Placeholder="От" @bind-Value="SelectedFromYear" Options="@_options" OnChange="HandleFromYearChange"></Cascader>
+<Divider Type="DirectionVHType.Vertical"/>
+<Cascader Placeholder="До" @bind-Value="SelectedToYear" Options="@_filteredOptions" OnChange="HandleToYearChange" Disabled="!_isSecondCascaderEnabled"></Cascader>
 
 @code {
-    [Parameter]
-    public string selectedFromYear { get; set; }
-    [Parameter]
-    public EventCallback<string> selectedFromYearChanged { get; set; }
-    [Parameter]
-    public string selectedToYear { get; set; }
-    [Parameter]
-    public EventCallback<string> selectedToYearChanged { get; set; }
 
-    private bool isSecondCascaderEnabled = false;
-    private List<CascaderNode> options = new()
+    [Parameter]
+    public string SelectedFromYear { get; set; }
+
+    [Parameter]
+    public EventCallback<string> SelectedFromYearChanged { get; set; }
+
+    [Parameter]
+    public string SelectedToYear { get; set; }
+
+    [Parameter]
+    public EventCallback<string> SelectedToYearChanged { get; set; }
+
+    private bool _isSecondCascaderEnabled;
+
+    private readonly List<CascaderNode> _options = new()
     {
         CreateDecadeNode("197x", 1970),
         CreateDecadeNode("198x", 1980),
@@ -24,58 +29,60 @@
         CreateDecadeNode("201x", 2010),
         CreateDecadeNode("202x", 2020)
     };
-    private List<CascaderNode> filteredOptions = new();
+
+    private List<CascaderNode> _filteredOptions = new();
 
     private static CascaderNode CreateDecadeNode(string label, int startYear)
     {
-        int currentYear = DateTime.Now.Year;
+        var currentYear = DateTime.Now.Year;
         var children = Enumerable.Range(startYear, 10)
-            .Where( year=>year < currentYear+1)
+            .Where(year => year < currentYear + 1)
             .Select(year => new CascaderNode
-                {
-                    Value = year.ToString(),
-                    Label = year.ToString()
-                })
+            {
+                Value = year.ToString(),
+                Label = year.ToString()
+            })
             .ToArray();
 
         return new CascaderNode
-            {
-                Value = label,
-                Label = label,
-                Children = children
-            };
+        {
+            Value = label,
+            Label = label,
+            Children = children
+        };
     }
 
     private async void HandleFromYearChange(List<CascaderNode> selectedNodes, string selectedValue, string selectedLabel)
     {
-        selectedFromYear = selectedValue;
-        await selectedFromYearChanged.InvokeAsync(selectedValue);
-        if (int.TryParse(selectedFromYear, out int fromYear))
+        SelectedFromYear = selectedValue;
+        await SelectedFromYearChanged.InvokeAsync(selectedValue);
+        if (int.TryParse(SelectedFromYear, out var fromYear))
         {
             FilterOptions(fromYear);
-            isSecondCascaderEnabled = true;
+            _isSecondCascaderEnabled = true;
         }
         else
         {
-            isSecondCascaderEnabled = false;
+            _isSecondCascaderEnabled = false;
         }
     }
+
     private async void HandleToYearChange(List<CascaderNode> selectedNodes, string selectedValue, string selectedLabel)
     {
-        selectedToYear = selectedValue;
-        await selectedToYearChanged.InvokeAsync(selectedValue);
+        SelectedToYear = selectedValue;
+        await SelectedToYearChanged.InvokeAsync(selectedValue);
     }
 
     private void FilterOptions(int fromYear)
     {
-        int currentYear = DateTime.Now.Year;
-    
-        filteredOptions = options.Select(decadeNode =>
+        var currentYear = DateTime.Now.Year;
+
+        _filteredOptions = _options.Select(decadeNode =>
         {
             var filteredChildren = decadeNode.Children
                 .Where(child => int.Parse(child.Value) > fromYear && int.Parse(child.Value) <= currentYear)
                 .ToArray();
-        
+
             return new CascaderNode
             {
                 Value = decadeNode.Value,
@@ -85,4 +92,5 @@
             };
         }).Where(node => node.Children != null).ToList();
     }
+
 }

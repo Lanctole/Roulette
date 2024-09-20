@@ -1,50 +1,62 @@
-﻿@typeparam T
+﻿@typeparam TValue
 @using Roulette.Models
 @using Roulette.Services
-@typeparam TValue
+@typeparam T
 @inject ApiClientService ApiClientService
 
 
-    @if (_items == null)
-    {
-        <Spin Spinning=true>
-            <Alert Message="Загрузка..."
-                   Description="@LoadingMessage"
-                   Type="info"
-               Style="width: 70%; height: 30%" />
-        </Spin>
-    }
-    else
-    {
-        <Select Mode="multiple"
-                Placeholder="@Placeholder"
-                DataSource="@_options"
-                LabelName="@nameof(LabeledValue.Label)"
-                ValueName="@nameof(LabeledValue.Value)"
-                TItemValue="string"
-                TItem="LabeledValue"
-                EnableSearch
-                EnableVirtualization
-                Style="width: 100%;"
-                bind-Value="Result"
+@if (_items == null)
+{
+    <Spin Spinning=true>
+        <Alert Message="Загрузка..."
+               Description="@LoadingMessage"
+               Type="info"
+               Style="width: 70%; height: 30%"/>
+    </Spin>
+}
+else
+{
+    <Select Mode="multiple"
+            Placeholder="@Placeholder"
+            DataSource="@_options"
+            LabelName="@nameof(LabeledValue.Label)"
+            ValueName="@nameof(LabeledValue.Value)"
+            TItemValue="string"
+            TItem="LabeledValue"
+            EnableSearch
+            EnableVirtualization
+            Style="width: 100%;"
+            bind-Value="Result"
             OnSelectedItemsChanged="OnSelectedItemsChangedHandler">
-        </Select>
-    }
+    </Select>
+}
 
 
 @code {
-    [Parameter] public string Placeholder { get; set; }
-    [Parameter] public string LoadingMessage { get; set; }
-    [Parameter] public Func<Task<List<T>>> LoadData { get; set; }
-    [Parameter] public Func<T, LabeledValue> Transform { get; set; }
-    [Parameter] public string Result { get; set; }
+
+    [Parameter]
+    public string Placeholder { get; set; }
+
+    [Parameter]
+    public string LoadingMessage { get; set; }
+
+    [Parameter]
+    public Func<Task<List<T>>> LoadData { get; set; }
+
+    [Parameter]
+    public Func<T, LabeledValue> Transform { get; set; }
+
+    [Parameter]
+    public string Result { get; set; }
+
     private List<LabeledValue> _options;
-    
-    private List<string> _selectedValues = new List<string>();
+
+    private List<string> _selectedValues = new();
     private List<T>? _items;
 
     [Parameter]
     public EventCallback<string> OnSelectedItemsChanged { get; set; }
+
     protected override async Task OnInitializedAsync()
     {
         try
@@ -57,12 +69,12 @@
             Console.WriteLine($"An error occurred: {ex.Message}");
         }
     }
+
     private void OnSelectedItemsChangedHandler(IEnumerable<LabeledValue> values)
     {
-        
         var result = values.Select(v => v.Value);
         Result = string.Join(",", result);
         OnSelectedItemsChanged.InvokeAsync(Result);
     }
-}
 
+}

@@ -1,69 +1,57 @@
-﻿@using ShikimoriSharp.Bases
-@using Roulette.Services
-@using ShikimoriSharp.Classes
-@using Games.Classes
-@using Roulette.DTOs
-@using Roulette.Models
-@inject IJSRuntime JS
+﻿@inject IJSRuntime JS
 @inject UserChoiceHistoryService UserChoiceHistoryService
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject UserManager<IdentityUser> UserManager
+@using Roulette.Models
+@using Roulette.Services
+@using ShikimoriSharp.Bases
+@using Roulette.DTOs
 @typeparam T
 
 @if (MediaItems != null && MediaItems.Any())
 {
-    object? selectedMediaItem = null;
-    foreach (var mediaItem in MediaItems)
-    {
-        if (mediaItem is SmallRepresentation smallRep && smallRep.Id == SelectedID)
-        {
-            selectedMediaItem = smallRep;
-            break;
-        }
-        else if (mediaItem is GameDto gameDto && gameDto.AppID == SelectedID)
-        {
-            selectedMediaItem = gameDto;
-            break;
-        }
-    }
+    object? selectedMediaItem = MediaItems
+        .FirstOrDefault(mediaItem => 
+            (mediaItem is SmallRepresentation smallRep && smallRep.Id == SelectedID) ||
+            (mediaItem is GameDto gameDto && gameDto.AppID == SelectedID));
 
     if (selectedMediaItem != null)
     {
-        <MediaComponent Item="selectedMediaItem" />
+        <MediaComponent Item="selectedMediaItem"/>
     }
 }
-
-<style>
-
-</style>
 
 @code {
 
     [Parameter]
     public List<T>? MediaItems { get; set; }
+
     [Parameter]
     public bool IsWinner { get; set; }
+
     [Parameter]
     public MediaType MediaType { get; set; }
 
     private DotNetObjectReference<MediaList<T>>? dotNetObjectRef;
     private long SelectedID { get; set; }
-    
 
+    /// <summary>
+    /// Инициализация компонента.
+    /// </summary>
     protected override void OnInitialized()
     {
-        if (MediaItems == null)
-        {
-            MediaItems = new List<T>();
-        }
+        MediaItems ??= new List<T>();
         dotNetObjectRef = DotNetObjectReference.Create(this);
         JS.InvokeVoidAsync("registerDotNetObject", dotNetObjectRef);
     }
 
+    /// <summary>
+    /// Обработка изменения идентификатора медиаэлемента.
+    /// </summary>
+    /// <param name="input">Идентификатор медиаэлемента.</param>
     [JSInvokable]
     public async Task<string> ChangeID(int input)
     {
-
         if (IsWinner)
         {
             IsWinner = false;
@@ -73,7 +61,7 @@
             if (userName != null)
             {
                 var user = await UserManager.FindByNameAsync(userName);
-                var userId = user?.Id; 
+                var userId = user?.Id;
 
                 switch (MediaType)
                 {

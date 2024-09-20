@@ -1,9 +1,7 @@
 ﻿@page "/Account/ConfirmEmailChange"
 
 @using System.Text
-@using Microsoft.AspNetCore.Identity
 @using Microsoft.AspNetCore.WebUtilities
-@using Roulette.Data
 
 @inject UserManager<IdentityUser> UserManager
 @inject SignInManager<IdentityUser> SignInManager
@@ -13,10 +11,10 @@
 
 <h1>Подтверждение смены почты</h1>
 
-<StatusMessage Message="@message" />
+<StatusMessage Message="@_message" />
 
 @code {
-    private string? message;
+    private string? _message;
 
     [CascadingParameter]
     private HttpContext HttpContext { get; set; } = default!;
@@ -41,7 +39,7 @@
         var user = await UserManager.FindByIdAsync(UserId);
         if (user is null)
         {
-            message = "Ошибка при загрузке пользователя с Id '{userId}'";
+            _message = "Ошибка при загрузке пользователя с Id '{userId}'";
             return;
         }
 
@@ -49,18 +47,18 @@
         var result = await UserManager.ChangeEmailAsync(user, Email, code);
         if (!result.Succeeded)
         {
-            message = "Ошибка смены email.";
+            _message = "Ошибка смены email.";
             return;
         }
 
         var setUserNameResult = await UserManager.SetUserNameAsync(user, Email);
         if (!setUserNameResult.Succeeded)
         {
-            message = "Ошибка смены имени пользователя.";
+            _message = "Ошибка смены имени пользователя.";
             return;
         }
 
         await SignInManager.RefreshSignInAsync(user);
-        message = "Почтовый адрес изменен.";
+        _message = "Почтовый адрес изменен.";
     }
 }
