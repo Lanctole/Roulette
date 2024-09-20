@@ -7,8 +7,6 @@ on:
         description: 'Введите версию образа (например, 1.0.0)'
         required: true
         default: '0.1.0'
-  pull_request:
-    branches: [ "master" ]
 
 jobs:
   build:
