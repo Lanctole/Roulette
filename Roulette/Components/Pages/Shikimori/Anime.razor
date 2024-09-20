@@ -4,9 +4,12 @@
 @using Roulette.Models
 @inherits ShikimoriComponent
 @inject ApiClientService ApiClientService
+@inject IJSRuntime JS
 
 <PageTitle>Anime</PageTitle>
-
+<div class="page-title-mobile">
+    <h1>Аниме</h1>
+</div>
 <Row Gutter="16">
     <Col Xs="24" Sm="12" Md="8">
         <Genres SelectedGenresChanged="OnSelectedGenresChanged"/>
@@ -29,7 +32,7 @@
     </Col>
     <Col Xs="24" Sm="12" Md="8">
     <div style="display: flex; align-items: center;">
-        <AntDesign.Tooltip Title="TV-Сериал. Фильм.  OVA — сокращение термина Original Video Animation, в Японии так обозначается особый формат аниме-сериала.
+        <AntDesign.Tooltip Placement="@tooltipPlacement" Title="TV-Сериал. Фильм.  OVA — сокращение термина Original Video Animation, в Японии так обозначается особый формат аниме-сериала.
 ONA - веб-аниме. Special - спецвыпуск. TV_Special - телевизионный спецвыпуск. Музыкальный клип. PV - промо-материал. CM - реклама. tv_13 - 12-13 серий. tv-24 ~ 24 серии.
 tv-48 ~ от 40 и выше">
             <i class="bi bi-info-circle" style="margin-right: 10px;"></i>
@@ -84,6 +87,17 @@ tv-48 ~ от 40 и выше">
     
     private List<string> _selectedStudios = new();
     private List<SmallRepresentation>? _animes;
+    private Placement tooltipPlacement = Placement.BottomLeft;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            var placement = await JS.InvokeAsync<string>("getTooltipPlacement");
+            tooltipPlacement = placement == "right" ? Placement.Right : Placement.BottomLeft;
+            StateHasChanged();
+        }
+    }
 
     private void OnSelectedStudiosChanged(List<string> selectedStudios)
     {

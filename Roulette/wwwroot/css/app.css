@@ -398,3 +398,16 @@ main {
     .cta-button:hover {
         background-color: #1e90ff;
     }
+
+.page-title-mobile {
+    display: none;
+}
+
+
+@media (max-width: 768px) {
+    .page-title-mobile {
+        display: block;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+}
