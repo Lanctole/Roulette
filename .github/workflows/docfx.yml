@@ -1,0 +1,38 @@
+name: Generate Documentation
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Install DocFX
+        run: |
+          dotnet tool install -g docfx
+          echo "$HOME/.dotnet/tools" >> $GITHUB_PATH
+
+      - name: Build Documentation
+        run: docfx docfx.json
+
+      - name: Deploy Documentation
+        run: |
+          git config --global user.name 'Lanctole'
+          git config --global user.email 'lanctole@yandex.ru'
+          git add _site/*
+          git commit -m 'Update documentation'
+          git push origin gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
