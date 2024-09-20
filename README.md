@@ -14,7 +14,7 @@
 
 ## 💻 Технологический стек
 
-- **Frontend**: Blazor (Server + WebAssembly), AntDesign, JavaScript
+- **Frontend**: Blazor (Server + WebAssembly), AntDesign, JavaScript, Bootstrap
 - **Backend**: ASP.NET Core, Entity Framework Core
 - **Базы данных**: PostgreSQL для реляционных данных, Redis для кеширования
 - **Почтовый сервис**: SMTP-сервер для отправки писем с подтверждением регистрации
