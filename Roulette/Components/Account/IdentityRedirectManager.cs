@@ -25,7 +25,7 @@ namespace Roulette.Components.Account
             {
                 uri = navigationManager.ToBaseRelativePath(uri);
             }
-
+            uri = EnsureHttps(uri);
             // During static rendering, NavigateTo throws a NavigationException which is handled by the framework as a redirect.
             // So as long as this is called from a statically rendered Identity component, the InvalidOperationException is never thrown.
             navigationManager.NavigateTo(uri);
@@ -37,6 +37,7 @@ namespace Roulette.Components.Account
         {
             var uriWithoutQuery = navigationManager.ToAbsoluteUri(uri).GetLeftPart(UriPartial.Path);
             var newUri = navigationManager.GetUriWithQueryParameters(uriWithoutQuery, queryParameters);
+            newUri = EnsureHttps(newUri);
             RedirectTo(newUri);
         }
 
@@ -44,6 +45,7 @@ namespace Roulette.Components.Account
         public void RedirectToWithStatus(string uri, string message, HttpContext context)
         {
             context.Response.Cookies.Append(StatusCookieName, message, StatusCookieBuilder.Build(context));
+            uri = EnsureHttps(uri);
             RedirectTo(uri);
         }
 
@@ -55,5 +57,39 @@ namespace Roulette.Components.Account
         [DoesNotReturn]
         public void RedirectToCurrentPageWithStatus(string message, HttpContext context)
             => RedirectToWithStatus(CurrentPath, message, context);
+
+        private string EnsureHttps(string uri)
+        {
+            var absoluteUri = navigationManager.ToAbsoluteUri(uri);
+            if (absoluteUri.Scheme != Uri.UriSchemeHttps)
+            {
+                var builder = new UriBuilder(absoluteUri) { Scheme = Uri.UriSchemeHttps, Port = -1 };
+                return builder.Uri.ToString();
+            }
+            return uri;
+        }
+
+        public string GetUriWithQueryParameters(string uri, Dictionary<string, object?> queryParameters)
+        {
+            var uriBuilder = new UriBuilder(navigationManager.ToAbsoluteUri(uri));
+
+            uriBuilder.Scheme = "https";
+            uriBuilder.Port = -1;
+
+            if (queryParameters != null && queryParameters.Count > 0)
+            {
+                var query = System.Web.HttpUtility.ParseQueryString(uriBuilder.Query);
+                foreach (var param in queryParameters)
+                {
+                    if (param.Value != null)
+                    {
+                        query[param.Key] = param.Value.ToString();
+                    }
+                }
+                uriBuilder.Query = query.ToString();
+            }
+
+            return uriBuilder.ToString();
+        }
     }
 }

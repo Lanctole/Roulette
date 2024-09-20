@@ -13,6 +13,7 @@
 @inject IEmailSender EmailSender
 @inject IdentityUserAccessor UserAccessor
 @inject NavigationManager NavigationManager
+@inject ILogger<Email> Logger
 
 <PageTitle>Настройки почты</PageTitle>
 
@@ -93,9 +94,12 @@
             NavigationManager.ToAbsoluteUri("Account/ConfirmEmailChange").AbsoluteUri,
             new Dictionary<string, object?> { ["userId"] = userId, ["email"] = Input.NewEmail, ["code"] = code });
 
-        // await EmailSender.SendConfirmationLinkAsync(user, Input.NewEmail, HtmlEncoder.Default.Encode(callbackUrl));
-        await EmailSender.SendEmailAsync(Input.NewEmail, "Подтвердите смену почты",
-        $@"
+        _ = Task.Run(async () =>
+        {
+            try
+            {
+                await EmailSender.SendEmailAsync(Input.NewEmail, "Подтвердите смену почты",
+                    $@"
                 <html>
                 <body>
                     <p>Приветствуем вас на media-random.ru!</p>
@@ -104,6 +108,14 @@
                     <p style='font-size: smaller;'>Если вы не регистрировались и получили это письмо случайно, проигнорируйте его.</p>
                 </body>
                 </html>");
+
+                Logger.LogInformation("Письмо с запросом на смену почты успешно отправлено на {Email}", Input.NewEmail);
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex, "Ошибка при отправке письма на смену почты для пользователя {UserId}", userId);
+            }
+        });
 
         message = "Письмо с запросом на смену отправлено. Пожалуйста, проверьте почту и папку спам";
     }
@@ -122,11 +134,14 @@
             NavigationManager.ToAbsoluteUri("Account/ConfirmEmail").AbsoluteUri,
             new Dictionary<string, object?> { ["userId"] = userId, ["code"] = code });
 
-        // await EmailSender.SendConfirmationLinkAsync(user, email, HtmlEncoder.Default.Encode(callbackUrl));
-         await EmailSender.SendEmailAsync(
-            email,
-            "Подтвердите регистрацию на media-random.ru",
-            $@"
+        _ = Task.Run(async () =>
+        {
+            try
+            {
+                await EmailSender.SendEmailAsync(
+                    email,
+                    "Подтвердите регистрацию на media-random.ru",
+                        $@"
                 <html>
                 <body>
                     <p>Приветствуем вас на media-random.ru!</p>
@@ -136,7 +151,16 @@
                     <p style='font-size: smaller;'>Если вы не регистрировались и получили это письмо случайно, проигнорируйте его.</p>
                 </body>
                 </html>"
-            );
+                );
+
+                Logger.LogInformation("Письмо с подтверждением успешно отправлено на {Email}", email);
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex, "Ошибка при отправке письма подтверждения для пользователя {UserId}", userId);
+            }
+        });
+
         message = "Письмо с подтверждением отправлено. Пожалуйста, проверьте почту.";
     }
 

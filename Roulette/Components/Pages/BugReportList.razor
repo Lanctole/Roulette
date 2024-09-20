@@ -6,7 +6,7 @@
 @inject BugReportService BugReportService
 @inject IMessageService _message
 
-@attribute [Authorize]
+@attribute [Authorize(Roles = "admin")]
 <h3>Сообщения об ошибках</h3>
 
 <div class="mb-3">

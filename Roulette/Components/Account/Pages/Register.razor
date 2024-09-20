@@ -59,6 +59,7 @@
         justify-content: center;
         align-items: center;
         width: 100%;
+        margin-top:20px;
     }
 </style>
 @code {
@@ -86,54 +87,91 @@
 
     public async Task RegisterUser(EditContext editContext)
     {
-        var user = CreateUser();
-
-        await UserStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
-        var emailStore = GetEmailStore();
-        await emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
-        var result = await UserManager.CreateAsync(user, Input.Password);
-
-        if (!result.Succeeded)
+        Logger.LogInformation("Начало процесса регистрации пользователя.");
+        IdentityUser user;
+        try
         {
-            registerResult = string.Join(", ", result.Errors.Select(e => e.Description));
+            user = CreateUser();
+        }
+        catch (Exception ex)
+        {
+            Logger.LogError(ex, "Ошибка при создании пользователя.");
+            registerResult = "Ошибка при создании пользователя.";
             return;
         }
 
-        Logger.LogInformation("User created a new account with password.");
-        await UserManager.AddToRoleAsync(user, "common_user");
-
-        var userId = await UserManager.GetUserIdAsync(user);
-        var code = await UserManager.GenerateEmailConfirmationTokenAsync(user);
-        code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
-
-        var callbackUrl = NavigationManager.GetUriWithQueryParameters(
-            NavigationManager.ToAbsoluteUri("Account/ConfirmEmail").AbsoluteUri,
-            new Dictionary<string, object?> { ["userId"] = userId, ["code"] = code, ["returnUrl"] = ReturnUrl });
-
-        await EmailSender.SendEmailAsync(
-            Input.Email,
-            "Подтвердите регистрацию на media-random.ru",
-            $@"
-                <html>
-                <body>
-                    <p>Приветствуем вас на media-random.ru!</p>
-                    <p>Теперь у вас есть профиль на нашем сайте. Чтобы активировать его, подтвердите ваш e-mail.</p>
-                    <p><a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>Подтвердить</a></p>
-                    <p style='font-size: smaller;'>Если честно - подтверждение ни на что не влияет</p>
-                    <p style='font-size: smaller;'>Если вы не регистрировались и получили это письмо случайно, проигнорируйте его.</p>
-                </body>
-                </html>"
-            );
-
-        if (UserManager.Options.SignIn.RequireConfirmedAccount)
+        try
         {
-            RedirectManager.RedirectTo(
-                "Account/RegisterConfirmation",
-                new Dictionary<string, object?> { ["email"] = Input.Email, ["returnUrl"] = ReturnUrl });
+            await UserStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
+            Logger.LogInformation("Имя пользователя установлено: {Email}", Input.Email);
+
+            var emailStore = GetEmailStore();
+            await emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
+            Logger.LogInformation("Email пользователя установлен: {Email}", Input.Email);
+        }
+        catch (Exception ex)
+        {
+            Logger.LogError(ex, "Ошибка при установке имени пользователя или email.");
+            registerResult = "Ошибка при установке имени пользователя или email.";
+            return;
+        }
+
+        var result = await UserManager.CreateAsync(user, Input.Password);
+        if (!result.Succeeded)
+        {
+            registerResult = string.Join(", ", result.Errors.Select(e => e.Description));
+            Logger.LogError("Ошибка при создании пользователя: {Errors}", registerResult);
+            return;
+        }
+
+        Logger.LogInformation("Пользователь успешно создан: {Email}", Input.Email);
+        await UserManager.AddToRoleAsync(user, "common_user");
+        Logger.LogInformation("Пользователю назначена роль 'common_user'.");
+
+        try
+        {
+            Logger.LogInformation("Попытка отправки email с подтверждением.");
+
+            var userId = await UserManager.GetUserIdAsync(user);
+            var code = await UserManager.GenerateEmailConfirmationTokenAsync(user);
+            code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
+
+            var callbackUrl = RedirectManager.GetUriWithQueryParameters(
+                "Account/ConfirmEmail",
+                new Dictionary<string, object?>
+                {
+                    ["userId"] = userId,
+                    ["code"] = code,
+                    ["returnUrl"] = ReturnUrl
+                });
+
+            _ = EmailSender.SendEmailAsync(
+                Input.Email,
+                "Подтвердите регистрацию на media-random.ru",
+                $@"
+            <html>
+            <body>
+                <p>Приветствуем вас на media-random.ru!</p>
+                <p>Теперь у вас есть профиль на нашем сайте. Чтобы активировать его, подтвердите ваш e-mail.</p>
+                <p><a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>Подтвердить</a></p>
+                <p style='font-size: smaller;'>Если честно - подтверждение ни на что не влияет(сможете почту менять, да пароль. Будто кто-то зарегистрируется. Ха-ха)</p>
+                <p style='font-size: smaller;'>Если вы не регистрировались и получили это письмо случайно, проигнорируйте его.</p>
+            </body>
+            </html>"
+                );
+
+            Logger.LogInformation("Email с подтверждением отправлен в фоне: {Email}", Input.Email);
+        }
+        catch (Exception ex)
+        {
+            Logger.LogError(ex, "Ошибка при отправке email подтверждения для {Email}", Input.Email);
         }
 
         await SignInManager.SignInAsync(user, false);
-        RedirectManager.RedirectTo(ReturnUrl);
+        Logger.LogInformation("Пользователь автоматически вошел в систему: {Email}", Input.Email);
+
+        Logger.LogInformation("Редирект на главную страницу после регистрации.");
+        NavigationManager.NavigateTo("/");
     }
 
     private IdentityUser CreateUser()
@@ -142,10 +180,10 @@
         {
             return Activator.CreateInstance<IdentityUser>();
         }
-        catch
+        catch (Exception ex)
         {
-            throw new InvalidOperationException($"Can't create an instance of '{nameof(IdentityUser)}'. " +
-                                                $"Ensure that '{nameof(IdentityUser)}' is not an abstract class and has a parameterless constructor.");
+            Logger.LogError(ex, "Ошибка при создании экземпляра пользователя.");
+            throw new InvalidOperationException($"Не удалось создать экземпляр '{nameof(IdentityUser)}'. Убедитесь, что '{nameof(IdentityUser)}' не является абстрактным классом и имеет конструктор без параметров.");
         }
     }
 
@@ -153,7 +191,7 @@
     {
         if (!UserManager.SupportsUserEmail)
         {
-            throw new NotSupportedException("The default UI requires a user store with email support.");
+            throw new NotSupportedException("Интерфейс требует поддержки email.");
         }
         return (IUserEmailStore<IdentityUser>)UserStore;
     }
