@@ -8,6 +8,7 @@
 @inject UserManager<IdentityUser> UserManager
 @inject ShikimoriApiConnectorService ShikimoriApiConnectorService
 @inject GameService GameService
+@inject IMessageService Message
 @attribute [Authorize]
 
 
@@ -289,9 +290,17 @@
         {
             var ids = new List<long>();
             ids.Add(gameChoice.GameId);
-            var gameDetails = await GameService.GetGamesAsync(ids, 1);
-            var firstGameDetail = gameDetails.ElementAt(0);
-            _paginatedGameDetails.Add(Tuple.Create(firstGameDetail, gameChoice.ChosenAt));
+            try
+            {
+                var gameDetails = await GameService.GetGamesAsync(ids, 1);
+                var firstGameDetail = gameDetails.ElementAt(0);
+                _paginatedGameDetails.Add(Tuple.Create(firstGameDetail, gameChoice.ChosenAt));
+            }
+
+            catch (Exception ex)
+            {
+                await Message.Error("Произошла ошибка. Не удалось загрузить историю.");
+            }
         }
     }
 
