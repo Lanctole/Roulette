@@ -10,9 +10,7 @@
     protected string? SelectedScore;
     protected string? SelectedFromYear;
     protected string? SelectedToYear;
-    protected double DateFrom;
-    protected double DateTo;
-    protected (double, double) DefaultDate = (1995, 2024);
+    protected (double, double) DateTuple = (1995, 2024);
     protected string? Season;
     protected bool GetDetailedData;
     protected List<string> SelectedGenres = new();
@@ -20,10 +18,6 @@
     protected readonly int Limit = 5;
     protected readonly int Page = 1;
 
-    protected override async Task OnInitializedAsync()
-    {
-        (DateFrom, DateTo) = DefaultDate;
-    }
 
     protected void OnSelectedGenresChanged(List<string> selectedGenres)
     {
@@ -81,8 +75,8 @@
 
     private void SetSeason()
     {
-        SelectedFromYear = DateFrom.ToString();
-        SelectedToYear = DateTo.ToString();
+        SelectedFromYear = DateTuple.Item1.ToString();
+        SelectedToYear = DateTuple.Item2.ToString();
         Season = SelectedFromYear;
 
         if (!string.IsNullOrWhiteSpace(SelectedToYear))
@@ -113,10 +107,6 @@
         Js.InvokeVoidAsync("startSpin", mediaName);
     }
 
-    protected void HandleDateSliderChange((double, double) newValue)
-    {
-        (DateFrom, DateTo) = newValue;
-    }
 
     protected void SetCanvasVisibilityToTrue()
     {

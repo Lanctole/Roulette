@@ -35,7 +35,7 @@
     <div style="display: flex; align-items: center;">
         <span>Дата выхода:</span>
         <AntDesign.InputNumber Style="border: none; background-color: transparent; width: 60px; margin-left: 1px; margin-right: -10px;"
-                               @bind-Value="@DateFrom"
+                           @bind-Value="@DateTuple.Item1"
                                Disabled="true"
                                TValue="double"
                                Bordered="false"
@@ -43,11 +43,11 @@
         <Slider TValue="(double, double)"
                 Min="1950"
                 Max="2024"
-                DefaultValue="DefaultDate"
+                DefaultValue="DateTuple"
                 Style="flex-grow: 1; margin-left: 0; margin-right: 0;"
-                OnChange="HandleDateSliderChange"/>
+            @bind-Value="@DateTuple" />
         <AntDesign.InputNumber Style="border: none; background-color: transparent; width: 60px; margin-left: 5px;"
-                               @bind-Value="@DateTo"
+                           @bind-Value="@DateTuple.Item2"
                                Disabled="true"
                                TValue="double"
                                Bordered="false"

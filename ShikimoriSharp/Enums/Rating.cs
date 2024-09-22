@@ -27,7 +27,7 @@ public enum Rating
     /// <summary>
     /// R_plus - Mild Nudity (may also contain violence and profanity)
     /// </summary>
-    [Description("R+ -18+ Содержит сцены оголения")]
+    [Description("R+ - 18+ Содержит сцены оголения")]
     r_plus,
     /// <summary>
     /// Rx - Hentai (extreme sexual content/nudity)
