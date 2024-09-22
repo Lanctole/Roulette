@@ -126,6 +126,10 @@ public class AnimeController
             var animes = await _apiConnectorService.GetAnimes(settings);
             return Ok(animes);
         }
+        catch (HttpRequestException httpEx)
+        {
+            return StatusCode(503, $"Ошибка запроса к API: {httpEx.Message}");
+        }
         catch (Exception ex)
         {
             return StatusCode(500, $"Внутренняя ошибка сервера: {ex.Message}");
@@ -149,6 +153,10 @@ public class AnimeController
         {
             var anime = await _apiConnectorService.GetAnimeById(id);
             return Ok(anime);
+        }
+        catch (HttpRequestException httpEx)
+        {
+            return StatusCode(503, $"Ошибка запроса к API: {httpEx.Message}");
         }
         catch (Exception ex)
         {

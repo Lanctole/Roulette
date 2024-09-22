@@ -67,9 +67,14 @@
             TransferMediaPropsToSpinFunc(detailedItems);
             return detailedItems;
         }
+        catch (HttpRequestException httpEx)
+        {
+            await Message.Error("К сожалению, Shikimori не отвечает. Попробуйте снова через некоторое время");
+            return new List<SmallRepresentation>();
+        }
         catch (Exception ex)
         {
-            await Message.Error("Произошла ошибка при загрузке. Попробуйте через какое-то время, перезагрузите страницу или измените фильтры.");
+            await Message.Error("Произошла ошибка при загрузке. Перезагрузите страницу или измените фильтры. Если проблема не исчезает - сообщите нам.");
             return new List<SmallRepresentation>();
         }
     }

@@ -54,7 +54,7 @@ public class ApiClientService
         catch (HttpRequestException e)
         {
             _logger.LogError(e, "Ошибка при отправке запроса к {Endpoint}: {Message}", endpoint, e.Message);
-            throw new Exception($"Ошибка при отправке запроса к {endpoint}: {e.Message}", e);
+            throw new HttpRequestException($"Ошибка при отправке запроса к {endpoint}: {e.Message}", e);
         }
         catch (JsonException e)
         {

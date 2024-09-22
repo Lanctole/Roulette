@@ -74,6 +74,10 @@ public class MangaController
             var mangas = await _apiConnectorService.GetMangas(settings);
             return Ok(mangas);
         }
+        catch (HttpRequestException httpEx)
+        {
+            return StatusCode(503, $"Ошибка запроса к API: {httpEx.Message}");
+        }
         catch (Exception ex)
         {
             return StatusCode(500, $"Внутренняя ошибка сервера: {ex.Message}");
@@ -97,6 +101,10 @@ public class MangaController
         {
             var manga = await _apiConnectorService.GetMangaById(id);
             return Ok(manga);
+        }
+        catch (HttpRequestException httpEx)
+        {
+            return StatusCode(503, $"Ошибка запроса к API: {httpEx.Message}");
         }
         catch (Exception ex)
         {
