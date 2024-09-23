@@ -1,0 +1,46 @@
+### YamlMime:ManagedReference
+items:
+- uid: Roulette.Data
+  commentId: N:Roulette.Data
+  id: Roulette.Data
+  children:
+  - Roulette.Data.ApplicationDbContext
+  langs:
+  - csharp
+  - vb
+  name: Roulette.Data
+  nameWithType: Roulette.Data
+  fullName: Roulette.Data
+  type: Namespace
+  assemblies:
+  - Roulette
+references:
+- uid: Roulette.Data.ApplicationDbContext
+  commentId: T:Roulette.Data.ApplicationDbContext
+  parent: Roulette.Data
+  href: Roulette.Data.ApplicationDbContext.html
+  name: ApplicationDbContext
+  nameWithType: ApplicationDbContext
+  fullName: Roulette.Data.ApplicationDbContext
+- uid: Roulette.Data
+  commentId: N:Roulette.Data
+  href: Roulette.html
+  name: Roulette.Data
+  nameWithType: Roulette.Data
+  fullName: Roulette.Data
+  spec.csharp:
+  - uid: Roulette
+    name: Roulette
+    href: Roulette.html
+  - name: .
+  - uid: Roulette.Data
+    name: Data
+    href: Roulette.Data.html
+  spec.vb:
+  - uid: Roulette
+    name: Roulette
+    href: Roulette.html
+  - name: .
+  - uid: Roulette.Data
+    name: Data
+    href: Roulette.Data.html

@@ -1,0 +1,1674 @@
+### YamlMime:ManagedReference
+items:
+- uid: Roulette.Components.Pages.Steam.SteamGames
+  commentId: T:Roulette.Components.Pages.Steam.SteamGames
+  id: SteamGames
+  parent: Roulette.Components.Pages.Steam
+  children:
+  - Roulette.Components.Pages.Steam.SteamGames.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
+  - Roulette.Components.Pages.Steam.SteamGames.CostMax
+  - Roulette.Components.Pages.Steam.SteamGames.CostMin
+  - Roulette.Components.Pages.Steam.SteamGames.DateFrom
+  - Roulette.Components.Pages.Steam.SteamGames.DateTo
+  - Roulette.Components.Pages.Steam.SteamGames.DefaultCost
+  - Roulette.Components.Pages.Steam.SteamGames.DefaultDate
+  - Roulette.Components.Pages.Steam.SteamGames.DefaultMetacritic
+  - Roulette.Components.Pages.Steam.SteamGames.DefaultSteam
+  - Roulette.Components.Pages.Steam.SteamGames.Games
+  - Roulette.Components.Pages.Steam.SteamGames.MetacriticMax
+  - Roulette.Components.Pages.Steam.SteamGames.MetacriticMin
+  - Roulette.Components.Pages.Steam.SteamGames.OnInitializedAsync
+  - Roulette.Components.Pages.Steam.SteamGames.OnSelectedGameGenresChanged(System.Collections.Generic.List{System.String})
+  - Roulette.Components.Pages.Steam.SteamGames.OnSelectedGameLanguagesChanged(System.Collections.Generic.List{System.String})
+  - Roulette.Components.Pages.Steam.SteamGames.SelectedFromYear
+  - Roulette.Components.Pages.Steam.SteamGames.SelectedGameLanguages
+  - Roulette.Components.Pages.Steam.SteamGames.SelectedGenres
+  - Roulette.Components.Pages.Steam.SteamGames.SelectedToYear
+  - Roulette.Components.Pages.Steam.SteamGames.ShowCanvas
+  - Roulette.Components.Pages.Steam.SteamGames.SteamMax
+  - Roulette.Components.Pages.Steam.SteamGames.SteamMin
+  langs:
+  - csharp
+  - vb
+  name: SteamGames
+  nameWithType: SteamGames
+  fullName: Roulette.Components.Pages.Steam.SteamGames
+  type: Class
+  source:
+    id: SteamGames
+    path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Pages_Steam_SteamGames_razor.g.cs
+    startLine: 151
+  assemblies:
+  - Roulette
+  namespace: Roulette.Components.Pages.Steam
+  syntax:
+    content: >-
+      [Route("/games")]
+
+      public class SteamGames : ComponentBase, IComponent, IHandleEvent, IHandleAfterRender
+    content.vb: >-
+      <Route("/games")>
+
+      Public Class SteamGames Inherits ComponentBase Implements IComponent, IHandleEvent, IHandleAfterRender
+  inheritance:
+  - System.Object
+  - Microsoft.AspNetCore.Components.ComponentBase
+  implements:
+  - Microsoft.AspNetCore.Components.IComponent
+  - Microsoft.AspNetCore.Components.IHandleEvent
+  - Microsoft.AspNetCore.Components.IHandleAfterRender
+  inheritedMembers:
+  - Microsoft.AspNetCore.Components.ComponentBase.OnInitialized
+  - Microsoft.AspNetCore.Components.ComponentBase.OnParametersSet
+  - Microsoft.AspNetCore.Components.ComponentBase.OnParametersSetAsync
+  - Microsoft.AspNetCore.Components.ComponentBase.StateHasChanged
+  - Microsoft.AspNetCore.Components.ComponentBase.ShouldRender
+  - Microsoft.AspNetCore.Components.ComponentBase.OnAfterRender(System.Boolean)
+  - Microsoft.AspNetCore.Components.ComponentBase.OnAfterRenderAsync(System.Boolean)
+  - Microsoft.AspNetCore.Components.ComponentBase.InvokeAsync(System.Action)
+  - Microsoft.AspNetCore.Components.ComponentBase.InvokeAsync(System.Func{System.Threading.Tasks.Task})
+  - Microsoft.AspNetCore.Components.ComponentBase.DispatchExceptionAsync(System.Exception)
+  - Microsoft.AspNetCore.Components.ComponentBase.SetParametersAsync(Microsoft.AspNetCore.Components.ParameterView)
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: Microsoft.AspNetCore.Components.RouteAttribute
+    ctor: Microsoft.AspNetCore.Components.RouteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: /games
+- uid: Roulette.Components.Pages.Steam.SteamGames.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
+  commentId: M:Roulette.Components.Pages.Steam.SteamGames.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
+  id: BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
+  parent: Roulette.Components.Pages.Steam.SteamGames
+  langs:
+  - csharp
+  - vb
+  name: BuildRenderTree(RenderTreeBuilder)
+  nameWithType: SteamGames.BuildRenderTree(RenderTreeBuilder)
+  fullName: Roulette.Components.Pages.Steam.SteamGames.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
+  type: Method
+  source:
+    id: BuildRenderTree
+    path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Pages_Steam_SteamGames_razor.g.cs
+    startLine: 166
+  assemblies:
+  - Roulette
+  namespace: Roulette.Components.Pages.Steam
+  summary: Renders the component to the supplied <xref href="Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: protected override void BuildRenderTree(RenderTreeBuilder __builder)
+    parameters:
+    - id: __builder
+      type: Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder
+    content.vb: Protected Overrides Sub BuildRenderTree(__builder As RenderTreeBuilder)
+  overridden: Microsoft.AspNetCore.Components.ComponentBase.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
+  overload: Roulette.Components.Pages.Steam.SteamGames.BuildRenderTree*
+- uid: Roulette.Components.Pages.Steam.SteamGames.DefaultCost
+  commentId: F:Roulette.Components.Pages.Steam.SteamGames.DefaultCost
+  id: DefaultCost
+  parent: Roulette.Components.Pages.Steam.SteamGames
+  langs:
+  - csharp
+  - vb
+  name: DefaultCost
+  nameWithType: SteamGames.DefaultCost
+  fullName: Roulette.Components.Pages.Steam.SteamGames.DefaultCost
+  type: Field
+  source:
+    id: DefaultCost
+    path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Pages_Steam_SteamGames_razor.g.cs
+    startLine: 711
+  assemblies:
+  - Roulette
+  namespace: Roulette.Components.Pages.Steam
+  syntax:
+    content: protected (double, double) DefaultCost
+    return:
+      type: System.ValueTuple{System.Double,System.Double}
+    content.vb: Protected DefaultCost As (Double, Double)
+- uid: Roulette.Components.Pages.Steam.SteamGames.DefaultDate
+  commentId: F:Roulette.Components.Pages.Steam.SteamGames.DefaultDate
+  id: DefaultDate
+  parent: Roulette.Components.Pages.Steam.SteamGames
+  langs:
+  - csharp
+  - vb
+  name: DefaultDate
+  nameWithType: SteamGames.DefaultDate
+  fullName: Roulette.Components.Pages.Steam.SteamGames.DefaultDate
+  type: Field
+  source:
+    id: DefaultDate
+    path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Pages_Steam_SteamGames_razor.g.cs
+    startLine: 712
+  assemblies:
+  - Roulette
+  namespace: Roulette.Components.Pages.Steam
+  syntax:
+    content: protected (double, double) DefaultDate
+    return:
+      type: System.ValueTuple{System.Double,System.Double}
+    content.vb: Protected DefaultDate As (Double, Double)
+- uid: Roulette.Components.Pages.Steam.SteamGames.DefaultSteam
+  commentId: F:Roulette.Components.Pages.Steam.SteamGames.DefaultSteam
+  id: DefaultSteam
+  parent: Roulette.Components.Pages.Steam.SteamGames
+  langs:
+  - csharp
+  - vb
+  name: DefaultSteam
+  nameWithType: SteamGames.DefaultSteam
+  fullName: Roulette.Components.Pages.Steam.SteamGames.DefaultSteam
+  type: Field
+  source:
+    id: DefaultSteam
+    path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Pages_Steam_SteamGames_razor.g.cs
+    startLine: 713
+  assemblies:
+  - Roulette
+  namespace: Roulette.Components.Pages.Steam
+  syntax:
+    content: protected (double, double) DefaultSteam
+    return:
+      type: System.ValueTuple{System.Double,System.Double}
+    content.vb: Protected DefaultSteam As (Double, Double)
+- uid: Roulette.Components.Pages.Steam.SteamGames.DefaultMetacritic
+  commentId: F:Roulette.Components.Pages.Steam.SteamGames.DefaultMetacritic
+  id: DefaultMetacritic
+  parent: Roulette.Components.Pages.Steam.SteamGames
+  langs:
+  - csharp
+  - vb
+  name: DefaultMetacritic
+  nameWithType: SteamGames.DefaultMetacritic
+  fullName: Roulette.Components.Pages.Steam.SteamGames.DefaultMetacritic
+  type: Field
+  source:
+    id: DefaultMetacritic
+    path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Pages_Steam_SteamGames_razor.g.cs
+    startLine: 714
+  assemblies:
+  - Roulette
+  namespace: Roulette.Components.Pages.Steam
+  syntax:
+    content: protected (double, double) DefaultMetacritic
+    return:
+      type: System.ValueTuple{System.Double,System.Double}
+    content.vb: Protected DefaultMetacritic As (Double, Double)
+- uid: Roulette.Components.Pages.Steam.SteamGames.SelectedGenres
+  commentId: F:Roulette.Components.Pages.Steam.SteamGames.SelectedGenres
+  id: SelectedGenres
+  parent: Roulette.Components.Pages.Steam.SteamGames
+  langs:
+  - csharp
+  - vb
+  name: SelectedGenres
+  nameWithType: SteamGames.SelectedGenres
+  fullName: Roulette.Components.Pages.Steam.SteamGames.SelectedGenres
+  type: Field
+  source:
+    id: SelectedGenres
+    path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Pages_Steam_SteamGames_razor.g.cs
+    startLine: 715
+  assemblies:
+  - Roulette
+  namespace: Roulette.Components.Pages.Steam
+  syntax:
+    content: protected List<string> SelectedGenres
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Protected SelectedGenres As List(Of String)
+- uid: Roulette.Components.Pages.Steam.SteamGames.SelectedGameLanguages
+  commentId: F:Roulette.Components.Pages.Steam.SteamGames.SelectedGameLanguages
+  id: SelectedGameLanguages
+  parent: Roulette.Components.Pages.Steam.SteamGames
+  langs:
+  - csharp
+  - vb
+  name: SelectedGameLanguages
+  nameWithType: SteamGames.SelectedGameLanguages
+  fullName: Roulette.Components.Pages.Steam.SteamGames.SelectedGameLanguages
+  type: Field
+  source:
+    id: SelectedGameLanguages
+    path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Pages_Steam_SteamGames_razor.g.cs
+    startLine: 716
+  assemblies:
+  - Roulette
+  namespace: Roulette.Components.Pages.Steam
+  syntax:
+    content: protected List<string> SelectedGameLanguages
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Protected SelectedGameLanguages As List(Of String)
+- uid: Roulette.Components.Pages.Steam.SteamGames.SteamMin
+  commentId: F:Roulette.Components.Pages.Steam.SteamGames.SteamMin
+  id: SteamMin
+  parent: Roulette.Components.Pages.Steam.SteamGames
+  langs:
+  - csharp
+  - vb
+  name: SteamMin
+  nameWithType: SteamGames.SteamMin
+  fullName: Roulette.Components.Pages.Steam.SteamGames.SteamMin
+  type: Field
+  source:
+    id: SteamMin
+    path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Pages_Steam_SteamGames_razor.g.cs
+    startLine: 718
+  assemblies:
+  - Roulette
+  namespace: Roulette.Components.Pages.Steam
+  syntax:
+    content: protected double SteamMin
+    return:
+      type: System.Double
+    content.vb: Protected SteamMin As Double
+- uid: Roulette.Components.Pages.Steam.SteamGames.SteamMax
+  commentId: F:Roulette.Components.Pages.Steam.SteamGames.SteamMax
+  id: SteamMax
+  parent: Roulette.Components.Pages.Steam.SteamGames
+  langs:
+  - csharp
+  - vb
+  name: SteamMax
+  nameWithType: SteamGames.SteamMax
+  fullName: Roulette.Components.Pages.Steam.SteamGames.SteamMax
+  type: Field
+  source:
+    id: SteamMax
+    path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Pages_Steam_SteamGames_razor.g.cs
+    startLine: 718
+  assemblies:
+  - Roulette
+  namespace: Roulette.Components.Pages.Steam
+  syntax:
+    content: protected double SteamMax
+    return:
+      type: System.Double
+    content.vb: Protected SteamMax As Double
+- uid: Roulette.Components.Pages.Steam.SteamGames.MetacriticMin
+  commentId: F:Roulette.Components.Pages.Steam.SteamGames.MetacriticMin
+  id: MetacriticMin
+  parent: Roulette.Components.Pages.Steam.SteamGames
+  langs:
+  - csharp
+  - vb
+  name: MetacriticMin
+  nameWithType: SteamGames.MetacriticMin
+  fullName: Roulette.Components.Pages.Steam.SteamGames.MetacriticMin
+  type: Field
+  source:
+    id: MetacriticMin
+    path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Pages_Steam_SteamGames_razor.g.cs
+    startLine: 718
+  assemblies:
+  - Roulette
+  namespace: Roulette.Components.Pages.Steam
+  syntax:
+    content: protected double MetacriticMin
+    return:
+      type: System.Double
+    content.vb: Protected MetacriticMin As Double
+- uid: Roulette.Components.Pages.Steam.SteamGames.MetacriticMax
+  commentId: F:Roulette.Components.Pages.Steam.SteamGames.MetacriticMax
+  id: MetacriticMax
+  parent: Roulette.Components.Pages.Steam.SteamGames
+  langs:
+  - csharp
+  - vb
+  name: MetacriticMax
+  nameWithType: SteamGames.MetacriticMax
+  fullName: Roulette.Components.Pages.Steam.SteamGames.MetacriticMax
+  type: Field
+  source:
+    id: MetacriticMax
+    path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Pages_Steam_SteamGames_razor.g.cs
+    startLine: 718
+  assemblies:
+  - Roulette
+  namespace: Roulette.Components.Pages.Steam
+  syntax:
+    content: protected double MetacriticMax
+    return:
+      type: System.Double
+    content.vb: Protected MetacriticMax As Double
+- uid: Roulette.Components.Pages.Steam.SteamGames.CostMin
+  commentId: F:Roulette.Components.Pages.Steam.SteamGames.CostMin
+  id: CostMin
+  parent: Roulette.Components.Pages.Steam.SteamGames
+  langs:
+  - csharp
+  - vb
+  name: CostMin
+  nameWithType: SteamGames.CostMin
+  fullName: Roulette.Components.Pages.Steam.SteamGames.CostMin
+  type: Field
+  source:
+    id: CostMin
+    path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Pages_Steam_SteamGames_razor.g.cs
+    startLine: 718
+  assemblies:
+  - Roulette
+  namespace: Roulette.Components.Pages.Steam
+  syntax:
+    content: protected double CostMin
+    return:
+      type: System.Double
+    content.vb: Protected CostMin As Double
+- uid: Roulette.Components.Pages.Steam.SteamGames.CostMax
+  commentId: F:Roulette.Components.Pages.Steam.SteamGames.CostMax
+  id: CostMax
+  parent: Roulette.Components.Pages.Steam.SteamGames
+  langs:
+  - csharp
+  - vb
+  name: CostMax
+  nameWithType: SteamGames.CostMax
+  fullName: Roulette.Components.Pages.Steam.SteamGames.CostMax
+  type: Field
+  source:
+    id: CostMax
+    path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Pages_Steam_SteamGames_razor.g.cs
+    startLine: 718
+  assemblies:
+  - Roulette
+  namespace: Roulette.Components.Pages.Steam
+  syntax:
+    content: protected double CostMax
+    return:
+      type: System.Double
+    content.vb: Protected CostMax As Double
+- uid: Roulette.Components.Pages.Steam.SteamGames.DateFrom
+  commentId: F:Roulette.Components.Pages.Steam.SteamGames.DateFrom
+  id: DateFrom
+  parent: Roulette.Components.Pages.Steam.SteamGames
+  langs:
+  - csharp
+  - vb
+  name: DateFrom
+  nameWithType: SteamGames.DateFrom
+  fullName: Roulette.Components.Pages.Steam.SteamGames.DateFrom
+  type: Field
+  source:
+    id: DateFrom
+    path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Pages_Steam_SteamGames_razor.g.cs
+    startLine: 718
+  assemblies:
+  - Roulette
+  namespace: Roulette.Components.Pages.Steam
+  syntax:
+    content: protected double DateFrom
+    return:
+      type: System.Double
+    content.vb: Protected DateFrom As Double
+- uid: Roulette.Components.Pages.Steam.SteamGames.DateTo
+  commentId: F:Roulette.Components.Pages.Steam.SteamGames.DateTo
+  id: DateTo
+  parent: Roulette.Components.Pages.Steam.SteamGames
+  langs:
+  - csharp
+  - vb
+  name: DateTo
+  nameWithType: SteamGames.DateTo
+  fullName: Roulette.Components.Pages.Steam.SteamGames.DateTo
+  type: Field
+  source:
+    id: DateTo
+    path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Pages_Steam_SteamGames_razor.g.cs
+    startLine: 718
+  assemblies:
+  - Roulette
+  namespace: Roulette.Components.Pages.Steam
+  syntax:
+    content: protected double DateTo
+    return:
+      type: System.Double
+    content.vb: Protected DateTo As Double
+- uid: Roulette.Components.Pages.Steam.SteamGames.SelectedFromYear
+  commentId: F:Roulette.Components.Pages.Steam.SteamGames.SelectedFromYear
+  id: SelectedFromYear
+  parent: Roulette.Components.Pages.Steam.SteamGames
+  langs:
+  - csharp
+  - vb
+  name: SelectedFromYear
+  nameWithType: SteamGames.SelectedFromYear
+  fullName: Roulette.Components.Pages.Steam.SteamGames.SelectedFromYear
+  type: Field
+  source:
+    id: SelectedFromYear
+    path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Pages_Steam_SteamGames_razor.g.cs
+    startLine: 719
+  assemblies:
+  - Roulette
+  namespace: Roulette.Components.Pages.Steam
+  syntax:
+    content: protected string? SelectedFromYear
+    return:
+      type: System.String
+    content.vb: Protected SelectedFromYear As String
+- uid: Roulette.Components.Pages.Steam.SteamGames.SelectedToYear
+  commentId: F:Roulette.Components.Pages.Steam.SteamGames.SelectedToYear
+  id: SelectedToYear
+  parent: Roulette.Components.Pages.Steam.SteamGames
+  langs:
+  - csharp
+  - vb
+  name: SelectedToYear
+  nameWithType: SteamGames.SelectedToYear
+  fullName: Roulette.Components.Pages.Steam.SteamGames.SelectedToYear
+  type: Field
+  source:
+    id: SelectedToYear
+    path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Pages_Steam_SteamGames_razor.g.cs
+    startLine: 719
+  assemblies:
+  - Roulette
+  namespace: Roulette.Components.Pages.Steam
+  syntax:
+    content: protected string? SelectedToYear
+    return:
+      type: System.String
+    content.vb: Protected SelectedToYear As String
+- uid: Roulette.Components.Pages.Steam.SteamGames.Games
+  commentId: F:Roulette.Components.Pages.Steam.SteamGames.Games
+  id: Games
+  parent: Roulette.Components.Pages.Steam.SteamGames
+  langs:
+  - csharp
+  - vb
+  name: Games
+  nameWithType: SteamGames.Games
+  fullName: Roulette.Components.Pages.Steam.SteamGames.Games
+  type: Field
+  source:
+    id: Games
+    path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Pages_Steam_SteamGames_razor.g.cs
+    startLine: 720
+  assemblies:
+  - Roulette
+  namespace: Roulette.Components.Pages.Steam
+  syntax:
+    content: protected List<GameDto>? Games
+    return:
+      type: System.Collections.Generic.List{Roulette.DTOs.GameDto}
+    content.vb: Protected Games As List(Of GameDto)
+- uid: Roulette.Components.Pages.Steam.SteamGames.ShowCanvas
+  commentId: F:Roulette.Components.Pages.Steam.SteamGames.ShowCanvas
+  id: ShowCanvas
+  parent: Roulette.Components.Pages.Steam.SteamGames
+  langs:
+  - csharp
+  - vb
+  name: ShowCanvas
+  nameWithType: SteamGames.ShowCanvas
+  fullName: Roulette.Components.Pages.Steam.SteamGames.ShowCanvas
+  type: Field
+  source:
+    id: ShowCanvas
+    path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Pages_Steam_SteamGames_razor.g.cs
+    startLine: 721
+  assemblies:
+  - Roulette
+  namespace: Roulette.Components.Pages.Steam
+  syntax:
+    content: protected bool ShowCanvas
+    return:
+      type: System.Boolean
+    content.vb: Protected ShowCanvas As Boolean
+- uid: Roulette.Components.Pages.Steam.SteamGames.OnInitializedAsync
+  commentId: M:Roulette.Components.Pages.Steam.SteamGames.OnInitializedAsync
+  id: OnInitializedAsync
+  parent: Roulette.Components.Pages.Steam.SteamGames
+  langs:
+  - csharp
+  - vb
+  name: OnInitializedAsync()
+  nameWithType: SteamGames.OnInitializedAsync()
+  fullName: Roulette.Components.Pages.Steam.SteamGames.OnInitializedAsync()
+  type: Method
+  source:
+    id: OnInitializedAsync
+    path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Pages_Steam_SteamGames_razor.g.cs
+    startLine: 723
+  assemblies:
+  - Roulette
+  namespace: Roulette.Components.Pages.Steam
+  summary: >-
+    Method invoked when the component is ready to start, having received its
+
+    initial parameters from its parent in the render tree.
+
+
+    Override this method if you will perform an asynchronous operation and
+
+    want the component to refresh when that operation is completed.
+  example: []
+  syntax:
+    content: protected override Task OnInitializedAsync()
+    return:
+      type: System.Threading.Tasks.Task
+      description: A <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> representing any asynchronous operation.
+    content.vb: Protected Overrides Function OnInitializedAsync() As Task
+  overridden: Microsoft.AspNetCore.Components.ComponentBase.OnInitializedAsync
+  overload: Roulette.Components.Pages.Steam.SteamGames.OnInitializedAsync*
+- uid: Roulette.Components.Pages.Steam.SteamGames.OnSelectedGameGenresChanged(System.Collections.Generic.List{System.String})
+  commentId: M:Roulette.Components.Pages.Steam.SteamGames.OnSelectedGameGenresChanged(System.Collections.Generic.List{System.String})
+  id: OnSelectedGameGenresChanged(System.Collections.Generic.List{System.String})
+  parent: Roulette.Components.Pages.Steam.SteamGames
+  langs:
+  - csharp
+  - vb
+  name: OnSelectedGameGenresChanged(List<string>)
+  nameWithType: SteamGames.OnSelectedGameGenresChanged(List<string>)
+  fullName: Roulette.Components.Pages.Steam.SteamGames.OnSelectedGameGenresChanged(System.Collections.Generic.List<string>)
+  type: Method
+  source:
+    id: OnSelectedGameGenresChanged
+    path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Pages_Steam_SteamGames_razor.g.cs
+    startLine: 821
+  assemblies:
+  - Roulette
+  namespace: Roulette.Components.Pages.Steam
+  syntax:
+    content: protected void OnSelectedGameGenresChanged(List<string> selectedGenres)
+    parameters:
+    - id: selectedGenres
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Protected Sub OnSelectedGameGenresChanged(selectedGenres As List(Of String))
+  overload: Roulette.Components.Pages.Steam.SteamGames.OnSelectedGameGenresChanged*
+  nameWithType.vb: SteamGames.OnSelectedGameGenresChanged(List(Of String))
+  fullName.vb: Roulette.Components.Pages.Steam.SteamGames.OnSelectedGameGenresChanged(System.Collections.Generic.List(Of String))
+  name.vb: OnSelectedGameGenresChanged(List(Of String))
+- uid: Roulette.Components.Pages.Steam.SteamGames.OnSelectedGameLanguagesChanged(System.Collections.Generic.List{System.String})
+  commentId: M:Roulette.Components.Pages.Steam.SteamGames.OnSelectedGameLanguagesChanged(System.Collections.Generic.List{System.String})
+  id: OnSelectedGameLanguagesChanged(System.Collections.Generic.List{System.String})
+  parent: Roulette.Components.Pages.Steam.SteamGames
+  langs:
+  - csharp
+  - vb
+  name: OnSelectedGameLanguagesChanged(List<string>)
+  nameWithType: SteamGames.OnSelectedGameLanguagesChanged(List<string>)
+  fullName: Roulette.Components.Pages.Steam.SteamGames.OnSelectedGameLanguagesChanged(System.Collections.Generic.List<string>)
+  type: Method
+  source:
+    id: OnSelectedGameLanguagesChanged
+    path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Pages_Steam_SteamGames_razor.g.cs
+    startLine: 826
+  assemblies:
+  - Roulette
+  namespace: Roulette.Components.Pages.Steam
+  syntax:
+    content: protected void OnSelectedGameLanguagesChanged(List<string> selectedGameLanguages)
+    parameters:
+    - id: selectedGameLanguages
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Protected Sub OnSelectedGameLanguagesChanged(selectedGameLanguages As List(Of String))
+  overload: Roulette.Components.Pages.Steam.SteamGames.OnSelectedGameLanguagesChanged*
+  nameWithType.vb: SteamGames.OnSelectedGameLanguagesChanged(List(Of String))
+  fullName.vb: Roulette.Components.Pages.Steam.SteamGames.OnSelectedGameLanguagesChanged(System.Collections.Generic.List(Of String))
+  name.vb: OnSelectedGameLanguagesChanged(List(Of String))
+references:
+- uid: Roulette.Components.Pages.Steam
+  commentId: N:Roulette.Components.Pages.Steam
+  href: Roulette.html
+  name: Roulette.Components.Pages.Steam
+  nameWithType: Roulette.Components.Pages.Steam
+  fullName: Roulette.Components.Pages.Steam
+  spec.csharp:
+  - uid: Roulette
+    name: Roulette
+    href: Roulette.html
+  - name: .
+  - uid: Roulette.Components
+    name: Components
+    href: Roulette.Components.html
+  - name: .
+  - uid: Roulette.Components.Pages
+    name: Pages
+    href: Roulette.Components.Pages.html
+  - name: .
+  - uid: Roulette.Components.Pages.Steam
+    name: Steam
+    href: Roulette.Components.Pages.Steam.html
+  spec.vb:
+  - uid: Roulette
+    name: Roulette
+    href: Roulette.html
+  - name: .
+  - uid: Roulette.Components
+    name: Components
+    href: Roulette.Components.html
+  - name: .
+  - uid: Roulette.Components.Pages
+    name: Pages
+    href: Roulette.Components.Pages.html
+  - name: .
+  - uid: Roulette.Components.Pages.Steam
+    name: Steam
+    href: Roulette.Components.Pages.Steam.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Microsoft.AspNetCore.Components.ComponentBase
+  commentId: T:Microsoft.AspNetCore.Components.ComponentBase
+  parent: Microsoft.AspNetCore.Components
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase
+  name: ComponentBase
+  nameWithType: ComponentBase
+  fullName: Microsoft.AspNetCore.Components.ComponentBase
+- uid: Microsoft.AspNetCore.Components.IComponent
+  commentId: T:Microsoft.AspNetCore.Components.IComponent
+  parent: Microsoft.AspNetCore.Components
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.icomponent
+  name: IComponent
+  nameWithType: IComponent
+  fullName: Microsoft.AspNetCore.Components.IComponent
+- uid: Microsoft.AspNetCore.Components.IHandleEvent
+  commentId: T:Microsoft.AspNetCore.Components.IHandleEvent
+  parent: Microsoft.AspNetCore.Components
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.ihandleevent
+  name: IHandleEvent
+  nameWithType: IHandleEvent
+  fullName: Microsoft.AspNetCore.Components.IHandleEvent
+- uid: Microsoft.AspNetCore.Components.IHandleAfterRender
+  commentId: T:Microsoft.AspNetCore.Components.IHandleAfterRender
+  parent: Microsoft.AspNetCore.Components
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.ihandleafterrender
+  name: IHandleAfterRender
+  nameWithType: IHandleAfterRender
+  fullName: Microsoft.AspNetCore.Components.IHandleAfterRender
+- uid: Microsoft.AspNetCore.Components.ComponentBase.OnInitialized
+  commentId: M:Microsoft.AspNetCore.Components.ComponentBase.OnInitialized
+  parent: Microsoft.AspNetCore.Components.ComponentBase
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.oninitialized
+  name: OnInitialized()
+  nameWithType: ComponentBase.OnInitialized()
+  fullName: Microsoft.AspNetCore.Components.ComponentBase.OnInitialized()
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Components.ComponentBase.OnInitialized
+    name: OnInitialized
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.oninitialized
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Components.ComponentBase.OnInitialized
+    name: OnInitialized
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.oninitialized
+  - name: (
+  - name: )
+- uid: Microsoft.AspNetCore.Components.ComponentBase.OnParametersSet
+  commentId: M:Microsoft.AspNetCore.Components.ComponentBase.OnParametersSet
+  parent: Microsoft.AspNetCore.Components.ComponentBase
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.onparametersset
+  name: OnParametersSet()
+  nameWithType: ComponentBase.OnParametersSet()
+  fullName: Microsoft.AspNetCore.Components.ComponentBase.OnParametersSet()
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Components.ComponentBase.OnParametersSet
+    name: OnParametersSet
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.onparametersset
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Components.ComponentBase.OnParametersSet
+    name: OnParametersSet
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.onparametersset
+  - name: (
+  - name: )
+- uid: Microsoft.AspNetCore.Components.ComponentBase.OnParametersSetAsync
+  commentId: M:Microsoft.AspNetCore.Components.ComponentBase.OnParametersSetAsync
+  parent: Microsoft.AspNetCore.Components.ComponentBase
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.onparameterssetasync
+  name: OnParametersSetAsync()
+  nameWithType: ComponentBase.OnParametersSetAsync()
+  fullName: Microsoft.AspNetCore.Components.ComponentBase.OnParametersSetAsync()
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Components.ComponentBase.OnParametersSetAsync
+    name: OnParametersSetAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.onparameterssetasync
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Components.ComponentBase.OnParametersSetAsync
+    name: OnParametersSetAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.onparameterssetasync
+  - name: (
+  - name: )
+- uid: Microsoft.AspNetCore.Components.ComponentBase.StateHasChanged
+  commentId: M:Microsoft.AspNetCore.Components.ComponentBase.StateHasChanged
+  parent: Microsoft.AspNetCore.Components.ComponentBase
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.statehaschanged
+  name: StateHasChanged()
+  nameWithType: ComponentBase.StateHasChanged()
+  fullName: Microsoft.AspNetCore.Components.ComponentBase.StateHasChanged()
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Components.ComponentBase.StateHasChanged
+    name: StateHasChanged
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.statehaschanged
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Components.ComponentBase.StateHasChanged
+    name: StateHasChanged
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.statehaschanged
+  - name: (
+  - name: )
+- uid: Microsoft.AspNetCore.Components.ComponentBase.ShouldRender
+  commentId: M:Microsoft.AspNetCore.Components.ComponentBase.ShouldRender
+  parent: Microsoft.AspNetCore.Components.ComponentBase
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.shouldrender
+  name: ShouldRender()
+  nameWithType: ComponentBase.ShouldRender()
+  fullName: Microsoft.AspNetCore.Components.ComponentBase.ShouldRender()
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Components.ComponentBase.ShouldRender
+    name: ShouldRender
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.shouldrender
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Components.ComponentBase.ShouldRender
+    name: ShouldRender
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.shouldrender
+  - name: (
+  - name: )
+- uid: Microsoft.AspNetCore.Components.ComponentBase.OnAfterRender(System.Boolean)
+  commentId: M:Microsoft.AspNetCore.Components.ComponentBase.OnAfterRender(System.Boolean)
+  parent: Microsoft.AspNetCore.Components.ComponentBase
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.onafterrender
+  name: OnAfterRender(bool)
+  nameWithType: ComponentBase.OnAfterRender(bool)
+  fullName: Microsoft.AspNetCore.Components.ComponentBase.OnAfterRender(bool)
+  nameWithType.vb: ComponentBase.OnAfterRender(Boolean)
+  fullName.vb: Microsoft.AspNetCore.Components.ComponentBase.OnAfterRender(Boolean)
+  name.vb: OnAfterRender(Boolean)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Components.ComponentBase.OnAfterRender(System.Boolean)
+    name: OnAfterRender
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.onafterrender
+  - name: (
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Components.ComponentBase.OnAfterRender(System.Boolean)
+    name: OnAfterRender
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.onafterrender
+  - name: (
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: Microsoft.AspNetCore.Components.ComponentBase.OnAfterRenderAsync(System.Boolean)
+  commentId: M:Microsoft.AspNetCore.Components.ComponentBase.OnAfterRenderAsync(System.Boolean)
+  parent: Microsoft.AspNetCore.Components.ComponentBase
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.onafterrenderasync
+  name: OnAfterRenderAsync(bool)
+  nameWithType: ComponentBase.OnAfterRenderAsync(bool)
+  fullName: Microsoft.AspNetCore.Components.ComponentBase.OnAfterRenderAsync(bool)
+  nameWithType.vb: ComponentBase.OnAfterRenderAsync(Boolean)
+  fullName.vb: Microsoft.AspNetCore.Components.ComponentBase.OnAfterRenderAsync(Boolean)
+  name.vb: OnAfterRenderAsync(Boolean)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Components.ComponentBase.OnAfterRenderAsync(System.Boolean)
+    name: OnAfterRenderAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.onafterrenderasync
+  - name: (
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Components.ComponentBase.OnAfterRenderAsync(System.Boolean)
+    name: OnAfterRenderAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.onafterrenderasync
+  - name: (
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: Microsoft.AspNetCore.Components.ComponentBase.InvokeAsync(System.Action)
+  commentId: M:Microsoft.AspNetCore.Components.ComponentBase.InvokeAsync(System.Action)
+  parent: Microsoft.AspNetCore.Components.ComponentBase
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.invokeasync#microsoft-aspnetcore-components-componentbase-invokeasync(system-action)
+  name: InvokeAsync(Action)
+  nameWithType: ComponentBase.InvokeAsync(Action)
+  fullName: Microsoft.AspNetCore.Components.ComponentBase.InvokeAsync(System.Action)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Components.ComponentBase.InvokeAsync(System.Action)
+    name: InvokeAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.invokeasync#microsoft-aspnetcore-components-componentbase-invokeasync(system-action)
+  - name: (
+  - uid: System.Action
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Components.ComponentBase.InvokeAsync(System.Action)
+    name: InvokeAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.invokeasync#microsoft-aspnetcore-components-componentbase-invokeasync(system-action)
+  - name: (
+  - uid: System.Action
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action
+  - name: )
+- uid: Microsoft.AspNetCore.Components.ComponentBase.InvokeAsync(System.Func{System.Threading.Tasks.Task})
+  commentId: M:Microsoft.AspNetCore.Components.ComponentBase.InvokeAsync(System.Func{System.Threading.Tasks.Task})
+  parent: Microsoft.AspNetCore.Components.ComponentBase
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.invokeasync#microsoft-aspnetcore-components-componentbase-invokeasync(system-func((system-threading-tasks-task)))
+  name: InvokeAsync(Func<Task>)
+  nameWithType: ComponentBase.InvokeAsync(Func<Task>)
+  fullName: Microsoft.AspNetCore.Components.ComponentBase.InvokeAsync(System.Func<System.Threading.Tasks.Task>)
+  nameWithType.vb: ComponentBase.InvokeAsync(Func(Of Task))
+  fullName.vb: Microsoft.AspNetCore.Components.ComponentBase.InvokeAsync(System.Func(Of System.Threading.Tasks.Task))
+  name.vb: InvokeAsync(Func(Of Task))
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Components.ComponentBase.InvokeAsync(System.Func{System.Threading.Tasks.Task})
+    name: InvokeAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.invokeasync#microsoft-aspnetcore-components-componentbase-invokeasync(system-func((system-threading-tasks-task)))
+  - name: (
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: <
+  - uid: System.Threading.Tasks.Task
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Components.ComponentBase.InvokeAsync(System.Func{System.Threading.Tasks.Task})
+    name: InvokeAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.invokeasync#microsoft-aspnetcore-components-componentbase-invokeasync(system-func((system-threading-tasks-task)))
+  - name: (
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Threading.Tasks.Task
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  - name: )
+  - name: )
+- uid: Microsoft.AspNetCore.Components.ComponentBase.DispatchExceptionAsync(System.Exception)
+  commentId: M:Microsoft.AspNetCore.Components.ComponentBase.DispatchExceptionAsync(System.Exception)
+  parent: Microsoft.AspNetCore.Components.ComponentBase
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.dispatchexceptionasync
+  name: DispatchExceptionAsync(Exception)
+  nameWithType: ComponentBase.DispatchExceptionAsync(Exception)
+  fullName: Microsoft.AspNetCore.Components.ComponentBase.DispatchExceptionAsync(System.Exception)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Components.ComponentBase.DispatchExceptionAsync(System.Exception)
+    name: DispatchExceptionAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.dispatchexceptionasync
+  - name: (
+  - uid: System.Exception
+    name: Exception
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.exception
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Components.ComponentBase.DispatchExceptionAsync(System.Exception)
+    name: DispatchExceptionAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.dispatchexceptionasync
+  - name: (
+  - uid: System.Exception
+    name: Exception
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.exception
+  - name: )
+- uid: Microsoft.AspNetCore.Components.ComponentBase.SetParametersAsync(Microsoft.AspNetCore.Components.ParameterView)
+  commentId: M:Microsoft.AspNetCore.Components.ComponentBase.SetParametersAsync(Microsoft.AspNetCore.Components.ParameterView)
+  parent: Microsoft.AspNetCore.Components.ComponentBase
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.setparametersasync
+  name: SetParametersAsync(ParameterView)
+  nameWithType: ComponentBase.SetParametersAsync(ParameterView)
+  fullName: Microsoft.AspNetCore.Components.ComponentBase.SetParametersAsync(Microsoft.AspNetCore.Components.ParameterView)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Components.ComponentBase.SetParametersAsync(Microsoft.AspNetCore.Components.ParameterView)
+    name: SetParametersAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.setparametersasync
+  - name: (
+  - uid: Microsoft.AspNetCore.Components.ParameterView
+    name: ParameterView
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.parameterview
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Components.ComponentBase.SetParametersAsync(Microsoft.AspNetCore.Components.ParameterView)
+    name: SetParametersAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.setparametersasync
+  - name: (
+  - uid: Microsoft.AspNetCore.Components.ParameterView
+    name: ParameterView
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.parameterview
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Microsoft.AspNetCore.Components
+  commentId: N:Microsoft.AspNetCore.Components
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.AspNetCore.Components
+  nameWithType: Microsoft.AspNetCore.Components
+  fullName: Microsoft.AspNetCore.Components
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore
+  - name: .
+  - uid: Microsoft.AspNetCore.Components
+    name: Components
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore
+  - name: .
+  - uid: Microsoft.AspNetCore.Components
+    name: Components
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components
+- uid: Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder
+  commentId: T:Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder
+  parent: Microsoft.AspNetCore.Components.Rendering
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.rendering.rendertreebuilder
+  name: RenderTreeBuilder
+  nameWithType: RenderTreeBuilder
+  fullName: Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder
+- uid: Microsoft.AspNetCore.Components.ComponentBase.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
+  commentId: M:Microsoft.AspNetCore.Components.ComponentBase.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
+  parent: Microsoft.AspNetCore.Components.ComponentBase
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.buildrendertree
+  name: BuildRenderTree(RenderTreeBuilder)
+  nameWithType: ComponentBase.BuildRenderTree(RenderTreeBuilder)
+  fullName: Microsoft.AspNetCore.Components.ComponentBase.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Components.ComponentBase.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
+    name: BuildRenderTree
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.buildrendertree
+  - name: (
+  - uid: Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder
+    name: RenderTreeBuilder
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.rendering.rendertreebuilder
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Components.ComponentBase.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
+    name: BuildRenderTree
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.buildrendertree
+  - name: (
+  - uid: Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder
+    name: RenderTreeBuilder
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.rendering.rendertreebuilder
+  - name: )
+- uid: Roulette.Components.Pages.Steam.SteamGames.BuildRenderTree*
+  commentId: Overload:Roulette.Components.Pages.Steam.SteamGames.BuildRenderTree
+  href: Roulette.Components.Pages.Steam.SteamGames.html#Roulette_Components_Pages_Steam_SteamGames_BuildRenderTree_Microsoft_AspNetCore_Components_Rendering_RenderTreeBuilder_
+  name: BuildRenderTree
+  nameWithType: SteamGames.BuildRenderTree
+  fullName: Roulette.Components.Pages.Steam.SteamGames.BuildRenderTree
+- uid: Microsoft.AspNetCore.Components.Rendering
+  commentId: N:Microsoft.AspNetCore.Components.Rendering
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.AspNetCore.Components.Rendering
+  nameWithType: Microsoft.AspNetCore.Components.Rendering
+  fullName: Microsoft.AspNetCore.Components.Rendering
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore
+  - name: .
+  - uid: Microsoft.AspNetCore.Components
+    name: Components
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components
+  - name: .
+  - uid: Microsoft.AspNetCore.Components.Rendering
+    name: Rendering
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.rendering
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore
+  - name: .
+  - uid: Microsoft.AspNetCore.Components
+    name: Components
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components
+  - name: .
+  - uid: Microsoft.AspNetCore.Components.Rendering
+    name: Rendering
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.rendering
+- uid: System.ValueTuple{System.Double,System.Double}
+  commentId: T:System.ValueTuple{System.Double,System.Double}
+  parent: System
+  definition: System.ValueTuple`2
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: (double, double)
+  nameWithType: (double, double)
+  fullName: (double, double)
+  nameWithType.vb: (Double, Double)
+  fullName.vb: (Double, Double)
+  name.vb: (Double, Double)
+  spec.csharp:
+  - name: (
+  - uid: System.Double
+    name: double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: ','
+  - name: " "
+  - uid: System.Double
+    name: double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: )
+  spec.vb:
+  - name: (
+  - uid: System.Double
+    name: Double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: ','
+  - name: " "
+  - uid: System.Double
+    name: Double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: )
+- uid: System.ValueTuple`2
+  commentId: T:System.ValueTuple`2
+  name: (T1, T2)
+  nameWithType: (T1, T2)
+  fullName: (T1, T2)
+  spec.csharp:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )
+  spec.vb:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )
+- uid: System.Collections.Generic.List{System.String}
+  commentId: T:System.Collections.Generic.List{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<string>
+  nameWithType: List<string>
+  fullName: System.Collections.Generic.List<string>
+  nameWithType.vb: List(Of String)
+  fullName.vb: System.Collections.Generic.List(Of String)
+  name.vb: List(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Collections.Generic.List{Roulette.DTOs.GameDto}
+  commentId: T:System.Collections.Generic.List{Roulette.DTOs.GameDto}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<GameDto>
+  nameWithType: List<GameDto>
+  fullName: System.Collections.Generic.List<Roulette.DTOs.GameDto>
+  nameWithType.vb: List(Of GameDto)
+  fullName.vb: System.Collections.Generic.List(Of Roulette.DTOs.GameDto)
+  name.vb: List(Of GameDto)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Roulette.DTOs.GameDto
+    name: GameDto
+    href: Roulette.DTOs.GameDto.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Roulette.DTOs.GameDto
+    name: GameDto
+    href: Roulette.DTOs.GameDto.html
+  - name: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: Microsoft.AspNetCore.Components.ComponentBase.OnInitializedAsync
+  commentId: M:Microsoft.AspNetCore.Components.ComponentBase.OnInitializedAsync
+  parent: Microsoft.AspNetCore.Components.ComponentBase
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.oninitializedasync
+  name: OnInitializedAsync()
+  nameWithType: ComponentBase.OnInitializedAsync()
+  fullName: Microsoft.AspNetCore.Components.ComponentBase.OnInitializedAsync()
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Components.ComponentBase.OnInitializedAsync
+    name: OnInitializedAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.oninitializedasync
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Components.ComponentBase.OnInitializedAsync
+    name: OnInitializedAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.oninitializedasync
+  - name: (
+  - name: )
+- uid: Roulette.Components.Pages.Steam.SteamGames.OnInitializedAsync*
+  commentId: Overload:Roulette.Components.Pages.Steam.SteamGames.OnInitializedAsync
+  href: Roulette.Components.Pages.Steam.SteamGames.html#Roulette_Components_Pages_Steam_SteamGames_OnInitializedAsync
+  name: OnInitializedAsync
+  nameWithType: SteamGames.OnInitializedAsync
+  fullName: Roulette.Components.Pages.Steam.SteamGames.OnInitializedAsync
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: Roulette.Components.Pages.Steam.SteamGames.OnSelectedGameGenresChanged*
+  commentId: Overload:Roulette.Components.Pages.Steam.SteamGames.OnSelectedGameGenresChanged
+  href: Roulette.Components.Pages.Steam.SteamGames.html#Roulette_Components_Pages_Steam_SteamGames_OnSelectedGameGenresChanged_System_Collections_Generic_List_System_String__
+  name: OnSelectedGameGenresChanged
+  nameWithType: SteamGames.OnSelectedGameGenresChanged
+  fullName: Roulette.Components.Pages.Steam.SteamGames.OnSelectedGameGenresChanged
+- uid: Roulette.Components.Pages.Steam.SteamGames.OnSelectedGameLanguagesChanged*
+  commentId: Overload:Roulette.Components.Pages.Steam.SteamGames.OnSelectedGameLanguagesChanged
+  href: Roulette.Components.Pages.Steam.SteamGames.html#Roulette_Components_Pages_Steam_SteamGames_OnSelectedGameLanguagesChanged_System_Collections_Generic_List_System_String__
+  name: OnSelectedGameLanguagesChanged
+  nameWithType: SteamGames.OnSelectedGameLanguagesChanged
+  fullName: Roulette.Components.Pages.Steam.SteamGames.OnSelectedGameLanguagesChanged

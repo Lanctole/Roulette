@@ -1,0 +1,63 @@
+{
+  "metadata": [
+    {
+      "src": [
+        {
+          "src": "../../Roulette",
+          "files": [
+            "**/*.csproj"
+          ]
+        },
+        {
+          "src": "../IGDBSaver",
+          "files": [
+            "**/*.csproj"
+          ]
+        },
+        {
+          "src": "../Roulette",
+          "files": [
+            "**/*.csproj"
+          ]
+        },
+        {
+          "src": "../ShikimoriSharp",
+          "files": [
+            "**/*.csproj"
+          ]
+        }
+      ],
+      "dest": "api"
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": [
+          "**/*.{md,yml}"
+        ],
+        "exclude": [
+          "_site/**"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "images/**"
+        ]
+      }
+    ],
+    "output": "_site",
+    "template": [
+      "default",
+      "modern"
+    ],
+    "globalMetadata": {
+      "_appName": "Roulette Documentation",
+      "_appTitle": "Roulette Documentation",
+      "_enableSearch": true,
+      "pdf": false
+    }
+  }
+}

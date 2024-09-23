@@ -1,0 +1,788 @@
+### YamlMime:ManagedReference
+items:
+- uid: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase
+  commentId: T:ShikimoriSharp.Bases.AnimeMangaRanobeIdBase
+  id: AnimeMangaRanobeIdBase
+  parent: ShikimoriSharp.Bases
+  children:
+  - ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.Description
+  - ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.DescriptionHtml
+  - ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.English
+  - ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.Genres
+  - ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.Japanese
+  - ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.LicenseNameRu
+  - ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.Synonyms
+  langs:
+  - csharp
+  - vb
+  name: AnimeMangaRanobeIdBase
+  nameWithType: AnimeMangaRanobeIdBase
+  fullName: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase
+  type: Class
+  source:
+    remote:
+      path: ShikimoriSharp/Bases/AnimeMangaRanobeIdBase.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: AnimeMangaRanobeIdBase
+    path: ../ShikimoriSharp/Bases/AnimeMangaRanobeIdBase.cs
+    startLine: 5
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Bases
+  syntax:
+    content: 'public class AnimeMangaRanobeIdBase : AnimeMangaRanobeBase'
+    content.vb: Public Class AnimeMangaRanobeIdBase Inherits AnimeMangaRanobeBase
+  inheritance:
+  - System.Object
+  - ShikimoriSharp.Bases.SmallRepresentation
+  - ShikimoriSharp.Bases.AnimeMangaRanobeBase
+  derivedClasses:
+  - ShikimoriSharp.Classes.AnimeId
+  - ShikimoriSharp.Classes.MangaRanobeId
+  inheritedMembers:
+  - ShikimoriSharp.Bases.AnimeMangaRanobeBase.Kind
+  - ShikimoriSharp.Bases.AnimeMangaRanobeBase.Score
+  - ShikimoriSharp.Bases.AnimeMangaRanobeBase.Status
+  - ShikimoriSharp.Bases.AnimeMangaRanobeBase.AiredOn
+  - ShikimoriSharp.Bases.AnimeMangaRanobeBase.ReleasedOn
+  - ShikimoriSharp.Bases.SmallRepresentation.Id
+  - ShikimoriSharp.Bases.SmallRepresentation.Name
+  - ShikimoriSharp.Bases.SmallRepresentation.Russian
+  - ShikimoriSharp.Bases.SmallRepresentation.Image
+  - ShikimoriSharp.Bases.SmallRepresentation.Url
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.English
+  commentId: P:ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.English
+  id: English
+  parent: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase
+  langs:
+  - csharp
+  - vb
+  name: English
+  nameWithType: AnimeMangaRanobeIdBase.English
+  fullName: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.English
+  type: Property
+  source:
+    remote:
+      path: ShikimoriSharp/Bases/AnimeMangaRanobeIdBase.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: English
+    path: ../ShikimoriSharp/Bases/AnimeMangaRanobeIdBase.cs
+    startLine: 7
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Bases
+  syntax:
+    content: >-
+      [JsonProperty("english")]
+
+      public string[] English { get; set; }
+    parameters: []
+    return:
+      type: System.String[]
+    content.vb: >-
+      <JsonProperty("english")>
+
+      Public Property English As String()
+  overload: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.English*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: english
+- uid: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.Japanese
+  commentId: P:ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.Japanese
+  id: Japanese
+  parent: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase
+  langs:
+  - csharp
+  - vb
+  name: Japanese
+  nameWithType: AnimeMangaRanobeIdBase.Japanese
+  fullName: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.Japanese
+  type: Property
+  source:
+    remote:
+      path: ShikimoriSharp/Bases/AnimeMangaRanobeIdBase.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Japanese
+    path: ../ShikimoriSharp/Bases/AnimeMangaRanobeIdBase.cs
+    startLine: 9
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Bases
+  syntax:
+    content: >-
+      [JsonProperty("japanese")]
+
+      public string[] Japanese { get; set; }
+    parameters: []
+    return:
+      type: System.String[]
+    content.vb: >-
+      <JsonProperty("japanese")>
+
+      Public Property Japanese As String()
+  overload: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.Japanese*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: japanese
+- uid: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.Synonyms
+  commentId: P:ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.Synonyms
+  id: Synonyms
+  parent: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase
+  langs:
+  - csharp
+  - vb
+  name: Synonyms
+  nameWithType: AnimeMangaRanobeIdBase.Synonyms
+  fullName: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.Synonyms
+  type: Property
+  source:
+    remote:
+      path: ShikimoriSharp/Bases/AnimeMangaRanobeIdBase.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Synonyms
+    path: ../ShikimoriSharp/Bases/AnimeMangaRanobeIdBase.cs
+    startLine: 11
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Bases
+  syntax:
+    content: >-
+      [JsonProperty("synonyms")]
+
+      public string[] Synonyms { get; set; }
+    parameters: []
+    return:
+      type: System.String[]
+    content.vb: >-
+      <JsonProperty("synonyms")>
+
+      Public Property Synonyms As String()
+  overload: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.Synonyms*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: synonyms
+- uid: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.LicenseNameRu
+  commentId: P:ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.LicenseNameRu
+  id: LicenseNameRu
+  parent: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase
+  langs:
+  - csharp
+  - vb
+  name: LicenseNameRu
+  nameWithType: AnimeMangaRanobeIdBase.LicenseNameRu
+  fullName: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.LicenseNameRu
+  type: Property
+  source:
+    remote:
+      path: ShikimoriSharp/Bases/AnimeMangaRanobeIdBase.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: LicenseNameRu
+    path: ../ShikimoriSharp/Bases/AnimeMangaRanobeIdBase.cs
+    startLine: 13
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Bases
+  syntax:
+    content: >-
+      [JsonProperty("license_name_ru")]
+
+      public string LicenseNameRu { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("license_name_ru")>
+
+      Public Property LicenseNameRu As String
+  overload: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.LicenseNameRu*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: license_name_ru
+- uid: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.Description
+  commentId: P:ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.Description
+  id: Description
+  parent: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase
+  langs:
+  - csharp
+  - vb
+  name: Description
+  nameWithType: AnimeMangaRanobeIdBase.Description
+  fullName: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.Description
+  type: Property
+  source:
+    remote:
+      path: ShikimoriSharp/Bases/AnimeMangaRanobeIdBase.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Description
+    path: ../ShikimoriSharp/Bases/AnimeMangaRanobeIdBase.cs
+    startLine: 15
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Bases
+  syntax:
+    content: >-
+      [JsonProperty("description")]
+
+      public string Description { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("description")>
+
+      Public Property Description As String
+  overload: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.Description*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: description
+- uid: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.DescriptionHtml
+  commentId: P:ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.DescriptionHtml
+  id: DescriptionHtml
+  parent: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase
+  langs:
+  - csharp
+  - vb
+  name: DescriptionHtml
+  nameWithType: AnimeMangaRanobeIdBase.DescriptionHtml
+  fullName: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.DescriptionHtml
+  type: Property
+  source:
+    remote:
+      path: ShikimoriSharp/Bases/AnimeMangaRanobeIdBase.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: DescriptionHtml
+    path: ../ShikimoriSharp/Bases/AnimeMangaRanobeIdBase.cs
+    startLine: 17
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Bases
+  syntax:
+    content: >-
+      [JsonProperty("description_html")]
+
+      public string DescriptionHtml { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("description_html")>
+
+      Public Property DescriptionHtml As String
+  overload: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.DescriptionHtml*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: description_html
+- uid: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.Genres
+  commentId: P:ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.Genres
+  id: Genres
+  parent: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase
+  langs:
+  - csharp
+  - vb
+  name: Genres
+  nameWithType: AnimeMangaRanobeIdBase.Genres
+  fullName: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.Genres
+  type: Property
+  source:
+    remote:
+      path: ShikimoriSharp/Bases/AnimeMangaRanobeIdBase.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Genres
+    path: ../ShikimoriSharp/Bases/AnimeMangaRanobeIdBase.cs
+    startLine: 19
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Bases
+  syntax:
+    content: >-
+      [JsonProperty("genres")]
+
+      public Genre[] Genres { get; set; }
+    parameters: []
+    return:
+      type: ShikimoriSharp.Classes.Genre[]
+    content.vb: >-
+      <JsonProperty("genres")>
+
+      Public Property Genres As Genre()
+  overload: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.Genres*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: genres
+references:
+- uid: ShikimoriSharp.Bases
+  commentId: N:ShikimoriSharp.Bases
+  href: ShikimoriSharp.html
+  name: ShikimoriSharp.Bases
+  nameWithType: ShikimoriSharp.Bases
+  fullName: ShikimoriSharp.Bases
+  spec.csharp:
+  - uid: ShikimoriSharp
+    name: ShikimoriSharp
+    href: ShikimoriSharp.html
+  - name: .
+  - uid: ShikimoriSharp.Bases
+    name: Bases
+    href: ShikimoriSharp.Bases.html
+  spec.vb:
+  - uid: ShikimoriSharp
+    name: ShikimoriSharp
+    href: ShikimoriSharp.html
+  - name: .
+  - uid: ShikimoriSharp.Bases
+    name: Bases
+    href: ShikimoriSharp.Bases.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: ShikimoriSharp.Bases.SmallRepresentation
+  commentId: T:ShikimoriSharp.Bases.SmallRepresentation
+  parent: ShikimoriSharp.Bases
+  href: ShikimoriSharp.Bases.SmallRepresentation.html
+  name: SmallRepresentation
+  nameWithType: SmallRepresentation
+  fullName: ShikimoriSharp.Bases.SmallRepresentation
+- uid: ShikimoriSharp.Bases.AnimeMangaRanobeBase
+  commentId: T:ShikimoriSharp.Bases.AnimeMangaRanobeBase
+  parent: ShikimoriSharp.Bases
+  href: ShikimoriSharp.Bases.AnimeMangaRanobeBase.html
+  name: AnimeMangaRanobeBase
+  nameWithType: AnimeMangaRanobeBase
+  fullName: ShikimoriSharp.Bases.AnimeMangaRanobeBase
+- uid: ShikimoriSharp.Bases.AnimeMangaRanobeBase.Kind
+  commentId: P:ShikimoriSharp.Bases.AnimeMangaRanobeBase.Kind
+  parent: ShikimoriSharp.Bases.AnimeMangaRanobeBase
+  href: ShikimoriSharp.Bases.AnimeMangaRanobeBase.html#ShikimoriSharp_Bases_AnimeMangaRanobeBase_Kind
+  name: Kind
+  nameWithType: AnimeMangaRanobeBase.Kind
+  fullName: ShikimoriSharp.Bases.AnimeMangaRanobeBase.Kind
+- uid: ShikimoriSharp.Bases.AnimeMangaRanobeBase.Score
+  commentId: P:ShikimoriSharp.Bases.AnimeMangaRanobeBase.Score
+  parent: ShikimoriSharp.Bases.AnimeMangaRanobeBase
+  href: ShikimoriSharp.Bases.AnimeMangaRanobeBase.html#ShikimoriSharp_Bases_AnimeMangaRanobeBase_Score
+  name: Score
+  nameWithType: AnimeMangaRanobeBase.Score
+  fullName: ShikimoriSharp.Bases.AnimeMangaRanobeBase.Score
+- uid: ShikimoriSharp.Bases.AnimeMangaRanobeBase.Status
+  commentId: P:ShikimoriSharp.Bases.AnimeMangaRanobeBase.Status
+  parent: ShikimoriSharp.Bases.AnimeMangaRanobeBase
+  href: ShikimoriSharp.Bases.AnimeMangaRanobeBase.html#ShikimoriSharp_Bases_AnimeMangaRanobeBase_Status
+  name: Status
+  nameWithType: AnimeMangaRanobeBase.Status
+  fullName: ShikimoriSharp.Bases.AnimeMangaRanobeBase.Status
+- uid: ShikimoriSharp.Bases.AnimeMangaRanobeBase.AiredOn
+  commentId: P:ShikimoriSharp.Bases.AnimeMangaRanobeBase.AiredOn
+  parent: ShikimoriSharp.Bases.AnimeMangaRanobeBase
+  href: ShikimoriSharp.Bases.AnimeMangaRanobeBase.html#ShikimoriSharp_Bases_AnimeMangaRanobeBase_AiredOn
+  name: AiredOn
+  nameWithType: AnimeMangaRanobeBase.AiredOn
+  fullName: ShikimoriSharp.Bases.AnimeMangaRanobeBase.AiredOn
+- uid: ShikimoriSharp.Bases.AnimeMangaRanobeBase.ReleasedOn
+  commentId: P:ShikimoriSharp.Bases.AnimeMangaRanobeBase.ReleasedOn
+  parent: ShikimoriSharp.Bases.AnimeMangaRanobeBase
+  href: ShikimoriSharp.Bases.AnimeMangaRanobeBase.html#ShikimoriSharp_Bases_AnimeMangaRanobeBase_ReleasedOn
+  name: ReleasedOn
+  nameWithType: AnimeMangaRanobeBase.ReleasedOn
+  fullName: ShikimoriSharp.Bases.AnimeMangaRanobeBase.ReleasedOn
+- uid: ShikimoriSharp.Bases.SmallRepresentation.Id
+  commentId: P:ShikimoriSharp.Bases.SmallRepresentation.Id
+  parent: ShikimoriSharp.Bases.SmallRepresentation
+  href: ShikimoriSharp.Bases.SmallRepresentation.html#ShikimoriSharp_Bases_SmallRepresentation_Id
+  name: Id
+  nameWithType: SmallRepresentation.Id
+  fullName: ShikimoriSharp.Bases.SmallRepresentation.Id
+- uid: ShikimoriSharp.Bases.SmallRepresentation.Name
+  commentId: P:ShikimoriSharp.Bases.SmallRepresentation.Name
+  parent: ShikimoriSharp.Bases.SmallRepresentation
+  href: ShikimoriSharp.Bases.SmallRepresentation.html#ShikimoriSharp_Bases_SmallRepresentation_Name
+  name: Name
+  nameWithType: SmallRepresentation.Name
+  fullName: ShikimoriSharp.Bases.SmallRepresentation.Name
+- uid: ShikimoriSharp.Bases.SmallRepresentation.Russian
+  commentId: P:ShikimoriSharp.Bases.SmallRepresentation.Russian
+  parent: ShikimoriSharp.Bases.SmallRepresentation
+  href: ShikimoriSharp.Bases.SmallRepresentation.html#ShikimoriSharp_Bases_SmallRepresentation_Russian
+  name: Russian
+  nameWithType: SmallRepresentation.Russian
+  fullName: ShikimoriSharp.Bases.SmallRepresentation.Russian
+- uid: ShikimoriSharp.Bases.SmallRepresentation.Image
+  commentId: P:ShikimoriSharp.Bases.SmallRepresentation.Image
+  parent: ShikimoriSharp.Bases.SmallRepresentation
+  href: ShikimoriSharp.Bases.SmallRepresentation.html#ShikimoriSharp_Bases_SmallRepresentation_Image
+  name: Image
+  nameWithType: SmallRepresentation.Image
+  fullName: ShikimoriSharp.Bases.SmallRepresentation.Image
+- uid: ShikimoriSharp.Bases.SmallRepresentation.Url
+  commentId: P:ShikimoriSharp.Bases.SmallRepresentation.Url
+  parent: ShikimoriSharp.Bases.SmallRepresentation
+  href: ShikimoriSharp.Bases.SmallRepresentation.html#ShikimoriSharp_Bases_SmallRepresentation_Url
+  name: Url
+  nameWithType: SmallRepresentation.Url
+  fullName: ShikimoriSharp.Bases.SmallRepresentation.Url
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.English*
+  commentId: Overload:ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.English
+  href: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.html#ShikimoriSharp_Bases_AnimeMangaRanobeIdBase_English
+  name: English
+  nameWithType: AnimeMangaRanobeIdBase.English
+  fullName: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.English
+- uid: System.String[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string[]
+  nameWithType: string[]
+  fullName: string[]
+  nameWithType.vb: String()
+  fullName.vb: String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+- uid: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.Japanese*
+  commentId: Overload:ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.Japanese
+  href: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.html#ShikimoriSharp_Bases_AnimeMangaRanobeIdBase_Japanese
+  name: Japanese
+  nameWithType: AnimeMangaRanobeIdBase.Japanese
+  fullName: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.Japanese
+- uid: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.Synonyms*
+  commentId: Overload:ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.Synonyms
+  href: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.html#ShikimoriSharp_Bases_AnimeMangaRanobeIdBase_Synonyms
+  name: Synonyms
+  nameWithType: AnimeMangaRanobeIdBase.Synonyms
+  fullName: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.Synonyms
+- uid: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.LicenseNameRu*
+  commentId: Overload:ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.LicenseNameRu
+  href: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.html#ShikimoriSharp_Bases_AnimeMangaRanobeIdBase_LicenseNameRu
+  name: LicenseNameRu
+  nameWithType: AnimeMangaRanobeIdBase.LicenseNameRu
+  fullName: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.LicenseNameRu
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.Description*
+  commentId: Overload:ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.Description
+  href: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.html#ShikimoriSharp_Bases_AnimeMangaRanobeIdBase_Description
+  name: Description
+  nameWithType: AnimeMangaRanobeIdBase.Description
+  fullName: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.Description
+- uid: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.DescriptionHtml*
+  commentId: Overload:ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.DescriptionHtml
+  href: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.html#ShikimoriSharp_Bases_AnimeMangaRanobeIdBase_DescriptionHtml
+  name: DescriptionHtml
+  nameWithType: AnimeMangaRanobeIdBase.DescriptionHtml
+  fullName: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.DescriptionHtml
+- uid: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.Genres*
+  commentId: Overload:ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.Genres
+  href: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.html#ShikimoriSharp_Bases_AnimeMangaRanobeIdBase_Genres
+  name: Genres
+  nameWithType: AnimeMangaRanobeIdBase.Genres
+  fullName: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.Genres
+- uid: ShikimoriSharp.Classes.Genre[]
+  isExternal: true
+  href: ShikimoriSharp.Classes.Genre.html
+  name: Genre[]
+  nameWithType: Genre[]
+  fullName: ShikimoriSharp.Classes.Genre[]
+  nameWithType.vb: Genre()
+  fullName.vb: ShikimoriSharp.Classes.Genre()
+  name.vb: Genre()
+  spec.csharp:
+  - uid: ShikimoriSharp.Classes.Genre
+    name: Genre
+    href: ShikimoriSharp.Classes.Genre.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: ShikimoriSharp.Classes.Genre
+    name: Genre
+    href: ShikimoriSharp.Classes.Genre.html
+  - name: (
+  - name: )

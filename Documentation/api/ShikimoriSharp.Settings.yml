@@ -1,0 +1,107 @@
+### YamlMime:ManagedReference
+items:
+- uid: ShikimoriSharp.Settings
+  commentId: N:ShikimoriSharp.Settings
+  id: ShikimoriSharp.Settings
+  children:
+  - ShikimoriSharp.Settings.AnimeRateRequestSettings
+  - ShikimoriSharp.Settings.AnimeRequestSettings
+  - ShikimoriSharp.Settings.AnimeTopicSettings
+  - ShikimoriSharp.Settings.BasicSettings
+  - ShikimoriSharp.Settings.ClientSettings
+  - ShikimoriSharp.Settings.HistoryRequestSettings
+  - ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase
+  - ShikimoriSharp.Settings.MangaRequestSettings
+  - ShikimoriSharp.Settings.RanobeRequestSettings
+  langs:
+  - csharp
+  - vb
+  name: ShikimoriSharp.Settings
+  nameWithType: ShikimoriSharp.Settings
+  fullName: ShikimoriSharp.Settings
+  type: Namespace
+  assemblies:
+  - ShikimoriSharp
+references:
+- uid: ShikimoriSharp.Settings.AnimeRateRequestSettings
+  commentId: T:ShikimoriSharp.Settings.AnimeRateRequestSettings
+  href: ShikimoriSharp.Settings.AnimeRateRequestSettings.html
+  name: AnimeRateRequestSettings
+  nameWithType: AnimeRateRequestSettings
+  fullName: ShikimoriSharp.Settings.AnimeRateRequestSettings
+- uid: ShikimoriSharp.Settings.AnimeRequestSettings
+  commentId: T:ShikimoriSharp.Settings.AnimeRequestSettings
+  parent: ShikimoriSharp.Settings
+  href: ShikimoriSharp.Settings.AnimeRequestSettings.html
+  name: AnimeRequestSettings
+  nameWithType: AnimeRequestSettings
+  fullName: ShikimoriSharp.Settings.AnimeRequestSettings
+- uid: ShikimoriSharp.Settings.AnimeTopicSettings
+  commentId: T:ShikimoriSharp.Settings.AnimeTopicSettings
+  href: ShikimoriSharp.Settings.AnimeTopicSettings.html
+  name: AnimeTopicSettings
+  nameWithType: AnimeTopicSettings
+  fullName: ShikimoriSharp.Settings.AnimeTopicSettings
+- uid: ShikimoriSharp.Settings.BasicSettings
+  commentId: T:ShikimoriSharp.Settings.BasicSettings
+  parent: ShikimoriSharp.Settings
+  href: ShikimoriSharp.Settings.BasicSettings.html
+  name: BasicSettings
+  nameWithType: BasicSettings
+  fullName: ShikimoriSharp.Settings.BasicSettings
+- uid: ShikimoriSharp.Settings.ClientSettings
+  commentId: T:ShikimoriSharp.Settings.ClientSettings
+  parent: ShikimoriSharp.Settings
+  href: ShikimoriSharp.Settings.ClientSettings.html
+  name: ClientSettings
+  nameWithType: ClientSettings
+  fullName: ShikimoriSharp.Settings.ClientSettings
+- uid: ShikimoriSharp.Settings.HistoryRequestSettings
+  commentId: T:ShikimoriSharp.Settings.HistoryRequestSettings
+  href: ShikimoriSharp.Settings.HistoryRequestSettings.html
+  name: HistoryRequestSettings
+  nameWithType: HistoryRequestSettings
+  fullName: ShikimoriSharp.Settings.HistoryRequestSettings
+- uid: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase
+  commentId: T:ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase
+  parent: ShikimoriSharp.Settings
+  href: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.html
+  name: MangaAnimeRanobeRequestSettingsBase
+  nameWithType: MangaAnimeRanobeRequestSettingsBase
+  fullName: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase
+- uid: ShikimoriSharp.Settings.MangaRequestSettings
+  commentId: T:ShikimoriSharp.Settings.MangaRequestSettings
+  parent: ShikimoriSharp.Settings
+  href: ShikimoriSharp.Settings.MangaRequestSettings.html
+  name: MangaRequestSettings
+  nameWithType: MangaRequestSettings
+  fullName: ShikimoriSharp.Settings.MangaRequestSettings
+- uid: ShikimoriSharp.Settings.RanobeRequestSettings
+  commentId: T:ShikimoriSharp.Settings.RanobeRequestSettings
+  parent: ShikimoriSharp.Settings
+  href: ShikimoriSharp.Settings.RanobeRequestSettings.html
+  name: RanobeRequestSettings
+  nameWithType: RanobeRequestSettings
+  fullName: ShikimoriSharp.Settings.RanobeRequestSettings
+- uid: ShikimoriSharp.Settings
+  commentId: N:ShikimoriSharp.Settings
+  href: ShikimoriSharp.html
+  name: ShikimoriSharp.Settings
+  nameWithType: ShikimoriSharp.Settings
+  fullName: ShikimoriSharp.Settings
+  spec.csharp:
+  - uid: ShikimoriSharp
+    name: ShikimoriSharp
+    href: ShikimoriSharp.html
+  - name: .
+  - uid: ShikimoriSharp.Settings
+    name: Settings
+    href: ShikimoriSharp.Settings.html
+  spec.vb:
+  - uid: ShikimoriSharp
+    name: ShikimoriSharp
+    href: ShikimoriSharp.html
+  - name: .
+  - uid: ShikimoriSharp.Settings
+    name: Settings
+    href: ShikimoriSharp.Settings.html

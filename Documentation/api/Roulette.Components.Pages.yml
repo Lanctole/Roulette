@@ -1,0 +1,58 @@
+### YamlMime:ManagedReference
+items:
+- uid: Roulette.Components.Pages
+  commentId: N:Roulette.Components.Pages
+  id: Roulette.Components.Pages
+  children:
+  - Roulette.Components.Pages.Admin
+  - Roulette.Components.Pages.Auth
+  - Roulette.Components.Pages.BugReportList
+  - Roulette.Components.Pages.Error
+  - Roulette.Components.Pages.History
+  - Roulette.Components.Pages.Home
+  langs:
+  - csharp
+  - vb
+  name: Roulette.Components.Pages
+  nameWithType: Roulette.Components.Pages
+  fullName: Roulette.Components.Pages
+  type: Namespace
+  assemblies:
+  - Roulette
+references:
+- uid: Roulette.Components.Pages.Home
+  commentId: T:Roulette.Components.Pages.Home
+  href: Roulette.Components.Pages.Home.html
+  name: Home
+  nameWithType: Home
+  fullName: Roulette.Components.Pages.Home
+- uid: Roulette.Components.Pages.BugReportList
+  commentId: T:Roulette.Components.Pages.BugReportList
+  href: Roulette.Components.Pages.BugReportList.html
+  name: BugReportList
+  nameWithType: BugReportList
+  fullName: Roulette.Components.Pages.BugReportList
+- uid: Roulette.Components.Pages.History
+  commentId: T:Roulette.Components.Pages.History
+  href: Roulette.Components.Pages.History.html
+  name: History
+  nameWithType: History
+  fullName: Roulette.Components.Pages.History
+- uid: Roulette.Components.Pages.Admin
+  commentId: T:Roulette.Components.Pages.Admin
+  href: Roulette.Components.Pages.Admin.html
+  name: Admin
+  nameWithType: Admin
+  fullName: Roulette.Components.Pages.Admin
+- uid: Roulette.Components.Pages.Auth
+  commentId: T:Roulette.Components.Pages.Auth
+  href: Roulette.Components.Pages.Auth.html
+  name: Auth
+  nameWithType: Auth
+  fullName: Roulette.Components.Pages.Auth
+- uid: Roulette.Components.Pages.Error
+  commentId: T:Roulette.Components.Pages.Error
+  href: Roulette.Components.Pages.Error.html
+  name: Error
+  nameWithType: Error
+  fullName: Roulette.Components.Pages.Error

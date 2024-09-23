@@ -1,0 +1,119 @@
+### YamlMime:ManagedReference
+items:
+- uid: Roulette.Services
+  commentId: N:Roulette.Services
+  id: Roulette.Services
+  children:
+  - Roulette.Services.ApiClientService
+  - Roulette.Services.BugReportService
+  - Roulette.Services.EmailSender
+  - Roulette.Services.GameGenreService
+  - Roulette.Services.GameLanguageService
+  - Roulette.Services.GameQueryProcessor
+  - Roulette.Services.GameService
+  - Roulette.Services.LocalizedIdentityErrorDescriber
+  - Roulette.Services.SettingsService
+  - Roulette.Services.ShikimoriApiConnectorService
+  - Roulette.Services.UserChoiceHistoryService
+  langs:
+  - csharp
+  - vb
+  name: Roulette.Services
+  nameWithType: Roulette.Services
+  fullName: Roulette.Services
+  type: Namespace
+  assemblies:
+  - Roulette
+references:
+- uid: Roulette.Services.ApiClientService
+  commentId: T:Roulette.Services.ApiClientService
+  href: Roulette.Services.ApiClientService.html
+  name: ApiClientService
+  nameWithType: ApiClientService
+  fullName: Roulette.Services.ApiClientService
+- uid: Roulette.Services.BugReportService
+  commentId: T:Roulette.Services.BugReportService
+  href: Roulette.Services.BugReportService.html
+  name: BugReportService
+  nameWithType: BugReportService
+  fullName: Roulette.Services.BugReportService
+- uid: Roulette.Services.EmailSender
+  commentId: T:Roulette.Services.EmailSender
+  href: Roulette.Services.EmailSender.html
+  name: EmailSender
+  nameWithType: EmailSender
+  fullName: Roulette.Services.EmailSender
+- uid: Roulette.Services.GameGenreService
+  commentId: T:Roulette.Services.GameGenreService
+  parent: Roulette.Services
+  href: Roulette.Services.GameGenreService.html
+  name: GameGenreService
+  nameWithType: GameGenreService
+  fullName: Roulette.Services.GameGenreService
+- uid: Roulette.Services.GameLanguageService
+  commentId: T:Roulette.Services.GameLanguageService
+  parent: Roulette.Services
+  href: Roulette.Services.GameLanguageService.html
+  name: GameLanguageService
+  nameWithType: GameLanguageService
+  fullName: Roulette.Services.GameLanguageService
+- uid: Roulette.Services.GameQueryProcessor
+  commentId: T:Roulette.Services.GameQueryProcessor
+  href: Roulette.Services.GameQueryProcessor.html
+  name: GameQueryProcessor
+  nameWithType: GameQueryProcessor
+  fullName: Roulette.Services.GameQueryProcessor
+- uid: Roulette.Services.GameService
+  commentId: T:Roulette.Services.GameService
+  parent: Roulette.Services
+  href: Roulette.Services.GameService.html
+  name: GameService
+  nameWithType: GameService
+  fullName: Roulette.Services.GameService
+- uid: Roulette.Services.LocalizedIdentityErrorDescriber
+  commentId: T:Roulette.Services.LocalizedIdentityErrorDescriber
+  href: Roulette.Services.LocalizedIdentityErrorDescriber.html
+  name: LocalizedIdentityErrorDescriber
+  nameWithType: LocalizedIdentityErrorDescriber
+  fullName: Roulette.Services.LocalizedIdentityErrorDescriber
+- uid: Roulette.Services.SettingsService
+  commentId: T:Roulette.Services.SettingsService
+  href: Roulette.Services.SettingsService.html
+  name: SettingsService
+  nameWithType: SettingsService
+  fullName: Roulette.Services.SettingsService
+- uid: Roulette.Services.ShikimoriApiConnectorService
+  commentId: T:Roulette.Services.ShikimoriApiConnectorService
+  parent: Roulette.Services
+  href: Roulette.Services.ShikimoriApiConnectorService.html
+  name: ShikimoriApiConnectorService
+  nameWithType: ShikimoriApiConnectorService
+  fullName: Roulette.Services.ShikimoriApiConnectorService
+- uid: Roulette.Services.UserChoiceHistoryService
+  commentId: T:Roulette.Services.UserChoiceHistoryService
+  href: Roulette.Services.UserChoiceHistoryService.html
+  name: UserChoiceHistoryService
+  nameWithType: UserChoiceHistoryService
+  fullName: Roulette.Services.UserChoiceHistoryService
+- uid: Roulette.Services
+  commentId: N:Roulette.Services
+  href: Roulette.html
+  name: Roulette.Services
+  nameWithType: Roulette.Services
+  fullName: Roulette.Services
+  spec.csharp:
+  - uid: Roulette
+    name: Roulette
+    href: Roulette.html
+  - name: .
+  - uid: Roulette.Services
+    name: Services
+    href: Roulette.Services.html
+  spec.vb:
+  - uid: Roulette
+    name: Roulette
+    href: Roulette.html
+  - name: .
+  - uid: Roulette.Services
+    name: Services
+    href: Roulette.Services.html

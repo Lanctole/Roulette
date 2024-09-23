@@ -1,0 +1,609 @@
+### YamlMime:ManagedReference
+items:
+- uid: Roulette.Services.GameQueryProcessor
+  commentId: T:Roulette.Services.GameQueryProcessor
+  id: GameQueryProcessor
+  parent: Roulette.Services
+  children:
+  - Roulette.Services.GameQueryProcessor.ApplyFilters(System.Linq.IQueryable{Games.Classes.Game},System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Double},System.Nullable{System.Double},System.String,System.String)
+  - Roulette.Services.GameQueryProcessor.ApplySorting(System.Linq.IQueryable{Games.Classes.Game},System.Nullable{Games.Enums.GameOrder})
+  langs:
+  - csharp
+  - vb
+  name: GameQueryProcessor
+  nameWithType: GameQueryProcessor
+  fullName: Roulette.Services.GameQueryProcessor
+  type: Class
+  source:
+    remote:
+      path: Roulette/Services/GameQueryProcessor.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: GameQueryProcessor
+    path: ../Roulette/Services/GameQueryProcessor.cs
+    startLine: 9
+  assemblies:
+  - Roulette
+  namespace: Roulette.Services
+  summary: Обрабатывает запросы к играм, применяя фильтры и сортировку.
+  example: []
+  syntax:
+    content: public class GameQueryProcessor
+    content.vb: Public Class GameQueryProcessor
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Roulette.Services.GameQueryProcessor.ApplyFilters(System.Linq.IQueryable{Games.Classes.Game},System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Double},System.Nullable{System.Double},System.String,System.String)
+  commentId: M:Roulette.Services.GameQueryProcessor.ApplyFilters(System.Linq.IQueryable{Games.Classes.Game},System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Double},System.Nullable{System.Double},System.String,System.String)
+  id: ApplyFilters(System.Linq.IQueryable{Games.Classes.Game},System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Double},System.Nullable{System.Double},System.String,System.String)
+  parent: Roulette.Services.GameQueryProcessor
+  langs:
+  - csharp
+  - vb
+  name: ApplyFilters(IQueryable<Game>, string?, string?, int?, int?, int?, int?, double?, double?, string?, string?)
+  nameWithType: GameQueryProcessor.ApplyFilters(IQueryable<Game>, string?, string?, int?, int?, int?, int?, double?, double?, string?, string?)
+  fullName: Roulette.Services.GameQueryProcessor.ApplyFilters(System.Linq.IQueryable<Games.Classes.Game>, string?, string?, int?, int?, int?, int?, double?, double?, string?, string?)
+  type: Method
+  source:
+    remote:
+      path: Roulette/Services/GameQueryProcessor.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: ApplyFilters
+    path: ../Roulette/Services/GameQueryProcessor.cs
+    startLine: 26
+  assemblies:
+  - Roulette
+  namespace: Roulette.Services
+  summary: Применяет фильтры к запросу играм.
+  example: []
+  syntax:
+    content: public IQueryable<Game> ApplyFilters(IQueryable<Game> query, string? genres, string? supportedLanguages, int? metacriticScoreMin, int? metacriticScoreMax, int? steamScoreMin, int? steamScoreMax, double? minCost, double? maxCost, string? releaseDateStart, string? releaseDateEnd)
+    parameters:
+    - id: query
+      type: System.Linq.IQueryable{Games.Classes.Game}
+      description: Запрос для фильтрации.
+    - id: genres
+      type: System.String
+      description: Строка с идентификаторами жанров, разделёнными запятыми.
+    - id: supportedLanguages
+      type: System.String
+      description: Строка с идентификаторами поддерживаемых языков, разделёнными запятыми.
+    - id: metacriticScoreMin
+      type: System.Nullable{System.Int32}
+      description: Минимальное значение оценки Metacritic.
+    - id: metacriticScoreMax
+      type: System.Nullable{System.Int32}
+      description: Максимальное значение оценки Metacritic.
+    - id: steamScoreMin
+      type: System.Nullable{System.Int32}
+      description: Минимальное значение оценки Steam.
+    - id: steamScoreMax
+      type: System.Nullable{System.Int32}
+      description: Максимальное значение оценки Steam.
+    - id: minCost
+      type: System.Nullable{System.Double}
+      description: Минимальная стоимость игры.
+    - id: maxCost
+      type: System.Nullable{System.Double}
+      description: Максимальная стоимость игры.
+    - id: releaseDateStart
+      type: System.String
+      description: Дата начала диапазона выпуска игр.
+    - id: releaseDateEnd
+      type: System.String
+      description: Дата окончания диапазона выпуска игр.
+    return:
+      type: System.Linq.IQueryable{Games.Classes.Game}
+      description: Отфильтрованный запрос игр.
+    content.vb: Public Function ApplyFilters(query As IQueryable(Of Game), genres As String, supportedLanguages As String, metacriticScoreMin As Integer?, metacriticScoreMax As Integer?, steamScoreMin As Integer?, steamScoreMax As Integer?, minCost As Double?, maxCost As Double?, releaseDateStart As String, releaseDateEnd As String) As IQueryable(Of Game)
+  overload: Roulette.Services.GameQueryProcessor.ApplyFilters*
+  nameWithType.vb: GameQueryProcessor.ApplyFilters(IQueryable(Of Game), String, String, Integer?, Integer?, Integer?, Integer?, Double?, Double?, String, String)
+  fullName.vb: Roulette.Services.GameQueryProcessor.ApplyFilters(System.Linq.IQueryable(Of Games.Classes.Game), String, String, Integer?, Integer?, Integer?, Integer?, Double?, Double?, String, String)
+  name.vb: ApplyFilters(IQueryable(Of Game), String, String, Integer?, Integer?, Integer?, Integer?, Double?, Double?, String, String)
+- uid: Roulette.Services.GameQueryProcessor.ApplySorting(System.Linq.IQueryable{Games.Classes.Game},System.Nullable{Games.Enums.GameOrder})
+  commentId: M:Roulette.Services.GameQueryProcessor.ApplySorting(System.Linq.IQueryable{Games.Classes.Game},System.Nullable{Games.Enums.GameOrder})
+  id: ApplySorting(System.Linq.IQueryable{Games.Classes.Game},System.Nullable{Games.Enums.GameOrder})
+  parent: Roulette.Services.GameQueryProcessor
+  langs:
+  - csharp
+  - vb
+  name: ApplySorting(IQueryable<Game>, GameOrder?)
+  nameWithType: GameQueryProcessor.ApplySorting(IQueryable<Game>, GameOrder?)
+  fullName: Roulette.Services.GameQueryProcessor.ApplySorting(System.Linq.IQueryable<Games.Classes.Game>, Games.Enums.GameOrder?)
+  type: Method
+  source:
+    remote:
+      path: Roulette/Services/GameQueryProcessor.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: ApplySorting
+    path: ../Roulette/Services/GameQueryProcessor.cs
+    startLine: 103
+  assemblies:
+  - Roulette
+  namespace: Roulette.Services
+  summary: Применяет сортировку к запросу играм.
+  example: []
+  syntax:
+    content: public IQueryable<Game> ApplySorting(IQueryable<Game> query, GameOrder? order)
+    parameters:
+    - id: query
+      type: System.Linq.IQueryable{Games.Classes.Game}
+      description: Запрос для сортировки.
+    - id: order
+      type: System.Nullable{Games.Enums.GameOrder}
+      description: Параметр сортировки.
+    return:
+      type: System.Linq.IQueryable{Games.Classes.Game}
+      description: Отсортированный запрос игр.
+    content.vb: Public Function ApplySorting(query As IQueryable(Of Game), order As GameOrder?) As IQueryable(Of Game)
+  overload: Roulette.Services.GameQueryProcessor.ApplySorting*
+  nameWithType.vb: GameQueryProcessor.ApplySorting(IQueryable(Of Game), GameOrder?)
+  fullName.vb: Roulette.Services.GameQueryProcessor.ApplySorting(System.Linq.IQueryable(Of Games.Classes.Game), Games.Enums.GameOrder?)
+  name.vb: ApplySorting(IQueryable(Of Game), GameOrder?)
+references:
+- uid: Roulette.Services
+  commentId: N:Roulette.Services
+  href: Roulette.html
+  name: Roulette.Services
+  nameWithType: Roulette.Services
+  fullName: Roulette.Services
+  spec.csharp:
+  - uid: Roulette
+    name: Roulette
+    href: Roulette.html
+  - name: .
+  - uid: Roulette.Services
+    name: Services
+    href: Roulette.Services.html
+  spec.vb:
+  - uid: Roulette
+    name: Roulette
+    href: Roulette.html
+  - name: .
+  - uid: Roulette.Services
+    name: Services
+    href: Roulette.Services.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Roulette.Services.GameQueryProcessor.ApplyFilters*
+  commentId: Overload:Roulette.Services.GameQueryProcessor.ApplyFilters
+  href: Roulette.Services.GameQueryProcessor.html#Roulette_Services_GameQueryProcessor_ApplyFilters_System_Linq_IQueryable_Games_Classes_Game__System_String_System_String_System_Nullable_System_Int32__System_Nullable_System_Int32__System_Nullable_System_Int32__System_Nullable_System_Int32__System_Nullable_System_Double__System_Nullable_System_Double__System_String_System_String_
+  name: ApplyFilters
+  nameWithType: GameQueryProcessor.ApplyFilters
+  fullName: Roulette.Services.GameQueryProcessor.ApplyFilters
+- uid: System.Linq.IQueryable{Games.Classes.Game}
+  commentId: T:System.Linq.IQueryable{Games.Classes.Game}
+  parent: System.Linq
+  definition: System.Linq.IQueryable`1
+  href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  name: IQueryable<Game>
+  nameWithType: IQueryable<Game>
+  fullName: System.Linq.IQueryable<Games.Classes.Game>
+  nameWithType.vb: IQueryable(Of Game)
+  fullName.vb: System.Linq.IQueryable(Of Games.Classes.Game)
+  name.vb: IQueryable(Of Game)
+  spec.csharp:
+  - uid: System.Linq.IQueryable`1
+    name: IQueryable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  - name: <
+  - uid: Games.Classes.Game
+    name: Game
+  - name: '>'
+  spec.vb:
+  - uid: System.Linq.IQueryable`1
+    name: IQueryable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Games.Classes.Game
+    name: Game
+  - name: )
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int?
+  nameWithType: int?
+  fullName: int?
+  nameWithType.vb: Integer?
+  fullName.vb: Integer?
+  name.vb: Integer?
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+- uid: System.Nullable{System.Double}
+  commentId: T:System.Nullable{System.Double}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double?
+  nameWithType: double?
+  fullName: double?
+  nameWithType.vb: Double?
+  fullName.vb: Double?
+  name.vb: Double?
+  spec.csharp:
+  - uid: System.Double
+    name: double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: '?'
+  spec.vb:
+  - uid: System.Double
+    name: Double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: '?'
+- uid: System.Linq.IQueryable`1
+  commentId: T:System.Linq.IQueryable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  name: IQueryable<T>
+  nameWithType: IQueryable<T>
+  fullName: System.Linq.IQueryable<T>
+  nameWithType.vb: IQueryable(Of T)
+  fullName.vb: System.Linq.IQueryable(Of T)
+  name.vb: IQueryable(Of T)
+  spec.csharp:
+  - uid: System.Linq.IQueryable`1
+    name: IQueryable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Linq.IQueryable`1
+    name: IQueryable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Linq
+  commentId: N:System.Linq
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Linq
+  nameWithType: System.Linq
+  fullName: System.Linq
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Linq
+    name: Linq
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Linq
+    name: Linq
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Roulette.Services.GameQueryProcessor.ApplySorting*
+  commentId: Overload:Roulette.Services.GameQueryProcessor.ApplySorting
+  href: Roulette.Services.GameQueryProcessor.html#Roulette_Services_GameQueryProcessor_ApplySorting_System_Linq_IQueryable_Games_Classes_Game__System_Nullable_Games_Enums_GameOrder__
+  name: ApplySorting
+  nameWithType: GameQueryProcessor.ApplySorting
+  fullName: Roulette.Services.GameQueryProcessor.ApplySorting
+- uid: System.Nullable{Games.Enums.GameOrder}
+  commentId: T:System.Nullable{Games.Enums.GameOrder}
+  parent: System
+  definition: System.Nullable`1
+  name: GameOrder?
+  nameWithType: GameOrder?
+  fullName: Games.Enums.GameOrder?
+  spec.csharp:
+  - uid: Games.Enums.GameOrder
+    name: GameOrder
+  - name: '?'
+  spec.vb:
+  - uid: Games.Enums.GameOrder
+    name: GameOrder
+  - name: '?'

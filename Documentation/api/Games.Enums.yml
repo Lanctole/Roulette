@@ -1,0 +1,46 @@
+### YamlMime:ManagedReference
+items:
+- uid: Games.Enums
+  commentId: N:Games.Enums
+  id: Games.Enums
+  children:
+  - Games.Enums.GameOrder
+  langs:
+  - csharp
+  - vb
+  name: Games.Enums
+  nameWithType: Games.Enums
+  fullName: Games.Enums
+  type: Namespace
+  assemblies:
+  - Games
+references:
+- uid: Games.Enums.GameOrder
+  commentId: T:Games.Enums.GameOrder
+  parent: Games.Enums
+  href: Games.Enums.GameOrder.html
+  name: GameOrder
+  nameWithType: GameOrder
+  fullName: Games.Enums.GameOrder
+- uid: Games.Enums
+  commentId: N:Games.Enums
+  href: Games.html
+  name: Games.Enums
+  nameWithType: Games.Enums
+  fullName: Games.Enums
+  spec.csharp:
+  - uid: Games
+    name: Games
+    href: Games.html
+  - name: .
+  - uid: Games.Enums
+    name: Enums
+    href: Games.Enums.html
+  spec.vb:
+  - uid: Games
+    name: Games
+    href: Games.html
+  - name: .
+  - uid: Games.Enums
+    name: Enums
+    href: Games.Enums.html

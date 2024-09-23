@@ -1,0 +1,569 @@
+### YamlMime:ManagedReference
+items:
+- uid: ShikimoriSharp.Bases.SmallRepresentation
+  commentId: T:ShikimoriSharp.Bases.SmallRepresentation
+  id: SmallRepresentation
+  parent: ShikimoriSharp.Bases
+  children:
+  - ShikimoriSharp.Bases.SmallRepresentation.Id
+  - ShikimoriSharp.Bases.SmallRepresentation.Image
+  - ShikimoriSharp.Bases.SmallRepresentation.Name
+  - ShikimoriSharp.Bases.SmallRepresentation.Russian
+  - ShikimoriSharp.Bases.SmallRepresentation.Url
+  langs:
+  - csharp
+  - vb
+  name: SmallRepresentation
+  nameWithType: SmallRepresentation
+  fullName: ShikimoriSharp.Bases.SmallRepresentation
+  type: Class
+  source:
+    remote:
+      path: ShikimoriSharp/Bases/SmallRepresentation.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: SmallRepresentation
+    path: ../ShikimoriSharp/Bases/SmallRepresentation.cs
+    startLine: 4
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Bases
+  syntax:
+    content: public class SmallRepresentation
+    content.vb: Public Class SmallRepresentation
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - ShikimoriSharp.Bases.AnimeMangaRanobeBase
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: ShikimoriSharp.Bases.SmallRepresentation.Id
+  commentId: P:ShikimoriSharp.Bases.SmallRepresentation.Id
+  id: Id
+  parent: ShikimoriSharp.Bases.SmallRepresentation
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: SmallRepresentation.Id
+  fullName: ShikimoriSharp.Bases.SmallRepresentation.Id
+  type: Property
+  source:
+    remote:
+      path: ShikimoriSharp/Bases/SmallRepresentation.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Id
+    path: ../ShikimoriSharp/Bases/SmallRepresentation.cs
+    startLine: 6
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Bases
+  syntax:
+    content: >-
+      [JsonProperty("id")]
+
+      public long Id { get; set; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: >-
+      <JsonProperty("id")>
+
+      Public Property Id As Long
+  overload: ShikimoriSharp.Bases.SmallRepresentation.Id*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: id
+- uid: ShikimoriSharp.Bases.SmallRepresentation.Name
+  commentId: P:ShikimoriSharp.Bases.SmallRepresentation.Name
+  id: Name
+  parent: ShikimoriSharp.Bases.SmallRepresentation
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: SmallRepresentation.Name
+  fullName: ShikimoriSharp.Bases.SmallRepresentation.Name
+  type: Property
+  source:
+    remote:
+      path: ShikimoriSharp/Bases/SmallRepresentation.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Name
+    path: ../ShikimoriSharp/Bases/SmallRepresentation.cs
+    startLine: 7
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Bases
+  syntax:
+    content: >-
+      [JsonProperty("name")]
+
+      public string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("name")>
+
+      Public Property Name As String
+  overload: ShikimoriSharp.Bases.SmallRepresentation.Name*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: name
+- uid: ShikimoriSharp.Bases.SmallRepresentation.Russian
+  commentId: P:ShikimoriSharp.Bases.SmallRepresentation.Russian
+  id: Russian
+  parent: ShikimoriSharp.Bases.SmallRepresentation
+  langs:
+  - csharp
+  - vb
+  name: Russian
+  nameWithType: SmallRepresentation.Russian
+  fullName: ShikimoriSharp.Bases.SmallRepresentation.Russian
+  type: Property
+  source:
+    remote:
+      path: ShikimoriSharp/Bases/SmallRepresentation.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Russian
+    path: ../ShikimoriSharp/Bases/SmallRepresentation.cs
+    startLine: 8
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Bases
+  syntax:
+    content: >-
+      [JsonProperty("russian")]
+
+      public string Russian { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("russian")>
+
+      Public Property Russian As String
+  overload: ShikimoriSharp.Bases.SmallRepresentation.Russian*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: russian
+- uid: ShikimoriSharp.Bases.SmallRepresentation.Image
+  commentId: P:ShikimoriSharp.Bases.SmallRepresentation.Image
+  id: Image
+  parent: ShikimoriSharp.Bases.SmallRepresentation
+  langs:
+  - csharp
+  - vb
+  name: Image
+  nameWithType: SmallRepresentation.Image
+  fullName: ShikimoriSharp.Bases.SmallRepresentation.Image
+  type: Property
+  source:
+    remote:
+      path: ShikimoriSharp/Bases/SmallRepresentation.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Image
+    path: ../ShikimoriSharp/Bases/SmallRepresentation.cs
+    startLine: 9
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Bases
+  syntax:
+    content: >-
+      [JsonProperty("image")]
+
+      public Image Image { get; set; }
+    parameters: []
+    return:
+      type: ShikimoriSharp.Bases.Image
+    content.vb: >-
+      <JsonProperty("image")>
+
+      Public Property Image As Image
+  overload: ShikimoriSharp.Bases.SmallRepresentation.Image*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: image
+- uid: ShikimoriSharp.Bases.SmallRepresentation.Url
+  commentId: P:ShikimoriSharp.Bases.SmallRepresentation.Url
+  id: Url
+  parent: ShikimoriSharp.Bases.SmallRepresentation
+  langs:
+  - csharp
+  - vb
+  name: Url
+  nameWithType: SmallRepresentation.Url
+  fullName: ShikimoriSharp.Bases.SmallRepresentation.Url
+  type: Property
+  source:
+    remote:
+      path: ShikimoriSharp/Bases/SmallRepresentation.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Url
+    path: ../ShikimoriSharp/Bases/SmallRepresentation.cs
+    startLine: 10
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Bases
+  syntax:
+    content: >-
+      [JsonProperty("url")]
+
+      public string Url { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("url")>
+
+      Public Property Url As String
+  overload: ShikimoriSharp.Bases.SmallRepresentation.Url*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: url
+references:
+- uid: ShikimoriSharp.Bases
+  commentId: N:ShikimoriSharp.Bases
+  href: ShikimoriSharp.html
+  name: ShikimoriSharp.Bases
+  nameWithType: ShikimoriSharp.Bases
+  fullName: ShikimoriSharp.Bases
+  spec.csharp:
+  - uid: ShikimoriSharp
+    name: ShikimoriSharp
+    href: ShikimoriSharp.html
+  - name: .
+  - uid: ShikimoriSharp.Bases
+    name: Bases
+    href: ShikimoriSharp.Bases.html
+  spec.vb:
+  - uid: ShikimoriSharp
+    name: ShikimoriSharp
+    href: ShikimoriSharp.html
+  - name: .
+  - uid: ShikimoriSharp.Bases
+    name: Bases
+    href: ShikimoriSharp.Bases.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ShikimoriSharp.Bases.SmallRepresentation.Id*
+  commentId: Overload:ShikimoriSharp.Bases.SmallRepresentation.Id
+  href: ShikimoriSharp.Bases.SmallRepresentation.html#ShikimoriSharp_Bases_SmallRepresentation_Id
+  name: Id
+  nameWithType: SmallRepresentation.Id
+  fullName: ShikimoriSharp.Bases.SmallRepresentation.Id
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: ShikimoriSharp.Bases.SmallRepresentation.Name*
+  commentId: Overload:ShikimoriSharp.Bases.SmallRepresentation.Name
+  href: ShikimoriSharp.Bases.SmallRepresentation.html#ShikimoriSharp_Bases_SmallRepresentation_Name
+  name: Name
+  nameWithType: SmallRepresentation.Name
+  fullName: ShikimoriSharp.Bases.SmallRepresentation.Name
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ShikimoriSharp.Bases.SmallRepresentation.Russian*
+  commentId: Overload:ShikimoriSharp.Bases.SmallRepresentation.Russian
+  href: ShikimoriSharp.Bases.SmallRepresentation.html#ShikimoriSharp_Bases_SmallRepresentation_Russian
+  name: Russian
+  nameWithType: SmallRepresentation.Russian
+  fullName: ShikimoriSharp.Bases.SmallRepresentation.Russian
+- uid: ShikimoriSharp.Bases.SmallRepresentation.Image*
+  commentId: Overload:ShikimoriSharp.Bases.SmallRepresentation.Image
+  href: ShikimoriSharp.Bases.SmallRepresentation.html#ShikimoriSharp_Bases_SmallRepresentation_Image
+  name: Image
+  nameWithType: SmallRepresentation.Image
+  fullName: ShikimoriSharp.Bases.SmallRepresentation.Image
+- uid: ShikimoriSharp.Bases.Image
+  commentId: T:ShikimoriSharp.Bases.Image
+  parent: ShikimoriSharp.Bases
+  href: ShikimoriSharp.Bases.Image.html
+  name: Image
+  nameWithType: Image
+  fullName: ShikimoriSharp.Bases.Image
+- uid: ShikimoriSharp.Bases.SmallRepresentation.Url*
+  commentId: Overload:ShikimoriSharp.Bases.SmallRepresentation.Url
+  href: ShikimoriSharp.Bases.SmallRepresentation.html#ShikimoriSharp_Bases_SmallRepresentation_Url
+  name: Url
+  nameWithType: SmallRepresentation.Url
+  fullName: ShikimoriSharp.Bases.SmallRepresentation.Url

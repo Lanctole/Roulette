@@ -1,0 +1,247 @@
+### YamlMime:ManagedReference
+items:
+- uid: ShikimoriSharp.Enums.MangaKind
+  commentId: T:ShikimoriSharp.Enums.MangaKind
+  id: MangaKind
+  parent: ShikimoriSharp.Enums
+  children:
+  - ShikimoriSharp.Enums.MangaKind.doujin
+  - ShikimoriSharp.Enums.MangaKind.light_novel
+  - ShikimoriSharp.Enums.MangaKind.manga
+  - ShikimoriSharp.Enums.MangaKind.manhua
+  - ShikimoriSharp.Enums.MangaKind.manhwa
+  - ShikimoriSharp.Enums.MangaKind.novel
+  - ShikimoriSharp.Enums.MangaKind.one_shot
+  langs:
+  - csharp
+  - vb
+  name: MangaKind
+  nameWithType: MangaKind
+  fullName: ShikimoriSharp.Enums.MangaKind
+  type: Enum
+  source:
+    remote:
+      path: ShikimoriSharp/Enums/MangaKind.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: MangaKind
+    path: ../ShikimoriSharp/Enums/MangaKind.cs
+    startLine: 2
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Enums
+  syntax:
+    content: public enum MangaKind
+    content.vb: Public Enum MangaKind
+- uid: ShikimoriSharp.Enums.MangaKind.manga
+  commentId: F:ShikimoriSharp.Enums.MangaKind.manga
+  id: manga
+  parent: ShikimoriSharp.Enums.MangaKind
+  langs:
+  - csharp
+  - vb
+  name: manga
+  nameWithType: MangaKind.manga
+  fullName: ShikimoriSharp.Enums.MangaKind.manga
+  type: Field
+  source:
+    remote:
+      path: ShikimoriSharp/Enums/MangaKind.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: manga
+    path: ../ShikimoriSharp/Enums/MangaKind.cs
+    startLine: 4
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Enums
+  syntax:
+    content: manga = 0
+    return:
+      type: ShikimoriSharp.Enums.MangaKind
+- uid: ShikimoriSharp.Enums.MangaKind.manhwa
+  commentId: F:ShikimoriSharp.Enums.MangaKind.manhwa
+  id: manhwa
+  parent: ShikimoriSharp.Enums.MangaKind
+  langs:
+  - csharp
+  - vb
+  name: manhwa
+  nameWithType: MangaKind.manhwa
+  fullName: ShikimoriSharp.Enums.MangaKind.manhwa
+  type: Field
+  source:
+    remote:
+      path: ShikimoriSharp/Enums/MangaKind.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: manhwa
+    path: ../ShikimoriSharp/Enums/MangaKind.cs
+    startLine: 5
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Enums
+  syntax:
+    content: manhwa = 1
+    return:
+      type: ShikimoriSharp.Enums.MangaKind
+- uid: ShikimoriSharp.Enums.MangaKind.manhua
+  commentId: F:ShikimoriSharp.Enums.MangaKind.manhua
+  id: manhua
+  parent: ShikimoriSharp.Enums.MangaKind
+  langs:
+  - csharp
+  - vb
+  name: manhua
+  nameWithType: MangaKind.manhua
+  fullName: ShikimoriSharp.Enums.MangaKind.manhua
+  type: Field
+  source:
+    remote:
+      path: ShikimoriSharp/Enums/MangaKind.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: manhua
+    path: ../ShikimoriSharp/Enums/MangaKind.cs
+    startLine: 6
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Enums
+  syntax:
+    content: manhua = 2
+    return:
+      type: ShikimoriSharp.Enums.MangaKind
+- uid: ShikimoriSharp.Enums.MangaKind.light_novel
+  commentId: F:ShikimoriSharp.Enums.MangaKind.light_novel
+  id: light_novel
+  parent: ShikimoriSharp.Enums.MangaKind
+  langs:
+  - csharp
+  - vb
+  name: light_novel
+  nameWithType: MangaKind.light_novel
+  fullName: ShikimoriSharp.Enums.MangaKind.light_novel
+  type: Field
+  source:
+    remote:
+      path: ShikimoriSharp/Enums/MangaKind.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: light_novel
+    path: ../ShikimoriSharp/Enums/MangaKind.cs
+    startLine: 7
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Enums
+  syntax:
+    content: light_novel = 3
+    return:
+      type: ShikimoriSharp.Enums.MangaKind
+- uid: ShikimoriSharp.Enums.MangaKind.novel
+  commentId: F:ShikimoriSharp.Enums.MangaKind.novel
+  id: novel
+  parent: ShikimoriSharp.Enums.MangaKind
+  langs:
+  - csharp
+  - vb
+  name: novel
+  nameWithType: MangaKind.novel
+  fullName: ShikimoriSharp.Enums.MangaKind.novel
+  type: Field
+  source:
+    remote:
+      path: ShikimoriSharp/Enums/MangaKind.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: novel
+    path: ../ShikimoriSharp/Enums/MangaKind.cs
+    startLine: 8
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Enums
+  syntax:
+    content: novel = 4
+    return:
+      type: ShikimoriSharp.Enums.MangaKind
+- uid: ShikimoriSharp.Enums.MangaKind.one_shot
+  commentId: F:ShikimoriSharp.Enums.MangaKind.one_shot
+  id: one_shot
+  parent: ShikimoriSharp.Enums.MangaKind
+  langs:
+  - csharp
+  - vb
+  name: one_shot
+  nameWithType: MangaKind.one_shot
+  fullName: ShikimoriSharp.Enums.MangaKind.one_shot
+  type: Field
+  source:
+    remote:
+      path: ShikimoriSharp/Enums/MangaKind.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: one_shot
+    path: ../ShikimoriSharp/Enums/MangaKind.cs
+    startLine: 9
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Enums
+  syntax:
+    content: one_shot = 5
+    return:
+      type: ShikimoriSharp.Enums.MangaKind
+- uid: ShikimoriSharp.Enums.MangaKind.doujin
+  commentId: F:ShikimoriSharp.Enums.MangaKind.doujin
+  id: doujin
+  parent: ShikimoriSharp.Enums.MangaKind
+  langs:
+  - csharp
+  - vb
+  name: doujin
+  nameWithType: MangaKind.doujin
+  fullName: ShikimoriSharp.Enums.MangaKind.doujin
+  type: Field
+  source:
+    remote:
+      path: ShikimoriSharp/Enums/MangaKind.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: doujin
+    path: ../ShikimoriSharp/Enums/MangaKind.cs
+    startLine: 10
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Enums
+  syntax:
+    content: doujin = 6
+    return:
+      type: ShikimoriSharp.Enums.MangaKind
+references:
+- uid: ShikimoriSharp.Enums
+  commentId: N:ShikimoriSharp.Enums
+  href: ShikimoriSharp.html
+  name: ShikimoriSharp.Enums
+  nameWithType: ShikimoriSharp.Enums
+  fullName: ShikimoriSharp.Enums
+  spec.csharp:
+  - uid: ShikimoriSharp
+    name: ShikimoriSharp
+    href: ShikimoriSharp.html
+  - name: .
+  - uid: ShikimoriSharp.Enums
+    name: Enums
+    href: ShikimoriSharp.Enums.html
+  spec.vb:
+  - uid: ShikimoriSharp
+    name: ShikimoriSharp
+    href: ShikimoriSharp.html
+  - name: .
+  - uid: ShikimoriSharp.Enums
+    name: Enums
+    href: ShikimoriSharp.Enums.html
+- uid: ShikimoriSharp.Enums.MangaKind
+  commentId: T:ShikimoriSharp.Enums.MangaKind
+  parent: ShikimoriSharp.Enums
+  href: ShikimoriSharp.Enums.MangaKind.html
+  name: MangaKind
+  nameWithType: MangaKind
+  fullName: ShikimoriSharp.Enums.MangaKind

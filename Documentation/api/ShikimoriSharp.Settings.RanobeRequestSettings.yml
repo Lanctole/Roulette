@@ -1,0 +1,477 @@
+### YamlMime:ManagedReference
+items:
+- uid: ShikimoriSharp.Settings.RanobeRequestSettings
+  commentId: T:ShikimoriSharp.Settings.RanobeRequestSettings
+  id: RanobeRequestSettings
+  parent: ShikimoriSharp.Settings
+  children:
+  - ShikimoriSharp.Settings.RanobeRequestSettings.publisher
+  langs:
+  - csharp
+  - vb
+  name: RanobeRequestSettings
+  nameWithType: RanobeRequestSettings
+  fullName: ShikimoriSharp.Settings.RanobeRequestSettings
+  type: Class
+  source:
+    remote:
+      path: ShikimoriSharp/Settings/RanobeRequestSettings.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: RanobeRequestSettings
+    path: ../ShikimoriSharp/Settings/RanobeRequestSettings.cs
+    startLine: 3
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Settings
+  syntax:
+    content: 'public class RanobeRequestSettings : MangaAnimeRanobeRequestSettingsBase'
+    content.vb: Public Class RanobeRequestSettings Inherits MangaAnimeRanobeRequestSettingsBase
+  inheritance:
+  - System.Object
+  - ShikimoriSharp.Settings.BasicSettings
+  - ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase
+  inheritedMembers:
+  - ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.censored
+  - ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.exclude_ids
+  - ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.franchise
+  - ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.genre
+  - ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.ids
+  - ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.kind
+  - ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.rating
+  - ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.order
+  - ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.score
+  - ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.search
+  - ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.season
+  - ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.status
+  - ShikimoriSharp.Settings.BasicSettings.limit
+  - ShikimoriSharp.Settings.BasicSettings.page
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: ShikimoriSharp.Settings.RanobeRequestSettings.publisher
+  commentId: F:ShikimoriSharp.Settings.RanobeRequestSettings.publisher
+  id: publisher
+  parent: ShikimoriSharp.Settings.RanobeRequestSettings
+  langs:
+  - csharp
+  - vb
+  name: publisher
+  nameWithType: RanobeRequestSettings.publisher
+  fullName: ShikimoriSharp.Settings.RanobeRequestSettings.publisher
+  type: Field
+  source:
+    remote:
+      path: ShikimoriSharp/Settings/RanobeRequestSettings.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: publisher
+    path: ../ShikimoriSharp/Settings/RanobeRequestSettings.cs
+    startLine: 5
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Settings
+  syntax:
+    content: public int[]? publisher
+    return:
+      type: System.Int32[]
+    content.vb: Public publisher As Integer()
+references:
+- uid: ShikimoriSharp.Settings
+  commentId: N:ShikimoriSharp.Settings
+  href: ShikimoriSharp.html
+  name: ShikimoriSharp.Settings
+  nameWithType: ShikimoriSharp.Settings
+  fullName: ShikimoriSharp.Settings
+  spec.csharp:
+  - uid: ShikimoriSharp
+    name: ShikimoriSharp
+    href: ShikimoriSharp.html
+  - name: .
+  - uid: ShikimoriSharp.Settings
+    name: Settings
+    href: ShikimoriSharp.Settings.html
+  spec.vb:
+  - uid: ShikimoriSharp
+    name: ShikimoriSharp
+    href: ShikimoriSharp.html
+  - name: .
+  - uid: ShikimoriSharp.Settings
+    name: Settings
+    href: ShikimoriSharp.Settings.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: ShikimoriSharp.Settings.BasicSettings
+  commentId: T:ShikimoriSharp.Settings.BasicSettings
+  parent: ShikimoriSharp.Settings
+  href: ShikimoriSharp.Settings.BasicSettings.html
+  name: BasicSettings
+  nameWithType: BasicSettings
+  fullName: ShikimoriSharp.Settings.BasicSettings
+- uid: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase
+  commentId: T:ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase
+  parent: ShikimoriSharp.Settings
+  href: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.html
+  name: MangaAnimeRanobeRequestSettingsBase
+  nameWithType: MangaAnimeRanobeRequestSettingsBase
+  fullName: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase
+- uid: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.censored
+  commentId: F:ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.censored
+  parent: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase
+  href: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.html#ShikimoriSharp_Settings_MangaAnimeRanobeRequestSettingsBase_censored
+  name: censored
+  nameWithType: MangaAnimeRanobeRequestSettingsBase.censored
+  fullName: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.censored
+- uid: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.exclude_ids
+  commentId: F:ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.exclude_ids
+  parent: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase
+  href: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.html#ShikimoriSharp_Settings_MangaAnimeRanobeRequestSettingsBase_exclude_ids
+  name: exclude_ids
+  nameWithType: MangaAnimeRanobeRequestSettingsBase.exclude_ids
+  fullName: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.exclude_ids
+- uid: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.franchise
+  commentId: F:ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.franchise
+  parent: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase
+  href: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.html#ShikimoriSharp_Settings_MangaAnimeRanobeRequestSettingsBase_franchise
+  name: franchise
+  nameWithType: MangaAnimeRanobeRequestSettingsBase.franchise
+  fullName: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.franchise
+- uid: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.genre
+  commentId: F:ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.genre
+  parent: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase
+  href: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.html#ShikimoriSharp_Settings_MangaAnimeRanobeRequestSettingsBase_genre
+  name: genre
+  nameWithType: MangaAnimeRanobeRequestSettingsBase.genre
+  fullName: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.genre
+- uid: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.ids
+  commentId: F:ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.ids
+  parent: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase
+  href: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.html#ShikimoriSharp_Settings_MangaAnimeRanobeRequestSettingsBase_ids
+  name: ids
+  nameWithType: MangaAnimeRanobeRequestSettingsBase.ids
+  fullName: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.ids
+- uid: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.kind
+  commentId: F:ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.kind
+  parent: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase
+  href: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.html#ShikimoriSharp_Settings_MangaAnimeRanobeRequestSettingsBase_kind
+  name: kind
+  nameWithType: MangaAnimeRanobeRequestSettingsBase.kind
+  fullName: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.kind
+- uid: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.rating
+  commentId: F:ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.rating
+  parent: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase
+  href: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.html#ShikimoriSharp_Settings_MangaAnimeRanobeRequestSettingsBase_rating
+  name: rating
+  nameWithType: MangaAnimeRanobeRequestSettingsBase.rating
+  fullName: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.rating
+- uid: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.order
+  commentId: F:ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.order
+  parent: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase
+  href: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.html#ShikimoriSharp_Settings_MangaAnimeRanobeRequestSettingsBase_order
+  name: order
+  nameWithType: MangaAnimeRanobeRequestSettingsBase.order
+  fullName: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.order
+- uid: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.score
+  commentId: F:ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.score
+  parent: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase
+  href: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.html#ShikimoriSharp_Settings_MangaAnimeRanobeRequestSettingsBase_score
+  name: score
+  nameWithType: MangaAnimeRanobeRequestSettingsBase.score
+  fullName: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.score
+- uid: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.search
+  commentId: F:ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.search
+  parent: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase
+  href: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.html#ShikimoriSharp_Settings_MangaAnimeRanobeRequestSettingsBase_search
+  name: search
+  nameWithType: MangaAnimeRanobeRequestSettingsBase.search
+  fullName: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.search
+- uid: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.season
+  commentId: F:ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.season
+  parent: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase
+  href: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.html#ShikimoriSharp_Settings_MangaAnimeRanobeRequestSettingsBase_season
+  name: season
+  nameWithType: MangaAnimeRanobeRequestSettingsBase.season
+  fullName: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.season
+- uid: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.status
+  commentId: F:ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.status
+  parent: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase
+  href: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.html#ShikimoriSharp_Settings_MangaAnimeRanobeRequestSettingsBase_status
+  name: status
+  nameWithType: MangaAnimeRanobeRequestSettingsBase.status
+  fullName: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.status
+- uid: ShikimoriSharp.Settings.BasicSettings.limit
+  commentId: F:ShikimoriSharp.Settings.BasicSettings.limit
+  parent: ShikimoriSharp.Settings.BasicSettings
+  href: ShikimoriSharp.Settings.BasicSettings.html#ShikimoriSharp_Settings_BasicSettings_limit
+  name: limit
+  nameWithType: BasicSettings.limit
+  fullName: ShikimoriSharp.Settings.BasicSettings.limit
+- uid: ShikimoriSharp.Settings.BasicSettings.page
+  commentId: F:ShikimoriSharp.Settings.BasicSettings.page
+  parent: ShikimoriSharp.Settings.BasicSettings
+  href: ShikimoriSharp.Settings.BasicSettings.html#ShikimoriSharp_Settings_BasicSettings_page
+  name: page
+  nameWithType: BasicSettings.page
+  fullName: ShikimoriSharp.Settings.BasicSettings.page
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Int32[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int[]
+  nameWithType: int[]
+  fullName: int[]
+  nameWithType.vb: Integer()
+  fullName.vb: Integer()
+  name.vb: Integer()
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: (
+  - name: )

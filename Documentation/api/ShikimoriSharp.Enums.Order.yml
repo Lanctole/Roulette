@@ -1,0 +1,355 @@
+### YamlMime:ManagedReference
+items:
+- uid: ShikimoriSharp.Enums.Order
+  commentId: T:ShikimoriSharp.Enums.Order
+  id: Order
+  parent: ShikimoriSharp.Enums
+  children:
+  - ShikimoriSharp.Enums.Order.aired_on
+  - ShikimoriSharp.Enums.Order.chapters
+  - ShikimoriSharp.Enums.Order.episodes
+  - ShikimoriSharp.Enums.Order.id
+  - ShikimoriSharp.Enums.Order.kind
+  - ShikimoriSharp.Enums.Order.name
+  - ShikimoriSharp.Enums.Order.popularity
+  - ShikimoriSharp.Enums.Order.random
+  - ShikimoriSharp.Enums.Order.ranked
+  - ShikimoriSharp.Enums.Order.status
+  - ShikimoriSharp.Enums.Order.volumes
+  langs:
+  - csharp
+  - vb
+  name: Order
+  nameWithType: Order
+  fullName: ShikimoriSharp.Enums.Order
+  type: Enum
+  source:
+    remote:
+      path: ShikimoriSharp/Enums/Order.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Order
+    path: ../ShikimoriSharp/Enums/Order.cs
+    startLine: 2
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Enums
+  syntax:
+    content: public enum Order
+    content.vb: Public Enum Order
+- uid: ShikimoriSharp.Enums.Order.id
+  commentId: F:ShikimoriSharp.Enums.Order.id
+  id: id
+  parent: ShikimoriSharp.Enums.Order
+  langs:
+  - csharp
+  - vb
+  name: id
+  nameWithType: Order.id
+  fullName: ShikimoriSharp.Enums.Order.id
+  type: Field
+  source:
+    remote:
+      path: ShikimoriSharp/Enums/Order.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: id
+    path: ../ShikimoriSharp/Enums/Order.cs
+    startLine: 4
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Enums
+  syntax:
+    content: id = 0
+    return:
+      type: ShikimoriSharp.Enums.Order
+- uid: ShikimoriSharp.Enums.Order.ranked
+  commentId: F:ShikimoriSharp.Enums.Order.ranked
+  id: ranked
+  parent: ShikimoriSharp.Enums.Order
+  langs:
+  - csharp
+  - vb
+  name: ranked
+  nameWithType: Order.ranked
+  fullName: ShikimoriSharp.Enums.Order.ranked
+  type: Field
+  source:
+    remote:
+      path: ShikimoriSharp/Enums/Order.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: ranked
+    path: ../ShikimoriSharp/Enums/Order.cs
+    startLine: 5
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Enums
+  syntax:
+    content: ranked = 1
+    return:
+      type: ShikimoriSharp.Enums.Order
+- uid: ShikimoriSharp.Enums.Order.kind
+  commentId: F:ShikimoriSharp.Enums.Order.kind
+  id: kind
+  parent: ShikimoriSharp.Enums.Order
+  langs:
+  - csharp
+  - vb
+  name: kind
+  nameWithType: Order.kind
+  fullName: ShikimoriSharp.Enums.Order.kind
+  type: Field
+  source:
+    remote:
+      path: ShikimoriSharp/Enums/Order.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: kind
+    path: ../ShikimoriSharp/Enums/Order.cs
+    startLine: 6
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Enums
+  syntax:
+    content: kind = 2
+    return:
+      type: ShikimoriSharp.Enums.Order
+- uid: ShikimoriSharp.Enums.Order.popularity
+  commentId: F:ShikimoriSharp.Enums.Order.popularity
+  id: popularity
+  parent: ShikimoriSharp.Enums.Order
+  langs:
+  - csharp
+  - vb
+  name: popularity
+  nameWithType: Order.popularity
+  fullName: ShikimoriSharp.Enums.Order.popularity
+  type: Field
+  source:
+    remote:
+      path: ShikimoriSharp/Enums/Order.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: popularity
+    path: ../ShikimoriSharp/Enums/Order.cs
+    startLine: 7
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Enums
+  syntax:
+    content: popularity = 3
+    return:
+      type: ShikimoriSharp.Enums.Order
+- uid: ShikimoriSharp.Enums.Order.name
+  commentId: F:ShikimoriSharp.Enums.Order.name
+  id: name
+  parent: ShikimoriSharp.Enums.Order
+  langs:
+  - csharp
+  - vb
+  name: name
+  nameWithType: Order.name
+  fullName: ShikimoriSharp.Enums.Order.name
+  type: Field
+  source:
+    remote:
+      path: ShikimoriSharp/Enums/Order.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: name
+    path: ../ShikimoriSharp/Enums/Order.cs
+    startLine: 8
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Enums
+  syntax:
+    content: name = 4
+    return:
+      type: ShikimoriSharp.Enums.Order
+- uid: ShikimoriSharp.Enums.Order.aired_on
+  commentId: F:ShikimoriSharp.Enums.Order.aired_on
+  id: aired_on
+  parent: ShikimoriSharp.Enums.Order
+  langs:
+  - csharp
+  - vb
+  name: aired_on
+  nameWithType: Order.aired_on
+  fullName: ShikimoriSharp.Enums.Order.aired_on
+  type: Field
+  source:
+    remote:
+      path: ShikimoriSharp/Enums/Order.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: aired_on
+    path: ../ShikimoriSharp/Enums/Order.cs
+    startLine: 9
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Enums
+  syntax:
+    content: aired_on = 5
+    return:
+      type: ShikimoriSharp.Enums.Order
+- uid: ShikimoriSharp.Enums.Order.status
+  commentId: F:ShikimoriSharp.Enums.Order.status
+  id: status
+  parent: ShikimoriSharp.Enums.Order
+  langs:
+  - csharp
+  - vb
+  name: status
+  nameWithType: Order.status
+  fullName: ShikimoriSharp.Enums.Order.status
+  type: Field
+  source:
+    remote:
+      path: ShikimoriSharp/Enums/Order.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: status
+    path: ../ShikimoriSharp/Enums/Order.cs
+    startLine: 10
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Enums
+  syntax:
+    content: status = 6
+    return:
+      type: ShikimoriSharp.Enums.Order
+- uid: ShikimoriSharp.Enums.Order.random
+  commentId: F:ShikimoriSharp.Enums.Order.random
+  id: random
+  parent: ShikimoriSharp.Enums.Order
+  langs:
+  - csharp
+  - vb
+  name: random
+  nameWithType: Order.random
+  fullName: ShikimoriSharp.Enums.Order.random
+  type: Field
+  source:
+    remote:
+      path: ShikimoriSharp/Enums/Order.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: random
+    path: ../ShikimoriSharp/Enums/Order.cs
+    startLine: 11
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Enums
+  syntax:
+    content: random = 7
+    return:
+      type: ShikimoriSharp.Enums.Order
+- uid: ShikimoriSharp.Enums.Order.episodes
+  commentId: F:ShikimoriSharp.Enums.Order.episodes
+  id: episodes
+  parent: ShikimoriSharp.Enums.Order
+  langs:
+  - csharp
+  - vb
+  name: episodes
+  nameWithType: Order.episodes
+  fullName: ShikimoriSharp.Enums.Order.episodes
+  type: Field
+  source:
+    remote:
+      path: ShikimoriSharp/Enums/Order.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: episodes
+    path: ../ShikimoriSharp/Enums/Order.cs
+    startLine: 12
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Enums
+  syntax:
+    content: episodes = 8
+    return:
+      type: ShikimoriSharp.Enums.Order
+- uid: ShikimoriSharp.Enums.Order.volumes
+  commentId: F:ShikimoriSharp.Enums.Order.volumes
+  id: volumes
+  parent: ShikimoriSharp.Enums.Order
+  langs:
+  - csharp
+  - vb
+  name: volumes
+  nameWithType: Order.volumes
+  fullName: ShikimoriSharp.Enums.Order.volumes
+  type: Field
+  source:
+    remote:
+      path: ShikimoriSharp/Enums/Order.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: volumes
+    path: ../ShikimoriSharp/Enums/Order.cs
+    startLine: 13
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Enums
+  syntax:
+    content: volumes = 9
+    return:
+      type: ShikimoriSharp.Enums.Order
+- uid: ShikimoriSharp.Enums.Order.chapters
+  commentId: F:ShikimoriSharp.Enums.Order.chapters
+  id: chapters
+  parent: ShikimoriSharp.Enums.Order
+  langs:
+  - csharp
+  - vb
+  name: chapters
+  nameWithType: Order.chapters
+  fullName: ShikimoriSharp.Enums.Order.chapters
+  type: Field
+  source:
+    remote:
+      path: ShikimoriSharp/Enums/Order.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: chapters
+    path: ../ShikimoriSharp/Enums/Order.cs
+    startLine: 14
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Enums
+  syntax:
+    content: chapters = 10
+    return:
+      type: ShikimoriSharp.Enums.Order
+references:
+- uid: ShikimoriSharp.Enums
+  commentId: N:ShikimoriSharp.Enums
+  href: ShikimoriSharp.html
+  name: ShikimoriSharp.Enums
+  nameWithType: ShikimoriSharp.Enums
+  fullName: ShikimoriSharp.Enums
+  spec.csharp:
+  - uid: ShikimoriSharp
+    name: ShikimoriSharp
+    href: ShikimoriSharp.html
+  - name: .
+  - uid: ShikimoriSharp.Enums
+    name: Enums
+    href: ShikimoriSharp.Enums.html
+  spec.vb:
+  - uid: ShikimoriSharp
+    name: ShikimoriSharp
+    href: ShikimoriSharp.html
+  - name: .
+  - uid: ShikimoriSharp.Enums
+    name: Enums
+    href: ShikimoriSharp.Enums.html
+- uid: ShikimoriSharp.Enums.Order
+  commentId: T:ShikimoriSharp.Enums.Order
+  parent: ShikimoriSharp.Enums
+  href: ShikimoriSharp.Enums.Order.html
+  name: Order
+  nameWithType: Order
+  fullName: ShikimoriSharp.Enums.Order

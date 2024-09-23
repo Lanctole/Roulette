@@ -1,0 +1,112 @@
+### YamlMime:ManagedReference
+items:
+- uid: ShikimoriSharp.Enums.TargetType
+  commentId: T:ShikimoriSharp.Enums.TargetType
+  id: TargetType
+  parent: ShikimoriSharp.Enums
+  children:
+  - ShikimoriSharp.Enums.TargetType.Anime
+  - ShikimoriSharp.Enums.TargetType.Manga
+  langs:
+  - csharp
+  - vb
+  name: TargetType
+  nameWithType: TargetType
+  fullName: ShikimoriSharp.Enums.TargetType
+  type: Enum
+  source:
+    remote:
+      path: ShikimoriSharp/Enums/TargetType.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: TargetType
+    path: ../ShikimoriSharp/Enums/TargetType.cs
+    startLine: 2
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Enums
+  syntax:
+    content: public enum TargetType
+    content.vb: Public Enum TargetType
+- uid: ShikimoriSharp.Enums.TargetType.Anime
+  commentId: F:ShikimoriSharp.Enums.TargetType.Anime
+  id: Anime
+  parent: ShikimoriSharp.Enums.TargetType
+  langs:
+  - csharp
+  - vb
+  name: Anime
+  nameWithType: TargetType.Anime
+  fullName: ShikimoriSharp.Enums.TargetType.Anime
+  type: Field
+  source:
+    remote:
+      path: ShikimoriSharp/Enums/TargetType.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Anime
+    path: ../ShikimoriSharp/Enums/TargetType.cs
+    startLine: 4
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Enums
+  syntax:
+    content: Anime = 0
+    return:
+      type: ShikimoriSharp.Enums.TargetType
+- uid: ShikimoriSharp.Enums.TargetType.Manga
+  commentId: F:ShikimoriSharp.Enums.TargetType.Manga
+  id: Manga
+  parent: ShikimoriSharp.Enums.TargetType
+  langs:
+  - csharp
+  - vb
+  name: Manga
+  nameWithType: TargetType.Manga
+  fullName: ShikimoriSharp.Enums.TargetType.Manga
+  type: Field
+  source:
+    remote:
+      path: ShikimoriSharp/Enums/TargetType.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Manga
+    path: ../ShikimoriSharp/Enums/TargetType.cs
+    startLine: 5
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Enums
+  syntax:
+    content: Manga = 1
+    return:
+      type: ShikimoriSharp.Enums.TargetType
+references:
+- uid: ShikimoriSharp.Enums
+  commentId: N:ShikimoriSharp.Enums
+  href: ShikimoriSharp.html
+  name: ShikimoriSharp.Enums
+  nameWithType: ShikimoriSharp.Enums
+  fullName: ShikimoriSharp.Enums
+  spec.csharp:
+  - uid: ShikimoriSharp
+    name: ShikimoriSharp
+    href: ShikimoriSharp.html
+  - name: .
+  - uid: ShikimoriSharp.Enums
+    name: Enums
+    href: ShikimoriSharp.Enums.html
+  spec.vb:
+  - uid: ShikimoriSharp
+    name: ShikimoriSharp
+    href: ShikimoriSharp.html
+  - name: .
+  - uid: ShikimoriSharp.Enums
+    name: Enums
+    href: ShikimoriSharp.Enums.html
+- uid: ShikimoriSharp.Enums.TargetType
+  commentId: T:ShikimoriSharp.Enums.TargetType
+  parent: ShikimoriSharp.Enums
+  href: ShikimoriSharp.Enums.TargetType.html
+  name: TargetType
+  nameWithType: TargetType
+  fullName: ShikimoriSharp.Enums.TargetType

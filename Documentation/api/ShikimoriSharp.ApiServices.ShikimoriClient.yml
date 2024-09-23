@@ -1,0 +1,817 @@
+### YamlMime:ManagedReference
+items:
+- uid: ShikimoriSharp.ApiServices.ShikimoriClient
+  commentId: T:ShikimoriSharp.ApiServices.ShikimoriClient
+  id: ShikimoriClient
+  parent: ShikimoriSharp.ApiServices
+  children:
+  - ShikimoriSharp.ApiServices.ShikimoriClient.#ctor(ShikimoriSharp.Settings.ClientSettings,System.Net.Http.HttpClient,Microsoft.Extensions.Logging.ILogger{ShikimoriSharp.ApiServices.ApiBase})
+  - ShikimoriSharp.ApiServices.ShikimoriClient.Animes
+  - ShikimoriSharp.ApiServices.ShikimoriClient.Client
+  - ShikimoriSharp.ApiServices.ShikimoriClient.Genres
+  - ShikimoriSharp.ApiServices.ShikimoriClient.Mangas
+  - ShikimoriSharp.ApiServices.ShikimoriClient.Publishers
+  - ShikimoriSharp.ApiServices.ShikimoriClient.Ranobes
+  - ShikimoriSharp.ApiServices.ShikimoriClient.Studios
+  langs:
+  - csharp
+  - vb
+  name: ShikimoriClient
+  nameWithType: ShikimoriClient
+  fullName: ShikimoriSharp.ApiServices.ShikimoriClient
+  type: Class
+  source:
+    remote:
+      path: ShikimoriSharp/ApiServices/ShikimoriClient.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: ShikimoriClient
+    path: ../ShikimoriSharp/ApiServices/ShikimoriClient.cs
+    startLine: 6
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.ApiServices
+  syntax:
+    content: public class ShikimoriClient
+    content.vb: Public Class ShikimoriClient
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: ShikimoriSharp.ApiServices.ShikimoriClient.Client
+  commentId: P:ShikimoriSharp.ApiServices.ShikimoriClient.Client
+  id: Client
+  parent: ShikimoriSharp.ApiServices.ShikimoriClient
+  langs:
+  - csharp
+  - vb
+  name: Client
+  nameWithType: ShikimoriClient.Client
+  fullName: ShikimoriSharp.ApiServices.ShikimoriClient.Client
+  type: Property
+  source:
+    remote:
+      path: ShikimoriSharp/ApiServices/ShikimoriClient.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Client
+    path: ../ShikimoriSharp/ApiServices/ShikimoriClient.cs
+    startLine: 8
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.ApiServices
+  syntax:
+    content: public ApiClient Client { get; }
+    parameters: []
+    return:
+      type: ShikimoriSharp.ApiServices.ApiClient
+    content.vb: Public ReadOnly Property Client As ApiClient
+  overload: ShikimoriSharp.ApiServices.ShikimoriClient.Client*
+- uid: ShikimoriSharp.ApiServices.ShikimoriClient.Animes
+  commentId: P:ShikimoriSharp.ApiServices.ShikimoriClient.Animes
+  id: Animes
+  parent: ShikimoriSharp.ApiServices.ShikimoriClient
+  langs:
+  - csharp
+  - vb
+  name: Animes
+  nameWithType: ShikimoriClient.Animes
+  fullName: ShikimoriSharp.ApiServices.ShikimoriClient.Animes
+  type: Property
+  source:
+    remote:
+      path: ShikimoriSharp/ApiServices/ShikimoriClient.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Animes
+    path: ../ShikimoriSharp/ApiServices/ShikimoriClient.cs
+    startLine: 9
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.ApiServices
+  syntax:
+    content: public Animes Animes { get; }
+    parameters: []
+    return:
+      type: ShikimoriSharp.ApiServices.Animes
+    content.vb: Public ReadOnly Property Animes As Animes
+  overload: ShikimoriSharp.ApiServices.ShikimoriClient.Animes*
+- uid: ShikimoriSharp.ApiServices.ShikimoriClient.Genres
+  commentId: P:ShikimoriSharp.ApiServices.ShikimoriClient.Genres
+  id: Genres
+  parent: ShikimoriSharp.ApiServices.ShikimoriClient
+  langs:
+  - csharp
+  - vb
+  name: Genres
+  nameWithType: ShikimoriClient.Genres
+  fullName: ShikimoriSharp.ApiServices.ShikimoriClient.Genres
+  type: Property
+  source:
+    remote:
+      path: ShikimoriSharp/ApiServices/ShikimoriClient.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Genres
+    path: ../ShikimoriSharp/ApiServices/ShikimoriClient.cs
+    startLine: 10
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.ApiServices
+  syntax:
+    content: public Genres Genres { get; }
+    parameters: []
+    return:
+      type: ShikimoriSharp.ApiServices.Genres
+    content.vb: Public ReadOnly Property Genres As Genres
+  overload: ShikimoriSharp.ApiServices.ShikimoriClient.Genres*
+- uid: ShikimoriSharp.ApiServices.ShikimoriClient.Mangas
+  commentId: P:ShikimoriSharp.ApiServices.ShikimoriClient.Mangas
+  id: Mangas
+  parent: ShikimoriSharp.ApiServices.ShikimoriClient
+  langs:
+  - csharp
+  - vb
+  name: Mangas
+  nameWithType: ShikimoriClient.Mangas
+  fullName: ShikimoriSharp.ApiServices.ShikimoriClient.Mangas
+  type: Property
+  source:
+    remote:
+      path: ShikimoriSharp/ApiServices/ShikimoriClient.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Mangas
+    path: ../ShikimoriSharp/ApiServices/ShikimoriClient.cs
+    startLine: 11
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.ApiServices
+  syntax:
+    content: public Mangas Mangas { get; }
+    parameters: []
+    return:
+      type: ShikimoriSharp.ApiServices.Mangas
+    content.vb: Public ReadOnly Property Mangas As Mangas
+  overload: ShikimoriSharp.ApiServices.ShikimoriClient.Mangas*
+- uid: ShikimoriSharp.ApiServices.ShikimoriClient.Publishers
+  commentId: P:ShikimoriSharp.ApiServices.ShikimoriClient.Publishers
+  id: Publishers
+  parent: ShikimoriSharp.ApiServices.ShikimoriClient
+  langs:
+  - csharp
+  - vb
+  name: Publishers
+  nameWithType: ShikimoriClient.Publishers
+  fullName: ShikimoriSharp.ApiServices.ShikimoriClient.Publishers
+  type: Property
+  source:
+    remote:
+      path: ShikimoriSharp/ApiServices/ShikimoriClient.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Publishers
+    path: ../ShikimoriSharp/ApiServices/ShikimoriClient.cs
+    startLine: 12
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.ApiServices
+  syntax:
+    content: public Publishers Publishers { get; }
+    parameters: []
+    return:
+      type: ShikimoriSharp.ApiServices.Publishers
+    content.vb: Public ReadOnly Property Publishers As Publishers
+  overload: ShikimoriSharp.ApiServices.ShikimoriClient.Publishers*
+- uid: ShikimoriSharp.ApiServices.ShikimoriClient.Ranobes
+  commentId: P:ShikimoriSharp.ApiServices.ShikimoriClient.Ranobes
+  id: Ranobes
+  parent: ShikimoriSharp.ApiServices.ShikimoriClient
+  langs:
+  - csharp
+  - vb
+  name: Ranobes
+  nameWithType: ShikimoriClient.Ranobes
+  fullName: ShikimoriSharp.ApiServices.ShikimoriClient.Ranobes
+  type: Property
+  source:
+    remote:
+      path: ShikimoriSharp/ApiServices/ShikimoriClient.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Ranobes
+    path: ../ShikimoriSharp/ApiServices/ShikimoriClient.cs
+    startLine: 13
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.ApiServices
+  syntax:
+    content: public Ranobes Ranobes { get; }
+    parameters: []
+    return:
+      type: ShikimoriSharp.ApiServices.Ranobes
+    content.vb: Public ReadOnly Property Ranobes As Ranobes
+  overload: ShikimoriSharp.ApiServices.ShikimoriClient.Ranobes*
+- uid: ShikimoriSharp.ApiServices.ShikimoriClient.Studios
+  commentId: P:ShikimoriSharp.ApiServices.ShikimoriClient.Studios
+  id: Studios
+  parent: ShikimoriSharp.ApiServices.ShikimoriClient
+  langs:
+  - csharp
+  - vb
+  name: Studios
+  nameWithType: ShikimoriClient.Studios
+  fullName: ShikimoriSharp.ApiServices.ShikimoriClient.Studios
+  type: Property
+  source:
+    remote:
+      path: ShikimoriSharp/ApiServices/ShikimoriClient.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Studios
+    path: ../ShikimoriSharp/ApiServices/ShikimoriClient.cs
+    startLine: 14
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.ApiServices
+  syntax:
+    content: public Studios Studios { get; }
+    parameters: []
+    return:
+      type: ShikimoriSharp.ApiServices.Studios
+    content.vb: Public ReadOnly Property Studios As Studios
+  overload: ShikimoriSharp.ApiServices.ShikimoriClient.Studios*
+- uid: ShikimoriSharp.ApiServices.ShikimoriClient.#ctor(ShikimoriSharp.Settings.ClientSettings,System.Net.Http.HttpClient,Microsoft.Extensions.Logging.ILogger{ShikimoriSharp.ApiServices.ApiBase})
+  commentId: M:ShikimoriSharp.ApiServices.ShikimoriClient.#ctor(ShikimoriSharp.Settings.ClientSettings,System.Net.Http.HttpClient,Microsoft.Extensions.Logging.ILogger{ShikimoriSharp.ApiServices.ApiBase})
+  id: '#ctor(ShikimoriSharp.Settings.ClientSettings,System.Net.Http.HttpClient,Microsoft.Extensions.Logging.ILogger{ShikimoriSharp.ApiServices.ApiBase})'
+  parent: ShikimoriSharp.ApiServices.ShikimoriClient
+  langs:
+  - csharp
+  - vb
+  name: ShikimoriClient(ClientSettings, HttpClient, ILogger<ApiBase>)
+  nameWithType: ShikimoriClient.ShikimoriClient(ClientSettings, HttpClient, ILogger<ApiBase>)
+  fullName: ShikimoriSharp.ApiServices.ShikimoriClient.ShikimoriClient(ShikimoriSharp.Settings.ClientSettings, System.Net.Http.HttpClient, Microsoft.Extensions.Logging.ILogger<ShikimoriSharp.ApiServices.ApiBase>)
+  type: Constructor
+  source:
+    remote:
+      path: ShikimoriSharp/ApiServices/ShikimoriClient.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: .ctor
+    path: ../ShikimoriSharp/ApiServices/ShikimoriClient.cs
+    startLine: 16
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.ApiServices
+  syntax:
+    content: public ShikimoriClient(ClientSettings settings, HttpClient httpClient, ILogger<ApiBase> logger)
+    parameters:
+    - id: settings
+      type: ShikimoriSharp.Settings.ClientSettings
+    - id: httpClient
+      type: System.Net.Http.HttpClient
+    - id: logger
+      type: Microsoft.Extensions.Logging.ILogger{ShikimoriSharp.ApiServices.ApiBase}
+    content.vb: Public Sub New(settings As ClientSettings, httpClient As HttpClient, logger As ILogger(Of ApiBase))
+  overload: ShikimoriSharp.ApiServices.ShikimoriClient.#ctor*
+  nameWithType.vb: ShikimoriClient.New(ClientSettings, HttpClient, ILogger(Of ApiBase))
+  fullName.vb: ShikimoriSharp.ApiServices.ShikimoriClient.New(ShikimoriSharp.Settings.ClientSettings, System.Net.Http.HttpClient, Microsoft.Extensions.Logging.ILogger(Of ShikimoriSharp.ApiServices.ApiBase))
+  name.vb: New(ClientSettings, HttpClient, ILogger(Of ApiBase))
+references:
+- uid: ShikimoriSharp.ApiServices
+  commentId: N:ShikimoriSharp.ApiServices
+  href: ShikimoriSharp.html
+  name: ShikimoriSharp.ApiServices
+  nameWithType: ShikimoriSharp.ApiServices
+  fullName: ShikimoriSharp.ApiServices
+  spec.csharp:
+  - uid: ShikimoriSharp
+    name: ShikimoriSharp
+    href: ShikimoriSharp.html
+  - name: .
+  - uid: ShikimoriSharp.ApiServices
+    name: ApiServices
+    href: ShikimoriSharp.ApiServices.html
+  spec.vb:
+  - uid: ShikimoriSharp
+    name: ShikimoriSharp
+    href: ShikimoriSharp.html
+  - name: .
+  - uid: ShikimoriSharp.ApiServices
+    name: ApiServices
+    href: ShikimoriSharp.ApiServices.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ShikimoriSharp.ApiServices.ShikimoriClient.Client*
+  commentId: Overload:ShikimoriSharp.ApiServices.ShikimoriClient.Client
+  href: ShikimoriSharp.ApiServices.ShikimoriClient.html#ShikimoriSharp_ApiServices_ShikimoriClient_Client
+  name: Client
+  nameWithType: ShikimoriClient.Client
+  fullName: ShikimoriSharp.ApiServices.ShikimoriClient.Client
+- uid: ShikimoriSharp.ApiServices.ApiClient
+  commentId: T:ShikimoriSharp.ApiServices.ApiClient
+  parent: ShikimoriSharp.ApiServices
+  href: ShikimoriSharp.ApiServices.ApiClient.html
+  name: ApiClient
+  nameWithType: ApiClient
+  fullName: ShikimoriSharp.ApiServices.ApiClient
+- uid: ShikimoriSharp.ApiServices.ShikimoriClient.Animes*
+  commentId: Overload:ShikimoriSharp.ApiServices.ShikimoriClient.Animes
+  href: ShikimoriSharp.ApiServices.ShikimoriClient.html#ShikimoriSharp_ApiServices_ShikimoriClient_Animes
+  name: Animes
+  nameWithType: ShikimoriClient.Animes
+  fullName: ShikimoriSharp.ApiServices.ShikimoriClient.Animes
+- uid: ShikimoriSharp.ApiServices.Animes
+  commentId: T:ShikimoriSharp.ApiServices.Animes
+  parent: ShikimoriSharp.ApiServices
+  href: ShikimoriSharp.ApiServices.Animes.html
+  name: Animes
+  nameWithType: Animes
+  fullName: ShikimoriSharp.ApiServices.Animes
+- uid: ShikimoriSharp.ApiServices.ShikimoriClient.Genres*
+  commentId: Overload:ShikimoriSharp.ApiServices.ShikimoriClient.Genres
+  href: ShikimoriSharp.ApiServices.ShikimoriClient.html#ShikimoriSharp_ApiServices_ShikimoriClient_Genres
+  name: Genres
+  nameWithType: ShikimoriClient.Genres
+  fullName: ShikimoriSharp.ApiServices.ShikimoriClient.Genres
+- uid: ShikimoriSharp.ApiServices.Genres
+  commentId: T:ShikimoriSharp.ApiServices.Genres
+  parent: ShikimoriSharp.ApiServices
+  href: ShikimoriSharp.ApiServices.Genres.html
+  name: Genres
+  nameWithType: Genres
+  fullName: ShikimoriSharp.ApiServices.Genres
+- uid: ShikimoriSharp.ApiServices.ShikimoriClient.Mangas*
+  commentId: Overload:ShikimoriSharp.ApiServices.ShikimoriClient.Mangas
+  href: ShikimoriSharp.ApiServices.ShikimoriClient.html#ShikimoriSharp_ApiServices_ShikimoriClient_Mangas
+  name: Mangas
+  nameWithType: ShikimoriClient.Mangas
+  fullName: ShikimoriSharp.ApiServices.ShikimoriClient.Mangas
+- uid: ShikimoriSharp.ApiServices.Mangas
+  commentId: T:ShikimoriSharp.ApiServices.Mangas
+  parent: ShikimoriSharp.ApiServices
+  href: ShikimoriSharp.ApiServices.Mangas.html
+  name: Mangas
+  nameWithType: Mangas
+  fullName: ShikimoriSharp.ApiServices.Mangas
+- uid: ShikimoriSharp.ApiServices.ShikimoriClient.Publishers*
+  commentId: Overload:ShikimoriSharp.ApiServices.ShikimoriClient.Publishers
+  href: ShikimoriSharp.ApiServices.ShikimoriClient.html#ShikimoriSharp_ApiServices_ShikimoriClient_Publishers
+  name: Publishers
+  nameWithType: ShikimoriClient.Publishers
+  fullName: ShikimoriSharp.ApiServices.ShikimoriClient.Publishers
+- uid: ShikimoriSharp.ApiServices.Publishers
+  commentId: T:ShikimoriSharp.ApiServices.Publishers
+  parent: ShikimoriSharp.ApiServices
+  href: ShikimoriSharp.ApiServices.Publishers.html
+  name: Publishers
+  nameWithType: Publishers
+  fullName: ShikimoriSharp.ApiServices.Publishers
+- uid: ShikimoriSharp.ApiServices.ShikimoriClient.Ranobes*
+  commentId: Overload:ShikimoriSharp.ApiServices.ShikimoriClient.Ranobes
+  href: ShikimoriSharp.ApiServices.ShikimoriClient.html#ShikimoriSharp_ApiServices_ShikimoriClient_Ranobes
+  name: Ranobes
+  nameWithType: ShikimoriClient.Ranobes
+  fullName: ShikimoriSharp.ApiServices.ShikimoriClient.Ranobes
+- uid: ShikimoriSharp.ApiServices.Ranobes
+  commentId: T:ShikimoriSharp.ApiServices.Ranobes
+  parent: ShikimoriSharp.ApiServices
+  href: ShikimoriSharp.ApiServices.Ranobes.html
+  name: Ranobes
+  nameWithType: Ranobes
+  fullName: ShikimoriSharp.ApiServices.Ranobes
+- uid: ShikimoriSharp.ApiServices.ShikimoriClient.Studios*
+  commentId: Overload:ShikimoriSharp.ApiServices.ShikimoriClient.Studios
+  href: ShikimoriSharp.ApiServices.ShikimoriClient.html#ShikimoriSharp_ApiServices_ShikimoriClient_Studios
+  name: Studios
+  nameWithType: ShikimoriClient.Studios
+  fullName: ShikimoriSharp.ApiServices.ShikimoriClient.Studios
+- uid: ShikimoriSharp.ApiServices.Studios
+  commentId: T:ShikimoriSharp.ApiServices.Studios
+  parent: ShikimoriSharp.ApiServices
+  href: ShikimoriSharp.ApiServices.Studios.html
+  name: Studios
+  nameWithType: Studios
+  fullName: ShikimoriSharp.ApiServices.Studios
+- uid: ShikimoriSharp.ApiServices.ShikimoriClient.#ctor*
+  commentId: Overload:ShikimoriSharp.ApiServices.ShikimoriClient.#ctor
+  href: ShikimoriSharp.ApiServices.ShikimoriClient.html#ShikimoriSharp_ApiServices_ShikimoriClient__ctor_ShikimoriSharp_Settings_ClientSettings_System_Net_Http_HttpClient_Microsoft_Extensions_Logging_ILogger_ShikimoriSharp_ApiServices_ApiBase__
+  name: ShikimoriClient
+  nameWithType: ShikimoriClient.ShikimoriClient
+  fullName: ShikimoriSharp.ApiServices.ShikimoriClient.ShikimoriClient
+  nameWithType.vb: ShikimoriClient.New
+  fullName.vb: ShikimoriSharp.ApiServices.ShikimoriClient.New
+  name.vb: New
+- uid: ShikimoriSharp.Settings.ClientSettings
+  commentId: T:ShikimoriSharp.Settings.ClientSettings
+  parent: ShikimoriSharp.Settings
+  href: ShikimoriSharp.Settings.ClientSettings.html
+  name: ClientSettings
+  nameWithType: ClientSettings
+  fullName: ShikimoriSharp.Settings.ClientSettings
+- uid: System.Net.Http.HttpClient
+  commentId: T:System.Net.Http.HttpClient
+  parent: System.Net.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.http.httpclient
+  name: HttpClient
+  nameWithType: HttpClient
+  fullName: System.Net.Http.HttpClient
+- uid: Microsoft.Extensions.Logging.ILogger{ShikimoriSharp.ApiServices.ApiBase}
+  commentId: T:Microsoft.Extensions.Logging.ILogger{ShikimoriSharp.ApiServices.ApiBase}
+  parent: Microsoft.Extensions.Logging
+  definition: Microsoft.Extensions.Logging.ILogger`1
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
+  name: ILogger<ApiBase>
+  nameWithType: ILogger<ApiBase>
+  fullName: Microsoft.Extensions.Logging.ILogger<ShikimoriSharp.ApiServices.ApiBase>
+  nameWithType.vb: ILogger(Of ApiBase)
+  fullName.vb: Microsoft.Extensions.Logging.ILogger(Of ShikimoriSharp.ApiServices.ApiBase)
+  name.vb: ILogger(Of ApiBase)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
+  - name: <
+  - uid: ShikimoriSharp.ApiServices.ApiBase
+    name: ApiBase
+    href: ShikimoriSharp.ApiServices.ApiBase.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ShikimoriSharp.ApiServices.ApiBase
+    name: ApiBase
+    href: ShikimoriSharp.ApiServices.ApiBase.html
+  - name: )
+- uid: ShikimoriSharp.Settings
+  commentId: N:ShikimoriSharp.Settings
+  href: ShikimoriSharp.html
+  name: ShikimoriSharp.Settings
+  nameWithType: ShikimoriSharp.Settings
+  fullName: ShikimoriSharp.Settings
+  spec.csharp:
+  - uid: ShikimoriSharp
+    name: ShikimoriSharp
+    href: ShikimoriSharp.html
+  - name: .
+  - uid: ShikimoriSharp.Settings
+    name: Settings
+    href: ShikimoriSharp.Settings.html
+  spec.vb:
+  - uid: ShikimoriSharp
+    name: ShikimoriSharp
+    href: ShikimoriSharp.html
+  - name: .
+  - uid: ShikimoriSharp.Settings
+    name: Settings
+    href: ShikimoriSharp.Settings.html
+- uid: System.Net.Http
+  commentId: N:System.Net.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Net.Http
+  nameWithType: System.Net.Http
+  fullName: System.Net.Http
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.Http
+    name: Http
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.Http
+    name: Http
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http
+- uid: Microsoft.Extensions.Logging.ILogger`1
+  commentId: T:Microsoft.Extensions.Logging.ILogger`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
+  name: ILogger<TCategoryName>
+  nameWithType: ILogger<TCategoryName>
+  fullName: Microsoft.Extensions.Logging.ILogger<TCategoryName>
+  nameWithType.vb: ILogger(Of TCategoryName)
+  fullName.vb: Microsoft.Extensions.Logging.ILogger(Of TCategoryName)
+  name.vb: ILogger(Of TCategoryName)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
+  - name: <
+  - name: TCategoryName
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TCategoryName
+  - name: )
+- uid: Microsoft.Extensions.Logging
+  commentId: N:Microsoft.Extensions.Logging
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.Extensions.Logging
+  nameWithType: Microsoft.Extensions.Logging
+  fullName: Microsoft.Extensions.Logging
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging

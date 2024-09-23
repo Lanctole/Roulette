@@ -1,0 +1,193 @@
+### YamlMime:ManagedReference
+items:
+- uid: Games.Enums.GameOrder
+  commentId: T:Games.Enums.GameOrder
+  id: GameOrder
+  parent: Games.Enums
+  children:
+  - Games.Enums.GameOrder.Id
+  - Games.Enums.GameOrder.Name
+  - Games.Enums.GameOrder.Random
+  - Games.Enums.GameOrder.ReleaseDate
+  - Games.Enums.GameOrder.SteamScore
+  langs:
+  - csharp
+  - vb
+  name: GameOrder
+  nameWithType: GameOrder
+  fullName: Games.Enums.GameOrder
+  type: Enum
+  source:
+    remote:
+      path: Games/Enums/GameOrder.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: GameOrder
+    path: ../Games/Enums/GameOrder.cs
+    startLine: 2
+  assemblies:
+  - Games
+  namespace: Games.Enums
+  syntax:
+    content: public enum GameOrder
+    content.vb: Public Enum GameOrder
+- uid: Games.Enums.GameOrder.Id
+  commentId: F:Games.Enums.GameOrder.Id
+  id: Id
+  parent: Games.Enums.GameOrder
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: GameOrder.Id
+  fullName: Games.Enums.GameOrder.Id
+  type: Field
+  source:
+    remote:
+      path: Games/Enums/GameOrder.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Id
+    path: ../Games/Enums/GameOrder.cs
+    startLine: 4
+  assemblies:
+  - Games
+  namespace: Games.Enums
+  syntax:
+    content: Id = 0
+    return:
+      type: Games.Enums.GameOrder
+- uid: Games.Enums.GameOrder.SteamScore
+  commentId: F:Games.Enums.GameOrder.SteamScore
+  id: SteamScore
+  parent: Games.Enums.GameOrder
+  langs:
+  - csharp
+  - vb
+  name: SteamScore
+  nameWithType: GameOrder.SteamScore
+  fullName: Games.Enums.GameOrder.SteamScore
+  type: Field
+  source:
+    remote:
+      path: Games/Enums/GameOrder.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: SteamScore
+    path: ../Games/Enums/GameOrder.cs
+    startLine: 5
+  assemblies:
+  - Games
+  namespace: Games.Enums
+  syntax:
+    content: SteamScore = 1
+    return:
+      type: Games.Enums.GameOrder
+- uid: Games.Enums.GameOrder.Name
+  commentId: F:Games.Enums.GameOrder.Name
+  id: Name
+  parent: Games.Enums.GameOrder
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: GameOrder.Name
+  fullName: Games.Enums.GameOrder.Name
+  type: Field
+  source:
+    remote:
+      path: Games/Enums/GameOrder.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Name
+    path: ../Games/Enums/GameOrder.cs
+    startLine: 6
+  assemblies:
+  - Games
+  namespace: Games.Enums
+  syntax:
+    content: Name = 2
+    return:
+      type: Games.Enums.GameOrder
+- uid: Games.Enums.GameOrder.ReleaseDate
+  commentId: F:Games.Enums.GameOrder.ReleaseDate
+  id: ReleaseDate
+  parent: Games.Enums.GameOrder
+  langs:
+  - csharp
+  - vb
+  name: ReleaseDate
+  nameWithType: GameOrder.ReleaseDate
+  fullName: Games.Enums.GameOrder.ReleaseDate
+  type: Field
+  source:
+    remote:
+      path: Games/Enums/GameOrder.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: ReleaseDate
+    path: ../Games/Enums/GameOrder.cs
+    startLine: 7
+  assemblies:
+  - Games
+  namespace: Games.Enums
+  syntax:
+    content: ReleaseDate = 3
+    return:
+      type: Games.Enums.GameOrder
+- uid: Games.Enums.GameOrder.Random
+  commentId: F:Games.Enums.GameOrder.Random
+  id: Random
+  parent: Games.Enums.GameOrder
+  langs:
+  - csharp
+  - vb
+  name: Random
+  nameWithType: GameOrder.Random
+  fullName: Games.Enums.GameOrder.Random
+  type: Field
+  source:
+    remote:
+      path: Games/Enums/GameOrder.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Random
+    path: ../Games/Enums/GameOrder.cs
+    startLine: 8
+  assemblies:
+  - Games
+  namespace: Games.Enums
+  syntax:
+    content: Random = 4
+    return:
+      type: Games.Enums.GameOrder
+references:
+- uid: Games.Enums
+  commentId: N:Games.Enums
+  href: Games.html
+  name: Games.Enums
+  nameWithType: Games.Enums
+  fullName: Games.Enums
+  spec.csharp:
+  - uid: Games
+    name: Games
+    href: Games.html
+  - name: .
+  - uid: Games.Enums
+    name: Enums
+    href: Games.Enums.html
+  spec.vb:
+  - uid: Games
+    name: Games
+    href: Games.html
+  - name: .
+  - uid: Games.Enums
+    name: Enums
+    href: Games.Enums.html
+- uid: Games.Enums.GameOrder
+  commentId: T:Games.Enums.GameOrder
+  parent: Games.Enums
+  href: Games.Enums.GameOrder.html
+  name: GameOrder
+  nameWithType: GameOrder
+  fullName: Games.Enums.GameOrder

@@ -1,0 +1,82 @@
+### YamlMime:ManagedReference
+items:
+- uid: Roulette.Controllers.Api
+  commentId: N:Roulette.Controllers.Api
+  id: Roulette.Controllers.Api
+  children:
+  - Roulette.Controllers.Api.AnimeController
+  - Roulette.Controllers.Api.GameController
+  - Roulette.Controllers.Api.MangaController
+  - Roulette.Controllers.Api.RanobeController
+  - Roulette.Controllers.Api.ShikimoriController
+  langs:
+  - csharp
+  - vb
+  name: Roulette.Controllers.Api
+  nameWithType: Roulette.Controllers.Api
+  fullName: Roulette.Controllers.Api
+  type: Namespace
+  assemblies:
+  - Roulette
+references:
+- uid: Roulette.Controllers.Api.AnimeController
+  commentId: T:Roulette.Controllers.Api.AnimeController
+  href: Roulette.Controllers.Api.AnimeController.html
+  name: AnimeController
+  nameWithType: AnimeController
+  fullName: Roulette.Controllers.Api.AnimeController
+- uid: Roulette.Controllers.Api.GameController
+  commentId: T:Roulette.Controllers.Api.GameController
+  href: Roulette.Controllers.Api.GameController.html
+  name: GameController
+  nameWithType: GameController
+  fullName: Roulette.Controllers.Api.GameController
+- uid: Roulette.Controllers.Api.MangaController
+  commentId: T:Roulette.Controllers.Api.MangaController
+  href: Roulette.Controllers.Api.MangaController.html
+  name: MangaController
+  nameWithType: MangaController
+  fullName: Roulette.Controllers.Api.MangaController
+- uid: Roulette.Controllers.Api.RanobeController
+  commentId: T:Roulette.Controllers.Api.RanobeController
+  href: Roulette.Controllers.Api.RanobeController.html
+  name: RanobeController
+  nameWithType: RanobeController
+  fullName: Roulette.Controllers.Api.RanobeController
+- uid: Roulette.Controllers.Api.ShikimoriController
+  commentId: T:Roulette.Controllers.Api.ShikimoriController
+  parent: Roulette.Controllers.Api
+  href: Roulette.Controllers.Api.ShikimoriController.html
+  name: ShikimoriController
+  nameWithType: ShikimoriController
+  fullName: Roulette.Controllers.Api.ShikimoriController
+- uid: Roulette.Controllers.Api
+  commentId: N:Roulette.Controllers.Api
+  href: Roulette.html
+  name: Roulette.Controllers.Api
+  nameWithType: Roulette.Controllers.Api
+  fullName: Roulette.Controllers.Api
+  spec.csharp:
+  - uid: Roulette
+    name: Roulette
+    href: Roulette.html
+  - name: .
+  - uid: Roulette.Controllers
+    name: Controllers
+    href: Roulette.Controllers.html
+  - name: .
+  - uid: Roulette.Controllers.Api
+    name: Api
+    href: Roulette.Controllers.Api.html
+  spec.vb:
+  - uid: Roulette
+    name: Roulette
+    href: Roulette.html
+  - name: .
+  - uid: Roulette.Controllers
+    name: Controllers
+    href: Roulette.Controllers.html
+  - name: .
+  - uid: Roulette.Controllers.Api
+    name: Api
+    href: Roulette.Controllers.Api.html

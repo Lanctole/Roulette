@@ -1,0 +1,854 @@
+### YamlMime:ManagedReference
+items:
+- uid: Games.Classes.Game
+  commentId: T:Games.Classes.Game
+  id: Game
+  parent: Games.Classes
+  children:
+  - Games.Classes.Game.AppID
+  - Games.Classes.Game.Cost
+  - Games.Classes.Game.Genres
+  - Games.Classes.Game.HeaderImage
+  - Games.Classes.Game.MetacriticScore
+  - Games.Classes.Game.Name
+  - Games.Classes.Game.ReleaseDate
+  - Games.Classes.Game.ShortDescription
+  - Games.Classes.Game.SteamScore
+  - Games.Classes.Game.SupportedLanguages
+  langs:
+  - csharp
+  - vb
+  name: Game
+  nameWithType: Game
+  fullName: Games.Classes.Game
+  type: Class
+  source:
+    remote:
+      path: Games/Classes/Game.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Game
+    path: ../Games/Classes/Game.cs
+    startLine: 4
+  assemblies:
+  - Games
+  namespace: Games.Classes
+  syntax:
+    content: public class Game
+    content.vb: Public Class Game
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Games.Classes.Game.AppID
+  commentId: P:Games.Classes.Game.AppID
+  id: AppID
+  parent: Games.Classes.Game
+  langs:
+  - csharp
+  - vb
+  name: AppID
+  nameWithType: Game.AppID
+  fullName: Games.Classes.Game.AppID
+  type: Property
+  source:
+    remote:
+      path: Games/Classes/Game.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: AppID
+    path: ../Games/Classes/Game.cs
+    startLine: 6
+  assemblies:
+  - Games
+  namespace: Games.Classes
+  syntax:
+    content: >-
+      [Key]
+
+      public long AppID { get; set; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: >-
+      <Key>
+
+      Public Property AppID As Long
+  overload: Games.Classes.Game.AppID*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.KeyAttribute
+    ctor: System.ComponentModel.DataAnnotations.KeyAttribute.#ctor
+    arguments: []
+- uid: Games.Classes.Game.Name
+  commentId: P:Games.Classes.Game.Name
+  id: Name
+  parent: Games.Classes.Game
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: Game.Name
+  fullName: Games.Classes.Game.Name
+  type: Property
+  source:
+    remote:
+      path: Games/Classes/Game.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Name
+    path: ../Games/Classes/Game.cs
+    startLine: 8
+  assemblies:
+  - Games
+  namespace: Games.Classes
+  syntax:
+    content: public string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: Games.Classes.Game.Name*
+- uid: Games.Classes.Game.Cost
+  commentId: P:Games.Classes.Game.Cost
+  id: Cost
+  parent: Games.Classes.Game
+  langs:
+  - csharp
+  - vb
+  name: Cost
+  nameWithType: Game.Cost
+  fullName: Games.Classes.Game.Cost
+  type: Property
+  source:
+    remote:
+      path: Games/Classes/Game.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Cost
+    path: ../Games/Classes/Game.cs
+    startLine: 9
+  assemblies:
+  - Games
+  namespace: Games.Classes
+  syntax:
+    content: public double Cost { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property Cost As Double
+  overload: Games.Classes.Game.Cost*
+- uid: Games.Classes.Game.ReleaseDate
+  commentId: P:Games.Classes.Game.ReleaseDate
+  id: ReleaseDate
+  parent: Games.Classes.Game
+  langs:
+  - csharp
+  - vb
+  name: ReleaseDate
+  nameWithType: Game.ReleaseDate
+  fullName: Games.Classes.Game.ReleaseDate
+  type: Property
+  source:
+    remote:
+      path: Games/Classes/Game.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: ReleaseDate
+    path: ../Games/Classes/Game.cs
+    startLine: 10
+  assemblies:
+  - Games
+  namespace: Games.Classes
+  syntax:
+    content: public DateTime ReleaseDate { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: Public Property ReleaseDate As Date
+  overload: Games.Classes.Game.ReleaseDate*
+- uid: Games.Classes.Game.ShortDescription
+  commentId: P:Games.Classes.Game.ShortDescription
+  id: ShortDescription
+  parent: Games.Classes.Game
+  langs:
+  - csharp
+  - vb
+  name: ShortDescription
+  nameWithType: Game.ShortDescription
+  fullName: Games.Classes.Game.ShortDescription
+  type: Property
+  source:
+    remote:
+      path: Games/Classes/Game.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: ShortDescription
+    path: ../Games/Classes/Game.cs
+    startLine: 11
+  assemblies:
+  - Games
+  namespace: Games.Classes
+  syntax:
+    content: public string ShortDescription { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ShortDescription As String
+  overload: Games.Classes.Game.ShortDescription*
+- uid: Games.Classes.Game.HeaderImage
+  commentId: P:Games.Classes.Game.HeaderImage
+  id: HeaderImage
+  parent: Games.Classes.Game
+  langs:
+  - csharp
+  - vb
+  name: HeaderImage
+  nameWithType: Game.HeaderImage
+  fullName: Games.Classes.Game.HeaderImage
+  type: Property
+  source:
+    remote:
+      path: Games/Classes/Game.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: HeaderImage
+    path: ../Games/Classes/Game.cs
+    startLine: 12
+  assemblies:
+  - Games
+  namespace: Games.Classes
+  syntax:
+    content: public string HeaderImage { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property HeaderImage As String
+  overload: Games.Classes.Game.HeaderImage*
+- uid: Games.Classes.Game.SteamScore
+  commentId: P:Games.Classes.Game.SteamScore
+  id: SteamScore
+  parent: Games.Classes.Game
+  langs:
+  - csharp
+  - vb
+  name: SteamScore
+  nameWithType: Game.SteamScore
+  fullName: Games.Classes.Game.SteamScore
+  type: Property
+  source:
+    remote:
+      path: Games/Classes/Game.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: SteamScore
+    path: ../Games/Classes/Game.cs
+    startLine: 13
+  assemblies:
+  - Games
+  namespace: Games.Classes
+  syntax:
+    content: public int SteamScore { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property SteamScore As Integer
+  overload: Games.Classes.Game.SteamScore*
+- uid: Games.Classes.Game.MetacriticScore
+  commentId: P:Games.Classes.Game.MetacriticScore
+  id: MetacriticScore
+  parent: Games.Classes.Game
+  langs:
+  - csharp
+  - vb
+  name: MetacriticScore
+  nameWithType: Game.MetacriticScore
+  fullName: Games.Classes.Game.MetacriticScore
+  type: Property
+  source:
+    remote:
+      path: Games/Classes/Game.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: MetacriticScore
+    path: ../Games/Classes/Game.cs
+    startLine: 14
+  assemblies:
+  - Games
+  namespace: Games.Classes
+  syntax:
+    content: public int MetacriticScore { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property MetacriticScore As Integer
+  overload: Games.Classes.Game.MetacriticScore*
+- uid: Games.Classes.Game.Genres
+  commentId: P:Games.Classes.Game.Genres
+  id: Genres
+  parent: Games.Classes.Game
+  langs:
+  - csharp
+  - vb
+  name: Genres
+  nameWithType: Game.Genres
+  fullName: Games.Classes.Game.Genres
+  type: Property
+  source:
+    remote:
+      path: Games/Classes/Game.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Genres
+    path: ../Games/Classes/Game.cs
+    startLine: 15
+  assemblies:
+  - Games
+  namespace: Games.Classes
+  syntax:
+    content: public ICollection<Genre> Genres { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.ICollection{Games.Classes.Genre}
+    content.vb: Public Property Genres As ICollection(Of Genre)
+  overload: Games.Classes.Game.Genres*
+- uid: Games.Classes.Game.SupportedLanguages
+  commentId: P:Games.Classes.Game.SupportedLanguages
+  id: SupportedLanguages
+  parent: Games.Classes.Game
+  langs:
+  - csharp
+  - vb
+  name: SupportedLanguages
+  nameWithType: Game.SupportedLanguages
+  fullName: Games.Classes.Game.SupportedLanguages
+  type: Property
+  source:
+    remote:
+      path: Games/Classes/Game.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: SupportedLanguages
+    path: ../Games/Classes/Game.cs
+    startLine: 16
+  assemblies:
+  - Games
+  namespace: Games.Classes
+  syntax:
+    content: public ICollection<SupportedLanguage> SupportedLanguages { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.ICollection{Games.Classes.SupportedLanguage}
+    content.vb: Public Property SupportedLanguages As ICollection(Of SupportedLanguage)
+  overload: Games.Classes.Game.SupportedLanguages*
+references:
+- uid: Games.Classes
+  commentId: N:Games.Classes
+  href: Games.html
+  name: Games.Classes
+  nameWithType: Games.Classes
+  fullName: Games.Classes
+  spec.csharp:
+  - uid: Games
+    name: Games
+    href: Games.html
+  - name: .
+  - uid: Games.Classes
+    name: Classes
+    href: Games.Classes.html
+  spec.vb:
+  - uid: Games
+    name: Games
+    href: Games.html
+  - name: .
+  - uid: Games.Classes
+    name: Classes
+    href: Games.Classes.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Games.Classes.Game.AppID*
+  commentId: Overload:Games.Classes.Game.AppID
+  href: Games.Classes.Game.html#Games_Classes_Game_AppID
+  name: AppID
+  nameWithType: Game.AppID
+  fullName: Games.Classes.Game.AppID
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: Games.Classes.Game.Name*
+  commentId: Overload:Games.Classes.Game.Name
+  href: Games.Classes.Game.html#Games_Classes_Game_Name
+  name: Name
+  nameWithType: Game.Name
+  fullName: Games.Classes.Game.Name
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Games.Classes.Game.Cost*
+  commentId: Overload:Games.Classes.Game.Cost
+  href: Games.Classes.Game.html#Games_Classes_Game_Cost
+  name: Cost
+  nameWithType: Game.Cost
+  fullName: Games.Classes.Game.Cost
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: Games.Classes.Game.ReleaseDate*
+  commentId: Overload:Games.Classes.Game.ReleaseDate
+  href: Games.Classes.Game.html#Games_Classes_Game_ReleaseDate
+  name: ReleaseDate
+  nameWithType: Game.ReleaseDate
+  fullName: Games.Classes.Game.ReleaseDate
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: Games.Classes.Game.ShortDescription*
+  commentId: Overload:Games.Classes.Game.ShortDescription
+  href: Games.Classes.Game.html#Games_Classes_Game_ShortDescription
+  name: ShortDescription
+  nameWithType: Game.ShortDescription
+  fullName: Games.Classes.Game.ShortDescription
+- uid: Games.Classes.Game.HeaderImage*
+  commentId: Overload:Games.Classes.Game.HeaderImage
+  href: Games.Classes.Game.html#Games_Classes_Game_HeaderImage
+  name: HeaderImage
+  nameWithType: Game.HeaderImage
+  fullName: Games.Classes.Game.HeaderImage
+- uid: Games.Classes.Game.SteamScore*
+  commentId: Overload:Games.Classes.Game.SteamScore
+  href: Games.Classes.Game.html#Games_Classes_Game_SteamScore
+  name: SteamScore
+  nameWithType: Game.SteamScore
+  fullName: Games.Classes.Game.SteamScore
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Games.Classes.Game.MetacriticScore*
+  commentId: Overload:Games.Classes.Game.MetacriticScore
+  href: Games.Classes.Game.html#Games_Classes_Game_MetacriticScore
+  name: MetacriticScore
+  nameWithType: Game.MetacriticScore
+  fullName: Games.Classes.Game.MetacriticScore
+- uid: Games.Classes.Game.Genres*
+  commentId: Overload:Games.Classes.Game.Genres
+  href: Games.Classes.Game.html#Games_Classes_Game_Genres
+  name: Genres
+  nameWithType: Game.Genres
+  fullName: Games.Classes.Game.Genres
+- uid: System.Collections.Generic.ICollection{Games.Classes.Genre}
+  commentId: T:System.Collections.Generic.ICollection{Games.Classes.Genre}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.ICollection`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  name: ICollection<Genre>
+  nameWithType: ICollection<Genre>
+  fullName: System.Collections.Generic.ICollection<Games.Classes.Genre>
+  nameWithType.vb: ICollection(Of Genre)
+  fullName.vb: System.Collections.Generic.ICollection(Of Games.Classes.Genre)
+  name.vb: ICollection(Of Genre)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - uid: Games.Classes.Genre
+    name: Genre
+    href: Games.Classes.Genre.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Games.Classes.Genre
+    name: Genre
+    href: Games.Classes.Genre.html
+  - name: )
+- uid: System.Collections.Generic.ICollection`1
+  commentId: T:System.Collections.Generic.ICollection`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  name: ICollection<T>
+  nameWithType: ICollection<T>
+  fullName: System.Collections.Generic.ICollection<T>
+  nameWithType.vb: ICollection(Of T)
+  fullName.vb: System.Collections.Generic.ICollection(Of T)
+  name.vb: ICollection(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Games.Classes.Game.SupportedLanguages*
+  commentId: Overload:Games.Classes.Game.SupportedLanguages
+  href: Games.Classes.Game.html#Games_Classes_Game_SupportedLanguages
+  name: SupportedLanguages
+  nameWithType: Game.SupportedLanguages
+  fullName: Games.Classes.Game.SupportedLanguages
+- uid: System.Collections.Generic.ICollection{Games.Classes.SupportedLanguage}
+  commentId: T:System.Collections.Generic.ICollection{Games.Classes.SupportedLanguage}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.ICollection`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  name: ICollection<SupportedLanguage>
+  nameWithType: ICollection<SupportedLanguage>
+  fullName: System.Collections.Generic.ICollection<Games.Classes.SupportedLanguage>
+  nameWithType.vb: ICollection(Of SupportedLanguage)
+  fullName.vb: System.Collections.Generic.ICollection(Of Games.Classes.SupportedLanguage)
+  name.vb: ICollection(Of SupportedLanguage)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - uid: Games.Classes.SupportedLanguage
+    name: SupportedLanguage
+    href: Games.Classes.SupportedLanguage.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Games.Classes.SupportedLanguage
+    name: SupportedLanguage
+    href: Games.Classes.SupportedLanguage.html
+  - name: )

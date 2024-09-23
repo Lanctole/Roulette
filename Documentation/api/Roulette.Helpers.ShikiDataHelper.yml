@@ -1,0 +1,387 @@
+### YamlMime:ManagedReference
+items:
+- uid: Roulette.Helpers.ShikiDataHelper
+  commentId: T:Roulette.Helpers.ShikiDataHelper
+  id: ShikiDataHelper
+  parent: Roulette.Helpers
+  children:
+  - Roulette.Helpers.ShikiDataHelper.TransformGenres(ShikimoriSharp.Classes.Genre[])
+  langs:
+  - csharp
+  - vb
+  name: ShikiDataHelper
+  nameWithType: ShikiDataHelper
+  fullName: Roulette.Helpers.ShikiDataHelper
+  type: Class
+  source:
+    remote:
+      path: Roulette/Helpers/ShikiDataHelper.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: ShikiDataHelper
+    path: ../Roulette/Helpers/ShikiDataHelper.cs
+    startLine: 8
+  assemblies:
+  - Roulette
+  namespace: Roulette.Helpers
+  summary: Хелпер для преобразования данных из Shikimori в модель GenreModel.
+  example: []
+  syntax:
+    content: public class ShikiDataHelper
+    content.vb: Public Class ShikiDataHelper
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Roulette.Helpers.ShikiDataHelper.TransformGenres(ShikimoriSharp.Classes.Genre[])
+  commentId: M:Roulette.Helpers.ShikiDataHelper.TransformGenres(ShikimoriSharp.Classes.Genre[])
+  id: TransformGenres(ShikimoriSharp.Classes.Genre[])
+  parent: Roulette.Helpers.ShikiDataHelper
+  langs:
+  - csharp
+  - vb
+  name: TransformGenres(Genre[]?)
+  nameWithType: ShikiDataHelper.TransformGenres(Genre[]?)
+  fullName: Roulette.Helpers.ShikiDataHelper.TransformGenres(ShikimoriSharp.Classes.Genre[]?)
+  type: Method
+  source:
+    remote:
+      path: Roulette/Helpers/ShikiDataHelper.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: TransformGenres
+    path: ../Roulette/Helpers/ShikiDataHelper.cs
+    startLine: 15
+  assemblies:
+  - Roulette
+  namespace: Roulette.Helpers
+  summary: Преобразует массив жанров из Shikimori в массив GenreModel.
+  example: []
+  syntax:
+    content: public GenreModel[] TransformGenres(Genre[]? genres)
+    parameters:
+    - id: genres
+      type: ShikimoriSharp.Classes.Genre[]
+      description: Массив жанров из Shikimori.
+    return:
+      type: Roulette.Models.Shiki.GenreModel[]
+      description: Массив GenreModel.
+    content.vb: Public Function TransformGenres(genres As Genre()) As GenreModel()
+  overload: Roulette.Helpers.ShikiDataHelper.TransformGenres*
+  nameWithType.vb: ShikiDataHelper.TransformGenres(Genre())
+  fullName.vb: Roulette.Helpers.ShikiDataHelper.TransformGenres(ShikimoriSharp.Classes.Genre())
+  name.vb: TransformGenres(Genre())
+references:
+- uid: Roulette.Helpers
+  commentId: N:Roulette.Helpers
+  href: Roulette.html
+  name: Roulette.Helpers
+  nameWithType: Roulette.Helpers
+  fullName: Roulette.Helpers
+  spec.csharp:
+  - uid: Roulette
+    name: Roulette
+    href: Roulette.html
+  - name: .
+  - uid: Roulette.Helpers
+    name: Helpers
+    href: Roulette.Helpers.html
+  spec.vb:
+  - uid: Roulette
+    name: Roulette
+    href: Roulette.html
+  - name: .
+  - uid: Roulette.Helpers
+    name: Helpers
+    href: Roulette.Helpers.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Roulette.Helpers.ShikiDataHelper.TransformGenres*
+  commentId: Overload:Roulette.Helpers.ShikiDataHelper.TransformGenres
+  href: Roulette.Helpers.ShikiDataHelper.html#Roulette_Helpers_ShikiDataHelper_TransformGenres_ShikimoriSharp_Classes_Genre___
+  name: TransformGenres
+  nameWithType: ShikiDataHelper.TransformGenres
+  fullName: Roulette.Helpers.ShikiDataHelper.TransformGenres
+- uid: ShikimoriSharp.Classes.Genre[]
+  isExternal: true
+  href: ShikimoriSharp.Classes.Genre.html
+  name: Genre[]
+  nameWithType: Genre[]
+  fullName: ShikimoriSharp.Classes.Genre[]
+  nameWithType.vb: Genre()
+  fullName.vb: ShikimoriSharp.Classes.Genre()
+  name.vb: Genre()
+  spec.csharp:
+  - uid: ShikimoriSharp.Classes.Genre
+    name: Genre
+    href: ShikimoriSharp.Classes.Genre.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: ShikimoriSharp.Classes.Genre
+    name: Genre
+    href: ShikimoriSharp.Classes.Genre.html
+  - name: (
+  - name: )
+- uid: Roulette.Models.Shiki.GenreModel[]
+  isExternal: true
+  href: Roulette.Models.Shiki.GenreModel.html
+  name: GenreModel[]
+  nameWithType: GenreModel[]
+  fullName: Roulette.Models.Shiki.GenreModel[]
+  nameWithType.vb: GenreModel()
+  fullName.vb: Roulette.Models.Shiki.GenreModel()
+  name.vb: GenreModel()
+  spec.csharp:
+  - uid: Roulette.Models.Shiki.GenreModel
+    name: GenreModel
+    href: Roulette.Models.Shiki.GenreModel.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: Roulette.Models.Shiki.GenreModel
+    name: GenreModel
+    href: Roulette.Models.Shiki.GenreModel.html
+  - name: (
+  - name: )

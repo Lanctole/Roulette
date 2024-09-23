@@ -1,0 +1,157 @@
+### YamlMime:ManagedReference
+items:
+- uid: ShikimoriSharp.Enums.Duration
+  commentId: T:ShikimoriSharp.Enums.Duration
+  id: Duration
+  parent: ShikimoriSharp.Enums
+  children:
+  - ShikimoriSharp.Enums.Duration.D
+  - ShikimoriSharp.Enums.Duration.F
+  - ShikimoriSharp.Enums.Duration.S
+  langs:
+  - csharp
+  - vb
+  name: Duration
+  nameWithType: Duration
+  fullName: ShikimoriSharp.Enums.Duration
+  type: Enum
+  source:
+    remote:
+      path: ShikimoriSharp/Enums/Duration.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Duration
+    path: ../ShikimoriSharp/Enums/Duration.cs
+    startLine: 5
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Enums
+  syntax:
+    content: >-
+      [JsonConverter(typeof(JsonStringEnumConverter))]
+
+      public enum Duration
+    content.vb: >-
+      <JsonConverter(GetType(JsonStringEnumConverter))>
+
+      Public Enum Duration
+  attributes:
+  - type: System.Text.Json.Serialization.JsonConverterAttribute
+    ctor: System.Text.Json.Serialization.JsonConverterAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: System.Text.Json.Serialization.JsonStringEnumConverter
+- uid: ShikimoriSharp.Enums.Duration.S
+  commentId: F:ShikimoriSharp.Enums.Duration.S
+  id: S
+  parent: ShikimoriSharp.Enums.Duration
+  langs:
+  - csharp
+  - vb
+  name: S
+  nameWithType: Duration.S
+  fullName: ShikimoriSharp.Enums.Duration.S
+  type: Field
+  source:
+    remote:
+      path: ShikimoriSharp/Enums/Duration.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: S
+    path: ../ShikimoriSharp/Enums/Duration.cs
+    startLine: 11
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Enums
+  summary: Duration is less than 10 minutes.
+  example: []
+  syntax:
+    content: S = 0
+    return:
+      type: ShikimoriSharp.Enums.Duration
+- uid: ShikimoriSharp.Enums.Duration.D
+  commentId: F:ShikimoriSharp.Enums.Duration.D
+  id: D
+  parent: ShikimoriSharp.Enums.Duration
+  langs:
+  - csharp
+  - vb
+  name: D
+  nameWithType: Duration.D
+  fullName: ShikimoriSharp.Enums.Duration.D
+  type: Field
+  source:
+    remote:
+      path: ShikimoriSharp/Enums/Duration.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: D
+    path: ../ShikimoriSharp/Enums/Duration.cs
+    startLine: 16
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Enums
+  summary: Duration is less than 30 minutes.
+  example: []
+  syntax:
+    content: D = 1
+    return:
+      type: ShikimoriSharp.Enums.Duration
+- uid: ShikimoriSharp.Enums.Duration.F
+  commentId: F:ShikimoriSharp.Enums.Duration.F
+  id: F
+  parent: ShikimoriSharp.Enums.Duration
+  langs:
+  - csharp
+  - vb
+  name: F
+  nameWithType: Duration.F
+  fullName: ShikimoriSharp.Enums.Duration.F
+  type: Field
+  source:
+    remote:
+      path: ShikimoriSharp/Enums/Duration.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: F
+    path: ../ShikimoriSharp/Enums/Duration.cs
+    startLine: 21
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Enums
+  summary: Duration is more than 30 minutes.
+  example: []
+  syntax:
+    content: F = 2
+    return:
+      type: ShikimoriSharp.Enums.Duration
+references:
+- uid: ShikimoriSharp.Enums
+  commentId: N:ShikimoriSharp.Enums
+  href: ShikimoriSharp.html
+  name: ShikimoriSharp.Enums
+  nameWithType: ShikimoriSharp.Enums
+  fullName: ShikimoriSharp.Enums
+  spec.csharp:
+  - uid: ShikimoriSharp
+    name: ShikimoriSharp
+    href: ShikimoriSharp.html
+  - name: .
+  - uid: ShikimoriSharp.Enums
+    name: Enums
+    href: ShikimoriSharp.Enums.html
+  spec.vb:
+  - uid: ShikimoriSharp
+    name: ShikimoriSharp
+    href: ShikimoriSharp.html
+  - name: .
+  - uid: ShikimoriSharp.Enums
+    name: Enums
+    href: ShikimoriSharp.Enums.html
+- uid: ShikimoriSharp.Enums.Duration
+  commentId: T:ShikimoriSharp.Enums.Duration
+  parent: ShikimoriSharp.Enums
+  href: ShikimoriSharp.Enums.Duration.html
+  name: Duration
+  nameWithType: Duration
+  fullName: ShikimoriSharp.Enums.Duration

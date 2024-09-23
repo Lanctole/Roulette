@@ -1,0 +1,232 @@
+### YamlMime:ManagedReference
+items:
+- uid: ShikimoriSharp.Enums.Rating
+  commentId: T:ShikimoriSharp.Enums.Rating
+  id: Rating
+  parent: ShikimoriSharp.Enums
+  children:
+  - ShikimoriSharp.Enums.Rating.g
+  - ShikimoriSharp.Enums.Rating.pg
+  - ShikimoriSharp.Enums.Rating.pg_13
+  - ShikimoriSharp.Enums.Rating.r
+  - ShikimoriSharp.Enums.Rating.r_plus
+  - ShikimoriSharp.Enums.Rating.rx
+  langs:
+  - csharp
+  - vb
+  name: Rating
+  nameWithType: Rating
+  fullName: ShikimoriSharp.Enums.Rating
+  type: Enum
+  source:
+    remote:
+      path: ShikimoriSharp/Enums/Rating.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Rating
+    path: ../ShikimoriSharp/Enums/Rating.cs
+    startLine: 4
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Enums
+  syntax:
+    content: public enum Rating
+    content.vb: Public Enum Rating
+- uid: ShikimoriSharp.Enums.Rating.g
+  commentId: F:ShikimoriSharp.Enums.Rating.g
+  id: g
+  parent: ShikimoriSharp.Enums.Rating
+  langs:
+  - csharp
+  - vb
+  name: g
+  nameWithType: Rating.g
+  fullName: ShikimoriSharp.Enums.Rating.g
+  type: Field
+  source:
+    remote:
+      path: ShikimoriSharp/Enums/Rating.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: g
+    path: ../ShikimoriSharp/Enums/Rating.cs
+    startLine: 9
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Enums
+  summary: G - All ages
+  example: []
+  syntax:
+    content: g = 0
+    return:
+      type: ShikimoriSharp.Enums.Rating
+- uid: ShikimoriSharp.Enums.Rating.pg
+  commentId: F:ShikimoriSharp.Enums.Rating.pg
+  id: pg
+  parent: ShikimoriSharp.Enums.Rating
+  langs:
+  - csharp
+  - vb
+  name: pg
+  nameWithType: Rating.pg
+  fullName: ShikimoriSharp.Enums.Rating.pg
+  type: Field
+  source:
+    remote:
+      path: ShikimoriSharp/Enums/Rating.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: pg
+    path: ../ShikimoriSharp/Enums/Rating.cs
+    startLine: 14
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Enums
+  summary: PG - Children
+  example: []
+  syntax:
+    content: pg = 1
+    return:
+      type: ShikimoriSharp.Enums.Rating
+- uid: ShikimoriSharp.Enums.Rating.pg_13
+  commentId: F:ShikimoriSharp.Enums.Rating.pg_13
+  id: pg_13
+  parent: ShikimoriSharp.Enums.Rating
+  langs:
+  - csharp
+  - vb
+  name: pg_13
+  nameWithType: Rating.pg_13
+  fullName: ShikimoriSharp.Enums.Rating.pg_13
+  type: Field
+  source:
+    remote:
+      path: ShikimoriSharp/Enums/Rating.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: pg_13
+    path: ../ShikimoriSharp/Enums/Rating.cs
+    startLine: 19
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Enums
+  summary: PG-13 - Teens 13 or older
+  example: []
+  syntax:
+    content: pg_13 = 2
+    return:
+      type: ShikimoriSharp.Enums.Rating
+- uid: ShikimoriSharp.Enums.Rating.r
+  commentId: F:ShikimoriSharp.Enums.Rating.r
+  id: r
+  parent: ShikimoriSharp.Enums.Rating
+  langs:
+  - csharp
+  - vb
+  name: r
+  nameWithType: Rating.r
+  fullName: ShikimoriSharp.Enums.Rating.r
+  type: Field
+  source:
+    remote:
+      path: ShikimoriSharp/Enums/Rating.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: r
+    path: ../ShikimoriSharp/Enums/Rating.cs
+    startLine: 24
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Enums
+  summary: R - 17 plus recommended (violence and profanity)
+  example: []
+  syntax:
+    content: r = 3
+    return:
+      type: ShikimoriSharp.Enums.Rating
+- uid: ShikimoriSharp.Enums.Rating.r_plus
+  commentId: F:ShikimoriSharp.Enums.Rating.r_plus
+  id: r_plus
+  parent: ShikimoriSharp.Enums.Rating
+  langs:
+  - csharp
+  - vb
+  name: r_plus
+  nameWithType: Rating.r_plus
+  fullName: ShikimoriSharp.Enums.Rating.r_plus
+  type: Field
+  source:
+    remote:
+      path: ShikimoriSharp/Enums/Rating.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: r_plus
+    path: ../ShikimoriSharp/Enums/Rating.cs
+    startLine: 29
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Enums
+  summary: R_plus - Mild Nudity (may also contain violence and profanity)
+  example: []
+  syntax:
+    content: r_plus = 4
+    return:
+      type: ShikimoriSharp.Enums.Rating
+- uid: ShikimoriSharp.Enums.Rating.rx
+  commentId: F:ShikimoriSharp.Enums.Rating.rx
+  id: rx
+  parent: ShikimoriSharp.Enums.Rating
+  langs:
+  - csharp
+  - vb
+  name: rx
+  nameWithType: Rating.rx
+  fullName: ShikimoriSharp.Enums.Rating.rx
+  type: Field
+  source:
+    remote:
+      path: ShikimoriSharp/Enums/Rating.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: rx
+    path: ../ShikimoriSharp/Enums/Rating.cs
+    startLine: 34
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Enums
+  summary: Rx - Hentai (extreme sexual content/nudity)
+  example: []
+  syntax:
+    content: rx = 5
+    return:
+      type: ShikimoriSharp.Enums.Rating
+references:
+- uid: ShikimoriSharp.Enums
+  commentId: N:ShikimoriSharp.Enums
+  href: ShikimoriSharp.html
+  name: ShikimoriSharp.Enums
+  nameWithType: ShikimoriSharp.Enums
+  fullName: ShikimoriSharp.Enums
+  spec.csharp:
+  - uid: ShikimoriSharp
+    name: ShikimoriSharp
+    href: ShikimoriSharp.html
+  - name: .
+  - uid: ShikimoriSharp.Enums
+    name: Enums
+    href: ShikimoriSharp.Enums.html
+  spec.vb:
+  - uid: ShikimoriSharp
+    name: ShikimoriSharp
+    href: ShikimoriSharp.html
+  - name: .
+  - uid: ShikimoriSharp.Enums
+    name: Enums
+    href: ShikimoriSharp.Enums.html
+- uid: ShikimoriSharp.Enums.Rating
+  commentId: T:ShikimoriSharp.Enums.Rating
+  parent: ShikimoriSharp.Enums
+  href: ShikimoriSharp.Enums.Rating.html
+  name: Rating
+  nameWithType: Rating
+  fullName: ShikimoriSharp.Enums.Rating

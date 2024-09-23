@@ -1,0 +1,382 @@
+### YamlMime:ManagedReference
+items:
+- uid: ShikimoriSharp.Enums.AnimeKind
+  commentId: T:ShikimoriSharp.Enums.AnimeKind
+  id: AnimeKind
+  parent: ShikimoriSharp.Enums
+  children:
+  - ShikimoriSharp.Enums.AnimeKind.cm
+  - ShikimoriSharp.Enums.AnimeKind.movie
+  - ShikimoriSharp.Enums.AnimeKind.music
+  - ShikimoriSharp.Enums.AnimeKind.ona
+  - ShikimoriSharp.Enums.AnimeKind.ova
+  - ShikimoriSharp.Enums.AnimeKind.pv
+  - ShikimoriSharp.Enums.AnimeKind.special
+  - ShikimoriSharp.Enums.AnimeKind.tv
+  - ShikimoriSharp.Enums.AnimeKind.tv_13
+  - ShikimoriSharp.Enums.AnimeKind.tv_24
+  - ShikimoriSharp.Enums.AnimeKind.tv_48
+  - ShikimoriSharp.Enums.AnimeKind.tv_special
+  langs:
+  - csharp
+  - vb
+  name: AnimeKind
+  nameWithType: AnimeKind
+  fullName: ShikimoriSharp.Enums.AnimeKind
+  type: Enum
+  source:
+    remote:
+      path: ShikimoriSharp/Enums/AnimeKind.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: AnimeKind
+    path: ../ShikimoriSharp/Enums/AnimeKind.cs
+    startLine: 2
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Enums
+  syntax:
+    content: public enum AnimeKind
+    content.vb: Public Enum AnimeKind
+- uid: ShikimoriSharp.Enums.AnimeKind.tv
+  commentId: F:ShikimoriSharp.Enums.AnimeKind.tv
+  id: tv
+  parent: ShikimoriSharp.Enums.AnimeKind
+  langs:
+  - csharp
+  - vb
+  name: tv
+  nameWithType: AnimeKind.tv
+  fullName: ShikimoriSharp.Enums.AnimeKind.tv
+  type: Field
+  source:
+    remote:
+      path: ShikimoriSharp/Enums/AnimeKind.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: tv
+    path: ../ShikimoriSharp/Enums/AnimeKind.cs
+    startLine: 4
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Enums
+  syntax:
+    content: tv = 0
+    return:
+      type: ShikimoriSharp.Enums.AnimeKind
+- uid: ShikimoriSharp.Enums.AnimeKind.movie
+  commentId: F:ShikimoriSharp.Enums.AnimeKind.movie
+  id: movie
+  parent: ShikimoriSharp.Enums.AnimeKind
+  langs:
+  - csharp
+  - vb
+  name: movie
+  nameWithType: AnimeKind.movie
+  fullName: ShikimoriSharp.Enums.AnimeKind.movie
+  type: Field
+  source:
+    remote:
+      path: ShikimoriSharp/Enums/AnimeKind.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: movie
+    path: ../ShikimoriSharp/Enums/AnimeKind.cs
+    startLine: 5
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Enums
+  syntax:
+    content: movie = 1
+    return:
+      type: ShikimoriSharp.Enums.AnimeKind
+- uid: ShikimoriSharp.Enums.AnimeKind.ova
+  commentId: F:ShikimoriSharp.Enums.AnimeKind.ova
+  id: ova
+  parent: ShikimoriSharp.Enums.AnimeKind
+  langs:
+  - csharp
+  - vb
+  name: ova
+  nameWithType: AnimeKind.ova
+  fullName: ShikimoriSharp.Enums.AnimeKind.ova
+  type: Field
+  source:
+    remote:
+      path: ShikimoriSharp/Enums/AnimeKind.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: ova
+    path: ../ShikimoriSharp/Enums/AnimeKind.cs
+    startLine: 6
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Enums
+  syntax:
+    content: ova = 2
+    return:
+      type: ShikimoriSharp.Enums.AnimeKind
+- uid: ShikimoriSharp.Enums.AnimeKind.ona
+  commentId: F:ShikimoriSharp.Enums.AnimeKind.ona
+  id: ona
+  parent: ShikimoriSharp.Enums.AnimeKind
+  langs:
+  - csharp
+  - vb
+  name: ona
+  nameWithType: AnimeKind.ona
+  fullName: ShikimoriSharp.Enums.AnimeKind.ona
+  type: Field
+  source:
+    remote:
+      path: ShikimoriSharp/Enums/AnimeKind.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: ona
+    path: ../ShikimoriSharp/Enums/AnimeKind.cs
+    startLine: 7
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Enums
+  syntax:
+    content: ona = 3
+    return:
+      type: ShikimoriSharp.Enums.AnimeKind
+- uid: ShikimoriSharp.Enums.AnimeKind.special
+  commentId: F:ShikimoriSharp.Enums.AnimeKind.special
+  id: special
+  parent: ShikimoriSharp.Enums.AnimeKind
+  langs:
+  - csharp
+  - vb
+  name: special
+  nameWithType: AnimeKind.special
+  fullName: ShikimoriSharp.Enums.AnimeKind.special
+  type: Field
+  source:
+    remote:
+      path: ShikimoriSharp/Enums/AnimeKind.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: special
+    path: ../ShikimoriSharp/Enums/AnimeKind.cs
+    startLine: 8
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Enums
+  syntax:
+    content: special = 4
+    return:
+      type: ShikimoriSharp.Enums.AnimeKind
+- uid: ShikimoriSharp.Enums.AnimeKind.tv_special
+  commentId: F:ShikimoriSharp.Enums.AnimeKind.tv_special
+  id: tv_special
+  parent: ShikimoriSharp.Enums.AnimeKind
+  langs:
+  - csharp
+  - vb
+  name: tv_special
+  nameWithType: AnimeKind.tv_special
+  fullName: ShikimoriSharp.Enums.AnimeKind.tv_special
+  type: Field
+  source:
+    remote:
+      path: ShikimoriSharp/Enums/AnimeKind.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: tv_special
+    path: ../ShikimoriSharp/Enums/AnimeKind.cs
+    startLine: 9
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Enums
+  syntax:
+    content: tv_special = 5
+    return:
+      type: ShikimoriSharp.Enums.AnimeKind
+- uid: ShikimoriSharp.Enums.AnimeKind.music
+  commentId: F:ShikimoriSharp.Enums.AnimeKind.music
+  id: music
+  parent: ShikimoriSharp.Enums.AnimeKind
+  langs:
+  - csharp
+  - vb
+  name: music
+  nameWithType: AnimeKind.music
+  fullName: ShikimoriSharp.Enums.AnimeKind.music
+  type: Field
+  source:
+    remote:
+      path: ShikimoriSharp/Enums/AnimeKind.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: music
+    path: ../ShikimoriSharp/Enums/AnimeKind.cs
+    startLine: 10
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Enums
+  syntax:
+    content: music = 6
+    return:
+      type: ShikimoriSharp.Enums.AnimeKind
+- uid: ShikimoriSharp.Enums.AnimeKind.pv
+  commentId: F:ShikimoriSharp.Enums.AnimeKind.pv
+  id: pv
+  parent: ShikimoriSharp.Enums.AnimeKind
+  langs:
+  - csharp
+  - vb
+  name: pv
+  nameWithType: AnimeKind.pv
+  fullName: ShikimoriSharp.Enums.AnimeKind.pv
+  type: Field
+  source:
+    remote:
+      path: ShikimoriSharp/Enums/AnimeKind.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: pv
+    path: ../ShikimoriSharp/Enums/AnimeKind.cs
+    startLine: 11
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Enums
+  syntax:
+    content: pv = 7
+    return:
+      type: ShikimoriSharp.Enums.AnimeKind
+- uid: ShikimoriSharp.Enums.AnimeKind.cm
+  commentId: F:ShikimoriSharp.Enums.AnimeKind.cm
+  id: cm
+  parent: ShikimoriSharp.Enums.AnimeKind
+  langs:
+  - csharp
+  - vb
+  name: cm
+  nameWithType: AnimeKind.cm
+  fullName: ShikimoriSharp.Enums.AnimeKind.cm
+  type: Field
+  source:
+    remote:
+      path: ShikimoriSharp/Enums/AnimeKind.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: cm
+    path: ../ShikimoriSharp/Enums/AnimeKind.cs
+    startLine: 12
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Enums
+  syntax:
+    content: cm = 8
+    return:
+      type: ShikimoriSharp.Enums.AnimeKind
+- uid: ShikimoriSharp.Enums.AnimeKind.tv_13
+  commentId: F:ShikimoriSharp.Enums.AnimeKind.tv_13
+  id: tv_13
+  parent: ShikimoriSharp.Enums.AnimeKind
+  langs:
+  - csharp
+  - vb
+  name: tv_13
+  nameWithType: AnimeKind.tv_13
+  fullName: ShikimoriSharp.Enums.AnimeKind.tv_13
+  type: Field
+  source:
+    remote:
+      path: ShikimoriSharp/Enums/AnimeKind.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: tv_13
+    path: ../ShikimoriSharp/Enums/AnimeKind.cs
+    startLine: 13
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Enums
+  syntax:
+    content: tv_13 = 9
+    return:
+      type: ShikimoriSharp.Enums.AnimeKind
+- uid: ShikimoriSharp.Enums.AnimeKind.tv_24
+  commentId: F:ShikimoriSharp.Enums.AnimeKind.tv_24
+  id: tv_24
+  parent: ShikimoriSharp.Enums.AnimeKind
+  langs:
+  - csharp
+  - vb
+  name: tv_24
+  nameWithType: AnimeKind.tv_24
+  fullName: ShikimoriSharp.Enums.AnimeKind.tv_24
+  type: Field
+  source:
+    remote:
+      path: ShikimoriSharp/Enums/AnimeKind.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: tv_24
+    path: ../ShikimoriSharp/Enums/AnimeKind.cs
+    startLine: 14
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Enums
+  syntax:
+    content: tv_24 = 10
+    return:
+      type: ShikimoriSharp.Enums.AnimeKind
+- uid: ShikimoriSharp.Enums.AnimeKind.tv_48
+  commentId: F:ShikimoriSharp.Enums.AnimeKind.tv_48
+  id: tv_48
+  parent: ShikimoriSharp.Enums.AnimeKind
+  langs:
+  - csharp
+  - vb
+  name: tv_48
+  nameWithType: AnimeKind.tv_48
+  fullName: ShikimoriSharp.Enums.AnimeKind.tv_48
+  type: Field
+  source:
+    remote:
+      path: ShikimoriSharp/Enums/AnimeKind.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: tv_48
+    path: ../ShikimoriSharp/Enums/AnimeKind.cs
+    startLine: 15
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Enums
+  syntax:
+    content: tv_48 = 11
+    return:
+      type: ShikimoriSharp.Enums.AnimeKind
+references:
+- uid: ShikimoriSharp.Enums
+  commentId: N:ShikimoriSharp.Enums
+  href: ShikimoriSharp.html
+  name: ShikimoriSharp.Enums
+  nameWithType: ShikimoriSharp.Enums
+  fullName: ShikimoriSharp.Enums
+  spec.csharp:
+  - uid: ShikimoriSharp
+    name: ShikimoriSharp
+    href: ShikimoriSharp.html
+  - name: .
+  - uid: ShikimoriSharp.Enums
+    name: Enums
+    href: ShikimoriSharp.Enums.html
+  spec.vb:
+  - uid: ShikimoriSharp
+    name: ShikimoriSharp
+    href: ShikimoriSharp.html
+  - name: .
+  - uid: ShikimoriSharp.Enums
+    name: Enums
+    href: ShikimoriSharp.Enums.html
+- uid: ShikimoriSharp.Enums.AnimeKind
+  commentId: T:ShikimoriSharp.Enums.AnimeKind
+  parent: ShikimoriSharp.Enums
+  href: ShikimoriSharp.Enums.AnimeKind.html
+  name: AnimeKind
+  nameWithType: AnimeKind
+  fullName: ShikimoriSharp.Enums.AnimeKind

@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: Roulette.Controllers
+  commentId: N:Roulette.Controllers
+  id: Roulette.Controllers
+  children:
+  - Roulette.Controllers.HomeController
+  langs:
+  - csharp
+  - vb
+  name: Roulette.Controllers
+  nameWithType: Roulette.Controllers
+  fullName: Roulette.Controllers
+  type: Namespace
+  assemblies:
+  - Roulette
+references:
+- uid: Roulette.Controllers.HomeController
+  commentId: T:Roulette.Controllers.HomeController
+  href: Roulette.Controllers.HomeController.html
+  name: HomeController
+  nameWithType: HomeController
+  fullName: Roulette.Controllers.HomeController

@@ -1,0 +1,92 @@
+### YamlMime:ManagedReference
+items:
+- uid: ShikimoriSharp.Bases
+  commentId: N:ShikimoriSharp.Bases
+  id: ShikimoriSharp.Bases
+  children:
+  - ShikimoriSharp.Bases.AccessToken
+  - ShikimoriSharp.Bases.AnimeMangaRanobeBase
+  - ShikimoriSharp.Bases.AnimeMangaRanobeIdBase
+  - ShikimoriSharp.Bases.Image
+  - ShikimoriSharp.Bases.PureImage
+  - ShikimoriSharp.Bases.Search
+  - ShikimoriSharp.Bases.SmallRepresentation
+  langs:
+  - csharp
+  - vb
+  name: ShikimoriSharp.Bases
+  nameWithType: ShikimoriSharp.Bases
+  fullName: ShikimoriSharp.Bases
+  type: Namespace
+  assemblies:
+  - ShikimoriSharp
+references:
+- uid: ShikimoriSharp.Bases.AccessToken
+  commentId: T:ShikimoriSharp.Bases.AccessToken
+  parent: ShikimoriSharp.Bases
+  href: ShikimoriSharp.Bases.AccessToken.html
+  name: AccessToken
+  nameWithType: AccessToken
+  fullName: ShikimoriSharp.Bases.AccessToken
+- uid: ShikimoriSharp.Bases.AnimeMangaRanobeBase
+  commentId: T:ShikimoriSharp.Bases.AnimeMangaRanobeBase
+  parent: ShikimoriSharp.Bases
+  href: ShikimoriSharp.Bases.AnimeMangaRanobeBase.html
+  name: AnimeMangaRanobeBase
+  nameWithType: AnimeMangaRanobeBase
+  fullName: ShikimoriSharp.Bases.AnimeMangaRanobeBase
+- uid: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase
+  commentId: T:ShikimoriSharp.Bases.AnimeMangaRanobeIdBase
+  parent: ShikimoriSharp.Bases
+  href: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.html
+  name: AnimeMangaRanobeIdBase
+  nameWithType: AnimeMangaRanobeIdBase
+  fullName: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase
+- uid: ShikimoriSharp.Bases.Image
+  commentId: T:ShikimoriSharp.Bases.Image
+  parent: ShikimoriSharp.Bases
+  href: ShikimoriSharp.Bases.Image.html
+  name: Image
+  nameWithType: Image
+  fullName: ShikimoriSharp.Bases.Image
+- uid: ShikimoriSharp.Bases.PureImage
+  commentId: T:ShikimoriSharp.Bases.PureImage
+  href: ShikimoriSharp.Bases.PureImage.html
+  name: PureImage
+  nameWithType: PureImage
+  fullName: ShikimoriSharp.Bases.PureImage
+- uid: ShikimoriSharp.Bases.Search
+  commentId: T:ShikimoriSharp.Bases.Search
+  href: ShikimoriSharp.Bases.Search.html
+  name: Search
+  nameWithType: Search
+  fullName: ShikimoriSharp.Bases.Search
+- uid: ShikimoriSharp.Bases.SmallRepresentation
+  commentId: T:ShikimoriSharp.Bases.SmallRepresentation
+  parent: ShikimoriSharp.Bases
+  href: ShikimoriSharp.Bases.SmallRepresentation.html
+  name: SmallRepresentation
+  nameWithType: SmallRepresentation
+  fullName: ShikimoriSharp.Bases.SmallRepresentation
+- uid: ShikimoriSharp.Bases
+  commentId: N:ShikimoriSharp.Bases
+  href: ShikimoriSharp.html
+  name: ShikimoriSharp.Bases
+  nameWithType: ShikimoriSharp.Bases
+  fullName: ShikimoriSharp.Bases
+  spec.csharp:
+  - uid: ShikimoriSharp
+    name: ShikimoriSharp
+    href: ShikimoriSharp.html
+  - name: .
+  - uid: ShikimoriSharp.Bases
+    name: Bases
+    href: ShikimoriSharp.Bases.html
+  spec.vb:
+  - uid: ShikimoriSharp
+    name: ShikimoriSharp
+    href: ShikimoriSharp.html
+  - name: .
+  - uid: ShikimoriSharp.Bases
+    name: Bases
+    href: ShikimoriSharp.Bases.html
