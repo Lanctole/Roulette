@@ -22,6 +22,10 @@ jobs:
           cd Documentation
           docker build -t roulette_documentation:${{ github.event.inputs.docker_version }} .
 
+      - name: Save Docker image as tar
+        run: |
+          docker save roulette_documentation:${{ github.event.inputs.docker_version }} -o roulette_documentation.tar
+
       - name: Deploy to server using SSH
         uses: appleboy/ssh-action@v0.1.8
         with:
@@ -37,5 +41,8 @@ jobs:
                 echo "No container named 'roulette_documentation' exists."
             fi
             
+            echo "Loading Docker image from tar..."
+            docker load -i roulette_documentation.tar
+
             echo "Running Docker container for documentation..."
             docker run -d --name roulette_documentation -p 5100:80 roulette_documentation:${{ github.event.inputs.docker_version }}
