@@ -22,8 +22,8 @@ jobs:
           password: ${{ secrets.SERVER_PASSWORD }}
           script: |
             echo "Building Docker image for documentation..."
-            docker build -t roulette_documentation:${{ github.event.inputs.docker_version }} ./Documentation
-            
+            docker build -t roulette_documentation:${{ github.event.inputs.docker_version }} -f Documentation/Dockerfile .
+
             echo "Stopping and removing existing documentation container..."
             if docker ps -q -f name=roulette_documentation; then
                 docker stop roulette_documentation
