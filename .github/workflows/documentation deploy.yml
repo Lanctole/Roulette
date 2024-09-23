@@ -1,0 +1,36 @@
+name: Documentation Deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+      docker_version:  
+        description: 'Введите версию образа (например, 1.0.0)'
+        required: true
+        default: '0.1.0'
+        type: string
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to server using SSH
+        uses: appleboy/ssh-action@v0.1.8
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          password: ${{ secrets.SERVER_PASSWORD }}
+          script: |
+            echo "Building Docker image for documentation..."
+            docker build -t roulette_documentation:${{ github.event.inputs.docker_version }} ./Documentation
+            
+            echo "Stopping and removing existing documentation container..."
+            if docker ps -q -f name=roulette_documentation; then
+                docker stop roulette_documentation
+                docker rm roulette_documentation
+            else
+                echo "No container named 'roulette_documentation' exists."
+            fi
+            
+            echo "Running Docker container for documentation..."
+            docker run -d --name roulette_documentation -p 5100:80 roulette_documentation:${{ github.event.inputs.docker_version }}
