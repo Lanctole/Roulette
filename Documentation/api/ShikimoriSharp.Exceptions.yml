@@ -1,0 +1,30 @@
+### YamlMime:ManagedReference
+items:
+- uid: ShikimoriSharp.Exceptions
+  commentId: N:ShikimoriSharp.Exceptions
+  id: ShikimoriSharp.Exceptions
+  children:
+  - ShikimoriSharp.Exceptions.ForbiddenException
+  - ShikimoriSharp.Exceptions.UnprocessableEntityException
+  langs:
+  - csharp
+  - vb
+  name: ShikimoriSharp.Exceptions
+  nameWithType: ShikimoriSharp.Exceptions
+  fullName: ShikimoriSharp.Exceptions
+  type: Namespace
+  assemblies:
+  - ShikimoriSharp
+references:
+- uid: ShikimoriSharp.Exceptions.ForbiddenException
+  commentId: T:ShikimoriSharp.Exceptions.ForbiddenException
+  href: ShikimoriSharp.Exceptions.ForbiddenException.html
+  name: ForbiddenException
+  nameWithType: ForbiddenException
+  fullName: ShikimoriSharp.Exceptions.ForbiddenException
+- uid: ShikimoriSharp.Exceptions.UnprocessableEntityException
+  commentId: T:ShikimoriSharp.Exceptions.UnprocessableEntityException
+  href: ShikimoriSharp.Exceptions.UnprocessableEntityException.html
+  name: UnprocessableEntityException
+  nameWithType: UnprocessableEntityException
+  fullName: ShikimoriSharp.Exceptions.UnprocessableEntityException

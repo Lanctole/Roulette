@@ -1,0 +1,83 @@
+### YamlMime:ManagedReference
+items:
+- uid: Roulette.DTOs
+  commentId: N:Roulette.DTOs
+  id: Roulette.DTOs
+  children:
+  - Roulette.DTOs.AnimeDto
+  - Roulette.DTOs.GameDto
+  - Roulette.DTOs.GenreDto
+  - Roulette.DTOs.MangaDto
+  - Roulette.DTOs.RanobeDto
+  - Roulette.DTOs.SupportedLanguageDto
+  langs:
+  - csharp
+  - vb
+  name: Roulette.DTOs
+  nameWithType: Roulette.DTOs
+  fullName: Roulette.DTOs
+  type: Namespace
+  assemblies:
+  - Roulette
+references:
+- uid: Roulette.DTOs.AnimeDto
+  commentId: T:Roulette.DTOs.AnimeDto
+  parent: Roulette.DTOs
+  href: Roulette.DTOs.AnimeDto.html
+  name: AnimeDto
+  nameWithType: AnimeDto
+  fullName: Roulette.DTOs.AnimeDto
+- uid: Roulette.DTOs.GameDto
+  commentId: T:Roulette.DTOs.GameDto
+  href: Roulette.DTOs.GameDto.html
+  name: GameDto
+  nameWithType: GameDto
+  fullName: Roulette.DTOs.GameDto
+- uid: Roulette.DTOs.GenreDto
+  commentId: T:Roulette.DTOs.GenreDto
+  href: Roulette.DTOs.GenreDto.html
+  name: GenreDto
+  nameWithType: GenreDto
+  fullName: Roulette.DTOs.GenreDto
+- uid: Roulette.DTOs.MangaDto
+  commentId: T:Roulette.DTOs.MangaDto
+  parent: Roulette.DTOs
+  href: Roulette.DTOs.MangaDto.html
+  name: MangaDto
+  nameWithType: MangaDto
+  fullName: Roulette.DTOs.MangaDto
+- uid: Roulette.DTOs.RanobeDto
+  commentId: T:Roulette.DTOs.RanobeDto
+  parent: Roulette.DTOs
+  href: Roulette.DTOs.RanobeDto.html
+  name: RanobeDto
+  nameWithType: RanobeDto
+  fullName: Roulette.DTOs.RanobeDto
+- uid: Roulette.DTOs.SupportedLanguageDto
+  commentId: T:Roulette.DTOs.SupportedLanguageDto
+  href: Roulette.DTOs.SupportedLanguageDto.html
+  name: SupportedLanguageDto
+  nameWithType: SupportedLanguageDto
+  fullName: Roulette.DTOs.SupportedLanguageDto
+- uid: Roulette.DTOs
+  commentId: N:Roulette.DTOs
+  href: Roulette.html
+  name: Roulette.DTOs
+  nameWithType: Roulette.DTOs
+  fullName: Roulette.DTOs
+  spec.csharp:
+  - uid: Roulette
+    name: Roulette
+    href: Roulette.html
+  - name: .
+  - uid: Roulette.DTOs
+    name: DTOs
+    href: Roulette.DTOs.html
+  spec.vb:
+  - uid: Roulette
+    name: Roulette
+    href: Roulette.html
+  - name: .
+  - uid: Roulette.DTOs
+    name: DTOs
+    href: Roulette.DTOs.html

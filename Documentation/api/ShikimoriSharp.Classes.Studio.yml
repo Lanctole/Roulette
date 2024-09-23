@@ -1,0 +1,611 @@
+### YamlMime:ManagedReference
+items:
+- uid: ShikimoriSharp.Classes.Studio
+  commentId: T:ShikimoriSharp.Classes.Studio
+  id: Studio
+  parent: ShikimoriSharp.Classes
+  children:
+  - ShikimoriSharp.Classes.Studio.FilteredName
+  - ShikimoriSharp.Classes.Studio.Id
+  - ShikimoriSharp.Classes.Studio.Image
+  - ShikimoriSharp.Classes.Studio.Name
+  - ShikimoriSharp.Classes.Studio.Real
+  langs:
+  - csharp
+  - vb
+  name: Studio
+  nameWithType: Studio
+  fullName: ShikimoriSharp.Classes.Studio
+  type: Class
+  source:
+    remote:
+      path: ShikimoriSharp/Classes/Studio.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Studio
+    path: ../ShikimoriSharp/Classes/Studio.cs
+    startLine: 4
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Classes
+  syntax:
+    content: public class Studio
+    content.vb: Public Class Studio
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: ShikimoriSharp.Classes.Studio.Id
+  commentId: P:ShikimoriSharp.Classes.Studio.Id
+  id: Id
+  parent: ShikimoriSharp.Classes.Studio
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: Studio.Id
+  fullName: ShikimoriSharp.Classes.Studio.Id
+  type: Property
+  source:
+    remote:
+      path: ShikimoriSharp/Classes/Studio.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Id
+    path: ../ShikimoriSharp/Classes/Studio.cs
+    startLine: 6
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Classes
+  syntax:
+    content: >-
+      [JsonProperty("id")]
+
+      public long Id { get; set; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: >-
+      <JsonProperty("id")>
+
+      Public Property Id As Long
+  overload: ShikimoriSharp.Classes.Studio.Id*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: id
+- uid: ShikimoriSharp.Classes.Studio.Name
+  commentId: P:ShikimoriSharp.Classes.Studio.Name
+  id: Name
+  parent: ShikimoriSharp.Classes.Studio
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: Studio.Name
+  fullName: ShikimoriSharp.Classes.Studio.Name
+  type: Property
+  source:
+    remote:
+      path: ShikimoriSharp/Classes/Studio.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Name
+    path: ../ShikimoriSharp/Classes/Studio.cs
+    startLine: 7
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Classes
+  syntax:
+    content: >-
+      [JsonProperty("name")]
+
+      public string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("name")>
+
+      Public Property Name As String
+  overload: ShikimoriSharp.Classes.Studio.Name*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: name
+- uid: ShikimoriSharp.Classes.Studio.FilteredName
+  commentId: P:ShikimoriSharp.Classes.Studio.FilteredName
+  id: FilteredName
+  parent: ShikimoriSharp.Classes.Studio
+  langs:
+  - csharp
+  - vb
+  name: FilteredName
+  nameWithType: Studio.FilteredName
+  fullName: ShikimoriSharp.Classes.Studio.FilteredName
+  type: Property
+  source:
+    remote:
+      path: ShikimoriSharp/Classes/Studio.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: FilteredName
+    path: ../ShikimoriSharp/Classes/Studio.cs
+    startLine: 8
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Classes
+  syntax:
+    content: >-
+      [JsonProperty("filtered_name")]
+
+      public string FilteredName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("filtered_name")>
+
+      Public Property FilteredName As String
+  overload: ShikimoriSharp.Classes.Studio.FilteredName*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: filtered_name
+- uid: ShikimoriSharp.Classes.Studio.Real
+  commentId: P:ShikimoriSharp.Classes.Studio.Real
+  id: Real
+  parent: ShikimoriSharp.Classes.Studio
+  langs:
+  - csharp
+  - vb
+  name: Real
+  nameWithType: Studio.Real
+  fullName: ShikimoriSharp.Classes.Studio.Real
+  type: Property
+  source:
+    remote:
+      path: ShikimoriSharp/Classes/Studio.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Real
+    path: ../ShikimoriSharp/Classes/Studio.cs
+    startLine: 9
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Classes
+  syntax:
+    content: >-
+      [JsonProperty("real")]
+
+      public bool? Real { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Boolean}
+    content.vb: >-
+      <JsonProperty("real")>
+
+      Public Property Real As Boolean?
+  overload: ShikimoriSharp.Classes.Studio.Real*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: real
+- uid: ShikimoriSharp.Classes.Studio.Image
+  commentId: P:ShikimoriSharp.Classes.Studio.Image
+  id: Image
+  parent: ShikimoriSharp.Classes.Studio
+  langs:
+  - csharp
+  - vb
+  name: Image
+  nameWithType: Studio.Image
+  fullName: ShikimoriSharp.Classes.Studio.Image
+  type: Property
+  source:
+    remote:
+      path: ShikimoriSharp/Classes/Studio.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Image
+    path: ../ShikimoriSharp/Classes/Studio.cs
+    startLine: 10
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Classes
+  syntax:
+    content: >-
+      [JsonProperty("image")]
+
+      public string Image { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("image")>
+
+      Public Property Image As String
+  overload: ShikimoriSharp.Classes.Studio.Image*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: image
+references:
+- uid: ShikimoriSharp.Classes
+  commentId: N:ShikimoriSharp.Classes
+  href: ShikimoriSharp.html
+  name: ShikimoriSharp.Classes
+  nameWithType: ShikimoriSharp.Classes
+  fullName: ShikimoriSharp.Classes
+  spec.csharp:
+  - uid: ShikimoriSharp
+    name: ShikimoriSharp
+    href: ShikimoriSharp.html
+  - name: .
+  - uid: ShikimoriSharp.Classes
+    name: Classes
+    href: ShikimoriSharp.Classes.html
+  spec.vb:
+  - uid: ShikimoriSharp
+    name: ShikimoriSharp
+    href: ShikimoriSharp.html
+  - name: .
+  - uid: ShikimoriSharp.Classes
+    name: Classes
+    href: ShikimoriSharp.Classes.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ShikimoriSharp.Classes.Studio.Id*
+  commentId: Overload:ShikimoriSharp.Classes.Studio.Id
+  href: ShikimoriSharp.Classes.Studio.html#ShikimoriSharp_Classes_Studio_Id
+  name: Id
+  nameWithType: Studio.Id
+  fullName: ShikimoriSharp.Classes.Studio.Id
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: ShikimoriSharp.Classes.Studio.Name*
+  commentId: Overload:ShikimoriSharp.Classes.Studio.Name
+  href: ShikimoriSharp.Classes.Studio.html#ShikimoriSharp_Classes_Studio_Name
+  name: Name
+  nameWithType: Studio.Name
+  fullName: ShikimoriSharp.Classes.Studio.Name
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ShikimoriSharp.Classes.Studio.FilteredName*
+  commentId: Overload:ShikimoriSharp.Classes.Studio.FilteredName
+  href: ShikimoriSharp.Classes.Studio.html#ShikimoriSharp_Classes_Studio_FilteredName
+  name: FilteredName
+  nameWithType: Studio.FilteredName
+  fullName: ShikimoriSharp.Classes.Studio.FilteredName
+- uid: ShikimoriSharp.Classes.Studio.Real*
+  commentId: Overload:ShikimoriSharp.Classes.Studio.Real
+  href: ShikimoriSharp.Classes.Studio.html#ShikimoriSharp_Classes_Studio_Real
+  name: Real
+  nameWithType: Studio.Real
+  fullName: ShikimoriSharp.Classes.Studio.Real
+- uid: System.Nullable{System.Boolean}
+  commentId: T:System.Nullable{System.Boolean}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool?
+  nameWithType: bool?
+  fullName: bool?
+  nameWithType.vb: Boolean?
+  fullName.vb: Boolean?
+  name.vb: Boolean?
+  spec.csharp:
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '?'
+  spec.vb:
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ShikimoriSharp.Classes.Studio.Image*
+  commentId: Overload:ShikimoriSharp.Classes.Studio.Image
+  href: ShikimoriSharp.Classes.Studio.html#ShikimoriSharp_Classes_Studio_Image
+  name: Image
+  nameWithType: Studio.Image
+  fullName: ShikimoriSharp.Classes.Studio.Image

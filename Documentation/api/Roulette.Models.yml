@@ -1,0 +1,147 @@
+### YamlMime:ManagedReference
+items:
+- uid: Roulette.Models
+  commentId: N:Roulette.Models
+  id: Roulette.Models
+  children:
+  - Roulette.Models.BugReport
+  - Roulette.Models.BugReportStatus
+  - Roulette.Models.ErrorViewModel
+  - Roulette.Models.LabeledValue
+  - Roulette.Models.MediaType
+  - Roulette.Models.PaginatedAnimeHistory
+  - Roulette.Models.PaginatedGameHistory
+  - Roulette.Models.PaginatedMangaHistory
+  - Roulette.Models.PaginatedRanobeHistory
+  - Roulette.Models.ShikimoriSettings
+  - Roulette.Models.SmtpSettings
+  - Roulette.Models.UserAnimeChoice
+  - Roulette.Models.UserGameChoice
+  - Roulette.Models.UserMangaChoice
+  - Roulette.Models.UserRanobeChoice
+  langs:
+  - csharp
+  - vb
+  name: Roulette.Models
+  nameWithType: Roulette.Models
+  fullName: Roulette.Models
+  type: Namespace
+  assemblies:
+  - Roulette
+references:
+- uid: Roulette.Models.BugReport
+  commentId: T:Roulette.Models.BugReport
+  parent: Roulette.Models
+  href: Roulette.Models.BugReport.html
+  name: BugReport
+  nameWithType: BugReport
+  fullName: Roulette.Models.BugReport
+- uid: Roulette.Models.BugReportStatus
+  commentId: T:Roulette.Models.BugReportStatus
+  parent: Roulette.Models
+  href: Roulette.Models.BugReportStatus.html
+  name: BugReportStatus
+  nameWithType: BugReportStatus
+  fullName: Roulette.Models.BugReportStatus
+- uid: Roulette.Models.ErrorViewModel
+  commentId: T:Roulette.Models.ErrorViewModel
+  href: Roulette.Models.ErrorViewModel.html
+  name: ErrorViewModel
+  nameWithType: ErrorViewModel
+  fullName: Roulette.Models.ErrorViewModel
+- uid: Roulette.Models.LabeledValue
+  commentId: T:Roulette.Models.LabeledValue
+  href: Roulette.Models.LabeledValue.html
+  name: LabeledValue
+  nameWithType: LabeledValue
+  fullName: Roulette.Models.LabeledValue
+- uid: Roulette.Models.MediaType
+  commentId: T:Roulette.Models.MediaType
+  parent: Roulette.Models
+  href: Roulette.Models.MediaType.html
+  name: MediaType
+  nameWithType: MediaType
+  fullName: Roulette.Models.MediaType
+- uid: Roulette.Models.PaginatedAnimeHistory
+  commentId: T:Roulette.Models.PaginatedAnimeHistory
+  href: Roulette.Models.PaginatedAnimeHistory.html
+  name: PaginatedAnimeHistory
+  nameWithType: PaginatedAnimeHistory
+  fullName: Roulette.Models.PaginatedAnimeHistory
+- uid: Roulette.Models.PaginatedGameHistory
+  commentId: T:Roulette.Models.PaginatedGameHistory
+  href: Roulette.Models.PaginatedGameHistory.html
+  name: PaginatedGameHistory
+  nameWithType: PaginatedGameHistory
+  fullName: Roulette.Models.PaginatedGameHistory
+- uid: Roulette.Models.PaginatedMangaHistory
+  commentId: T:Roulette.Models.PaginatedMangaHistory
+  href: Roulette.Models.PaginatedMangaHistory.html
+  name: PaginatedMangaHistory
+  nameWithType: PaginatedMangaHistory
+  fullName: Roulette.Models.PaginatedMangaHistory
+- uid: Roulette.Models.PaginatedRanobeHistory
+  commentId: T:Roulette.Models.PaginatedRanobeHistory
+  href: Roulette.Models.PaginatedRanobeHistory.html
+  name: PaginatedRanobeHistory
+  nameWithType: PaginatedRanobeHistory
+  fullName: Roulette.Models.PaginatedRanobeHistory
+- uid: Roulette.Models.ShikimoriSettings
+  commentId: T:Roulette.Models.ShikimoriSettings
+  parent: Roulette.Models
+  href: Roulette.Models.ShikimoriSettings.html
+  name: ShikimoriSettings
+  nameWithType: ShikimoriSettings
+  fullName: Roulette.Models.ShikimoriSettings
+- uid: Roulette.Models.SmtpSettings
+  commentId: T:Roulette.Models.SmtpSettings
+  href: Roulette.Models.SmtpSettings.html
+  name: SmtpSettings
+  nameWithType: SmtpSettings
+  fullName: Roulette.Models.SmtpSettings
+- uid: Roulette.Models.UserAnimeChoice
+  commentId: T:Roulette.Models.UserAnimeChoice
+  href: Roulette.Models.UserAnimeChoice.html
+  name: UserAnimeChoice
+  nameWithType: UserAnimeChoice
+  fullName: Roulette.Models.UserAnimeChoice
+- uid: Roulette.Models.UserGameChoice
+  commentId: T:Roulette.Models.UserGameChoice
+  href: Roulette.Models.UserGameChoice.html
+  name: UserGameChoice
+  nameWithType: UserGameChoice
+  fullName: Roulette.Models.UserGameChoice
+- uid: Roulette.Models.UserMangaChoice
+  commentId: T:Roulette.Models.UserMangaChoice
+  href: Roulette.Models.UserMangaChoice.html
+  name: UserMangaChoice
+  nameWithType: UserMangaChoice
+  fullName: Roulette.Models.UserMangaChoice
+- uid: Roulette.Models.UserRanobeChoice
+  commentId: T:Roulette.Models.UserRanobeChoice
+  href: Roulette.Models.UserRanobeChoice.html
+  name: UserRanobeChoice
+  nameWithType: UserRanobeChoice
+  fullName: Roulette.Models.UserRanobeChoice
+- uid: Roulette.Models
+  commentId: N:Roulette.Models
+  href: Roulette.html
+  name: Roulette.Models
+  nameWithType: Roulette.Models
+  fullName: Roulette.Models
+  spec.csharp:
+  - uid: Roulette
+    name: Roulette
+    href: Roulette.html
+  - name: .
+  - uid: Roulette.Models
+    name: Models
+    href: Roulette.Models.html
+  spec.vb:
+  - uid: Roulette
+    name: Roulette
+    href: Roulette.html
+  - name: .
+  - uid: Roulette.Models
+    name: Models
+    href: Roulette.Models.html

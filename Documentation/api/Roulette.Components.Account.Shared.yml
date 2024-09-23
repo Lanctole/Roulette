@@ -1,0 +1,105 @@
+### YamlMime:ManagedReference
+items:
+- uid: Roulette.Components.Account.Shared
+  commentId: N:Roulette.Components.Account.Shared
+  id: Roulette.Components.Account.Shared
+  children:
+  - Roulette.Components.Account.Shared.AccountLayout
+  - Roulette.Components.Account.Shared.ExternalLoginPicker
+  - Roulette.Components.Account.Shared.ManageLayout
+  - Roulette.Components.Account.Shared.ManageNavMenu
+  - Roulette.Components.Account.Shared.RedirectToLogin
+  - Roulette.Components.Account.Shared.ShowRecoveryCodes
+  - Roulette.Components.Account.Shared.StatusMessage
+  langs:
+  - csharp
+  - vb
+  name: Roulette.Components.Account.Shared
+  nameWithType: Roulette.Components.Account.Shared
+  fullName: Roulette.Components.Account.Shared
+  type: Namespace
+  assemblies:
+  - Roulette
+references:
+- uid: Roulette.Components.Account.Shared.AccountLayout
+  commentId: T:Roulette.Components.Account.Shared.AccountLayout
+  parent: Roulette.Components.Account.Shared
+  href: Roulette.Components.Account.Shared.AccountLayout.html
+  name: AccountLayout
+  nameWithType: AccountLayout
+  fullName: Roulette.Components.Account.Shared.AccountLayout
+- uid: Roulette.Components.Account.Shared.ManageLayout
+  commentId: T:Roulette.Components.Account.Shared.ManageLayout
+  parent: Roulette.Components.Account.Shared
+  href: Roulette.Components.Account.Shared.ManageLayout.html
+  name: ManageLayout
+  nameWithType: ManageLayout
+  fullName: Roulette.Components.Account.Shared.ManageLayout
+- uid: Roulette.Components.Account.Shared.ManageNavMenu
+  commentId: T:Roulette.Components.Account.Shared.ManageNavMenu
+  href: Roulette.Components.Account.Shared.ManageNavMenu.html
+  name: ManageNavMenu
+  nameWithType: ManageNavMenu
+  fullName: Roulette.Components.Account.Shared.ManageNavMenu
+- uid: Roulette.Components.Account.Shared.RedirectToLogin
+  commentId: T:Roulette.Components.Account.Shared.RedirectToLogin
+  href: Roulette.Components.Account.Shared.RedirectToLogin.html
+  name: RedirectToLogin
+  nameWithType: RedirectToLogin
+  fullName: Roulette.Components.Account.Shared.RedirectToLogin
+- uid: Roulette.Components.Account.Shared.ExternalLoginPicker
+  commentId: T:Roulette.Components.Account.Shared.ExternalLoginPicker
+  href: Roulette.Components.Account.Shared.ExternalLoginPicker.html
+  name: ExternalLoginPicker
+  nameWithType: ExternalLoginPicker
+  fullName: Roulette.Components.Account.Shared.ExternalLoginPicker
+- uid: Roulette.Components.Account.Shared.ShowRecoveryCodes
+  commentId: T:Roulette.Components.Account.Shared.ShowRecoveryCodes
+  href: Roulette.Components.Account.Shared.ShowRecoveryCodes.html
+  name: ShowRecoveryCodes
+  nameWithType: ShowRecoveryCodes
+  fullName: Roulette.Components.Account.Shared.ShowRecoveryCodes
+- uid: Roulette.Components.Account.Shared.StatusMessage
+  commentId: T:Roulette.Components.Account.Shared.StatusMessage
+  href: Roulette.Components.Account.Shared.StatusMessage.html
+  name: StatusMessage
+  nameWithType: StatusMessage
+  fullName: Roulette.Components.Account.Shared.StatusMessage
+- uid: Roulette.Components.Account.Shared
+  commentId: N:Roulette.Components.Account.Shared
+  href: Roulette.html
+  name: Roulette.Components.Account.Shared
+  nameWithType: Roulette.Components.Account.Shared
+  fullName: Roulette.Components.Account.Shared
+  spec.csharp:
+  - uid: Roulette
+    name: Roulette
+    href: Roulette.html
+  - name: .
+  - uid: Roulette.Components
+    name: Components
+    href: Roulette.Components.html
+  - name: .
+  - uid: Roulette.Components.Account
+    name: Account
+    href: Roulette.Components.Account.html
+  - name: .
+  - uid: Roulette.Components.Account.Shared
+    name: Shared
+    href: Roulette.Components.Account.Shared.html
+  spec.vb:
+  - uid: Roulette
+    name: Roulette
+    href: Roulette.html
+  - name: .
+  - uid: Roulette.Components
+    name: Components
+    href: Roulette.Components.html
+  - name: .
+  - uid: Roulette.Components.Account
+    name: Account
+    href: Roulette.Components.Account.html
+  - name: .
+  - uid: Roulette.Components.Account.Shared
+    name: Shared
+    href: Roulette.Components.Account.Shared.html

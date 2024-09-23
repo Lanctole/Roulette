@@ -1,0 +1,2338 @@
+{
+  "source_base_path": "C:/Users/lanct/source/repos/Roulette/Documentation",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Games.Classes.Game.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Games.Classes.Game.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Games.Classes.Genre.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Games.Classes.Genre.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Games.Classes.SupportedLanguage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Games.Classes.SupportedLanguage.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Games.Classes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Games.Classes.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Games.Enums.GameOrder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Games.Enums.GameOrder.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Games.Enums.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Games.Enums.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Attributes.CustomEmailAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Attributes.CustomEmailAttribute.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Attributes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Attributes.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Account.Pages.ConfirmEmail.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Account.Pages.ConfirmEmail.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Account.Pages.ConfirmEmailChange.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Account.Pages.ConfirmEmailChange.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Account.Pages.ExternalLogin.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Account.Pages.ExternalLogin.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Account.Pages.ForgotPassword.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Account.Pages.ForgotPassword.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Account.Pages.ForgotPasswordConfirmation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Account.Pages.ForgotPasswordConfirmation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Account.Pages.InvalidPasswordReset.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Account.Pages.InvalidPasswordReset.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Account.Pages.InvalidUser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Account.Pages.InvalidUser.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Account.Pages.Lockout.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Account.Pages.Lockout.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Account.Pages.Login.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Account.Pages.Login.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Account.Pages.LoginModal.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Account.Pages.LoginModal.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Account.Pages.LoginWith2fa.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Account.Pages.LoginWith2fa.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Account.Pages.LoginWithRecoveryCode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Account.Pages.LoginWithRecoveryCode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Account.Pages.Manage.ChangePassword.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Account.Pages.Manage.ChangePassword.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Account.Pages.Manage.DeletePersonalData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Account.Pages.Manage.DeletePersonalData.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Account.Pages.Manage.Disable2fa.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Account.Pages.Manage.Disable2fa.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Account.Pages.Manage.Email.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Account.Pages.Manage.Email.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Account.Pages.Manage.EnableAuthenticator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Account.Pages.Manage.EnableAuthenticator.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Account.Pages.Manage.ExternalLogins.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Account.Pages.Manage.ExternalLogins.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Account.Pages.Manage.GenerateRecoveryCodes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Account.Pages.Manage.GenerateRecoveryCodes.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Account.Pages.Manage.Index.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Account.Pages.Manage.Index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Account.Pages.Manage.PersonalData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Account.Pages.Manage.PersonalData.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Account.Pages.Manage.ResetAuthenticator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Account.Pages.Manage.ResetAuthenticator.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Account.Pages.Manage.SetPassword.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Account.Pages.Manage.SetPassword.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Account.Pages.Manage.TwoFactorAuthentication.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Account.Pages.Manage.TwoFactorAuthentication.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Account.Pages.Manage._Imports.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Account.Pages.Manage._Imports.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Account.Pages.Manage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Account.Pages.Manage.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Account.Pages.ModalLog.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Account.Pages.ModalLog.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Account.Pages.Register.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Account.Pages.Register.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Account.Pages.RegisterConfirmation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Account.Pages.RegisterConfirmation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Account.Pages.ResendEmailConfirmation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Account.Pages.ResendEmailConfirmation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Account.Pages.ResetPassword.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Account.Pages.ResetPassword.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Account.Pages.ResetPasswordConfirmation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Account.Pages.ResetPasswordConfirmation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Account.Pages._Imports.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Account.Pages._Imports.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Account.Pages.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Account.Pages.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Account.Shared.AccountLayout.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Account.Shared.AccountLayout.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Account.Shared.ExternalLoginPicker.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Account.Shared.ExternalLoginPicker.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Account.Shared.ManageLayout.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Account.Shared.ManageLayout.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Account.Shared.ManageNavMenu.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Account.Shared.ManageNavMenu.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Account.Shared.RedirectToLogin.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Account.Shared.RedirectToLogin.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Account.Shared.ShowRecoveryCodes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Account.Shared.ShowRecoveryCodes.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Account.Shared.StatusMessage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Account.Shared.StatusMessage.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Account.Shared.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Account.Shared.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.AntiforgeryTokenInput.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.AntiforgeryTokenInput.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.App.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.App.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.ErrorReportWidget.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.ErrorReportWidget.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.FilterSlider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.FilterSlider.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Layout.MainLayout.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Layout.MainLayout.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Layout.NavMenu.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Layout.NavMenu.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Layout.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Layout.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Pages.Admin.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Pages.Admin.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Pages.Auth.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Pages.Auth.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Pages.BugReportList.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Pages.BugReportList.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Pages.Error.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Pages.Error.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Pages.History.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Pages.History.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Pages.Home.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Pages.Home.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Pages.Shikimori.Anime.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Pages.Shikimori.Anime.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Pages.Shikimori.Genres.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Pages.Shikimori.Genres.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Pages.Shikimori.Manga.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Pages.Shikimori.Manga.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Pages.Shikimori.Publishers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Pages.Shikimori.Publishers.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Pages.Shikimori.Ranobe.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Pages.Shikimori.Ranobe.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Pages.Shikimori.Studios.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Pages.Shikimori.Studios.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Pages.Shikimori.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Pages.Shikimori.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Pages.Steam.GameGenres.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Pages.Steam.GameGenres.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Pages.Steam.GameLanguages.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Pages.Steam.GameLanguages.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Pages.Steam.SteamGames.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Pages.Steam.SteamGames.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Pages.Steam.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Pages.Steam.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Pages.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Pages.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Routes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Routes.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Shikimori.DurationComponent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Shikimori.DurationComponent.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Shikimori.EnumSelector-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Shikimori.EnumSelector-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Shikimori.MangaSelectKindComponent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Shikimori.MangaSelectKindComponent.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Shikimori.MediaComponent-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Shikimori.MediaComponent-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Shikimori.MediaList-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Shikimori.MediaList-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Shikimori.MinimalScoreComponent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Shikimori.MinimalScoreComponent.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Shikimori.RatingComponent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Shikimori.RatingComponent.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Shikimori.RollButtonComponent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Shikimori.RollButtonComponent.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Shikimori.SelectComponent-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Shikimori.SelectComponent-2.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Shikimori.SelectKindComponent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Shikimori.SelectKindComponent.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Shikimori.ShikimoriComponent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Shikimori.ShikimoriComponent.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Shikimori.WheelComponent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Shikimori.WheelComponent.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Shikimori.YearSelectionComponent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Shikimori.YearSelectionComponent.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Shikimori.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Shikimori.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components._Imports.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components._Imports.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Controllers.Api.AnimeController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Controllers.Api.AnimeController.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Controllers.Api.GameController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Controllers.Api.GameController.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Controllers.Api.MangaController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Controllers.Api.MangaController.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Controllers.Api.RanobeController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Controllers.Api.RanobeController.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Controllers.Api.ShikimoriController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Controllers.Api.ShikimoriController.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Controllers.Api.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Controllers.Api.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Controllers.HomeController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Controllers.HomeController.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Controllers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Controllers.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.DTOs.AnimeDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.DTOs.AnimeDto.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.DTOs.GameDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.DTOs.GameDto.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.DTOs.GenreDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.DTOs.GenreDto.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.DTOs.MangaDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.DTOs.MangaDto.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.DTOs.RanobeDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.DTOs.RanobeDto.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.DTOs.SupportedLanguageDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.DTOs.SupportedLanguageDto.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.DTOs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.DTOs.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Data.ApplicationDbContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Data.ApplicationDbContext.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Data.Migrations.AddAnimeAndMangaAndRanobeTables.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Data.Migrations.AddAnimeAndMangaAndRanobeTables.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Data.Migrations.AddBugReportStatusEnum.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Data.Migrations.AddBugReportStatusEnum.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Data.Migrations.AddGamesTable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Data.Migrations.AddGamesTable.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Data.Migrations.AddIdsToUserChoices.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Data.Migrations.AddIdsToUserChoices.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Data.Migrations.AddJsonListConverterForGameFields.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Data.Migrations.AddJsonListConverterForGameFields.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Data.Migrations.AddRussianToGenre.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Data.Migrations.AddRussianToGenre.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Data.Migrations.AddRussianTranslateColumnToLanguages.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Data.Migrations.AddRussianTranslateColumnToLanguages.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Data.Migrations.AddUserChoices.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Data.Migrations.AddUserChoices.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Data.Migrations.ChangeReleaseDateToDate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Data.Migrations.ChangeReleaseDateToDate.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Data.Migrations.ConstIDToUserRoles.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Data.Migrations.ConstIDToUserRoles.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Data.Migrations.CreateBugReportsTable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Data.Migrations.CreateBugReportsTable.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Data.Migrations.DropGenresAndLanguagesFromGamesTable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Data.Migrations.DropGenresAndLanguagesFromGamesTable.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Data.Migrations.InitialCreate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Data.Migrations.InitialCreate.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Data.Migrations.LanguagesAndGenresDataTransfer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Data.Migrations.LanguagesAndGenresDataTransfer.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Data.Migrations.RenamePctPosTotalToScore.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Data.Migrations.RenamePctPosTotalToScore.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Data.Migrations.SeparateLanguagesAndGenres.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Data.Migrations.SeparateLanguagesAndGenres.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Data.Migrations.UpdateGameModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Data.Migrations.UpdateGameModel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Data.Migrations.UpdateGamesTableColumnTypes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Data.Migrations.UpdateGamesTableColumnTypes.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Data.Migrations.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Data.Migrations.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Data.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Data.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Helpers.EnumHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Helpers.EnumHelper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Helpers.ShikiDataHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Helpers.ShikiDataHelper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Helpers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Helpers.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Models.BugReport.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Models.BugReport.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Models.BugReportStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Models.BugReportStatus.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Models.ErrorViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Models.ErrorViewModel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Models.LabeledValue.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Models.LabeledValue.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Models.MediaType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Models.MediaType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Models.PaginatedAnimeHistory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Models.PaginatedAnimeHistory.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Models.PaginatedGameHistory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Models.PaginatedGameHistory.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Models.PaginatedMangaHistory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Models.PaginatedMangaHistory.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Models.PaginatedRanobeHistory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Models.PaginatedRanobeHistory.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Models.Shiki.GenreModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Models.Shiki.GenreModel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Models.Shiki.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Models.Shiki.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Models.ShikimoriSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Models.ShikimoriSettings.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Models.SmtpSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Models.SmtpSettings.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Models.UserAnimeChoice.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Models.UserAnimeChoice.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Models.UserGameChoice.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Models.UserGameChoice.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Models.UserMangaChoice.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Models.UserMangaChoice.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Models.UserRanobeChoice.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Models.UserRanobeChoice.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Models.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Models.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Program.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Program.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Services.ApiClientService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Services.ApiClientService.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Services.BugReportService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Services.BugReportService.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Services.EmailSender.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Services.EmailSender.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Services.GameGenreService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Services.GameGenreService.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Services.GameLanguageService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Services.GameLanguageService.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Services.GameQueryProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Services.GameQueryProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Services.GameService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Services.GameService.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Services.LocalizedIdentityErrorDescriber.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Services.LocalizedIdentityErrorDescriber.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Services.SettingsService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Services.SettingsService.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Services.ShikimoriApiConnectorService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Services.ShikimoriApiConnectorService.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Services.UserChoiceHistoryService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Services.UserChoiceHistoryService.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Services.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Services.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.ApiServices.Animes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.ApiServices.Animes.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.ApiServices.ApiBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.ApiServices.ApiBase.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.ApiServices.ApiClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.ApiServices.ApiClient.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.ApiServices.AuthorizationManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.ApiServices.AuthorizationManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.ApiServices.Genres.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.ApiServices.Genres.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.ApiServices.Mangas.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.ApiServices.Mangas.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.ApiServices.Publishers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.ApiServices.Publishers.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.ApiServices.Ranobes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.ApiServices.Ranobes.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.ApiServices.RequestManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.ApiServices.RequestManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.ApiServices.ShikimoriClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.ApiServices.ShikimoriClient.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.ApiServices.Studios.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.ApiServices.Studios.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.ApiServices.TokenBucket.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.ApiServices.TokenBucket.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.ApiServices.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.ApiServices.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.Bases.AccessToken.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.Bases.AccessToken.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.Bases.AnimeMangaRanobeBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.Bases.AnimeMangaRanobeBase.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.Bases.AnimeMangaRanobeIdBase.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.Bases.Image.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.Bases.Image.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.Bases.PureImage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.Bases.PureImage.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.Bases.Search.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.Bases.Search.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.Bases.SmallRepresentation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.Bases.SmallRepresentation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.Bases.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.Bases.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.Classes.Anime.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.Classes.Anime.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.Classes.AnimeId.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.Classes.AnimeId.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.Classes.Calendar.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.Classes.Calendar.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.Classes.ConstantsAnimeManga.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.Classes.ConstantsAnimeManga.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.Classes.ConstantsUserRate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.Classes.ConstantsUserRate.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.Classes.FullStatusesAnime.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.Classes.FullStatusesAnime.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.Classes.Genre.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.Classes.Genre.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.Classes.History.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.Classes.History.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.Classes.HistoryTarget.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.Classes.HistoryTarget.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.Classes.Manga.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.Classes.Manga.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.Classes.MangaRanobeId.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.Classes.MangaRanobeId.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.Classes.Publisher.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.Classes.Publisher.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.Classes.Ranobe.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.Classes.Ranobe.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.Classes.Ratings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.Classes.Ratings.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.Classes.RatingsAnime.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.Classes.RatingsAnime.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.Classes.ResultImage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.Classes.ResultImage.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.Classes.Scores.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.Classes.Scores.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.Classes.Statuses.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.Classes.Statuses.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.Classes.Studio.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.Classes.Studio.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.Classes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.Classes.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.Enums.AnimeKind.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.Enums.AnimeKind.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.Enums.Duration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.Enums.Duration.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.Enums.MangaKind.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.Enums.MangaKind.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.Enums.Order.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.Enums.Order.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.Enums.Rating.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.Enums.Rating.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.Enums.TargetType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.Enums.TargetType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.Enums.Version.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.Enums.Version.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.Enums.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.Enums.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.Exceptions.ForbiddenException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.Exceptions.ForbiddenException.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.Exceptions.UnprocessableEntityException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.Exceptions.UnprocessableEntityException.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.Exceptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.Exceptions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.Settings.AnimeRateRequestSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.Settings.AnimeRateRequestSettings.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.Settings.AnimeRequestSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.Settings.AnimeRequestSettings.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.Settings.AnimeTopicSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.Settings.AnimeTopicSettings.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.Settings.BasicSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.Settings.BasicSettings.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.Settings.ClientSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.Settings.ClientSettings.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.Settings.HistoryRequestSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.Settings.HistoryRequestSettings.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.Settings.MangaRequestSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.Settings.MangaRequestSettings.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.Settings.RanobeRequestSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.Settings.RanobeRequestSettings.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ShikimoriSharp.Settings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ShikimoriSharp.Settings.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/contact.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/contact.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/future.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/future.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "docs/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "docs/toc.html"
+        },
+        ".json": {
+          "relative_path": "docs/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

@@ -1,0 +1,481 @@
+### YamlMime:TableOfContent
+items:
+- uid: Games.Classes
+  name: Games.Classes
+  items:
+  - uid: Games.Classes.Game
+    name: Game
+  - uid: Games.Classes.Genre
+    name: Genre
+  - uid: Games.Classes.SupportedLanguage
+    name: SupportedLanguage
+- uid: Games.Enums
+  name: Games.Enums
+  items:
+  - uid: Games.Enums.GameOrder
+    name: GameOrder
+- uid: Roulette
+  name: Roulette
+  items:
+  - uid: Roulette.Program
+    name: Program
+- uid: Roulette.Attributes
+  name: Roulette.Attributes
+  items:
+  - uid: Roulette.Attributes.CustomEmailAttribute
+    name: CustomEmailAttribute
+- uid: Roulette.Components
+  name: Roulette.Components
+  items:
+  - uid: Roulette.Components.AntiforgeryTokenInput
+    name: AntiforgeryTokenInput
+  - uid: Roulette.Components.App
+    name: App
+  - uid: Roulette.Components.ErrorReportWidget
+    name: ErrorReportWidget
+  - uid: Roulette.Components.FilterSlider
+    name: FilterSlider
+  - uid: Roulette.Components.Routes
+    name: Routes
+  - uid: Roulette.Components._Imports
+    name: _Imports
+- uid: Roulette.Components.Account.Pages
+  name: Roulette.Components.Account.Pages
+  items:
+  - uid: Roulette.Components.Account.Pages.ConfirmEmail
+    name: ConfirmEmail
+  - uid: Roulette.Components.Account.Pages.ConfirmEmailChange
+    name: ConfirmEmailChange
+  - uid: Roulette.Components.Account.Pages.ExternalLogin
+    name: ExternalLogin
+  - uid: Roulette.Components.Account.Pages.ForgotPassword
+    name: ForgotPassword
+  - uid: Roulette.Components.Account.Pages.ForgotPasswordConfirmation
+    name: ForgotPasswordConfirmation
+  - uid: Roulette.Components.Account.Pages.InvalidPasswordReset
+    name: InvalidPasswordReset
+  - uid: Roulette.Components.Account.Pages.InvalidUser
+    name: InvalidUser
+  - uid: Roulette.Components.Account.Pages.Lockout
+    name: Lockout
+  - uid: Roulette.Components.Account.Pages.Login
+    name: Login
+  - uid: Roulette.Components.Account.Pages.LoginModal
+    name: LoginModal
+  - uid: Roulette.Components.Account.Pages.LoginWith2fa
+    name: LoginWith2fa
+  - uid: Roulette.Components.Account.Pages.LoginWithRecoveryCode
+    name: LoginWithRecoveryCode
+  - uid: Roulette.Components.Account.Pages.ModalLog
+    name: ModalLog
+  - uid: Roulette.Components.Account.Pages.Register
+    name: Register
+  - uid: Roulette.Components.Account.Pages.RegisterConfirmation
+    name: RegisterConfirmation
+  - uid: Roulette.Components.Account.Pages.ResendEmailConfirmation
+    name: ResendEmailConfirmation
+  - uid: Roulette.Components.Account.Pages.ResetPassword
+    name: ResetPassword
+  - uid: Roulette.Components.Account.Pages.ResetPasswordConfirmation
+    name: ResetPasswordConfirmation
+  - uid: Roulette.Components.Account.Pages._Imports
+    name: _Imports
+- uid: Roulette.Components.Account.Pages.Manage
+  name: Roulette.Components.Account.Pages.Manage
+  items:
+  - uid: Roulette.Components.Account.Pages.Manage.ChangePassword
+    name: ChangePassword
+  - uid: Roulette.Components.Account.Pages.Manage.DeletePersonalData
+    name: DeletePersonalData
+  - uid: Roulette.Components.Account.Pages.Manage.Disable2fa
+    name: Disable2fa
+  - uid: Roulette.Components.Account.Pages.Manage.Email
+    name: Email
+  - uid: Roulette.Components.Account.Pages.Manage.EnableAuthenticator
+    name: EnableAuthenticator
+  - uid: Roulette.Components.Account.Pages.Manage.ExternalLogins
+    name: ExternalLogins
+  - uid: Roulette.Components.Account.Pages.Manage.GenerateRecoveryCodes
+    name: GenerateRecoveryCodes
+  - uid: Roulette.Components.Account.Pages.Manage.Index
+    name: Index
+  - uid: Roulette.Components.Account.Pages.Manage.PersonalData
+    name: PersonalData
+  - uid: Roulette.Components.Account.Pages.Manage.ResetAuthenticator
+    name: ResetAuthenticator
+  - uid: Roulette.Components.Account.Pages.Manage.SetPassword
+    name: SetPassword
+  - uid: Roulette.Components.Account.Pages.Manage.TwoFactorAuthentication
+    name: TwoFactorAuthentication
+  - uid: Roulette.Components.Account.Pages.Manage._Imports
+    name: _Imports
+- uid: Roulette.Components.Account.Shared
+  name: Roulette.Components.Account.Shared
+  items:
+  - uid: Roulette.Components.Account.Shared.AccountLayout
+    name: AccountLayout
+  - uid: Roulette.Components.Account.Shared.ExternalLoginPicker
+    name: ExternalLoginPicker
+  - uid: Roulette.Components.Account.Shared.ManageLayout
+    name: ManageLayout
+  - uid: Roulette.Components.Account.Shared.ManageNavMenu
+    name: ManageNavMenu
+  - uid: Roulette.Components.Account.Shared.RedirectToLogin
+    name: RedirectToLogin
+  - uid: Roulette.Components.Account.Shared.ShowRecoveryCodes
+    name: ShowRecoveryCodes
+  - uid: Roulette.Components.Account.Shared.StatusMessage
+    name: StatusMessage
+- uid: Roulette.Components.Layout
+  name: Roulette.Components.Layout
+  items:
+  - uid: Roulette.Components.Layout.MainLayout
+    name: MainLayout
+  - uid: Roulette.Components.Layout.NavMenu
+    name: NavMenu
+- uid: Roulette.Components.Pages
+  name: Roulette.Components.Pages
+  items:
+  - uid: Roulette.Components.Pages.Admin
+    name: Admin
+  - uid: Roulette.Components.Pages.Auth
+    name: Auth
+  - uid: Roulette.Components.Pages.BugReportList
+    name: BugReportList
+  - uid: Roulette.Components.Pages.Error
+    name: Error
+  - uid: Roulette.Components.Pages.History
+    name: History
+  - uid: Roulette.Components.Pages.Home
+    name: Home
+- uid: Roulette.Components.Pages.Shikimori
+  name: Roulette.Components.Pages.Shikimori
+  items:
+  - uid: Roulette.Components.Pages.Shikimori.Anime
+    name: Anime
+  - uid: Roulette.Components.Pages.Shikimori.Genres
+    name: Genres
+  - uid: Roulette.Components.Pages.Shikimori.Manga
+    name: Manga
+  - uid: Roulette.Components.Pages.Shikimori.Publishers
+    name: Publishers
+  - uid: Roulette.Components.Pages.Shikimori.Ranobe
+    name: Ranobe
+  - uid: Roulette.Components.Pages.Shikimori.Studios
+    name: Studios
+- uid: Roulette.Components.Pages.Steam
+  name: Roulette.Components.Pages.Steam
+  items:
+  - uid: Roulette.Components.Pages.Steam.GameGenres
+    name: GameGenres
+  - uid: Roulette.Components.Pages.Steam.GameLanguages
+    name: GameLanguages
+  - uid: Roulette.Components.Pages.Steam.SteamGames
+    name: SteamGames
+- uid: Roulette.Components.Shikimori
+  name: Roulette.Components.Shikimori
+  items:
+  - uid: Roulette.Components.Shikimori.DurationComponent
+    name: DurationComponent
+  - uid: Roulette.Components.Shikimori.EnumSelector`1
+    name: EnumSelector<TEnum>
+  - uid: Roulette.Components.Shikimori.MangaSelectKindComponent
+    name: MangaSelectKindComponent
+  - uid: Roulette.Components.Shikimori.MediaComponent`1
+    name: MediaComponent<T>
+  - uid: Roulette.Components.Shikimori.MediaList`1
+    name: MediaList<T>
+  - uid: Roulette.Components.Shikimori.MinimalScoreComponent
+    name: MinimalScoreComponent
+  - uid: Roulette.Components.Shikimori.RatingComponent
+    name: RatingComponent
+  - uid: Roulette.Components.Shikimori.RollButtonComponent
+    name: RollButtonComponent
+  - uid: Roulette.Components.Shikimori.SelectComponent`2
+    name: SelectComponent<TValue, T>
+  - uid: Roulette.Components.Shikimori.SelectKindComponent
+    name: SelectKindComponent
+  - uid: Roulette.Components.Shikimori.ShikimoriComponent
+    name: ShikimoriComponent
+  - uid: Roulette.Components.Shikimori.WheelComponent
+    name: WheelComponent
+  - uid: Roulette.Components.Shikimori.YearSelectionComponent
+    name: YearSelectionComponent
+- uid: Roulette.Controllers
+  name: Roulette.Controllers
+  items:
+  - uid: Roulette.Controllers.HomeController
+    name: HomeController
+- uid: Roulette.Controllers.Api
+  name: Roulette.Controllers.Api
+  items:
+  - uid: Roulette.Controllers.Api.AnimeController
+    name: AnimeController
+  - uid: Roulette.Controllers.Api.GameController
+    name: GameController
+  - uid: Roulette.Controllers.Api.MangaController
+    name: MangaController
+  - uid: Roulette.Controllers.Api.RanobeController
+    name: RanobeController
+  - uid: Roulette.Controllers.Api.ShikimoriController
+    name: ShikimoriController
+- uid: Roulette.DTOs
+  name: Roulette.DTOs
+  items:
+  - uid: Roulette.DTOs.AnimeDto
+    name: AnimeDto
+  - uid: Roulette.DTOs.GameDto
+    name: GameDto
+  - uid: Roulette.DTOs.GenreDto
+    name: GenreDto
+  - uid: Roulette.DTOs.MangaDto
+    name: MangaDto
+  - uid: Roulette.DTOs.RanobeDto
+    name: RanobeDto
+  - uid: Roulette.DTOs.SupportedLanguageDto
+    name: SupportedLanguageDto
+- uid: Roulette.Data
+  name: Roulette.Data
+  items:
+  - uid: Roulette.Data.ApplicationDbContext
+    name: ApplicationDbContext
+- uid: Roulette.Data.Migrations
+  name: Roulette.Data.Migrations
+  items:
+  - uid: Roulette.Data.Migrations.AddAnimeAndMangaAndRanobeTables
+    name: AddAnimeAndMangaAndRanobeTables
+  - uid: Roulette.Data.Migrations.AddBugReportStatusEnum
+    name: AddBugReportStatusEnum
+  - uid: Roulette.Data.Migrations.AddGamesTable
+    name: AddGamesTable
+  - uid: Roulette.Data.Migrations.AddIdsToUserChoices
+    name: AddIdsToUserChoices
+  - uid: Roulette.Data.Migrations.AddJsonListConverterForGameFields
+    name: AddJsonListConverterForGameFields
+  - uid: Roulette.Data.Migrations.AddRussianToGenre
+    name: AddRussianToGenre
+  - uid: Roulette.Data.Migrations.AddRussianTranslateColumnToLanguages
+    name: AddRussianTranslateColumnToLanguages
+  - uid: Roulette.Data.Migrations.AddUserChoices
+    name: AddUserChoices
+  - uid: Roulette.Data.Migrations.ChangeReleaseDateToDate
+    name: ChangeReleaseDateToDate
+  - uid: Roulette.Data.Migrations.ConstIDToUserRoles
+    name: ConstIDToUserRoles
+  - uid: Roulette.Data.Migrations.CreateBugReportsTable
+    name: CreateBugReportsTable
+  - uid: Roulette.Data.Migrations.DropGenresAndLanguagesFromGamesTable
+    name: DropGenresAndLanguagesFromGamesTable
+  - uid: Roulette.Data.Migrations.InitialCreate
+    name: InitialCreate
+  - uid: Roulette.Data.Migrations.LanguagesAndGenresDataTransfer
+    name: LanguagesAndGenresDataTransfer
+  - uid: Roulette.Data.Migrations.RenamePctPosTotalToScore
+    name: RenamePctPosTotalToScore
+  - uid: Roulette.Data.Migrations.SeparateLanguagesAndGenres
+    name: SeparateLanguagesAndGenres
+  - uid: Roulette.Data.Migrations.UpdateGameModel
+    name: UpdateGameModel
+  - uid: Roulette.Data.Migrations.UpdateGamesTableColumnTypes
+    name: UpdateGamesTableColumnTypes
+- uid: Roulette.Helpers
+  name: Roulette.Helpers
+  items:
+  - uid: Roulette.Helpers.EnumHelper
+    name: EnumHelper
+  - uid: Roulette.Helpers.ShikiDataHelper
+    name: ShikiDataHelper
+- uid: Roulette.Models
+  name: Roulette.Models
+  items:
+  - uid: Roulette.Models.BugReport
+    name: BugReport
+  - uid: Roulette.Models.BugReportStatus
+    name: BugReportStatus
+  - uid: Roulette.Models.ErrorViewModel
+    name: ErrorViewModel
+  - uid: Roulette.Models.LabeledValue
+    name: LabeledValue
+  - uid: Roulette.Models.MediaType
+    name: MediaType
+  - uid: Roulette.Models.PaginatedAnimeHistory
+    name: PaginatedAnimeHistory
+  - uid: Roulette.Models.PaginatedGameHistory
+    name: PaginatedGameHistory
+  - uid: Roulette.Models.PaginatedMangaHistory
+    name: PaginatedMangaHistory
+  - uid: Roulette.Models.PaginatedRanobeHistory
+    name: PaginatedRanobeHistory
+  - uid: Roulette.Models.ShikimoriSettings
+    name: ShikimoriSettings
+  - uid: Roulette.Models.SmtpSettings
+    name: SmtpSettings
+  - uid: Roulette.Models.UserAnimeChoice
+    name: UserAnimeChoice
+  - uid: Roulette.Models.UserGameChoice
+    name: UserGameChoice
+  - uid: Roulette.Models.UserMangaChoice
+    name: UserMangaChoice
+  - uid: Roulette.Models.UserRanobeChoice
+    name: UserRanobeChoice
+- uid: Roulette.Models.Shiki
+  name: Roulette.Models.Shiki
+  items:
+  - uid: Roulette.Models.Shiki.GenreModel
+    name: GenreModel
+- uid: Roulette.Services
+  name: Roulette.Services
+  items:
+  - uid: Roulette.Services.ApiClientService
+    name: ApiClientService
+  - uid: Roulette.Services.BugReportService
+    name: BugReportService
+  - uid: Roulette.Services.EmailSender
+    name: EmailSender
+  - uid: Roulette.Services.GameGenreService
+    name: GameGenreService
+  - uid: Roulette.Services.GameLanguageService
+    name: GameLanguageService
+  - uid: Roulette.Services.GameQueryProcessor
+    name: GameQueryProcessor
+  - uid: Roulette.Services.GameService
+    name: GameService
+  - uid: Roulette.Services.LocalizedIdentityErrorDescriber
+    name: LocalizedIdentityErrorDescriber
+  - uid: Roulette.Services.SettingsService
+    name: SettingsService
+  - uid: Roulette.Services.ShikimoriApiConnectorService
+    name: ShikimoriApiConnectorService
+  - uid: Roulette.Services.UserChoiceHistoryService
+    name: UserChoiceHistoryService
+- uid: ShikimoriSharp.ApiServices
+  name: ShikimoriSharp.ApiServices
+  items:
+  - uid: ShikimoriSharp.ApiServices.Animes
+    name: Animes
+  - uid: ShikimoriSharp.ApiServices.ApiBase
+    name: ApiBase
+  - uid: ShikimoriSharp.ApiServices.ApiClient
+    name: ApiClient
+  - uid: ShikimoriSharp.ApiServices.AuthorizationManager
+    name: AuthorizationManager
+  - uid: ShikimoriSharp.ApiServices.Genres
+    name: Genres
+  - uid: ShikimoriSharp.ApiServices.Mangas
+    name: Mangas
+  - uid: ShikimoriSharp.ApiServices.Publishers
+    name: Publishers
+  - uid: ShikimoriSharp.ApiServices.Ranobes
+    name: Ranobes
+  - uid: ShikimoriSharp.ApiServices.RequestManager
+    name: RequestManager
+  - uid: ShikimoriSharp.ApiServices.ShikimoriClient
+    name: ShikimoriClient
+  - uid: ShikimoriSharp.ApiServices.Studios
+    name: Studios
+  - uid: ShikimoriSharp.ApiServices.TokenBucket
+    name: TokenBucket
+- uid: ShikimoriSharp.Bases
+  name: ShikimoriSharp.Bases
+  items:
+  - uid: ShikimoriSharp.Bases.AccessToken
+    name: AccessToken
+  - uid: ShikimoriSharp.Bases.AnimeMangaRanobeBase
+    name: AnimeMangaRanobeBase
+  - uid: ShikimoriSharp.Bases.AnimeMangaRanobeIdBase
+    name: AnimeMangaRanobeIdBase
+  - uid: ShikimoriSharp.Bases.Image
+    name: Image
+  - uid: ShikimoriSharp.Bases.PureImage
+    name: PureImage
+  - uid: ShikimoriSharp.Bases.Search
+    name: Search
+  - uid: ShikimoriSharp.Bases.SmallRepresentation
+    name: SmallRepresentation
+- uid: ShikimoriSharp.Classes
+  name: ShikimoriSharp.Classes
+  items:
+  - uid: ShikimoriSharp.Classes.Anime
+    name: Anime
+  - uid: ShikimoriSharp.Classes.AnimeId
+    name: AnimeId
+  - uid: ShikimoriSharp.Classes.Calendar
+    name: Calendar
+  - uid: ShikimoriSharp.Classes.ConstantsAnimeManga
+    name: ConstantsAnimeManga
+  - uid: ShikimoriSharp.Classes.ConstantsUserRate
+    name: ConstantsUserRate
+  - uid: ShikimoriSharp.Classes.FullStatusesAnime
+    name: FullStatusesAnime
+  - uid: ShikimoriSharp.Classes.Genre
+    name: Genre
+  - uid: ShikimoriSharp.Classes.History
+    name: History
+  - uid: ShikimoriSharp.Classes.HistoryTarget
+    name: HistoryTarget
+  - uid: ShikimoriSharp.Classes.Manga
+    name: Manga
+  - uid: ShikimoriSharp.Classes.MangaRanobeId
+    name: MangaRanobeId
+  - uid: ShikimoriSharp.Classes.Publisher
+    name: Publisher
+  - uid: ShikimoriSharp.Classes.Ranobe
+    name: Ranobe
+  - uid: ShikimoriSharp.Classes.Ratings
+    name: Ratings
+  - uid: ShikimoriSharp.Classes.RatingsAnime
+    name: RatingsAnime
+  - uid: ShikimoriSharp.Classes.ResultImage
+    name: ResultImage
+  - uid: ShikimoriSharp.Classes.Scores
+    name: Scores
+  - uid: ShikimoriSharp.Classes.Statuses
+    name: Statuses
+  - uid: ShikimoriSharp.Classes.Studio
+    name: Studio
+- uid: ShikimoriSharp.Enums
+  name: ShikimoriSharp.Enums
+  items:
+  - uid: ShikimoriSharp.Enums.AnimeKind
+    name: AnimeKind
+  - uid: ShikimoriSharp.Enums.Duration
+    name: Duration
+  - uid: ShikimoriSharp.Enums.MangaKind
+    name: MangaKind
+  - uid: ShikimoriSharp.Enums.Order
+    name: Order
+  - uid: ShikimoriSharp.Enums.Rating
+    name: Rating
+  - uid: ShikimoriSharp.Enums.TargetType
+    name: TargetType
+  - uid: ShikimoriSharp.Enums.Version
+    name: Version
+- uid: ShikimoriSharp.Exceptions
+  name: ShikimoriSharp.Exceptions
+  items:
+  - uid: ShikimoriSharp.Exceptions.ForbiddenException
+    name: ForbiddenException
+  - uid: ShikimoriSharp.Exceptions.UnprocessableEntityException
+    name: UnprocessableEntityException
+- uid: ShikimoriSharp.Settings
+  name: ShikimoriSharp.Settings
+  items:
+  - uid: ShikimoriSharp.Settings.AnimeRateRequestSettings
+    name: AnimeRateRequestSettings
+  - uid: ShikimoriSharp.Settings.AnimeRequestSettings
+    name: AnimeRequestSettings
+  - uid: ShikimoriSharp.Settings.AnimeTopicSettings
+    name: AnimeTopicSettings
+  - uid: ShikimoriSharp.Settings.BasicSettings
+    name: BasicSettings
+  - uid: ShikimoriSharp.Settings.ClientSettings
+    name: ClientSettings
+  - uid: ShikimoriSharp.Settings.HistoryRequestSettings
+    name: HistoryRequestSettings
+  - uid: ShikimoriSharp.Settings.MangaAnimeRanobeRequestSettingsBase
+    name: MangaAnimeRanobeRequestSettingsBase
+  - uid: ShikimoriSharp.Settings.MangaRequestSettings
+    name: MangaRequestSettings
+  - uid: ShikimoriSharp.Settings.RanobeRequestSettings
+    name: RanobeRequestSettings
+memberLayout: SamePage

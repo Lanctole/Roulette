@@ -1,0 +1,525 @@
+### YamlMime:ManagedReference
+items:
+- uid: ShikimoriSharp.Classes.Anime
+  commentId: T:ShikimoriSharp.Classes.Anime
+  id: Anime
+  parent: ShikimoriSharp.Classes
+  children:
+  - ShikimoriSharp.Classes.Anime.Episodes
+  - ShikimoriSharp.Classes.Anime.EpisodesAired
+  langs:
+  - csharp
+  - vb
+  name: Anime
+  nameWithType: Anime
+  fullName: ShikimoriSharp.Classes.Anime
+  type: Class
+  source:
+    remote:
+      path: ShikimoriSharp/Classes/Anime.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Anime
+    path: ../ShikimoriSharp/Classes/Anime.cs
+    startLine: 5
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Classes
+  syntax:
+    content: 'public class Anime : AnimeMangaRanobeBase'
+    content.vb: Public Class Anime Inherits AnimeMangaRanobeBase
+  inheritance:
+  - System.Object
+  - ShikimoriSharp.Bases.SmallRepresentation
+  - ShikimoriSharp.Bases.AnimeMangaRanobeBase
+  derivedClasses:
+  - ShikimoriSharp.Classes.HistoryTarget
+  inheritedMembers:
+  - ShikimoriSharp.Bases.AnimeMangaRanobeBase.Kind
+  - ShikimoriSharp.Bases.AnimeMangaRanobeBase.Score
+  - ShikimoriSharp.Bases.AnimeMangaRanobeBase.Status
+  - ShikimoriSharp.Bases.AnimeMangaRanobeBase.AiredOn
+  - ShikimoriSharp.Bases.AnimeMangaRanobeBase.ReleasedOn
+  - ShikimoriSharp.Bases.SmallRepresentation.Id
+  - ShikimoriSharp.Bases.SmallRepresentation.Name
+  - ShikimoriSharp.Bases.SmallRepresentation.Russian
+  - ShikimoriSharp.Bases.SmallRepresentation.Image
+  - ShikimoriSharp.Bases.SmallRepresentation.Url
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: ShikimoriSharp.Classes.Anime.Episodes
+  commentId: P:ShikimoriSharp.Classes.Anime.Episodes
+  id: Episodes
+  parent: ShikimoriSharp.Classes.Anime
+  langs:
+  - csharp
+  - vb
+  name: Episodes
+  nameWithType: Anime.Episodes
+  fullName: ShikimoriSharp.Classes.Anime.Episodes
+  type: Property
+  source:
+    remote:
+      path: ShikimoriSharp/Classes/Anime.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Episodes
+    path: ../ShikimoriSharp/Classes/Anime.cs
+    startLine: 7
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Classes
+  syntax:
+    content: >-
+      [JsonProperty("episodes")]
+
+      public long Episodes { get; set; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: >-
+      <JsonProperty("episodes")>
+
+      Public Property Episodes As Long
+  overload: ShikimoriSharp.Classes.Anime.Episodes*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: episodes
+- uid: ShikimoriSharp.Classes.Anime.EpisodesAired
+  commentId: P:ShikimoriSharp.Classes.Anime.EpisodesAired
+  id: EpisodesAired
+  parent: ShikimoriSharp.Classes.Anime
+  langs:
+  - csharp
+  - vb
+  name: EpisodesAired
+  nameWithType: Anime.EpisodesAired
+  fullName: ShikimoriSharp.Classes.Anime.EpisodesAired
+  type: Property
+  source:
+    remote:
+      path: ShikimoriSharp/Classes/Anime.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: EpisodesAired
+    path: ../ShikimoriSharp/Classes/Anime.cs
+    startLine: 8
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Classes
+  syntax:
+    content: >-
+      [JsonProperty("episodes_aired")]
+
+      public long EpisodesAired { get; set; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: >-
+      <JsonProperty("episodes_aired")>
+
+      Public Property EpisodesAired As Long
+  overload: ShikimoriSharp.Classes.Anime.EpisodesAired*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: episodes_aired
+references:
+- uid: ShikimoriSharp.Classes
+  commentId: N:ShikimoriSharp.Classes
+  href: ShikimoriSharp.html
+  name: ShikimoriSharp.Classes
+  nameWithType: ShikimoriSharp.Classes
+  fullName: ShikimoriSharp.Classes
+  spec.csharp:
+  - uid: ShikimoriSharp
+    name: ShikimoriSharp
+    href: ShikimoriSharp.html
+  - name: .
+  - uid: ShikimoriSharp.Classes
+    name: Classes
+    href: ShikimoriSharp.Classes.html
+  spec.vb:
+  - uid: ShikimoriSharp
+    name: ShikimoriSharp
+    href: ShikimoriSharp.html
+  - name: .
+  - uid: ShikimoriSharp.Classes
+    name: Classes
+    href: ShikimoriSharp.Classes.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: ShikimoriSharp.Bases.SmallRepresentation
+  commentId: T:ShikimoriSharp.Bases.SmallRepresentation
+  parent: ShikimoriSharp.Bases
+  href: ShikimoriSharp.Bases.SmallRepresentation.html
+  name: SmallRepresentation
+  nameWithType: SmallRepresentation
+  fullName: ShikimoriSharp.Bases.SmallRepresentation
+- uid: ShikimoriSharp.Bases.AnimeMangaRanobeBase
+  commentId: T:ShikimoriSharp.Bases.AnimeMangaRanobeBase
+  parent: ShikimoriSharp.Bases
+  href: ShikimoriSharp.Bases.AnimeMangaRanobeBase.html
+  name: AnimeMangaRanobeBase
+  nameWithType: AnimeMangaRanobeBase
+  fullName: ShikimoriSharp.Bases.AnimeMangaRanobeBase
+- uid: ShikimoriSharp.Bases.AnimeMangaRanobeBase.Kind
+  commentId: P:ShikimoriSharp.Bases.AnimeMangaRanobeBase.Kind
+  parent: ShikimoriSharp.Bases.AnimeMangaRanobeBase
+  href: ShikimoriSharp.Bases.AnimeMangaRanobeBase.html#ShikimoriSharp_Bases_AnimeMangaRanobeBase_Kind
+  name: Kind
+  nameWithType: AnimeMangaRanobeBase.Kind
+  fullName: ShikimoriSharp.Bases.AnimeMangaRanobeBase.Kind
+- uid: ShikimoriSharp.Bases.AnimeMangaRanobeBase.Score
+  commentId: P:ShikimoriSharp.Bases.AnimeMangaRanobeBase.Score
+  parent: ShikimoriSharp.Bases.AnimeMangaRanobeBase
+  href: ShikimoriSharp.Bases.AnimeMangaRanobeBase.html#ShikimoriSharp_Bases_AnimeMangaRanobeBase_Score
+  name: Score
+  nameWithType: AnimeMangaRanobeBase.Score
+  fullName: ShikimoriSharp.Bases.AnimeMangaRanobeBase.Score
+- uid: ShikimoriSharp.Bases.AnimeMangaRanobeBase.Status
+  commentId: P:ShikimoriSharp.Bases.AnimeMangaRanobeBase.Status
+  parent: ShikimoriSharp.Bases.AnimeMangaRanobeBase
+  href: ShikimoriSharp.Bases.AnimeMangaRanobeBase.html#ShikimoriSharp_Bases_AnimeMangaRanobeBase_Status
+  name: Status
+  nameWithType: AnimeMangaRanobeBase.Status
+  fullName: ShikimoriSharp.Bases.AnimeMangaRanobeBase.Status
+- uid: ShikimoriSharp.Bases.AnimeMangaRanobeBase.AiredOn
+  commentId: P:ShikimoriSharp.Bases.AnimeMangaRanobeBase.AiredOn
+  parent: ShikimoriSharp.Bases.AnimeMangaRanobeBase
+  href: ShikimoriSharp.Bases.AnimeMangaRanobeBase.html#ShikimoriSharp_Bases_AnimeMangaRanobeBase_AiredOn
+  name: AiredOn
+  nameWithType: AnimeMangaRanobeBase.AiredOn
+  fullName: ShikimoriSharp.Bases.AnimeMangaRanobeBase.AiredOn
+- uid: ShikimoriSharp.Bases.AnimeMangaRanobeBase.ReleasedOn
+  commentId: P:ShikimoriSharp.Bases.AnimeMangaRanobeBase.ReleasedOn
+  parent: ShikimoriSharp.Bases.AnimeMangaRanobeBase
+  href: ShikimoriSharp.Bases.AnimeMangaRanobeBase.html#ShikimoriSharp_Bases_AnimeMangaRanobeBase_ReleasedOn
+  name: ReleasedOn
+  nameWithType: AnimeMangaRanobeBase.ReleasedOn
+  fullName: ShikimoriSharp.Bases.AnimeMangaRanobeBase.ReleasedOn
+- uid: ShikimoriSharp.Bases.SmallRepresentation.Id
+  commentId: P:ShikimoriSharp.Bases.SmallRepresentation.Id
+  parent: ShikimoriSharp.Bases.SmallRepresentation
+  href: ShikimoriSharp.Bases.SmallRepresentation.html#ShikimoriSharp_Bases_SmallRepresentation_Id
+  name: Id
+  nameWithType: SmallRepresentation.Id
+  fullName: ShikimoriSharp.Bases.SmallRepresentation.Id
+- uid: ShikimoriSharp.Bases.SmallRepresentation.Name
+  commentId: P:ShikimoriSharp.Bases.SmallRepresentation.Name
+  parent: ShikimoriSharp.Bases.SmallRepresentation
+  href: ShikimoriSharp.Bases.SmallRepresentation.html#ShikimoriSharp_Bases_SmallRepresentation_Name
+  name: Name
+  nameWithType: SmallRepresentation.Name
+  fullName: ShikimoriSharp.Bases.SmallRepresentation.Name
+- uid: ShikimoriSharp.Bases.SmallRepresentation.Russian
+  commentId: P:ShikimoriSharp.Bases.SmallRepresentation.Russian
+  parent: ShikimoriSharp.Bases.SmallRepresentation
+  href: ShikimoriSharp.Bases.SmallRepresentation.html#ShikimoriSharp_Bases_SmallRepresentation_Russian
+  name: Russian
+  nameWithType: SmallRepresentation.Russian
+  fullName: ShikimoriSharp.Bases.SmallRepresentation.Russian
+- uid: ShikimoriSharp.Bases.SmallRepresentation.Image
+  commentId: P:ShikimoriSharp.Bases.SmallRepresentation.Image
+  parent: ShikimoriSharp.Bases.SmallRepresentation
+  href: ShikimoriSharp.Bases.SmallRepresentation.html#ShikimoriSharp_Bases_SmallRepresentation_Image
+  name: Image
+  nameWithType: SmallRepresentation.Image
+  fullName: ShikimoriSharp.Bases.SmallRepresentation.Image
+- uid: ShikimoriSharp.Bases.SmallRepresentation.Url
+  commentId: P:ShikimoriSharp.Bases.SmallRepresentation.Url
+  parent: ShikimoriSharp.Bases.SmallRepresentation
+  href: ShikimoriSharp.Bases.SmallRepresentation.html#ShikimoriSharp_Bases_SmallRepresentation_Url
+  name: Url
+  nameWithType: SmallRepresentation.Url
+  fullName: ShikimoriSharp.Bases.SmallRepresentation.Url
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ShikimoriSharp.Bases
+  commentId: N:ShikimoriSharp.Bases
+  href: ShikimoriSharp.html
+  name: ShikimoriSharp.Bases
+  nameWithType: ShikimoriSharp.Bases
+  fullName: ShikimoriSharp.Bases
+  spec.csharp:
+  - uid: ShikimoriSharp
+    name: ShikimoriSharp
+    href: ShikimoriSharp.html
+  - name: .
+  - uid: ShikimoriSharp.Bases
+    name: Bases
+    href: ShikimoriSharp.Bases.html
+  spec.vb:
+  - uid: ShikimoriSharp
+    name: ShikimoriSharp
+    href: ShikimoriSharp.html
+  - name: .
+  - uid: ShikimoriSharp.Bases
+    name: Bases
+    href: ShikimoriSharp.Bases.html
+- uid: ShikimoriSharp.Classes.Anime.Episodes*
+  commentId: Overload:ShikimoriSharp.Classes.Anime.Episodes
+  href: ShikimoriSharp.Classes.Anime.html#ShikimoriSharp_Classes_Anime_Episodes
+  name: Episodes
+  nameWithType: Anime.Episodes
+  fullName: ShikimoriSharp.Classes.Anime.Episodes
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: ShikimoriSharp.Classes.Anime.EpisodesAired*
+  commentId: Overload:ShikimoriSharp.Classes.Anime.EpisodesAired
+  href: ShikimoriSharp.Classes.Anime.html#ShikimoriSharp_Classes_Anime_EpisodesAired
+  name: EpisodesAired
+  nameWithType: Anime.EpisodesAired
+  fullName: ShikimoriSharp.Classes.Anime.EpisodesAired

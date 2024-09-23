@@ -15,7 +15,8 @@
     <div class="alert alert-info">@_message</div>
 }
 <InputFile OnChange="HandleFileSelected" accept=".json"/>
-<button @onclick="UploadData">Загрузить/Обновить базу данных steam</button>
+<button @onclick="UploadData" disabled="@_isUploading">Загрузить/Обновить базу данных steam</button>
+<button @onclick="CancelUpload" disabled="!@_isUploading">Отменить операцию</button>
 
 
 @code {
@@ -23,6 +24,8 @@
     private string? _message;
     private readonly long _maxFileSize = 100 * 1024 * 1024;
     private int _progress;
+    private CancellationTokenSource _cts = new();
+    private bool _isUploading;
 
     private async Task HandleFileSelected(InputFileChangeEventArgs e)
     {
@@ -43,6 +46,10 @@
             _message = "Пожалуйста, выберите файл для загрузки.";
             return;
         }
+
+        _isUploading = true;
+        StateHasChanged();
+
         try
         {
             using var stream = _uploadedFile.OpenReadStream(_maxFileSize);
@@ -57,18 +64,25 @@
                 return;
             }
 
-            var existingGames = await DbContext.Games.ToDictionaryAsync(g => g.AppID);
+            var existingGames = await DbContext.Games.ToDictionaryAsync(g => g.AppID, _cts.Token);
 
             var newGames = new List<Game>();
             var updatedGames = new List<Game>();
             var processedCount = 0;
             var totalGames = games.Count;
 
+            await using var transaction = await DbContext.Database.BeginTransactionAsync(_cts.Token);
 
             foreach (var game in games)
             {
-                processedCount++;
+                if (_cts.Token.IsCancellationRequested)
+                {
+                    _message = "Операция была отменена.";
+                    await transaction.RollbackAsync(_cts.Token);
+                    return;
+                }
 
+                processedCount++;
                 var newProgressPercentage = processedCount * 100 / totalGames;
                 if (newProgressPercentage >= _progress + 10)
                 {
@@ -96,14 +110,25 @@
 
             DbContext.Games.AddRange(newGames);
             DbContext.Games.UpdateRange(updatedGames);
-
-            await DbContext.SaveChangesAsync();
+            await DbContext.SaveChangesAsync(_cts.Token);
+            await transaction.CommitAsync(_cts.Token);
             _message = "База данных успешно обновлена.";
         }
         catch (Exception ex)
         {
             _message = $"Ошибка при загрузке данных: {ex.Message}";
         }
+        finally
+        {
+            _isUploading = false;
+            _cts = new CancellationTokenSource();
+            StateHasChanged();
+        }
+    }
+
+    private void CancelUpload()
+    {
+        _cts.Cancel();
     }
 
 }

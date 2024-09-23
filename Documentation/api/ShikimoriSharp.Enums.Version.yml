@@ -1,0 +1,112 @@
+### YamlMime:ManagedReference
+items:
+- uid: ShikimoriSharp.Enums.Version
+  commentId: T:ShikimoriSharp.Enums.Version
+  id: Version
+  parent: ShikimoriSharp.Enums
+  children:
+  - ShikimoriSharp.Enums.Version.v1
+  - ShikimoriSharp.Enums.Version.v2
+  langs:
+  - csharp
+  - vb
+  name: Version
+  nameWithType: Version
+  fullName: ShikimoriSharp.Enums.Version
+  type: Enum
+  source:
+    remote:
+      path: ShikimoriSharp/Enums/Version.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Version
+    path: ../ShikimoriSharp/Enums/Version.cs
+    startLine: 2
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Enums
+  syntax:
+    content: public enum Version
+    content.vb: Public Enum Version
+- uid: ShikimoriSharp.Enums.Version.v1
+  commentId: F:ShikimoriSharp.Enums.Version.v1
+  id: v1
+  parent: ShikimoriSharp.Enums.Version
+  langs:
+  - csharp
+  - vb
+  name: v1
+  nameWithType: Version.v1
+  fullName: ShikimoriSharp.Enums.Version.v1
+  type: Field
+  source:
+    remote:
+      path: ShikimoriSharp/Enums/Version.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: v1
+    path: ../ShikimoriSharp/Enums/Version.cs
+    startLine: 4
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Enums
+  syntax:
+    content: v1 = 0
+    return:
+      type: ShikimoriSharp.Enums.Version
+- uid: ShikimoriSharp.Enums.Version.v2
+  commentId: F:ShikimoriSharp.Enums.Version.v2
+  id: v2
+  parent: ShikimoriSharp.Enums.Version
+  langs:
+  - csharp
+  - vb
+  name: v2
+  nameWithType: Version.v2
+  fullName: ShikimoriSharp.Enums.Version.v2
+  type: Field
+  source:
+    remote:
+      path: ShikimoriSharp/Enums/Version.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: v2
+    path: ../ShikimoriSharp/Enums/Version.cs
+    startLine: 5
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.Enums
+  syntax:
+    content: v2 = 1
+    return:
+      type: ShikimoriSharp.Enums.Version
+references:
+- uid: ShikimoriSharp.Enums
+  commentId: N:ShikimoriSharp.Enums
+  href: ShikimoriSharp.html
+  name: ShikimoriSharp.Enums
+  nameWithType: ShikimoriSharp.Enums
+  fullName: ShikimoriSharp.Enums
+  spec.csharp:
+  - uid: ShikimoriSharp
+    name: ShikimoriSharp
+    href: ShikimoriSharp.html
+  - name: .
+  - uid: ShikimoriSharp.Enums
+    name: Enums
+    href: ShikimoriSharp.Enums.html
+  spec.vb:
+  - uid: ShikimoriSharp
+    name: ShikimoriSharp
+    href: ShikimoriSharp.html
+  - name: .
+  - uid: ShikimoriSharp.Enums
+    name: Enums
+    href: ShikimoriSharp.Enums.html
+- uid: ShikimoriSharp.Enums.Version
+  commentId: T:ShikimoriSharp.Enums.Version
+  parent: ShikimoriSharp.Enums
+  href: ShikimoriSharp.Enums.Version.html
+  name: Version
+  nameWithType: Version
+  fullName: ShikimoriSharp.Enums.Version

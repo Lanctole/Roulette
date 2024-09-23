@@ -1,0 +1,657 @@
+### YamlMime:ManagedReference
+items:
+- uid: ShikimoriSharp.ApiServices.TokenBucket
+  commentId: T:ShikimoriSharp.ApiServices.TokenBucket
+  id: TokenBucket
+  parent: ShikimoriSharp.ApiServices
+  children:
+  - ShikimoriSharp.ApiServices.TokenBucket.#ctor(System.String,System.Int32,System.Double)
+  - ShikimoriSharp.ApiServices.TokenBucket.Dispose
+  - ShikimoriSharp.ApiServices.TokenBucket.MaxTokens
+  - ShikimoriSharp.ApiServices.TokenBucket.Name
+  - ShikimoriSharp.ApiServices.TokenBucket.RefreshTime
+  - ShikimoriSharp.ApiServices.TokenBucket.TokenRequest
+  langs:
+  - csharp
+  - vb
+  name: TokenBucket
+  nameWithType: TokenBucket
+  fullName: ShikimoriSharp.ApiServices.TokenBucket
+  type: Class
+  source:
+    remote:
+      path: ShikimoriSharp/ApiServices/TokenBucket.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: TokenBucket
+    path: ../ShikimoriSharp/ApiServices/TokenBucket.cs
+    startLine: 13
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.ApiServices
+  summary: >-
+    Класс для управления токенами с использованием алгоритма "Token Bucket".
+
+    Этот класс помогает регулировать частоту запросов, обеспечивая ограничение на количество токенов, доступных за определённое время.
+  example: []
+  syntax:
+    content: 'public class TokenBucket : IDisposable'
+    content.vb: Public Class TokenBucket Implements IDisposable
+  inheritance:
+  - System.Object
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: ShikimoriSharp.ApiServices.TokenBucket.#ctor(System.String,System.Int32,System.Double)
+  commentId: M:ShikimoriSharp.ApiServices.TokenBucket.#ctor(System.String,System.Int32,System.Double)
+  id: '#ctor(System.String,System.Int32,System.Double)'
+  parent: ShikimoriSharp.ApiServices.TokenBucket
+  langs:
+  - csharp
+  - vb
+  name: TokenBucket(string, int, double)
+  nameWithType: TokenBucket.TokenBucket(string, int, double)
+  fullName: ShikimoriSharp.ApiServices.TokenBucket.TokenBucket(string, int, double)
+  type: Constructor
+  source:
+    remote:
+      path: ShikimoriSharp/ApiServices/TokenBucket.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: .ctor
+    path: ../ShikimoriSharp/ApiServices/TokenBucket.cs
+    startLine: 26
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.ApiServices
+  summary: Инициализирует новый экземпляр класса <xref href="ShikimoriSharp.ApiServices.TokenBucket" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public TokenBucket(string name, int maxTokens, double refreshTime)
+    parameters:
+    - id: name
+      type: System.String
+      description: Имя бакета для идентификации.
+    - id: maxTokens
+      type: System.Int32
+      description: Максимальное количество токенов, которые бакет может содержать.
+    - id: refreshTime
+      type: System.Double
+      description: Время в миллисекундах, через которое бакет будет обновляться.
+    content.vb: Public Sub New(name As String, maxTokens As Integer, refreshTime As Double)
+  overload: ShikimoriSharp.ApiServices.TokenBucket.#ctor*
+  nameWithType.vb: TokenBucket.New(String, Integer, Double)
+  fullName.vb: ShikimoriSharp.ApiServices.TokenBucket.New(String, Integer, Double)
+  name.vb: New(String, Integer, Double)
+- uid: ShikimoriSharp.ApiServices.TokenBucket.Name
+  commentId: P:ShikimoriSharp.ApiServices.TokenBucket.Name
+  id: Name
+  parent: ShikimoriSharp.ApiServices.TokenBucket
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: TokenBucket.Name
+  fullName: ShikimoriSharp.ApiServices.TokenBucket.Name
+  type: Property
+  source:
+    remote:
+      path: ShikimoriSharp/ApiServices/TokenBucket.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Name
+    path: ../ShikimoriSharp/ApiServices/TokenBucket.cs
+    startLine: 40
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.ApiServices
+  syntax:
+    content: public string Name { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Name As String
+  overload: ShikimoriSharp.ApiServices.TokenBucket.Name*
+- uid: ShikimoriSharp.ApiServices.TokenBucket.MaxTokens
+  commentId: P:ShikimoriSharp.ApiServices.TokenBucket.MaxTokens
+  id: MaxTokens
+  parent: ShikimoriSharp.ApiServices.TokenBucket
+  langs:
+  - csharp
+  - vb
+  name: MaxTokens
+  nameWithType: TokenBucket.MaxTokens
+  fullName: ShikimoriSharp.ApiServices.TokenBucket.MaxTokens
+  type: Property
+  source:
+    remote:
+      path: ShikimoriSharp/ApiServices/TokenBucket.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: MaxTokens
+    path: ../ShikimoriSharp/ApiServices/TokenBucket.cs
+    startLine: 41
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.ApiServices
+  syntax:
+    content: public int MaxTokens { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property MaxTokens As Integer
+  overload: ShikimoriSharp.ApiServices.TokenBucket.MaxTokens*
+- uid: ShikimoriSharp.ApiServices.TokenBucket.RefreshTime
+  commentId: P:ShikimoriSharp.ApiServices.TokenBucket.RefreshTime
+  id: RefreshTime
+  parent: ShikimoriSharp.ApiServices.TokenBucket
+  langs:
+  - csharp
+  - vb
+  name: RefreshTime
+  nameWithType: TokenBucket.RefreshTime
+  fullName: ShikimoriSharp.ApiServices.TokenBucket.RefreshTime
+  type: Property
+  source:
+    remote:
+      path: ShikimoriSharp/ApiServices/TokenBucket.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: RefreshTime
+    path: ../ShikimoriSharp/ApiServices/TokenBucket.cs
+    startLine: 42
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.ApiServices
+  syntax:
+    content: public double RefreshTime { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property RefreshTime As Double
+  overload: ShikimoriSharp.ApiServices.TokenBucket.RefreshTime*
+- uid: ShikimoriSharp.ApiServices.TokenBucket.TokenRequest
+  commentId: M:ShikimoriSharp.ApiServices.TokenBucket.TokenRequest
+  id: TokenRequest
+  parent: ShikimoriSharp.ApiServices.TokenBucket
+  langs:
+  - csharp
+  - vb
+  name: TokenRequest()
+  nameWithType: TokenBucket.TokenRequest()
+  fullName: ShikimoriSharp.ApiServices.TokenBucket.TokenRequest()
+  type: Method
+  source:
+    remote:
+      path: ShikimoriSharp/ApiServices/TokenBucket.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: TokenRequest
+    path: ../ShikimoriSharp/ApiServices/TokenBucket.cs
+    startLine: 64
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.ApiServices
+  summary: >-
+    Запрашивает токен из бакета. Ожидает, пока токен станет доступен, если бакет пуст.
+
+    Если таймер ещё не запущен, он будет запущен.
+  example: []
+  syntax:
+    content: public Task TokenRequest()
+    return:
+      type: System.Threading.Tasks.Task
+      description: Задача, представляющая асинхронную операцию.
+    content.vb: Public Function TokenRequest() As Task
+  overload: ShikimoriSharp.ApiServices.TokenBucket.TokenRequest*
+- uid: ShikimoriSharp.ApiServices.TokenBucket.Dispose
+  commentId: M:ShikimoriSharp.ApiServices.TokenBucket.Dispose
+  id: Dispose
+  parent: ShikimoriSharp.ApiServices.TokenBucket
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: TokenBucket.Dispose()
+  fullName: ShikimoriSharp.ApiServices.TokenBucket.Dispose()
+  type: Method
+  source:
+    remote:
+      path: ShikimoriSharp/ApiServices/TokenBucket.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Dispose
+    path: ../ShikimoriSharp/ApiServices/TokenBucket.cs
+    startLine: 76
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.ApiServices
+  summary: Освобождает ресурсы, используемые бакетом, и останавливает таймер.
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: ShikimoriSharp.ApiServices.TokenBucket.Dispose*
+  implements:
+  - System.IDisposable.Dispose
+references:
+- uid: ShikimoriSharp.ApiServices
+  commentId: N:ShikimoriSharp.ApiServices
+  href: ShikimoriSharp.html
+  name: ShikimoriSharp.ApiServices
+  nameWithType: ShikimoriSharp.ApiServices
+  fullName: ShikimoriSharp.ApiServices
+  spec.csharp:
+  - uid: ShikimoriSharp
+    name: ShikimoriSharp
+    href: ShikimoriSharp.html
+  - name: .
+  - uid: ShikimoriSharp.ApiServices
+    name: ApiServices
+    href: ShikimoriSharp.ApiServices.html
+  spec.vb:
+  - uid: ShikimoriSharp
+    name: ShikimoriSharp
+    href: ShikimoriSharp.html
+  - name: .
+  - uid: ShikimoriSharp.ApiServices
+    name: ApiServices
+    href: ShikimoriSharp.ApiServices.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ShikimoriSharp.ApiServices.TokenBucket
+  commentId: T:ShikimoriSharp.ApiServices.TokenBucket
+  parent: ShikimoriSharp.ApiServices
+  href: ShikimoriSharp.ApiServices.TokenBucket.html
+  name: TokenBucket
+  nameWithType: TokenBucket
+  fullName: ShikimoriSharp.ApiServices.TokenBucket
+- uid: ShikimoriSharp.ApiServices.TokenBucket.#ctor*
+  commentId: Overload:ShikimoriSharp.ApiServices.TokenBucket.#ctor
+  href: ShikimoriSharp.ApiServices.TokenBucket.html#ShikimoriSharp_ApiServices_TokenBucket__ctor_System_String_System_Int32_System_Double_
+  name: TokenBucket
+  nameWithType: TokenBucket.TokenBucket
+  fullName: ShikimoriSharp.ApiServices.TokenBucket.TokenBucket
+  nameWithType.vb: TokenBucket.New
+  fullName.vb: ShikimoriSharp.ApiServices.TokenBucket.New
+  name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: ShikimoriSharp.ApiServices.TokenBucket.Name*
+  commentId: Overload:ShikimoriSharp.ApiServices.TokenBucket.Name
+  href: ShikimoriSharp.ApiServices.TokenBucket.html#ShikimoriSharp_ApiServices_TokenBucket_Name
+  name: Name
+  nameWithType: TokenBucket.Name
+  fullName: ShikimoriSharp.ApiServices.TokenBucket.Name
+- uid: ShikimoriSharp.ApiServices.TokenBucket.MaxTokens*
+  commentId: Overload:ShikimoriSharp.ApiServices.TokenBucket.MaxTokens
+  href: ShikimoriSharp.ApiServices.TokenBucket.html#ShikimoriSharp_ApiServices_TokenBucket_MaxTokens
+  name: MaxTokens
+  nameWithType: TokenBucket.MaxTokens
+  fullName: ShikimoriSharp.ApiServices.TokenBucket.MaxTokens
+- uid: ShikimoriSharp.ApiServices.TokenBucket.RefreshTime*
+  commentId: Overload:ShikimoriSharp.ApiServices.TokenBucket.RefreshTime
+  href: ShikimoriSharp.ApiServices.TokenBucket.html#ShikimoriSharp_ApiServices_TokenBucket_RefreshTime
+  name: RefreshTime
+  nameWithType: TokenBucket.RefreshTime
+  fullName: ShikimoriSharp.ApiServices.TokenBucket.RefreshTime
+- uid: ShikimoriSharp.ApiServices.TokenBucket.TokenRequest*
+  commentId: Overload:ShikimoriSharp.ApiServices.TokenBucket.TokenRequest
+  href: ShikimoriSharp.ApiServices.TokenBucket.html#ShikimoriSharp_ApiServices_TokenBucket_TokenRequest
+  name: TokenRequest
+  nameWithType: TokenBucket.TokenRequest
+  fullName: ShikimoriSharp.ApiServices.TokenBucket.TokenRequest
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: ShikimoriSharp.ApiServices.TokenBucket.Dispose*
+  commentId: Overload:ShikimoriSharp.ApiServices.TokenBucket.Dispose
+  href: ShikimoriSharp.ApiServices.TokenBucket.html#ShikimoriSharp_ApiServices_TokenBucket_Dispose
+  name: Dispose
+  nameWithType: TokenBucket.Dispose
+  fullName: ShikimoriSharp.ApiServices.TokenBucket.Dispose
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )

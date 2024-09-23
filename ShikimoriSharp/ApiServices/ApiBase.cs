@@ -88,7 +88,7 @@ public abstract class ApiBase
         catch (Exception ex)
         {
             _logger.LogError(ex, $"Ошибка при выполнении запроса: {apiMethod}");
-            throw;
+            throw new HttpRequestException();
         }
     }
 

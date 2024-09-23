@@ -1,0 +1,718 @@
+### YamlMime:ManagedReference
+items:
+- uid: Roulette.Services.GameLanguageService
+  commentId: T:Roulette.Services.GameLanguageService
+  id: GameLanguageService
+  parent: Roulette.Services
+  children:
+  - Roulette.Services.GameLanguageService.#ctor(Roulette.Data.ApplicationDbContext,Microsoft.Extensions.Caching.Distributed.IDistributedCache,Microsoft.Extensions.Logging.ILogger{Roulette.Services.GameLanguageService})
+  - Roulette.Services.GameLanguageService.GetLanguagesAsync
+  langs:
+  - csharp
+  - vb
+  name: GameLanguageService
+  nameWithType: GameLanguageService
+  fullName: Roulette.Services.GameLanguageService
+  type: Class
+  source:
+    remote:
+      path: Roulette/Services/GameLanguageService.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: GameLanguageService
+    path: ../Roulette/Services/GameLanguageService.cs
+    startLine: 11
+  assemblies:
+  - Roulette
+  namespace: Roulette.Services
+  summary: Сервис для работы с языками, поддерживаемыми играми.
+  example: []
+  syntax:
+    content: public class GameLanguageService
+    content.vb: Public Class GameLanguageService
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Roulette.Services.GameLanguageService.#ctor(Roulette.Data.ApplicationDbContext,Microsoft.Extensions.Caching.Distributed.IDistributedCache,Microsoft.Extensions.Logging.ILogger{Roulette.Services.GameLanguageService})
+  commentId: M:Roulette.Services.GameLanguageService.#ctor(Roulette.Data.ApplicationDbContext,Microsoft.Extensions.Caching.Distributed.IDistributedCache,Microsoft.Extensions.Logging.ILogger{Roulette.Services.GameLanguageService})
+  id: '#ctor(Roulette.Data.ApplicationDbContext,Microsoft.Extensions.Caching.Distributed.IDistributedCache,Microsoft.Extensions.Logging.ILogger{Roulette.Services.GameLanguageService})'
+  parent: Roulette.Services.GameLanguageService
+  langs:
+  - csharp
+  - vb
+  name: GameLanguageService(ApplicationDbContext, IDistributedCache, ILogger<GameLanguageService>)
+  nameWithType: GameLanguageService.GameLanguageService(ApplicationDbContext, IDistributedCache, ILogger<GameLanguageService>)
+  fullName: Roulette.Services.GameLanguageService.GameLanguageService(Roulette.Data.ApplicationDbContext, Microsoft.Extensions.Caching.Distributed.IDistributedCache, Microsoft.Extensions.Logging.ILogger<Roulette.Services.GameLanguageService>)
+  type: Constructor
+  source:
+    remote:
+      path: Roulette/Services/GameLanguageService.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: .ctor
+    path: ../Roulette/Services/GameLanguageService.cs
+    startLine: 24
+  assemblies:
+  - Roulette
+  namespace: Roulette.Services
+  summary: Инициализирует новый экземпляр <xref href="Roulette.Services.GameLanguageService" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public GameLanguageService(ApplicationDbContext context, IDistributedCache cache, ILogger<GameLanguageService> logger)
+    parameters:
+    - id: context
+      type: Roulette.Data.ApplicationDbContext
+      description: Контекст базы данных.
+    - id: cache
+      type: Microsoft.Extensions.Caching.Distributed.IDistributedCache
+      description: Интерфейс распределённого кэша.
+    - id: logger
+      type: Microsoft.Extensions.Logging.ILogger{Roulette.Services.GameLanguageService}
+      description: Логгер для записи информации и ошибок.
+    content.vb: Public Sub New(context As ApplicationDbContext, cache As IDistributedCache, logger As ILogger(Of GameLanguageService))
+  overload: Roulette.Services.GameLanguageService.#ctor*
+  nameWithType.vb: GameLanguageService.New(ApplicationDbContext, IDistributedCache, ILogger(Of GameLanguageService))
+  fullName.vb: Roulette.Services.GameLanguageService.New(Roulette.Data.ApplicationDbContext, Microsoft.Extensions.Caching.Distributed.IDistributedCache, Microsoft.Extensions.Logging.ILogger(Of Roulette.Services.GameLanguageService))
+  name.vb: New(ApplicationDbContext, IDistributedCache, ILogger(Of GameLanguageService))
+- uid: Roulette.Services.GameLanguageService.GetLanguagesAsync
+  commentId: M:Roulette.Services.GameLanguageService.GetLanguagesAsync
+  id: GetLanguagesAsync
+  parent: Roulette.Services.GameLanguageService
+  langs:
+  - csharp
+  - vb
+  name: GetLanguagesAsync()
+  nameWithType: GameLanguageService.GetLanguagesAsync()
+  fullName: Roulette.Services.GameLanguageService.GetLanguagesAsync()
+  type: Method
+  source:
+    remote:
+      path: Roulette/Services/GameLanguageService.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: GetLanguagesAsync
+    path: ../Roulette/Services/GameLanguageService.cs
+    startLine: 35
+  assemblies:
+  - Roulette
+  namespace: Roulette.Services
+  summary: Получает список поддерживаемых языков.
+  example: []
+  syntax:
+    content: public Task<List<SupportedLanguageDto>> GetLanguagesAsync()
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{Roulette.DTOs.SupportedLanguageDto}}
+      description: Список поддерживаемых языков в виде <xref href="System.Collections.Generic.List%601" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Function GetLanguagesAsync() As Task(Of List(Of SupportedLanguageDto))
+  overload: Roulette.Services.GameLanguageService.GetLanguagesAsync*
+references:
+- uid: Roulette.Services
+  commentId: N:Roulette.Services
+  href: Roulette.html
+  name: Roulette.Services
+  nameWithType: Roulette.Services
+  fullName: Roulette.Services
+  spec.csharp:
+  - uid: Roulette
+    name: Roulette
+    href: Roulette.html
+  - name: .
+  - uid: Roulette.Services
+    name: Services
+    href: Roulette.Services.html
+  spec.vb:
+  - uid: Roulette
+    name: Roulette
+    href: Roulette.html
+  - name: .
+  - uid: Roulette.Services
+    name: Services
+    href: Roulette.Services.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Roulette.Services.GameLanguageService
+  commentId: T:Roulette.Services.GameLanguageService
+  parent: Roulette.Services
+  href: Roulette.Services.GameLanguageService.html
+  name: GameLanguageService
+  nameWithType: GameLanguageService
+  fullName: Roulette.Services.GameLanguageService
+- uid: Roulette.Services.GameLanguageService.#ctor*
+  commentId: Overload:Roulette.Services.GameLanguageService.#ctor
+  href: Roulette.Services.GameLanguageService.html#Roulette_Services_GameLanguageService__ctor_Roulette_Data_ApplicationDbContext_Microsoft_Extensions_Caching_Distributed_IDistributedCache_Microsoft_Extensions_Logging_ILogger_Roulette_Services_GameLanguageService__
+  name: GameLanguageService
+  nameWithType: GameLanguageService.GameLanguageService
+  fullName: Roulette.Services.GameLanguageService.GameLanguageService
+  nameWithType.vb: GameLanguageService.New
+  fullName.vb: Roulette.Services.GameLanguageService.New
+  name.vb: New
+- uid: Roulette.Data.ApplicationDbContext
+  commentId: T:Roulette.Data.ApplicationDbContext
+  parent: Roulette.Data
+  href: Roulette.Data.ApplicationDbContext.html
+  name: ApplicationDbContext
+  nameWithType: ApplicationDbContext
+  fullName: Roulette.Data.ApplicationDbContext
+- uid: Microsoft.Extensions.Caching.Distributed.IDistributedCache
+  commentId: T:Microsoft.Extensions.Caching.Distributed.IDistributedCache
+  parent: Microsoft.Extensions.Caching.Distributed
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.caching.distributed.idistributedcache
+  name: IDistributedCache
+  nameWithType: IDistributedCache
+  fullName: Microsoft.Extensions.Caching.Distributed.IDistributedCache
+- uid: Microsoft.Extensions.Logging.ILogger{Roulette.Services.GameLanguageService}
+  commentId: T:Microsoft.Extensions.Logging.ILogger{Roulette.Services.GameLanguageService}
+  parent: Microsoft.Extensions.Logging
+  definition: Microsoft.Extensions.Logging.ILogger`1
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
+  name: ILogger<GameLanguageService>
+  nameWithType: ILogger<GameLanguageService>
+  fullName: Microsoft.Extensions.Logging.ILogger<Roulette.Services.GameLanguageService>
+  nameWithType.vb: ILogger(Of GameLanguageService)
+  fullName.vb: Microsoft.Extensions.Logging.ILogger(Of Roulette.Services.GameLanguageService)
+  name.vb: ILogger(Of GameLanguageService)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
+  - name: <
+  - uid: Roulette.Services.GameLanguageService
+    name: GameLanguageService
+    href: Roulette.Services.GameLanguageService.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Roulette.Services.GameLanguageService
+    name: GameLanguageService
+    href: Roulette.Services.GameLanguageService.html
+  - name: )
+- uid: Roulette.Data
+  commentId: N:Roulette.Data
+  href: Roulette.html
+  name: Roulette.Data
+  nameWithType: Roulette.Data
+  fullName: Roulette.Data
+  spec.csharp:
+  - uid: Roulette
+    name: Roulette
+    href: Roulette.html
+  - name: .
+  - uid: Roulette.Data
+    name: Data
+    href: Roulette.Data.html
+  spec.vb:
+  - uid: Roulette
+    name: Roulette
+    href: Roulette.html
+  - name: .
+  - uid: Roulette.Data
+    name: Data
+    href: Roulette.Data.html
+- uid: Microsoft.Extensions.Caching.Distributed
+  commentId: N:Microsoft.Extensions.Caching.Distributed
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.Extensions.Caching.Distributed
+  nameWithType: Microsoft.Extensions.Caching.Distributed
+  fullName: Microsoft.Extensions.Caching.Distributed
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Caching
+    name: Caching
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.caching
+  - name: .
+  - uid: Microsoft.Extensions.Caching.Distributed
+    name: Distributed
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.caching.distributed
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Caching
+    name: Caching
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.caching
+  - name: .
+  - uid: Microsoft.Extensions.Caching.Distributed
+    name: Distributed
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.caching.distributed
+- uid: Microsoft.Extensions.Logging.ILogger`1
+  commentId: T:Microsoft.Extensions.Logging.ILogger`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
+  name: ILogger<TCategoryName>
+  nameWithType: ILogger<TCategoryName>
+  fullName: Microsoft.Extensions.Logging.ILogger<TCategoryName>
+  nameWithType.vb: ILogger(Of TCategoryName)
+  fullName.vb: Microsoft.Extensions.Logging.ILogger(Of TCategoryName)
+  name.vb: ILogger(Of TCategoryName)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
+  - name: <
+  - name: TCategoryName
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TCategoryName
+  - name: )
+- uid: Microsoft.Extensions.Logging
+  commentId: N:Microsoft.Extensions.Logging
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.Extensions.Logging
+  nameWithType: Microsoft.Extensions.Logging
+  fullName: Microsoft.Extensions.Logging
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Roulette.Services.GameLanguageService.GetLanguagesAsync*
+  commentId: Overload:Roulette.Services.GameLanguageService.GetLanguagesAsync
+  href: Roulette.Services.GameLanguageService.html#Roulette_Services_GameLanguageService_GetLanguagesAsync
+  name: GetLanguagesAsync
+  nameWithType: GameLanguageService.GetLanguagesAsync
+  fullName: Roulette.Services.GameLanguageService.GetLanguagesAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.List{Roulette.DTOs.SupportedLanguageDto}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.List{Roulette.DTOs.SupportedLanguageDto}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<List<SupportedLanguageDto>>
+  nameWithType: Task<List<SupportedLanguageDto>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.List<Roulette.DTOs.SupportedLanguageDto>>
+  nameWithType.vb: Task(Of List(Of SupportedLanguageDto))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.List(Of Roulette.DTOs.SupportedLanguageDto))
+  name.vb: Task(Of List(Of SupportedLanguageDto))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Roulette.DTOs.SupportedLanguageDto
+    name: SupportedLanguageDto
+    href: Roulette.DTOs.SupportedLanguageDto.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Roulette.DTOs.SupportedLanguageDto
+    name: SupportedLanguageDto
+    href: Roulette.DTOs.SupportedLanguageDto.html
+  - name: )
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks

@@ -1,0 +1,1815 @@
+### YamlMime:ManagedReference
+items:
+- uid: Roulette.Services.LocalizedIdentityErrorDescriber
+  commentId: T:Roulette.Services.LocalizedIdentityErrorDescriber
+  id: LocalizedIdentityErrorDescriber
+  parent: Roulette.Services
+  children:
+  - Roulette.Services.LocalizedIdentityErrorDescriber.ConcurrencyFailure
+  - Roulette.Services.LocalizedIdentityErrorDescriber.DefaultError
+  - Roulette.Services.LocalizedIdentityErrorDescriber.DuplicateEmail(System.String)
+  - Roulette.Services.LocalizedIdentityErrorDescriber.DuplicateRoleName(System.String)
+  - Roulette.Services.LocalizedIdentityErrorDescriber.DuplicateUserName(System.String)
+  - Roulette.Services.LocalizedIdentityErrorDescriber.InvalidEmail(System.String)
+  - Roulette.Services.LocalizedIdentityErrorDescriber.InvalidRoleName(System.String)
+  - Roulette.Services.LocalizedIdentityErrorDescriber.InvalidToken
+  - Roulette.Services.LocalizedIdentityErrorDescriber.InvalidUserName(System.String)
+  - Roulette.Services.LocalizedIdentityErrorDescriber.LoginAlreadyAssociated
+  - Roulette.Services.LocalizedIdentityErrorDescriber.PasswordMismatch
+  - Roulette.Services.LocalizedIdentityErrorDescriber.PasswordRequiresDigit
+  - Roulette.Services.LocalizedIdentityErrorDescriber.PasswordRequiresLower
+  - Roulette.Services.LocalizedIdentityErrorDescriber.PasswordRequiresNonAlphanumeric
+  - Roulette.Services.LocalizedIdentityErrorDescriber.PasswordRequiresUpper
+  - Roulette.Services.LocalizedIdentityErrorDescriber.PasswordTooShort(System.Int32)
+  - Roulette.Services.LocalizedIdentityErrorDescriber.UserAlreadyHasPassword
+  - Roulette.Services.LocalizedIdentityErrorDescriber.UserAlreadyInRole(System.String)
+  - Roulette.Services.LocalizedIdentityErrorDescriber.UserLockoutNotEnabled
+  - Roulette.Services.LocalizedIdentityErrorDescriber.UserNotInRole(System.String)
+  langs:
+  - csharp
+  - vb
+  name: LocalizedIdentityErrorDescriber
+  nameWithType: LocalizedIdentityErrorDescriber
+  fullName: Roulette.Services.LocalizedIdentityErrorDescriber
+  type: Class
+  source:
+    remote:
+      path: Roulette/Services/LocalizedIdentityErrorDescriber.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: LocalizedIdentityErrorDescriber
+    path: ../Roulette/Services/LocalizedIdentityErrorDescriber.cs
+    startLine: 7
+  assemblies:
+  - Roulette
+  namespace: Roulette.Services
+  summary: Локализация сообщений об ошибках Identity
+  example: []
+  syntax:
+    content: 'public class LocalizedIdentityErrorDescriber : IdentityErrorDescriber'
+    content.vb: Public Class LocalizedIdentityErrorDescriber Inherits IdentityErrorDescriber
+  inheritance:
+  - System.Object
+  - Microsoft.AspNetCore.Identity.IdentityErrorDescriber
+  inheritedMembers:
+  - Microsoft.AspNetCore.Identity.IdentityErrorDescriber.RecoveryCodeRedemptionFailed
+  - Microsoft.AspNetCore.Identity.IdentityErrorDescriber.PasswordRequiresUniqueChars(System.Int32)
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Roulette.Services.LocalizedIdentityErrorDescriber.DefaultError
+  commentId: M:Roulette.Services.LocalizedIdentityErrorDescriber.DefaultError
+  id: DefaultError
+  parent: Roulette.Services.LocalizedIdentityErrorDescriber
+  langs:
+  - csharp
+  - vb
+  name: DefaultError()
+  nameWithType: LocalizedIdentityErrorDescriber.DefaultError()
+  fullName: Roulette.Services.LocalizedIdentityErrorDescriber.DefaultError()
+  type: Method
+  source:
+    remote:
+      path: Roulette/Services/LocalizedIdentityErrorDescriber.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: DefaultError
+    path: ../Roulette/Services/LocalizedIdentityErrorDescriber.cs
+    startLine: 9
+  assemblies:
+  - Roulette
+  namespace: Roulette.Services
+  summary: Returns the default <xref href="Microsoft.AspNetCore.Identity.IdentityError" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public override IdentityError DefaultError()
+    return:
+      type: Microsoft.AspNetCore.Identity.IdentityError
+      description: The default <xref href="Microsoft.AspNetCore.Identity.IdentityError" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Overrides Function DefaultError() As IdentityError
+  overridden: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.DefaultError
+  overload: Roulette.Services.LocalizedIdentityErrorDescriber.DefaultError*
+- uid: Roulette.Services.LocalizedIdentityErrorDescriber.ConcurrencyFailure
+  commentId: M:Roulette.Services.LocalizedIdentityErrorDescriber.ConcurrencyFailure
+  id: ConcurrencyFailure
+  parent: Roulette.Services.LocalizedIdentityErrorDescriber
+  langs:
+  - csharp
+  - vb
+  name: ConcurrencyFailure()
+  nameWithType: LocalizedIdentityErrorDescriber.ConcurrencyFailure()
+  fullName: Roulette.Services.LocalizedIdentityErrorDescriber.ConcurrencyFailure()
+  type: Method
+  source:
+    remote:
+      path: Roulette/Services/LocalizedIdentityErrorDescriber.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: ConcurrencyFailure
+    path: ../Roulette/Services/LocalizedIdentityErrorDescriber.cs
+    startLine: 18
+  assemblies:
+  - Roulette
+  namespace: Roulette.Services
+  summary: Returns an <xref href="Microsoft.AspNetCore.Identity.IdentityError" data-throw-if-not-resolved="false"></xref> indicating a concurrency failure.
+  example: []
+  syntax:
+    content: public override IdentityError ConcurrencyFailure()
+    return:
+      type: Microsoft.AspNetCore.Identity.IdentityError
+      description: An <xref href="Microsoft.AspNetCore.Identity.IdentityError" data-throw-if-not-resolved="false"></xref> indicating a concurrency failure.
+    content.vb: Public Overrides Function ConcurrencyFailure() As IdentityError
+  overridden: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.ConcurrencyFailure
+  overload: Roulette.Services.LocalizedIdentityErrorDescriber.ConcurrencyFailure*
+- uid: Roulette.Services.LocalizedIdentityErrorDescriber.PasswordMismatch
+  commentId: M:Roulette.Services.LocalizedIdentityErrorDescriber.PasswordMismatch
+  id: PasswordMismatch
+  parent: Roulette.Services.LocalizedIdentityErrorDescriber
+  langs:
+  - csharp
+  - vb
+  name: PasswordMismatch()
+  nameWithType: LocalizedIdentityErrorDescriber.PasswordMismatch()
+  fullName: Roulette.Services.LocalizedIdentityErrorDescriber.PasswordMismatch()
+  type: Method
+  source:
+    remote:
+      path: Roulette/Services/LocalizedIdentityErrorDescriber.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: PasswordMismatch
+    path: ../Roulette/Services/LocalizedIdentityErrorDescriber.cs
+    startLine: 27
+  assemblies:
+  - Roulette
+  namespace: Roulette.Services
+  summary: Returns an <xref href="Microsoft.AspNetCore.Identity.IdentityError" data-throw-if-not-resolved="false"></xref> indicating a password mismatch.
+  example: []
+  syntax:
+    content: public override IdentityError PasswordMismatch()
+    return:
+      type: Microsoft.AspNetCore.Identity.IdentityError
+      description: An <xref href="Microsoft.AspNetCore.Identity.IdentityError" data-throw-if-not-resolved="false"></xref> indicating a password mismatch.
+    content.vb: Public Overrides Function PasswordMismatch() As IdentityError
+  overridden: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.PasswordMismatch
+  overload: Roulette.Services.LocalizedIdentityErrorDescriber.PasswordMismatch*
+- uid: Roulette.Services.LocalizedIdentityErrorDescriber.InvalidToken
+  commentId: M:Roulette.Services.LocalizedIdentityErrorDescriber.InvalidToken
+  id: InvalidToken
+  parent: Roulette.Services.LocalizedIdentityErrorDescriber
+  langs:
+  - csharp
+  - vb
+  name: InvalidToken()
+  nameWithType: LocalizedIdentityErrorDescriber.InvalidToken()
+  fullName: Roulette.Services.LocalizedIdentityErrorDescriber.InvalidToken()
+  type: Method
+  source:
+    remote:
+      path: Roulette/Services/LocalizedIdentityErrorDescriber.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: InvalidToken
+    path: ../Roulette/Services/LocalizedIdentityErrorDescriber.cs
+    startLine: 36
+  assemblies:
+  - Roulette
+  namespace: Roulette.Services
+  summary: Returns an <xref href="Microsoft.AspNetCore.Identity.IdentityError" data-throw-if-not-resolved="false"></xref> indicating an invalid token.
+  example: []
+  syntax:
+    content: public override IdentityError InvalidToken()
+    return:
+      type: Microsoft.AspNetCore.Identity.IdentityError
+      description: An <xref href="Microsoft.AspNetCore.Identity.IdentityError" data-throw-if-not-resolved="false"></xref> indicating an invalid token.
+    content.vb: Public Overrides Function InvalidToken() As IdentityError
+  overridden: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.InvalidToken
+  overload: Roulette.Services.LocalizedIdentityErrorDescriber.InvalidToken*
+- uid: Roulette.Services.LocalizedIdentityErrorDescriber.LoginAlreadyAssociated
+  commentId: M:Roulette.Services.LocalizedIdentityErrorDescriber.LoginAlreadyAssociated
+  id: LoginAlreadyAssociated
+  parent: Roulette.Services.LocalizedIdentityErrorDescriber
+  langs:
+  - csharp
+  - vb
+  name: LoginAlreadyAssociated()
+  nameWithType: LocalizedIdentityErrorDescriber.LoginAlreadyAssociated()
+  fullName: Roulette.Services.LocalizedIdentityErrorDescriber.LoginAlreadyAssociated()
+  type: Method
+  source:
+    remote:
+      path: Roulette/Services/LocalizedIdentityErrorDescriber.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: LoginAlreadyAssociated
+    path: ../Roulette/Services/LocalizedIdentityErrorDescriber.cs
+    startLine: 45
+  assemblies:
+  - Roulette
+  namespace: Roulette.Services
+  summary: Returns an <xref href="Microsoft.AspNetCore.Identity.IdentityError" data-throw-if-not-resolved="false"></xref> indicating an external login is already associated with an account.
+  example: []
+  syntax:
+    content: public override IdentityError LoginAlreadyAssociated()
+    return:
+      type: Microsoft.AspNetCore.Identity.IdentityError
+      description: An <xref href="Microsoft.AspNetCore.Identity.IdentityError" data-throw-if-not-resolved="false"></xref> indicating an external login is already associated with an account.
+    content.vb: Public Overrides Function LoginAlreadyAssociated() As IdentityError
+  overridden: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.LoginAlreadyAssociated
+  overload: Roulette.Services.LocalizedIdentityErrorDescriber.LoginAlreadyAssociated*
+- uid: Roulette.Services.LocalizedIdentityErrorDescriber.InvalidUserName(System.String)
+  commentId: M:Roulette.Services.LocalizedIdentityErrorDescriber.InvalidUserName(System.String)
+  id: InvalidUserName(System.String)
+  parent: Roulette.Services.LocalizedIdentityErrorDescriber
+  langs:
+  - csharp
+  - vb
+  name: InvalidUserName(string)
+  nameWithType: LocalizedIdentityErrorDescriber.InvalidUserName(string)
+  fullName: Roulette.Services.LocalizedIdentityErrorDescriber.InvalidUserName(string)
+  type: Method
+  source:
+    remote:
+      path: Roulette/Services/LocalizedIdentityErrorDescriber.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: InvalidUserName
+    path: ../Roulette/Services/LocalizedIdentityErrorDescriber.cs
+    startLine: 54
+  assemblies:
+  - Roulette
+  namespace: Roulette.Services
+  summary: Returns an <xref href="Microsoft.AspNetCore.Identity.IdentityError" data-throw-if-not-resolved="false"></xref> indicating the specified user <code class="paramref">userName</code> is invalid.
+  example: []
+  syntax:
+    content: public override IdentityError InvalidUserName(string userName)
+    parameters:
+    - id: userName
+      type: System.String
+      description: The user name that is invalid.
+    return:
+      type: Microsoft.AspNetCore.Identity.IdentityError
+      description: An <xref href="Microsoft.AspNetCore.Identity.IdentityError" data-throw-if-not-resolved="false"></xref> indicating the specified user <code class="paramref">userName</code> is invalid.
+    content.vb: Public Overrides Function InvalidUserName(userName As String) As IdentityError
+  overridden: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.InvalidUserName(System.String)
+  overload: Roulette.Services.LocalizedIdentityErrorDescriber.InvalidUserName*
+  nameWithType.vb: LocalizedIdentityErrorDescriber.InvalidUserName(String)
+  fullName.vb: Roulette.Services.LocalizedIdentityErrorDescriber.InvalidUserName(String)
+  name.vb: InvalidUserName(String)
+- uid: Roulette.Services.LocalizedIdentityErrorDescriber.InvalidEmail(System.String)
+  commentId: M:Roulette.Services.LocalizedIdentityErrorDescriber.InvalidEmail(System.String)
+  id: InvalidEmail(System.String)
+  parent: Roulette.Services.LocalizedIdentityErrorDescriber
+  langs:
+  - csharp
+  - vb
+  name: InvalidEmail(string)
+  nameWithType: LocalizedIdentityErrorDescriber.InvalidEmail(string)
+  fullName: Roulette.Services.LocalizedIdentityErrorDescriber.InvalidEmail(string)
+  type: Method
+  source:
+    remote:
+      path: Roulette/Services/LocalizedIdentityErrorDescriber.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: InvalidEmail
+    path: ../Roulette/Services/LocalizedIdentityErrorDescriber.cs
+    startLine: 63
+  assemblies:
+  - Roulette
+  namespace: Roulette.Services
+  summary: Returns an <xref href="Microsoft.AspNetCore.Identity.IdentityError" data-throw-if-not-resolved="false"></xref> indicating the specified <code class="paramref">email</code> is invalid.
+  example: []
+  syntax:
+    content: public override IdentityError InvalidEmail(string email)
+    parameters:
+    - id: email
+      type: System.String
+      description: The email that is invalid.
+    return:
+      type: Microsoft.AspNetCore.Identity.IdentityError
+      description: An <xref href="Microsoft.AspNetCore.Identity.IdentityError" data-throw-if-not-resolved="false"></xref> indicating the specified <code class="paramref">email</code> is invalid.
+    content.vb: Public Overrides Function InvalidEmail(email As String) As IdentityError
+  overridden: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.InvalidEmail(System.String)
+  overload: Roulette.Services.LocalizedIdentityErrorDescriber.InvalidEmail*
+  nameWithType.vb: LocalizedIdentityErrorDescriber.InvalidEmail(String)
+  fullName.vb: Roulette.Services.LocalizedIdentityErrorDescriber.InvalidEmail(String)
+  name.vb: InvalidEmail(String)
+- uid: Roulette.Services.LocalizedIdentityErrorDescriber.DuplicateUserName(System.String)
+  commentId: M:Roulette.Services.LocalizedIdentityErrorDescriber.DuplicateUserName(System.String)
+  id: DuplicateUserName(System.String)
+  parent: Roulette.Services.LocalizedIdentityErrorDescriber
+  langs:
+  - csharp
+  - vb
+  name: DuplicateUserName(string)
+  nameWithType: LocalizedIdentityErrorDescriber.DuplicateUserName(string)
+  fullName: Roulette.Services.LocalizedIdentityErrorDescriber.DuplicateUserName(string)
+  type: Method
+  source:
+    remote:
+      path: Roulette/Services/LocalizedIdentityErrorDescriber.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: DuplicateUserName
+    path: ../Roulette/Services/LocalizedIdentityErrorDescriber.cs
+    startLine: 72
+  assemblies:
+  - Roulette
+  namespace: Roulette.Services
+  summary: Returns an <xref href="Microsoft.AspNetCore.Identity.IdentityError" data-throw-if-not-resolved="false"></xref> indicating the specified <code class="paramref">userName</code> already exists.
+  example: []
+  syntax:
+    content: public override IdentityError DuplicateUserName(string userName)
+    parameters:
+    - id: userName
+      type: System.String
+      description: The user name that already exists.
+    return:
+      type: Microsoft.AspNetCore.Identity.IdentityError
+      description: An <xref href="Microsoft.AspNetCore.Identity.IdentityError" data-throw-if-not-resolved="false"></xref> indicating the specified <code class="paramref">userName</code> already exists.
+    content.vb: Public Overrides Function DuplicateUserName(userName As String) As IdentityError
+  overridden: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.DuplicateUserName(System.String)
+  overload: Roulette.Services.LocalizedIdentityErrorDescriber.DuplicateUserName*
+  nameWithType.vb: LocalizedIdentityErrorDescriber.DuplicateUserName(String)
+  fullName.vb: Roulette.Services.LocalizedIdentityErrorDescriber.DuplicateUserName(String)
+  name.vb: DuplicateUserName(String)
+- uid: Roulette.Services.LocalizedIdentityErrorDescriber.DuplicateEmail(System.String)
+  commentId: M:Roulette.Services.LocalizedIdentityErrorDescriber.DuplicateEmail(System.String)
+  id: DuplicateEmail(System.String)
+  parent: Roulette.Services.LocalizedIdentityErrorDescriber
+  langs:
+  - csharp
+  - vb
+  name: DuplicateEmail(string)
+  nameWithType: LocalizedIdentityErrorDescriber.DuplicateEmail(string)
+  fullName: Roulette.Services.LocalizedIdentityErrorDescriber.DuplicateEmail(string)
+  type: Method
+  source:
+    remote:
+      path: Roulette/Services/LocalizedIdentityErrorDescriber.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: DuplicateEmail
+    path: ../Roulette/Services/LocalizedIdentityErrorDescriber.cs
+    startLine: 81
+  assemblies:
+  - Roulette
+  namespace: Roulette.Services
+  summary: Returns an <xref href="Microsoft.AspNetCore.Identity.IdentityError" data-throw-if-not-resolved="false"></xref> indicating the specified <code class="paramref">email</code> is already associated with an account.
+  example: []
+  syntax:
+    content: public override IdentityError DuplicateEmail(string email)
+    parameters:
+    - id: email
+      type: System.String
+      description: The email that is already associated with an account.
+    return:
+      type: Microsoft.AspNetCore.Identity.IdentityError
+      description: An <xref href="Microsoft.AspNetCore.Identity.IdentityError" data-throw-if-not-resolved="false"></xref> indicating the specified <code class="paramref">email</code> is already associated with an account.
+    content.vb: Public Overrides Function DuplicateEmail(email As String) As IdentityError
+  overridden: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.DuplicateEmail(System.String)
+  overload: Roulette.Services.LocalizedIdentityErrorDescriber.DuplicateEmail*
+  nameWithType.vb: LocalizedIdentityErrorDescriber.DuplicateEmail(String)
+  fullName.vb: Roulette.Services.LocalizedIdentityErrorDescriber.DuplicateEmail(String)
+  name.vb: DuplicateEmail(String)
+- uid: Roulette.Services.LocalizedIdentityErrorDescriber.InvalidRoleName(System.String)
+  commentId: M:Roulette.Services.LocalizedIdentityErrorDescriber.InvalidRoleName(System.String)
+  id: InvalidRoleName(System.String)
+  parent: Roulette.Services.LocalizedIdentityErrorDescriber
+  langs:
+  - csharp
+  - vb
+  name: InvalidRoleName(string)
+  nameWithType: LocalizedIdentityErrorDescriber.InvalidRoleName(string)
+  fullName: Roulette.Services.LocalizedIdentityErrorDescriber.InvalidRoleName(string)
+  type: Method
+  source:
+    remote:
+      path: Roulette/Services/LocalizedIdentityErrorDescriber.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: InvalidRoleName
+    path: ../Roulette/Services/LocalizedIdentityErrorDescriber.cs
+    startLine: 90
+  assemblies:
+  - Roulette
+  namespace: Roulette.Services
+  summary: Returns an <xref href="Microsoft.AspNetCore.Identity.IdentityError" data-throw-if-not-resolved="false"></xref> indicating the specified <code class="paramref">role</code> name is invalid.
+  example: []
+  syntax:
+    content: public override IdentityError InvalidRoleName(string role)
+    parameters:
+    - id: role
+      type: System.String
+      description: The invalid role.
+    return:
+      type: Microsoft.AspNetCore.Identity.IdentityError
+      description: An <xref href="Microsoft.AspNetCore.Identity.IdentityError" data-throw-if-not-resolved="false"></xref> indicating the specific role <code class="paramref">role</code> name is invalid.
+    content.vb: Public Overrides Function InvalidRoleName(role As String) As IdentityError
+  overridden: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.InvalidRoleName(System.String)
+  overload: Roulette.Services.LocalizedIdentityErrorDescriber.InvalidRoleName*
+  nameWithType.vb: LocalizedIdentityErrorDescriber.InvalidRoleName(String)
+  fullName.vb: Roulette.Services.LocalizedIdentityErrorDescriber.InvalidRoleName(String)
+  name.vb: InvalidRoleName(String)
+- uid: Roulette.Services.LocalizedIdentityErrorDescriber.DuplicateRoleName(System.String)
+  commentId: M:Roulette.Services.LocalizedIdentityErrorDescriber.DuplicateRoleName(System.String)
+  id: DuplicateRoleName(System.String)
+  parent: Roulette.Services.LocalizedIdentityErrorDescriber
+  langs:
+  - csharp
+  - vb
+  name: DuplicateRoleName(string)
+  nameWithType: LocalizedIdentityErrorDescriber.DuplicateRoleName(string)
+  fullName: Roulette.Services.LocalizedIdentityErrorDescriber.DuplicateRoleName(string)
+  type: Method
+  source:
+    remote:
+      path: Roulette/Services/LocalizedIdentityErrorDescriber.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: DuplicateRoleName
+    path: ../Roulette/Services/LocalizedIdentityErrorDescriber.cs
+    startLine: 99
+  assemblies:
+  - Roulette
+  namespace: Roulette.Services
+  summary: Returns an <xref href="Microsoft.AspNetCore.Identity.IdentityError" data-throw-if-not-resolved="false"></xref> indicating the specified <code class="paramref">role</code> name already exists.
+  example: []
+  syntax:
+    content: public override IdentityError DuplicateRoleName(string role)
+    parameters:
+    - id: role
+      type: System.String
+      description: The duplicate role.
+    return:
+      type: Microsoft.AspNetCore.Identity.IdentityError
+      description: An <xref href="Microsoft.AspNetCore.Identity.IdentityError" data-throw-if-not-resolved="false"></xref> indicating the specific role <code class="paramref">role</code> name already exists.
+    content.vb: Public Overrides Function DuplicateRoleName(role As String) As IdentityError
+  overridden: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.DuplicateRoleName(System.String)
+  overload: Roulette.Services.LocalizedIdentityErrorDescriber.DuplicateRoleName*
+  nameWithType.vb: LocalizedIdentityErrorDescriber.DuplicateRoleName(String)
+  fullName.vb: Roulette.Services.LocalizedIdentityErrorDescriber.DuplicateRoleName(String)
+  name.vb: DuplicateRoleName(String)
+- uid: Roulette.Services.LocalizedIdentityErrorDescriber.UserAlreadyHasPassword
+  commentId: M:Roulette.Services.LocalizedIdentityErrorDescriber.UserAlreadyHasPassword
+  id: UserAlreadyHasPassword
+  parent: Roulette.Services.LocalizedIdentityErrorDescriber
+  langs:
+  - csharp
+  - vb
+  name: UserAlreadyHasPassword()
+  nameWithType: LocalizedIdentityErrorDescriber.UserAlreadyHasPassword()
+  fullName: Roulette.Services.LocalizedIdentityErrorDescriber.UserAlreadyHasPassword()
+  type: Method
+  source:
+    remote:
+      path: Roulette/Services/LocalizedIdentityErrorDescriber.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: UserAlreadyHasPassword
+    path: ../Roulette/Services/LocalizedIdentityErrorDescriber.cs
+    startLine: 108
+  assemblies:
+  - Roulette
+  namespace: Roulette.Services
+  summary: Returns an <xref href="Microsoft.AspNetCore.Identity.IdentityError" data-throw-if-not-resolved="false"></xref> indicating a user already has a password.
+  example: []
+  syntax:
+    content: public override IdentityError UserAlreadyHasPassword()
+    return:
+      type: Microsoft.AspNetCore.Identity.IdentityError
+      description: An <xref href="Microsoft.AspNetCore.Identity.IdentityError" data-throw-if-not-resolved="false"></xref> indicating a user already has a password.
+    content.vb: Public Overrides Function UserAlreadyHasPassword() As IdentityError
+  overridden: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.UserAlreadyHasPassword
+  overload: Roulette.Services.LocalizedIdentityErrorDescriber.UserAlreadyHasPassword*
+- uid: Roulette.Services.LocalizedIdentityErrorDescriber.UserLockoutNotEnabled
+  commentId: M:Roulette.Services.LocalizedIdentityErrorDescriber.UserLockoutNotEnabled
+  id: UserLockoutNotEnabled
+  parent: Roulette.Services.LocalizedIdentityErrorDescriber
+  langs:
+  - csharp
+  - vb
+  name: UserLockoutNotEnabled()
+  nameWithType: LocalizedIdentityErrorDescriber.UserLockoutNotEnabled()
+  fullName: Roulette.Services.LocalizedIdentityErrorDescriber.UserLockoutNotEnabled()
+  type: Method
+  source:
+    remote:
+      path: Roulette/Services/LocalizedIdentityErrorDescriber.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: UserLockoutNotEnabled
+    path: ../Roulette/Services/LocalizedIdentityErrorDescriber.cs
+    startLine: 117
+  assemblies:
+  - Roulette
+  namespace: Roulette.Services
+  summary: Returns an <xref href="Microsoft.AspNetCore.Identity.IdentityError" data-throw-if-not-resolved="false"></xref> indicating user lockout is not enabled.
+  example: []
+  syntax:
+    content: public override IdentityError UserLockoutNotEnabled()
+    return:
+      type: Microsoft.AspNetCore.Identity.IdentityError
+      description: An <xref href="Microsoft.AspNetCore.Identity.IdentityError" data-throw-if-not-resolved="false"></xref> indicating user lockout is not enabled.
+    content.vb: Public Overrides Function UserLockoutNotEnabled() As IdentityError
+  overridden: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.UserLockoutNotEnabled
+  overload: Roulette.Services.LocalizedIdentityErrorDescriber.UserLockoutNotEnabled*
+- uid: Roulette.Services.LocalizedIdentityErrorDescriber.UserAlreadyInRole(System.String)
+  commentId: M:Roulette.Services.LocalizedIdentityErrorDescriber.UserAlreadyInRole(System.String)
+  id: UserAlreadyInRole(System.String)
+  parent: Roulette.Services.LocalizedIdentityErrorDescriber
+  langs:
+  - csharp
+  - vb
+  name: UserAlreadyInRole(string)
+  nameWithType: LocalizedIdentityErrorDescriber.UserAlreadyInRole(string)
+  fullName: Roulette.Services.LocalizedIdentityErrorDescriber.UserAlreadyInRole(string)
+  type: Method
+  source:
+    remote:
+      path: Roulette/Services/LocalizedIdentityErrorDescriber.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: UserAlreadyInRole
+    path: ../Roulette/Services/LocalizedIdentityErrorDescriber.cs
+    startLine: 126
+  assemblies:
+  - Roulette
+  namespace: Roulette.Services
+  summary: Returns an <xref href="Microsoft.AspNetCore.Identity.IdentityError" data-throw-if-not-resolved="false"></xref> indicating a user is already in the specified <code class="paramref">role</code>.
+  example: []
+  syntax:
+    content: public override IdentityError UserAlreadyInRole(string role)
+    parameters:
+    - id: role
+      type: System.String
+      description: The duplicate role.
+    return:
+      type: Microsoft.AspNetCore.Identity.IdentityError
+      description: An <xref href="Microsoft.AspNetCore.Identity.IdentityError" data-throw-if-not-resolved="false"></xref> indicating a user is already in the specified <code class="paramref">role</code>.
+    content.vb: Public Overrides Function UserAlreadyInRole(role As String) As IdentityError
+  overridden: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.UserAlreadyInRole(System.String)
+  overload: Roulette.Services.LocalizedIdentityErrorDescriber.UserAlreadyInRole*
+  nameWithType.vb: LocalizedIdentityErrorDescriber.UserAlreadyInRole(String)
+  fullName.vb: Roulette.Services.LocalizedIdentityErrorDescriber.UserAlreadyInRole(String)
+  name.vb: UserAlreadyInRole(String)
+- uid: Roulette.Services.LocalizedIdentityErrorDescriber.UserNotInRole(System.String)
+  commentId: M:Roulette.Services.LocalizedIdentityErrorDescriber.UserNotInRole(System.String)
+  id: UserNotInRole(System.String)
+  parent: Roulette.Services.LocalizedIdentityErrorDescriber
+  langs:
+  - csharp
+  - vb
+  name: UserNotInRole(string)
+  nameWithType: LocalizedIdentityErrorDescriber.UserNotInRole(string)
+  fullName: Roulette.Services.LocalizedIdentityErrorDescriber.UserNotInRole(string)
+  type: Method
+  source:
+    remote:
+      path: Roulette/Services/LocalizedIdentityErrorDescriber.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: UserNotInRole
+    path: ../Roulette/Services/LocalizedIdentityErrorDescriber.cs
+    startLine: 135
+  assemblies:
+  - Roulette
+  namespace: Roulette.Services
+  summary: Returns an <xref href="Microsoft.AspNetCore.Identity.IdentityError" data-throw-if-not-resolved="false"></xref> indicating a user is not in the specified <code class="paramref">role</code>.
+  example: []
+  syntax:
+    content: public override IdentityError UserNotInRole(string role)
+    parameters:
+    - id: role
+      type: System.String
+      description: The duplicate role.
+    return:
+      type: Microsoft.AspNetCore.Identity.IdentityError
+      description: An <xref href="Microsoft.AspNetCore.Identity.IdentityError" data-throw-if-not-resolved="false"></xref> indicating a user is not in the specified <code class="paramref">role</code>.
+    content.vb: Public Overrides Function UserNotInRole(role As String) As IdentityError
+  overridden: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.UserNotInRole(System.String)
+  overload: Roulette.Services.LocalizedIdentityErrorDescriber.UserNotInRole*
+  nameWithType.vb: LocalizedIdentityErrorDescriber.UserNotInRole(String)
+  fullName.vb: Roulette.Services.LocalizedIdentityErrorDescriber.UserNotInRole(String)
+  name.vb: UserNotInRole(String)
+- uid: Roulette.Services.LocalizedIdentityErrorDescriber.PasswordTooShort(System.Int32)
+  commentId: M:Roulette.Services.LocalizedIdentityErrorDescriber.PasswordTooShort(System.Int32)
+  id: PasswordTooShort(System.Int32)
+  parent: Roulette.Services.LocalizedIdentityErrorDescriber
+  langs:
+  - csharp
+  - vb
+  name: PasswordTooShort(int)
+  nameWithType: LocalizedIdentityErrorDescriber.PasswordTooShort(int)
+  fullName: Roulette.Services.LocalizedIdentityErrorDescriber.PasswordTooShort(int)
+  type: Method
+  source:
+    remote:
+      path: Roulette/Services/LocalizedIdentityErrorDescriber.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: PasswordTooShort
+    path: ../Roulette/Services/LocalizedIdentityErrorDescriber.cs
+    startLine: 144
+  assemblies:
+  - Roulette
+  namespace: Roulette.Services
+  summary: Returns an <xref href="Microsoft.AspNetCore.Identity.IdentityError" data-throw-if-not-resolved="false"></xref> indicating a password of the specified <code class="paramref">length</code> does not meet the minimum length requirements.
+  example: []
+  syntax:
+    content: public override IdentityError PasswordTooShort(int length)
+    parameters:
+    - id: length
+      type: System.Int32
+      description: The length that is not long enough.
+    return:
+      type: Microsoft.AspNetCore.Identity.IdentityError
+      description: An <xref href="Microsoft.AspNetCore.Identity.IdentityError" data-throw-if-not-resolved="false"></xref> indicating a password of the specified <code class="paramref">length</code> does not meet the minimum length requirements.
+    content.vb: Public Overrides Function PasswordTooShort(length As Integer) As IdentityError
+  overridden: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.PasswordTooShort(System.Int32)
+  overload: Roulette.Services.LocalizedIdentityErrorDescriber.PasswordTooShort*
+  nameWithType.vb: LocalizedIdentityErrorDescriber.PasswordTooShort(Integer)
+  fullName.vb: Roulette.Services.LocalizedIdentityErrorDescriber.PasswordTooShort(Integer)
+  name.vb: PasswordTooShort(Integer)
+- uid: Roulette.Services.LocalizedIdentityErrorDescriber.PasswordRequiresNonAlphanumeric
+  commentId: M:Roulette.Services.LocalizedIdentityErrorDescriber.PasswordRequiresNonAlphanumeric
+  id: PasswordRequiresNonAlphanumeric
+  parent: Roulette.Services.LocalizedIdentityErrorDescriber
+  langs:
+  - csharp
+  - vb
+  name: PasswordRequiresNonAlphanumeric()
+  nameWithType: LocalizedIdentityErrorDescriber.PasswordRequiresNonAlphanumeric()
+  fullName: Roulette.Services.LocalizedIdentityErrorDescriber.PasswordRequiresNonAlphanumeric()
+  type: Method
+  source:
+    remote:
+      path: Roulette/Services/LocalizedIdentityErrorDescriber.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: PasswordRequiresNonAlphanumeric
+    path: ../Roulette/Services/LocalizedIdentityErrorDescriber.cs
+    startLine: 153
+  assemblies:
+  - Roulette
+  namespace: Roulette.Services
+  summary: Returns an <xref href="Microsoft.AspNetCore.Identity.IdentityError" data-throw-if-not-resolved="false"></xref> indicating a password entered does not contain a non-alphanumeric character, which is required by the password policy.
+  example: []
+  syntax:
+    content: public override IdentityError PasswordRequiresNonAlphanumeric()
+    return:
+      type: Microsoft.AspNetCore.Identity.IdentityError
+      description: An <xref href="Microsoft.AspNetCore.Identity.IdentityError" data-throw-if-not-resolved="false"></xref> indicating a password entered does not contain a non-alphanumeric character.
+    content.vb: Public Overrides Function PasswordRequiresNonAlphanumeric() As IdentityError
+  overridden: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.PasswordRequiresNonAlphanumeric
+  overload: Roulette.Services.LocalizedIdentityErrorDescriber.PasswordRequiresNonAlphanumeric*
+- uid: Roulette.Services.LocalizedIdentityErrorDescriber.PasswordRequiresDigit
+  commentId: M:Roulette.Services.LocalizedIdentityErrorDescriber.PasswordRequiresDigit
+  id: PasswordRequiresDigit
+  parent: Roulette.Services.LocalizedIdentityErrorDescriber
+  langs:
+  - csharp
+  - vb
+  name: PasswordRequiresDigit()
+  nameWithType: LocalizedIdentityErrorDescriber.PasswordRequiresDigit()
+  fullName: Roulette.Services.LocalizedIdentityErrorDescriber.PasswordRequiresDigit()
+  type: Method
+  source:
+    remote:
+      path: Roulette/Services/LocalizedIdentityErrorDescriber.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: PasswordRequiresDigit
+    path: ../Roulette/Services/LocalizedIdentityErrorDescriber.cs
+    startLine: 162
+  assemblies:
+  - Roulette
+  namespace: Roulette.Services
+  summary: Returns an <xref href="Microsoft.AspNetCore.Identity.IdentityError" data-throw-if-not-resolved="false"></xref> indicating a password entered does not contain a numeric character, which is required by the password policy.
+  example: []
+  syntax:
+    content: public override IdentityError PasswordRequiresDigit()
+    return:
+      type: Microsoft.AspNetCore.Identity.IdentityError
+      description: An <xref href="Microsoft.AspNetCore.Identity.IdentityError" data-throw-if-not-resolved="false"></xref> indicating a password entered does not contain a numeric character.
+    content.vb: Public Overrides Function PasswordRequiresDigit() As IdentityError
+  overridden: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.PasswordRequiresDigit
+  overload: Roulette.Services.LocalizedIdentityErrorDescriber.PasswordRequiresDigit*
+- uid: Roulette.Services.LocalizedIdentityErrorDescriber.PasswordRequiresLower
+  commentId: M:Roulette.Services.LocalizedIdentityErrorDescriber.PasswordRequiresLower
+  id: PasswordRequiresLower
+  parent: Roulette.Services.LocalizedIdentityErrorDescriber
+  langs:
+  - csharp
+  - vb
+  name: PasswordRequiresLower()
+  nameWithType: LocalizedIdentityErrorDescriber.PasswordRequiresLower()
+  fullName: Roulette.Services.LocalizedIdentityErrorDescriber.PasswordRequiresLower()
+  type: Method
+  source:
+    remote:
+      path: Roulette/Services/LocalizedIdentityErrorDescriber.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: PasswordRequiresLower
+    path: ../Roulette/Services/LocalizedIdentityErrorDescriber.cs
+    startLine: 171
+  assemblies:
+  - Roulette
+  namespace: Roulette.Services
+  summary: Returns an <xref href="Microsoft.AspNetCore.Identity.IdentityError" data-throw-if-not-resolved="false"></xref> indicating a password entered does not contain a lower case letter, which is required by the password policy.
+  example: []
+  syntax:
+    content: public override IdentityError PasswordRequiresLower()
+    return:
+      type: Microsoft.AspNetCore.Identity.IdentityError
+      description: An <xref href="Microsoft.AspNetCore.Identity.IdentityError" data-throw-if-not-resolved="false"></xref> indicating a password entered does not contain a lower case letter.
+    content.vb: Public Overrides Function PasswordRequiresLower() As IdentityError
+  overridden: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.PasswordRequiresLower
+  overload: Roulette.Services.LocalizedIdentityErrorDescriber.PasswordRequiresLower*
+- uid: Roulette.Services.LocalizedIdentityErrorDescriber.PasswordRequiresUpper
+  commentId: M:Roulette.Services.LocalizedIdentityErrorDescriber.PasswordRequiresUpper
+  id: PasswordRequiresUpper
+  parent: Roulette.Services.LocalizedIdentityErrorDescriber
+  langs:
+  - csharp
+  - vb
+  name: PasswordRequiresUpper()
+  nameWithType: LocalizedIdentityErrorDescriber.PasswordRequiresUpper()
+  fullName: Roulette.Services.LocalizedIdentityErrorDescriber.PasswordRequiresUpper()
+  type: Method
+  source:
+    remote:
+      path: Roulette/Services/LocalizedIdentityErrorDescriber.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: PasswordRequiresUpper
+    path: ../Roulette/Services/LocalizedIdentityErrorDescriber.cs
+    startLine: 180
+  assemblies:
+  - Roulette
+  namespace: Roulette.Services
+  summary: Returns an <xref href="Microsoft.AspNetCore.Identity.IdentityError" data-throw-if-not-resolved="false"></xref> indicating a password entered does not contain an upper case letter, which is required by the password policy.
+  example: []
+  syntax:
+    content: public override IdentityError PasswordRequiresUpper()
+    return:
+      type: Microsoft.AspNetCore.Identity.IdentityError
+      description: An <xref href="Microsoft.AspNetCore.Identity.IdentityError" data-throw-if-not-resolved="false"></xref> indicating a password entered does not contain an upper case letter.
+    content.vb: Public Overrides Function PasswordRequiresUpper() As IdentityError
+  overridden: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.PasswordRequiresUpper
+  overload: Roulette.Services.LocalizedIdentityErrorDescriber.PasswordRequiresUpper*
+references:
+- uid: Roulette.Services
+  commentId: N:Roulette.Services
+  href: Roulette.html
+  name: Roulette.Services
+  nameWithType: Roulette.Services
+  fullName: Roulette.Services
+  spec.csharp:
+  - uid: Roulette
+    name: Roulette
+    href: Roulette.html
+  - name: .
+  - uid: Roulette.Services
+    name: Services
+    href: Roulette.Services.html
+  spec.vb:
+  - uid: Roulette
+    name: Roulette
+    href: Roulette.html
+  - name: .
+  - uid: Roulette.Services
+    name: Services
+    href: Roulette.Services.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber
+  commentId: T:Microsoft.AspNetCore.Identity.IdentityErrorDescriber
+  parent: Microsoft.AspNetCore.Identity
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber
+  name: IdentityErrorDescriber
+  nameWithType: IdentityErrorDescriber
+  fullName: Microsoft.AspNetCore.Identity.IdentityErrorDescriber
+- uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.RecoveryCodeRedemptionFailed
+  commentId: M:Microsoft.AspNetCore.Identity.IdentityErrorDescriber.RecoveryCodeRedemptionFailed
+  parent: Microsoft.AspNetCore.Identity.IdentityErrorDescriber
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.recoverycoderedemptionfailed
+  name: RecoveryCodeRedemptionFailed()
+  nameWithType: IdentityErrorDescriber.RecoveryCodeRedemptionFailed()
+  fullName: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.RecoveryCodeRedemptionFailed()
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.RecoveryCodeRedemptionFailed
+    name: RecoveryCodeRedemptionFailed
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.recoverycoderedemptionfailed
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.RecoveryCodeRedemptionFailed
+    name: RecoveryCodeRedemptionFailed
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.recoverycoderedemptionfailed
+  - name: (
+  - name: )
+- uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.PasswordRequiresUniqueChars(System.Int32)
+  commentId: M:Microsoft.AspNetCore.Identity.IdentityErrorDescriber.PasswordRequiresUniqueChars(System.Int32)
+  parent: Microsoft.AspNetCore.Identity.IdentityErrorDescriber
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.passwordrequiresuniquechars
+  name: PasswordRequiresUniqueChars(int)
+  nameWithType: IdentityErrorDescriber.PasswordRequiresUniqueChars(int)
+  fullName: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.PasswordRequiresUniqueChars(int)
+  nameWithType.vb: IdentityErrorDescriber.PasswordRequiresUniqueChars(Integer)
+  fullName.vb: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.PasswordRequiresUniqueChars(Integer)
+  name.vb: PasswordRequiresUniqueChars(Integer)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.PasswordRequiresUniqueChars(System.Int32)
+    name: PasswordRequiresUniqueChars
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.passwordrequiresuniquechars
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.PasswordRequiresUniqueChars(System.Int32)
+    name: PasswordRequiresUniqueChars
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.passwordrequiresuniquechars
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Microsoft.AspNetCore.Identity
+  commentId: N:Microsoft.AspNetCore.Identity
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.AspNetCore.Identity
+  nameWithType: Microsoft.AspNetCore.Identity
+  fullName: Microsoft.AspNetCore.Identity
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore
+  - name: .
+  - uid: Microsoft.AspNetCore.Identity
+    name: Identity
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore
+  - name: .
+  - uid: Microsoft.AspNetCore.Identity
+    name: Identity
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity
+- uid: Microsoft.AspNetCore.Identity.IdentityError
+  commentId: T:Microsoft.AspNetCore.Identity.IdentityError
+  parent: Microsoft.AspNetCore.Identity
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror
+  name: IdentityError
+  nameWithType: IdentityError
+  fullName: Microsoft.AspNetCore.Identity.IdentityError
+- uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.DefaultError
+  commentId: M:Microsoft.AspNetCore.Identity.IdentityErrorDescriber.DefaultError
+  parent: Microsoft.AspNetCore.Identity.IdentityErrorDescriber
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.defaulterror
+  name: DefaultError()
+  nameWithType: IdentityErrorDescriber.DefaultError()
+  fullName: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.DefaultError()
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.DefaultError
+    name: DefaultError
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.defaulterror
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.DefaultError
+    name: DefaultError
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.defaulterror
+  - name: (
+  - name: )
+- uid: Roulette.Services.LocalizedIdentityErrorDescriber.DefaultError*
+  commentId: Overload:Roulette.Services.LocalizedIdentityErrorDescriber.DefaultError
+  href: Roulette.Services.LocalizedIdentityErrorDescriber.html#Roulette_Services_LocalizedIdentityErrorDescriber_DefaultError
+  name: DefaultError
+  nameWithType: LocalizedIdentityErrorDescriber.DefaultError
+  fullName: Roulette.Services.LocalizedIdentityErrorDescriber.DefaultError
+- uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.ConcurrencyFailure
+  commentId: M:Microsoft.AspNetCore.Identity.IdentityErrorDescriber.ConcurrencyFailure
+  parent: Microsoft.AspNetCore.Identity.IdentityErrorDescriber
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.concurrencyfailure
+  name: ConcurrencyFailure()
+  nameWithType: IdentityErrorDescriber.ConcurrencyFailure()
+  fullName: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.ConcurrencyFailure()
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.ConcurrencyFailure
+    name: ConcurrencyFailure
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.concurrencyfailure
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.ConcurrencyFailure
+    name: ConcurrencyFailure
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.concurrencyfailure
+  - name: (
+  - name: )
+- uid: Roulette.Services.LocalizedIdentityErrorDescriber.ConcurrencyFailure*
+  commentId: Overload:Roulette.Services.LocalizedIdentityErrorDescriber.ConcurrencyFailure
+  href: Roulette.Services.LocalizedIdentityErrorDescriber.html#Roulette_Services_LocalizedIdentityErrorDescriber_ConcurrencyFailure
+  name: ConcurrencyFailure
+  nameWithType: LocalizedIdentityErrorDescriber.ConcurrencyFailure
+  fullName: Roulette.Services.LocalizedIdentityErrorDescriber.ConcurrencyFailure
+- uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.PasswordMismatch
+  commentId: M:Microsoft.AspNetCore.Identity.IdentityErrorDescriber.PasswordMismatch
+  parent: Microsoft.AspNetCore.Identity.IdentityErrorDescriber
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.passwordmismatch
+  name: PasswordMismatch()
+  nameWithType: IdentityErrorDescriber.PasswordMismatch()
+  fullName: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.PasswordMismatch()
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.PasswordMismatch
+    name: PasswordMismatch
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.passwordmismatch
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.PasswordMismatch
+    name: PasswordMismatch
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.passwordmismatch
+  - name: (
+  - name: )
+- uid: Roulette.Services.LocalizedIdentityErrorDescriber.PasswordMismatch*
+  commentId: Overload:Roulette.Services.LocalizedIdentityErrorDescriber.PasswordMismatch
+  href: Roulette.Services.LocalizedIdentityErrorDescriber.html#Roulette_Services_LocalizedIdentityErrorDescriber_PasswordMismatch
+  name: PasswordMismatch
+  nameWithType: LocalizedIdentityErrorDescriber.PasswordMismatch
+  fullName: Roulette.Services.LocalizedIdentityErrorDescriber.PasswordMismatch
+- uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.InvalidToken
+  commentId: M:Microsoft.AspNetCore.Identity.IdentityErrorDescriber.InvalidToken
+  parent: Microsoft.AspNetCore.Identity.IdentityErrorDescriber
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.invalidtoken
+  name: InvalidToken()
+  nameWithType: IdentityErrorDescriber.InvalidToken()
+  fullName: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.InvalidToken()
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.InvalidToken
+    name: InvalidToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.invalidtoken
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.InvalidToken
+    name: InvalidToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.invalidtoken
+  - name: (
+  - name: )
+- uid: Roulette.Services.LocalizedIdentityErrorDescriber.InvalidToken*
+  commentId: Overload:Roulette.Services.LocalizedIdentityErrorDescriber.InvalidToken
+  href: Roulette.Services.LocalizedIdentityErrorDescriber.html#Roulette_Services_LocalizedIdentityErrorDescriber_InvalidToken
+  name: InvalidToken
+  nameWithType: LocalizedIdentityErrorDescriber.InvalidToken
+  fullName: Roulette.Services.LocalizedIdentityErrorDescriber.InvalidToken
+- uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.LoginAlreadyAssociated
+  commentId: M:Microsoft.AspNetCore.Identity.IdentityErrorDescriber.LoginAlreadyAssociated
+  parent: Microsoft.AspNetCore.Identity.IdentityErrorDescriber
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.loginalreadyassociated
+  name: LoginAlreadyAssociated()
+  nameWithType: IdentityErrorDescriber.LoginAlreadyAssociated()
+  fullName: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.LoginAlreadyAssociated()
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.LoginAlreadyAssociated
+    name: LoginAlreadyAssociated
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.loginalreadyassociated
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.LoginAlreadyAssociated
+    name: LoginAlreadyAssociated
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.loginalreadyassociated
+  - name: (
+  - name: )
+- uid: Roulette.Services.LocalizedIdentityErrorDescriber.LoginAlreadyAssociated*
+  commentId: Overload:Roulette.Services.LocalizedIdentityErrorDescriber.LoginAlreadyAssociated
+  href: Roulette.Services.LocalizedIdentityErrorDescriber.html#Roulette_Services_LocalizedIdentityErrorDescriber_LoginAlreadyAssociated
+  name: LoginAlreadyAssociated
+  nameWithType: LocalizedIdentityErrorDescriber.LoginAlreadyAssociated
+  fullName: Roulette.Services.LocalizedIdentityErrorDescriber.LoginAlreadyAssociated
+- uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.InvalidUserName(System.String)
+  commentId: M:Microsoft.AspNetCore.Identity.IdentityErrorDescriber.InvalidUserName(System.String)
+  parent: Microsoft.AspNetCore.Identity.IdentityErrorDescriber
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.invalidusername
+  name: InvalidUserName(string)
+  nameWithType: IdentityErrorDescriber.InvalidUserName(string)
+  fullName: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.InvalidUserName(string)
+  nameWithType.vb: IdentityErrorDescriber.InvalidUserName(String)
+  fullName.vb: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.InvalidUserName(String)
+  name.vb: InvalidUserName(String)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.InvalidUserName(System.String)
+    name: InvalidUserName
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.invalidusername
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.InvalidUserName(System.String)
+    name: InvalidUserName
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.invalidusername
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Roulette.Services.LocalizedIdentityErrorDescriber.InvalidUserName*
+  commentId: Overload:Roulette.Services.LocalizedIdentityErrorDescriber.InvalidUserName
+  href: Roulette.Services.LocalizedIdentityErrorDescriber.html#Roulette_Services_LocalizedIdentityErrorDescriber_InvalidUserName_System_String_
+  name: InvalidUserName
+  nameWithType: LocalizedIdentityErrorDescriber.InvalidUserName
+  fullName: Roulette.Services.LocalizedIdentityErrorDescriber.InvalidUserName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.InvalidEmail(System.String)
+  commentId: M:Microsoft.AspNetCore.Identity.IdentityErrorDescriber.InvalidEmail(System.String)
+  parent: Microsoft.AspNetCore.Identity.IdentityErrorDescriber
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.invalidemail
+  name: InvalidEmail(string)
+  nameWithType: IdentityErrorDescriber.InvalidEmail(string)
+  fullName: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.InvalidEmail(string)
+  nameWithType.vb: IdentityErrorDescriber.InvalidEmail(String)
+  fullName.vb: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.InvalidEmail(String)
+  name.vb: InvalidEmail(String)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.InvalidEmail(System.String)
+    name: InvalidEmail
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.invalidemail
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.InvalidEmail(System.String)
+    name: InvalidEmail
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.invalidemail
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Roulette.Services.LocalizedIdentityErrorDescriber.InvalidEmail*
+  commentId: Overload:Roulette.Services.LocalizedIdentityErrorDescriber.InvalidEmail
+  href: Roulette.Services.LocalizedIdentityErrorDescriber.html#Roulette_Services_LocalizedIdentityErrorDescriber_InvalidEmail_System_String_
+  name: InvalidEmail
+  nameWithType: LocalizedIdentityErrorDescriber.InvalidEmail
+  fullName: Roulette.Services.LocalizedIdentityErrorDescriber.InvalidEmail
+- uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.DuplicateUserName(System.String)
+  commentId: M:Microsoft.AspNetCore.Identity.IdentityErrorDescriber.DuplicateUserName(System.String)
+  parent: Microsoft.AspNetCore.Identity.IdentityErrorDescriber
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.duplicateusername
+  name: DuplicateUserName(string)
+  nameWithType: IdentityErrorDescriber.DuplicateUserName(string)
+  fullName: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.DuplicateUserName(string)
+  nameWithType.vb: IdentityErrorDescriber.DuplicateUserName(String)
+  fullName.vb: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.DuplicateUserName(String)
+  name.vb: DuplicateUserName(String)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.DuplicateUserName(System.String)
+    name: DuplicateUserName
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.duplicateusername
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.DuplicateUserName(System.String)
+    name: DuplicateUserName
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.duplicateusername
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Roulette.Services.LocalizedIdentityErrorDescriber.DuplicateUserName*
+  commentId: Overload:Roulette.Services.LocalizedIdentityErrorDescriber.DuplicateUserName
+  href: Roulette.Services.LocalizedIdentityErrorDescriber.html#Roulette_Services_LocalizedIdentityErrorDescriber_DuplicateUserName_System_String_
+  name: DuplicateUserName
+  nameWithType: LocalizedIdentityErrorDescriber.DuplicateUserName
+  fullName: Roulette.Services.LocalizedIdentityErrorDescriber.DuplicateUserName
+- uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.DuplicateEmail(System.String)
+  commentId: M:Microsoft.AspNetCore.Identity.IdentityErrorDescriber.DuplicateEmail(System.String)
+  parent: Microsoft.AspNetCore.Identity.IdentityErrorDescriber
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.duplicateemail
+  name: DuplicateEmail(string)
+  nameWithType: IdentityErrorDescriber.DuplicateEmail(string)
+  fullName: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.DuplicateEmail(string)
+  nameWithType.vb: IdentityErrorDescriber.DuplicateEmail(String)
+  fullName.vb: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.DuplicateEmail(String)
+  name.vb: DuplicateEmail(String)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.DuplicateEmail(System.String)
+    name: DuplicateEmail
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.duplicateemail
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.DuplicateEmail(System.String)
+    name: DuplicateEmail
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.duplicateemail
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Roulette.Services.LocalizedIdentityErrorDescriber.DuplicateEmail*
+  commentId: Overload:Roulette.Services.LocalizedIdentityErrorDescriber.DuplicateEmail
+  href: Roulette.Services.LocalizedIdentityErrorDescriber.html#Roulette_Services_LocalizedIdentityErrorDescriber_DuplicateEmail_System_String_
+  name: DuplicateEmail
+  nameWithType: LocalizedIdentityErrorDescriber.DuplicateEmail
+  fullName: Roulette.Services.LocalizedIdentityErrorDescriber.DuplicateEmail
+- uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.InvalidRoleName(System.String)
+  commentId: M:Microsoft.AspNetCore.Identity.IdentityErrorDescriber.InvalidRoleName(System.String)
+  parent: Microsoft.AspNetCore.Identity.IdentityErrorDescriber
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.invalidrolename
+  name: InvalidRoleName(string)
+  nameWithType: IdentityErrorDescriber.InvalidRoleName(string)
+  fullName: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.InvalidRoleName(string)
+  nameWithType.vb: IdentityErrorDescriber.InvalidRoleName(String)
+  fullName.vb: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.InvalidRoleName(String)
+  name.vb: InvalidRoleName(String)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.InvalidRoleName(System.String)
+    name: InvalidRoleName
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.invalidrolename
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.InvalidRoleName(System.String)
+    name: InvalidRoleName
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.invalidrolename
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Roulette.Services.LocalizedIdentityErrorDescriber.InvalidRoleName*
+  commentId: Overload:Roulette.Services.LocalizedIdentityErrorDescriber.InvalidRoleName
+  href: Roulette.Services.LocalizedIdentityErrorDescriber.html#Roulette_Services_LocalizedIdentityErrorDescriber_InvalidRoleName_System_String_
+  name: InvalidRoleName
+  nameWithType: LocalizedIdentityErrorDescriber.InvalidRoleName
+  fullName: Roulette.Services.LocalizedIdentityErrorDescriber.InvalidRoleName
+- uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.DuplicateRoleName(System.String)
+  commentId: M:Microsoft.AspNetCore.Identity.IdentityErrorDescriber.DuplicateRoleName(System.String)
+  parent: Microsoft.AspNetCore.Identity.IdentityErrorDescriber
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.duplicaterolename
+  name: DuplicateRoleName(string)
+  nameWithType: IdentityErrorDescriber.DuplicateRoleName(string)
+  fullName: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.DuplicateRoleName(string)
+  nameWithType.vb: IdentityErrorDescriber.DuplicateRoleName(String)
+  fullName.vb: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.DuplicateRoleName(String)
+  name.vb: DuplicateRoleName(String)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.DuplicateRoleName(System.String)
+    name: DuplicateRoleName
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.duplicaterolename
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.DuplicateRoleName(System.String)
+    name: DuplicateRoleName
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.duplicaterolename
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Roulette.Services.LocalizedIdentityErrorDescriber.DuplicateRoleName*
+  commentId: Overload:Roulette.Services.LocalizedIdentityErrorDescriber.DuplicateRoleName
+  href: Roulette.Services.LocalizedIdentityErrorDescriber.html#Roulette_Services_LocalizedIdentityErrorDescriber_DuplicateRoleName_System_String_
+  name: DuplicateRoleName
+  nameWithType: LocalizedIdentityErrorDescriber.DuplicateRoleName
+  fullName: Roulette.Services.LocalizedIdentityErrorDescriber.DuplicateRoleName
+- uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.UserAlreadyHasPassword
+  commentId: M:Microsoft.AspNetCore.Identity.IdentityErrorDescriber.UserAlreadyHasPassword
+  parent: Microsoft.AspNetCore.Identity.IdentityErrorDescriber
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.useralreadyhaspassword
+  name: UserAlreadyHasPassword()
+  nameWithType: IdentityErrorDescriber.UserAlreadyHasPassword()
+  fullName: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.UserAlreadyHasPassword()
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.UserAlreadyHasPassword
+    name: UserAlreadyHasPassword
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.useralreadyhaspassword
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.UserAlreadyHasPassword
+    name: UserAlreadyHasPassword
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.useralreadyhaspassword
+  - name: (
+  - name: )
+- uid: Roulette.Services.LocalizedIdentityErrorDescriber.UserAlreadyHasPassword*
+  commentId: Overload:Roulette.Services.LocalizedIdentityErrorDescriber.UserAlreadyHasPassword
+  href: Roulette.Services.LocalizedIdentityErrorDescriber.html#Roulette_Services_LocalizedIdentityErrorDescriber_UserAlreadyHasPassword
+  name: UserAlreadyHasPassword
+  nameWithType: LocalizedIdentityErrorDescriber.UserAlreadyHasPassword
+  fullName: Roulette.Services.LocalizedIdentityErrorDescriber.UserAlreadyHasPassword
+- uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.UserLockoutNotEnabled
+  commentId: M:Microsoft.AspNetCore.Identity.IdentityErrorDescriber.UserLockoutNotEnabled
+  parent: Microsoft.AspNetCore.Identity.IdentityErrorDescriber
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.userlockoutnotenabled
+  name: UserLockoutNotEnabled()
+  nameWithType: IdentityErrorDescriber.UserLockoutNotEnabled()
+  fullName: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.UserLockoutNotEnabled()
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.UserLockoutNotEnabled
+    name: UserLockoutNotEnabled
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.userlockoutnotenabled
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.UserLockoutNotEnabled
+    name: UserLockoutNotEnabled
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.userlockoutnotenabled
+  - name: (
+  - name: )
+- uid: Roulette.Services.LocalizedIdentityErrorDescriber.UserLockoutNotEnabled*
+  commentId: Overload:Roulette.Services.LocalizedIdentityErrorDescriber.UserLockoutNotEnabled
+  href: Roulette.Services.LocalizedIdentityErrorDescriber.html#Roulette_Services_LocalizedIdentityErrorDescriber_UserLockoutNotEnabled
+  name: UserLockoutNotEnabled
+  nameWithType: LocalizedIdentityErrorDescriber.UserLockoutNotEnabled
+  fullName: Roulette.Services.LocalizedIdentityErrorDescriber.UserLockoutNotEnabled
+- uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.UserAlreadyInRole(System.String)
+  commentId: M:Microsoft.AspNetCore.Identity.IdentityErrorDescriber.UserAlreadyInRole(System.String)
+  parent: Microsoft.AspNetCore.Identity.IdentityErrorDescriber
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.useralreadyinrole
+  name: UserAlreadyInRole(string)
+  nameWithType: IdentityErrorDescriber.UserAlreadyInRole(string)
+  fullName: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.UserAlreadyInRole(string)
+  nameWithType.vb: IdentityErrorDescriber.UserAlreadyInRole(String)
+  fullName.vb: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.UserAlreadyInRole(String)
+  name.vb: UserAlreadyInRole(String)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.UserAlreadyInRole(System.String)
+    name: UserAlreadyInRole
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.useralreadyinrole
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.UserAlreadyInRole(System.String)
+    name: UserAlreadyInRole
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.useralreadyinrole
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Roulette.Services.LocalizedIdentityErrorDescriber.UserAlreadyInRole*
+  commentId: Overload:Roulette.Services.LocalizedIdentityErrorDescriber.UserAlreadyInRole
+  href: Roulette.Services.LocalizedIdentityErrorDescriber.html#Roulette_Services_LocalizedIdentityErrorDescriber_UserAlreadyInRole_System_String_
+  name: UserAlreadyInRole
+  nameWithType: LocalizedIdentityErrorDescriber.UserAlreadyInRole
+  fullName: Roulette.Services.LocalizedIdentityErrorDescriber.UserAlreadyInRole
+- uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.UserNotInRole(System.String)
+  commentId: M:Microsoft.AspNetCore.Identity.IdentityErrorDescriber.UserNotInRole(System.String)
+  parent: Microsoft.AspNetCore.Identity.IdentityErrorDescriber
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.usernotinrole
+  name: UserNotInRole(string)
+  nameWithType: IdentityErrorDescriber.UserNotInRole(string)
+  fullName: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.UserNotInRole(string)
+  nameWithType.vb: IdentityErrorDescriber.UserNotInRole(String)
+  fullName.vb: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.UserNotInRole(String)
+  name.vb: UserNotInRole(String)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.UserNotInRole(System.String)
+    name: UserNotInRole
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.usernotinrole
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.UserNotInRole(System.String)
+    name: UserNotInRole
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.usernotinrole
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Roulette.Services.LocalizedIdentityErrorDescriber.UserNotInRole*
+  commentId: Overload:Roulette.Services.LocalizedIdentityErrorDescriber.UserNotInRole
+  href: Roulette.Services.LocalizedIdentityErrorDescriber.html#Roulette_Services_LocalizedIdentityErrorDescriber_UserNotInRole_System_String_
+  name: UserNotInRole
+  nameWithType: LocalizedIdentityErrorDescriber.UserNotInRole
+  fullName: Roulette.Services.LocalizedIdentityErrorDescriber.UserNotInRole
+- uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.PasswordTooShort(System.Int32)
+  commentId: M:Microsoft.AspNetCore.Identity.IdentityErrorDescriber.PasswordTooShort(System.Int32)
+  parent: Microsoft.AspNetCore.Identity.IdentityErrorDescriber
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.passwordtooshort
+  name: PasswordTooShort(int)
+  nameWithType: IdentityErrorDescriber.PasswordTooShort(int)
+  fullName: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.PasswordTooShort(int)
+  nameWithType.vb: IdentityErrorDescriber.PasswordTooShort(Integer)
+  fullName.vb: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.PasswordTooShort(Integer)
+  name.vb: PasswordTooShort(Integer)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.PasswordTooShort(System.Int32)
+    name: PasswordTooShort
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.passwordtooshort
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.PasswordTooShort(System.Int32)
+    name: PasswordTooShort
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.passwordtooshort
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: Roulette.Services.LocalizedIdentityErrorDescriber.PasswordTooShort*
+  commentId: Overload:Roulette.Services.LocalizedIdentityErrorDescriber.PasswordTooShort
+  href: Roulette.Services.LocalizedIdentityErrorDescriber.html#Roulette_Services_LocalizedIdentityErrorDescriber_PasswordTooShort_System_Int32_
+  name: PasswordTooShort
+  nameWithType: LocalizedIdentityErrorDescriber.PasswordTooShort
+  fullName: Roulette.Services.LocalizedIdentityErrorDescriber.PasswordTooShort
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.PasswordRequiresNonAlphanumeric
+  commentId: M:Microsoft.AspNetCore.Identity.IdentityErrorDescriber.PasswordRequiresNonAlphanumeric
+  parent: Microsoft.AspNetCore.Identity.IdentityErrorDescriber
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.passwordrequiresnonalphanumeric
+  name: PasswordRequiresNonAlphanumeric()
+  nameWithType: IdentityErrorDescriber.PasswordRequiresNonAlphanumeric()
+  fullName: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.PasswordRequiresNonAlphanumeric()
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.PasswordRequiresNonAlphanumeric
+    name: PasswordRequiresNonAlphanumeric
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.passwordrequiresnonalphanumeric
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.PasswordRequiresNonAlphanumeric
+    name: PasswordRequiresNonAlphanumeric
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.passwordrequiresnonalphanumeric
+  - name: (
+  - name: )
+- uid: Roulette.Services.LocalizedIdentityErrorDescriber.PasswordRequiresNonAlphanumeric*
+  commentId: Overload:Roulette.Services.LocalizedIdentityErrorDescriber.PasswordRequiresNonAlphanumeric
+  href: Roulette.Services.LocalizedIdentityErrorDescriber.html#Roulette_Services_LocalizedIdentityErrorDescriber_PasswordRequiresNonAlphanumeric
+  name: PasswordRequiresNonAlphanumeric
+  nameWithType: LocalizedIdentityErrorDescriber.PasswordRequiresNonAlphanumeric
+  fullName: Roulette.Services.LocalizedIdentityErrorDescriber.PasswordRequiresNonAlphanumeric
+- uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.PasswordRequiresDigit
+  commentId: M:Microsoft.AspNetCore.Identity.IdentityErrorDescriber.PasswordRequiresDigit
+  parent: Microsoft.AspNetCore.Identity.IdentityErrorDescriber
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.passwordrequiresdigit
+  name: PasswordRequiresDigit()
+  nameWithType: IdentityErrorDescriber.PasswordRequiresDigit()
+  fullName: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.PasswordRequiresDigit()
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.PasswordRequiresDigit
+    name: PasswordRequiresDigit
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.passwordrequiresdigit
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.PasswordRequiresDigit
+    name: PasswordRequiresDigit
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.passwordrequiresdigit
+  - name: (
+  - name: )
+- uid: Roulette.Services.LocalizedIdentityErrorDescriber.PasswordRequiresDigit*
+  commentId: Overload:Roulette.Services.LocalizedIdentityErrorDescriber.PasswordRequiresDigit
+  href: Roulette.Services.LocalizedIdentityErrorDescriber.html#Roulette_Services_LocalizedIdentityErrorDescriber_PasswordRequiresDigit
+  name: PasswordRequiresDigit
+  nameWithType: LocalizedIdentityErrorDescriber.PasswordRequiresDigit
+  fullName: Roulette.Services.LocalizedIdentityErrorDescriber.PasswordRequiresDigit
+- uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.PasswordRequiresLower
+  commentId: M:Microsoft.AspNetCore.Identity.IdentityErrorDescriber.PasswordRequiresLower
+  parent: Microsoft.AspNetCore.Identity.IdentityErrorDescriber
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.passwordrequireslower
+  name: PasswordRequiresLower()
+  nameWithType: IdentityErrorDescriber.PasswordRequiresLower()
+  fullName: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.PasswordRequiresLower()
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.PasswordRequiresLower
+    name: PasswordRequiresLower
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.passwordrequireslower
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.PasswordRequiresLower
+    name: PasswordRequiresLower
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.passwordrequireslower
+  - name: (
+  - name: )
+- uid: Roulette.Services.LocalizedIdentityErrorDescriber.PasswordRequiresLower*
+  commentId: Overload:Roulette.Services.LocalizedIdentityErrorDescriber.PasswordRequiresLower
+  href: Roulette.Services.LocalizedIdentityErrorDescriber.html#Roulette_Services_LocalizedIdentityErrorDescriber_PasswordRequiresLower
+  name: PasswordRequiresLower
+  nameWithType: LocalizedIdentityErrorDescriber.PasswordRequiresLower
+  fullName: Roulette.Services.LocalizedIdentityErrorDescriber.PasswordRequiresLower
+- uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.PasswordRequiresUpper
+  commentId: M:Microsoft.AspNetCore.Identity.IdentityErrorDescriber.PasswordRequiresUpper
+  parent: Microsoft.AspNetCore.Identity.IdentityErrorDescriber
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.passwordrequiresupper
+  name: PasswordRequiresUpper()
+  nameWithType: IdentityErrorDescriber.PasswordRequiresUpper()
+  fullName: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.PasswordRequiresUpper()
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.PasswordRequiresUpper
+    name: PasswordRequiresUpper
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.passwordrequiresupper
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Identity.IdentityErrorDescriber.PasswordRequiresUpper
+    name: PasswordRequiresUpper
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.passwordrequiresupper
+  - name: (
+  - name: )
+- uid: Roulette.Services.LocalizedIdentityErrorDescriber.PasswordRequiresUpper*
+  commentId: Overload:Roulette.Services.LocalizedIdentityErrorDescriber.PasswordRequiresUpper
+  href: Roulette.Services.LocalizedIdentityErrorDescriber.html#Roulette_Services_LocalizedIdentityErrorDescriber_PasswordRequiresUpper
+  name: PasswordRequiresUpper
+  nameWithType: LocalizedIdentityErrorDescriber.PasswordRequiresUpper
+  fullName: Roulette.Services.LocalizedIdentityErrorDescriber.PasswordRequiresUpper

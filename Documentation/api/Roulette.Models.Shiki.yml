@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: Roulette.Models.Shiki
+  commentId: N:Roulette.Models.Shiki
+  id: Roulette.Models.Shiki
+  children:
+  - Roulette.Models.Shiki.GenreModel
+  langs:
+  - csharp
+  - vb
+  name: Roulette.Models.Shiki
+  nameWithType: Roulette.Models.Shiki
+  fullName: Roulette.Models.Shiki
+  type: Namespace
+  assemblies:
+  - Roulette
+references:
+- uid: Roulette.Models.Shiki.GenreModel
+  commentId: T:Roulette.Models.Shiki.GenreModel
+  href: Roulette.Models.Shiki.GenreModel.html
+  name: GenreModel
+  nameWithType: GenreModel
+  fullName: Roulette.Models.Shiki.GenreModel

@@ -1,0 +1,436 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ShikimoriClient | Roulette Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ShikimoriClient | Roulette Documentation ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Lanctole/Roulette/new/develop/apiSpec/new?filename=ShikimoriSharp_ApiServices_ShikimoriClient.md&amp;value=---%0Auid%3A%20ShikimoriSharp.ApiServices.ShikimoriClient%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="Roulette Documentation">
+            Roulette Documentation
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="ShikimoriSharp.ApiServices.ShikimoriClient">
+
+
+
+  <h1 id="ShikimoriSharp_ApiServices_ShikimoriClient" data-uid="ShikimoriSharp.ApiServices.ShikimoriClient" class="text-break">
+Class ShikimoriClient  <a class="header-action link-secondary" title="View source" href="https://github.com/Lanctole/Roulette/blob/develop/ShikimoriSharp/ApiServices/ShikimoriClient.cs/#L7"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="ShikimoriSharp.html">ShikimoriSharp</a>.<a class="xref" href="ShikimoriSharp.ApiServices.html">ApiServices</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>ShikimoriSharp.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class ShikimoriClient</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">ShikimoriClient</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="ShikimoriSharp_ApiServices_ShikimoriClient__ctor_" data-uid="ShikimoriSharp.ApiServices.ShikimoriClient.#ctor*"></a>
+
+  <h3 id="ShikimoriSharp_ApiServices_ShikimoriClient__ctor_ShikimoriSharp_Settings_ClientSettings_System_Net_Http_HttpClient_Microsoft_Extensions_Logging_ILogger_ShikimoriSharp_ApiServices_ApiBase__" data-uid="ShikimoriSharp.ApiServices.ShikimoriClient.#ctor(ShikimoriSharp.Settings.ClientSettings,System.Net.Http.HttpClient,Microsoft.Extensions.Logging.ILogger{ShikimoriSharp.ApiServices.ApiBase})">
+  ShikimoriClient(ClientSettings, HttpClient, ILogger&lt;ApiBase&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Lanctole/Roulette/blob/develop/ShikimoriSharp/ApiServices/ShikimoriClient.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ShikimoriClient(ClientSettings settings, HttpClient httpClient, ILogger&lt;ApiBase&gt; logger)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>settings</code> <a class="xref" href="ShikimoriSharp.Settings.ClientSettings.html">ClientSettings</a></dt>
+    <dd></dd>
+    <dt><code>httpClient</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpclient">HttpClient</a></dt>
+    <dd></dd>
+    <dt><code>logger</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1">ILogger</a>&lt;<a class="xref" href="ShikimoriSharp.ApiServices.ApiBase.html">ApiBase</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="ShikimoriSharp_ApiServices_ShikimoriClient_Animes_" data-uid="ShikimoriSharp.ApiServices.ShikimoriClient.Animes*"></a>
+
+  <h3 id="ShikimoriSharp_ApiServices_ShikimoriClient_Animes" data-uid="ShikimoriSharp.ApiServices.ShikimoriClient.Animes">
+  Animes
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Lanctole/Roulette/blob/develop/ShikimoriSharp/ApiServices/ShikimoriClient.cs/#L10"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Animes Animes { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ShikimoriSharp.ApiServices.Animes.html">Animes</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ShikimoriSharp_ApiServices_ShikimoriClient_Client_" data-uid="ShikimoriSharp.ApiServices.ShikimoriClient.Client*"></a>
+
+  <h3 id="ShikimoriSharp_ApiServices_ShikimoriClient_Client" data-uid="ShikimoriSharp.ApiServices.ShikimoriClient.Client">
+  Client
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Lanctole/Roulette/blob/develop/ShikimoriSharp/ApiServices/ShikimoriClient.cs/#L9"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ApiClient Client { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ShikimoriSharp.ApiServices.ApiClient.html">ApiClient</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ShikimoriSharp_ApiServices_ShikimoriClient_Genres_" data-uid="ShikimoriSharp.ApiServices.ShikimoriClient.Genres*"></a>
+
+  <h3 id="ShikimoriSharp_ApiServices_ShikimoriClient_Genres" data-uid="ShikimoriSharp.ApiServices.ShikimoriClient.Genres">
+  Genres
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Lanctole/Roulette/blob/develop/ShikimoriSharp/ApiServices/ShikimoriClient.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Genres Genres { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ShikimoriSharp.ApiServices.Genres.html">Genres</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ShikimoriSharp_ApiServices_ShikimoriClient_Mangas_" data-uid="ShikimoriSharp.ApiServices.ShikimoriClient.Mangas*"></a>
+
+  <h3 id="ShikimoriSharp_ApiServices_ShikimoriClient_Mangas" data-uid="ShikimoriSharp.ApiServices.ShikimoriClient.Mangas">
+  Mangas
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Lanctole/Roulette/blob/develop/ShikimoriSharp/ApiServices/ShikimoriClient.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Mangas Mangas { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ShikimoriSharp.ApiServices.Mangas.html">Mangas</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ShikimoriSharp_ApiServices_ShikimoriClient_Publishers_" data-uid="ShikimoriSharp.ApiServices.ShikimoriClient.Publishers*"></a>
+
+  <h3 id="ShikimoriSharp_ApiServices_ShikimoriClient_Publishers" data-uid="ShikimoriSharp.ApiServices.ShikimoriClient.Publishers">
+  Publishers
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Lanctole/Roulette/blob/develop/ShikimoriSharp/ApiServices/ShikimoriClient.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Publishers Publishers { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ShikimoriSharp.ApiServices.Publishers.html">Publishers</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ShikimoriSharp_ApiServices_ShikimoriClient_Ranobes_" data-uid="ShikimoriSharp.ApiServices.ShikimoriClient.Ranobes*"></a>
+
+  <h3 id="ShikimoriSharp_ApiServices_ShikimoriClient_Ranobes" data-uid="ShikimoriSharp.ApiServices.ShikimoriClient.Ranobes">
+  Ranobes
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Lanctole/Roulette/blob/develop/ShikimoriSharp/ApiServices/ShikimoriClient.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Ranobes Ranobes { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ShikimoriSharp.ApiServices.Ranobes.html">Ranobes</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ShikimoriSharp_ApiServices_ShikimoriClient_Studios_" data-uid="ShikimoriSharp.ApiServices.ShikimoriClient.Studios*"></a>
+
+  <h3 id="ShikimoriSharp_ApiServices_ShikimoriClient_Studios" data-uid="ShikimoriSharp.ApiServices.ShikimoriClient.Studios">
+  Studios
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Lanctole/Roulette/blob/develop/ShikimoriSharp/ApiServices/ShikimoriClient.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Studios Studios { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ShikimoriSharp.ApiServices.Studios.html">Studios</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Lanctole/Roulette/blob/develop/ShikimoriSharp/ApiServices/ShikimoriClient.cs/#L7" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

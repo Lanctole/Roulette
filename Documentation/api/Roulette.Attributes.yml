@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: Roulette.Attributes
+  commentId: N:Roulette.Attributes
+  id: Roulette.Attributes
+  children:
+  - Roulette.Attributes.CustomEmailAttribute
+  langs:
+  - csharp
+  - vb
+  name: Roulette.Attributes
+  nameWithType: Roulette.Attributes
+  fullName: Roulette.Attributes
+  type: Namespace
+  assemblies:
+  - Roulette
+references:
+- uid: Roulette.Attributes.CustomEmailAttribute
+  commentId: T:Roulette.Attributes.CustomEmailAttribute
+  href: Roulette.Attributes.CustomEmailAttribute.html
+  name: CustomEmailAttribute
+  nameWithType: CustomEmailAttribute
+  fullName: Roulette.Attributes.CustomEmailAttribute

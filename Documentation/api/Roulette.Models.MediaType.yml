@@ -1,0 +1,168 @@
+### YamlMime:ManagedReference
+items:
+- uid: Roulette.Models.MediaType
+  commentId: T:Roulette.Models.MediaType
+  id: MediaType
+  parent: Roulette.Models
+  children:
+  - Roulette.Models.MediaType.Anime
+  - Roulette.Models.MediaType.Game
+  - Roulette.Models.MediaType.Manga
+  - Roulette.Models.MediaType.Ranobe
+  langs:
+  - csharp
+  - vb
+  name: MediaType
+  nameWithType: MediaType
+  fullName: Roulette.Models.MediaType
+  type: Enum
+  source:
+    remote:
+      path: Roulette/Models/MediaType.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: MediaType
+    path: ../Roulette/Models/MediaType.cs
+    startLine: 5
+  assemblies:
+  - Roulette
+  namespace: Roulette.Models
+  summary: Определяет типы медиа, которые поддерживаются в приложении.
+  example: []
+  syntax:
+    content: public enum MediaType
+    content.vb: Public Enum MediaType
+- uid: Roulette.Models.MediaType.Anime
+  commentId: F:Roulette.Models.MediaType.Anime
+  id: Anime
+  parent: Roulette.Models.MediaType
+  langs:
+  - csharp
+  - vb
+  name: Anime
+  nameWithType: MediaType.Anime
+  fullName: Roulette.Models.MediaType.Anime
+  type: Field
+  source:
+    remote:
+      path: Roulette/Models/MediaType.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Anime
+    path: ../Roulette/Models/MediaType.cs
+    startLine: 7
+  assemblies:
+  - Roulette
+  namespace: Roulette.Models
+  syntax:
+    content: Anime = 0
+    return:
+      type: Roulette.Models.MediaType
+- uid: Roulette.Models.MediaType.Manga
+  commentId: F:Roulette.Models.MediaType.Manga
+  id: Manga
+  parent: Roulette.Models.MediaType
+  langs:
+  - csharp
+  - vb
+  name: Manga
+  nameWithType: MediaType.Manga
+  fullName: Roulette.Models.MediaType.Manga
+  type: Field
+  source:
+    remote:
+      path: Roulette/Models/MediaType.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Manga
+    path: ../Roulette/Models/MediaType.cs
+    startLine: 8
+  assemblies:
+  - Roulette
+  namespace: Roulette.Models
+  syntax:
+    content: Manga = 1
+    return:
+      type: Roulette.Models.MediaType
+- uid: Roulette.Models.MediaType.Ranobe
+  commentId: F:Roulette.Models.MediaType.Ranobe
+  id: Ranobe
+  parent: Roulette.Models.MediaType
+  langs:
+  - csharp
+  - vb
+  name: Ranobe
+  nameWithType: MediaType.Ranobe
+  fullName: Roulette.Models.MediaType.Ranobe
+  type: Field
+  source:
+    remote:
+      path: Roulette/Models/MediaType.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Ranobe
+    path: ../Roulette/Models/MediaType.cs
+    startLine: 9
+  assemblies:
+  - Roulette
+  namespace: Roulette.Models
+  syntax:
+    content: Ranobe = 2
+    return:
+      type: Roulette.Models.MediaType
+- uid: Roulette.Models.MediaType.Game
+  commentId: F:Roulette.Models.MediaType.Game
+  id: Game
+  parent: Roulette.Models.MediaType
+  langs:
+  - csharp
+  - vb
+  name: Game
+  nameWithType: MediaType.Game
+  fullName: Roulette.Models.MediaType.Game
+  type: Field
+  source:
+    remote:
+      path: Roulette/Models/MediaType.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Game
+    path: ../Roulette/Models/MediaType.cs
+    startLine: 10
+  assemblies:
+  - Roulette
+  namespace: Roulette.Models
+  syntax:
+    content: Game = 3
+    return:
+      type: Roulette.Models.MediaType
+references:
+- uid: Roulette.Models
+  commentId: N:Roulette.Models
+  href: Roulette.html
+  name: Roulette.Models
+  nameWithType: Roulette.Models
+  fullName: Roulette.Models
+  spec.csharp:
+  - uid: Roulette
+    name: Roulette
+    href: Roulette.html
+  - name: .
+  - uid: Roulette.Models
+    name: Models
+    href: Roulette.Models.html
+  spec.vb:
+  - uid: Roulette
+    name: Roulette
+    href: Roulette.html
+  - name: .
+  - uid: Roulette.Models
+    name: Models
+    href: Roulette.Models.html
+- uid: Roulette.Models.MediaType
+  commentId: T:Roulette.Models.MediaType
+  parent: Roulette.Models
+  href: Roulette.Models.MediaType.html
+  name: MediaType
+  nameWithType: MediaType
+  fullName: Roulette.Models.MediaType

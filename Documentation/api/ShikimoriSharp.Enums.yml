@@ -1,0 +1,94 @@
+### YamlMime:ManagedReference
+items:
+- uid: ShikimoriSharp.Enums
+  commentId: N:ShikimoriSharp.Enums
+  id: ShikimoriSharp.Enums
+  children:
+  - ShikimoriSharp.Enums.AnimeKind
+  - ShikimoriSharp.Enums.Duration
+  - ShikimoriSharp.Enums.MangaKind
+  - ShikimoriSharp.Enums.Order
+  - ShikimoriSharp.Enums.Rating
+  - ShikimoriSharp.Enums.TargetType
+  - ShikimoriSharp.Enums.Version
+  langs:
+  - csharp
+  - vb
+  name: ShikimoriSharp.Enums
+  nameWithType: ShikimoriSharp.Enums
+  fullName: ShikimoriSharp.Enums
+  type: Namespace
+  assemblies:
+  - ShikimoriSharp
+references:
+- uid: ShikimoriSharp.Enums.AnimeKind
+  commentId: T:ShikimoriSharp.Enums.AnimeKind
+  parent: ShikimoriSharp.Enums
+  href: ShikimoriSharp.Enums.AnimeKind.html
+  name: AnimeKind
+  nameWithType: AnimeKind
+  fullName: ShikimoriSharp.Enums.AnimeKind
+- uid: ShikimoriSharp.Enums.Duration
+  commentId: T:ShikimoriSharp.Enums.Duration
+  parent: ShikimoriSharp.Enums
+  href: ShikimoriSharp.Enums.Duration.html
+  name: Duration
+  nameWithType: Duration
+  fullName: ShikimoriSharp.Enums.Duration
+- uid: ShikimoriSharp.Enums.MangaKind
+  commentId: T:ShikimoriSharp.Enums.MangaKind
+  parent: ShikimoriSharp.Enums
+  href: ShikimoriSharp.Enums.MangaKind.html
+  name: MangaKind
+  nameWithType: MangaKind
+  fullName: ShikimoriSharp.Enums.MangaKind
+- uid: ShikimoriSharp.Enums.Order
+  commentId: T:ShikimoriSharp.Enums.Order
+  parent: ShikimoriSharp.Enums
+  href: ShikimoriSharp.Enums.Order.html
+  name: Order
+  nameWithType: Order
+  fullName: ShikimoriSharp.Enums.Order
+- uid: ShikimoriSharp.Enums.Rating
+  commentId: T:ShikimoriSharp.Enums.Rating
+  parent: ShikimoriSharp.Enums
+  href: ShikimoriSharp.Enums.Rating.html
+  name: Rating
+  nameWithType: Rating
+  fullName: ShikimoriSharp.Enums.Rating
+- uid: ShikimoriSharp.Enums.TargetType
+  commentId: T:ShikimoriSharp.Enums.TargetType
+  parent: ShikimoriSharp.Enums
+  href: ShikimoriSharp.Enums.TargetType.html
+  name: TargetType
+  nameWithType: TargetType
+  fullName: ShikimoriSharp.Enums.TargetType
+- uid: ShikimoriSharp.Enums.Version
+  commentId: T:ShikimoriSharp.Enums.Version
+  parent: ShikimoriSharp.Enums
+  href: ShikimoriSharp.Enums.Version.html
+  name: Version
+  nameWithType: Version
+  fullName: ShikimoriSharp.Enums.Version
+- uid: ShikimoriSharp.Enums
+  commentId: N:ShikimoriSharp.Enums
+  href: ShikimoriSharp.html
+  name: ShikimoriSharp.Enums
+  nameWithType: ShikimoriSharp.Enums
+  fullName: ShikimoriSharp.Enums
+  spec.csharp:
+  - uid: ShikimoriSharp
+    name: ShikimoriSharp
+    href: ShikimoriSharp.html
+  - name: .
+  - uid: ShikimoriSharp.Enums
+    name: Enums
+    href: ShikimoriSharp.Enums.html
+  spec.vb:
+  - uid: ShikimoriSharp
+    name: ShikimoriSharp
+    href: ShikimoriSharp.html
+  - name: .
+  - uid: ShikimoriSharp.Enums
+    name: Enums
+    href: ShikimoriSharp.Enums.html

@@ -1,0 +1,60 @@
+### YamlMime:ManagedReference
+items:
+- uid: Games.Classes
+  commentId: N:Games.Classes
+  id: Games.Classes
+  children:
+  - Games.Classes.Game
+  - Games.Classes.Genre
+  - Games.Classes.SupportedLanguage
+  langs:
+  - csharp
+  - vb
+  name: Games.Classes
+  nameWithType: Games.Classes
+  fullName: Games.Classes
+  type: Namespace
+  assemblies:
+  - Games
+references:
+- uid: Games.Classes.Game
+  commentId: T:Games.Classes.Game
+  parent: Games.Classes
+  href: Games.Classes.Game.html
+  name: Game
+  nameWithType: Game
+  fullName: Games.Classes.Game
+- uid: Games.Classes.Genre
+  commentId: T:Games.Classes.Genre
+  href: Games.Classes.Genre.html
+  name: Genre
+  nameWithType: Genre
+  fullName: Games.Classes.Genre
+- uid: Games.Classes.SupportedLanguage
+  commentId: T:Games.Classes.SupportedLanguage
+  href: Games.Classes.SupportedLanguage.html
+  name: SupportedLanguage
+  nameWithType: SupportedLanguage
+  fullName: Games.Classes.SupportedLanguage
+- uid: Games.Classes
+  commentId: N:Games.Classes
+  href: Games.html
+  name: Games.Classes
+  nameWithType: Games.Classes
+  fullName: Games.Classes
+  spec.csharp:
+  - uid: Games
+    name: Games
+    href: Games.html
+  - name: .
+  - uid: Games.Classes
+    name: Classes
+    href: Games.Classes.html
+  spec.vb:
+  - uid: Games
+    name: Games
+    href: Games.html
+  - name: .
+  - uid: Games.Classes
+    name: Classes
+    href: Games.Classes.html

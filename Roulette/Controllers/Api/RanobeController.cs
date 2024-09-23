@@ -72,6 +72,10 @@ public class RanobeController
             var ranobes = await _apiConnectorService.GetRanobes(settings);
             return Ok(ranobes);
         }
+        catch (HttpRequestException httpEx)
+        {
+            return StatusCode(503, $"Ошибка запроса к API: {httpEx.Message}");
+        }
         catch (Exception ex)
         {
             return StatusCode(500, $"Внутренняя ошибка сервера: {ex.Message}");
@@ -95,6 +99,10 @@ public class RanobeController
         {
             var ranobe = await _apiConnectorService.GetRanobeById(id);
             return Ok(ranobe);
+        }
+        catch (HttpRequestException httpEx)
+        {
+            return StatusCode(503, $"Ошибка запроса к API: {httpEx.Message}");
         }
         catch (Exception ex)
         {

@@ -1,0 +1,835 @@
+### YamlMime:ManagedReference
+items:
+- uid: ShikimoriSharp.ApiServices.RequestManager
+  commentId: T:ShikimoriSharp.ApiServices.RequestManager
+  id: RequestManager
+  parent: ShikimoriSharp.ApiServices
+  children:
+  - ShikimoriSharp.ApiServices.RequestManager.#ctor(System.Net.Http.HttpClient,ShikimoriSharp.ApiServices.TokenBucket,ShikimoriSharp.ApiServices.TokenBucket,ShikimoriSharp.Settings.ClientSettings,ShikimoriSharp.Bases.AccessToken,System.Func{ShikimoriSharp.Bases.AccessToken,System.Threading.Tasks.Task{ShikimoriSharp.Bases.AccessToken}})
+  - ShikimoriSharp.ApiServices.RequestManager.ResponseAsType``1(System.String,System.String,System.Net.Http.HttpContent)
+  - ShikimoriSharp.ApiServices.RequestManager.ResponseExecutor(System.String,System.String,System.Net.Http.HttpContent)
+  langs:
+  - csharp
+  - vb
+  name: RequestManager
+  nameWithType: RequestManager
+  fullName: ShikimoriSharp.ApiServices.RequestManager
+  type: Class
+  source:
+    remote:
+      path: ShikimoriSharp/ApiServices/RequestManager.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: RequestManager
+    path: ../ShikimoriSharp/ApiServices/RequestManager.cs
+    startLine: 16
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.ApiServices
+  summary: >-
+    Класс для управления запросами к API с учетом ограничения скорости и управления токенами доступа.
+
+    Обрабатывает отправку HTTP-запросов и управление токенами доступа.
+  example: []
+  syntax:
+    content: public class RequestManager
+    content.vb: Public Class RequestManager
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: ShikimoriSharp.ApiServices.RequestManager.#ctor(System.Net.Http.HttpClient,ShikimoriSharp.ApiServices.TokenBucket,ShikimoriSharp.ApiServices.TokenBucket,ShikimoriSharp.Settings.ClientSettings,ShikimoriSharp.Bases.AccessToken,System.Func{ShikimoriSharp.Bases.AccessToken,System.Threading.Tasks.Task{ShikimoriSharp.Bases.AccessToken}})
+  commentId: M:ShikimoriSharp.ApiServices.RequestManager.#ctor(System.Net.Http.HttpClient,ShikimoriSharp.ApiServices.TokenBucket,ShikimoriSharp.ApiServices.TokenBucket,ShikimoriSharp.Settings.ClientSettings,ShikimoriSharp.Bases.AccessToken,System.Func{ShikimoriSharp.Bases.AccessToken,System.Threading.Tasks.Task{ShikimoriSharp.Bases.AccessToken}})
+  id: '#ctor(System.Net.Http.HttpClient,ShikimoriSharp.ApiServices.TokenBucket,ShikimoriSharp.ApiServices.TokenBucket,ShikimoriSharp.Settings.ClientSettings,ShikimoriSharp.Bases.AccessToken,System.Func{ShikimoriSharp.Bases.AccessToken,System.Threading.Tasks.Task{ShikimoriSharp.Bases.AccessToken}})'
+  parent: ShikimoriSharp.ApiServices.RequestManager
+  langs:
+  - csharp
+  - vb
+  name: RequestManager(HttpClient, TokenBucket, TokenBucket, ClientSettings, AccessToken, Func<AccessToken, Task<AccessToken>>)
+  nameWithType: RequestManager.RequestManager(HttpClient, TokenBucket, TokenBucket, ClientSettings, AccessToken, Func<AccessToken, Task<AccessToken>>)
+  fullName: ShikimoriSharp.ApiServices.RequestManager.RequestManager(System.Net.Http.HttpClient, ShikimoriSharp.ApiServices.TokenBucket, ShikimoriSharp.ApiServices.TokenBucket, ShikimoriSharp.Settings.ClientSettings, ShikimoriSharp.Bases.AccessToken, System.Func<ShikimoriSharp.Bases.AccessToken, System.Threading.Tasks.Task<ShikimoriSharp.Bases.AccessToken>>)
+  type: Constructor
+  source:
+    remote:
+      path: ShikimoriSharp/ApiServices/RequestManager.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: .ctor
+    path: ../ShikimoriSharp/ApiServices/RequestManager.cs
+    startLine: 34
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.ApiServices
+  summary: Инициализирует новый экземпляр класса <xref href="ShikimoriSharp.ApiServices.RequestManager" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public RequestManager(HttpClient httpClient, TokenBucket bucketRps, TokenBucket bucketRpm, ClientSettings settings, AccessToken token, Func<AccessToken, Task<AccessToken>> refresh)
+    parameters:
+    - id: httpClient
+      type: System.Net.Http.HttpClient
+      description: Клиент HTTP для выполнения запросов.
+    - id: bucketRps
+      type: ShikimoriSharp.ApiServices.TokenBucket
+      description: Объект <xref href="ShikimoriSharp.ApiServices.TokenBucket" data-throw-if-not-resolved="false"></xref> для управления запросами в секунду.
+    - id: bucketRpm
+      type: ShikimoriSharp.ApiServices.TokenBucket
+      description: Объект <xref href="ShikimoriSharp.ApiServices.TokenBucket" data-throw-if-not-resolved="false"></xref> для управления запросами в минуту.
+    - id: settings
+      type: ShikimoriSharp.Settings.ClientSettings
+      description: Настройки клиента, включая имя клиента.
+    - id: token
+      type: ShikimoriSharp.Bases.AccessToken
+      description: Токен доступа для аутентификации запросов.
+    - id: refresh
+      type: System.Func{ShikimoriSharp.Bases.AccessToken,System.Threading.Tasks.Task{ShikimoriSharp.Bases.AccessToken}}
+      description: Функция для обновления токена доступа.
+    content.vb: Public Sub New(httpClient As HttpClient, bucketRps As TokenBucket, bucketRpm As TokenBucket, settings As ClientSettings, token As AccessToken, refresh As Func(Of AccessToken, Task(Of AccessToken)))
+  overload: ShikimoriSharp.ApiServices.RequestManager.#ctor*
+  nameWithType.vb: RequestManager.New(HttpClient, TokenBucket, TokenBucket, ClientSettings, AccessToken, Func(Of AccessToken, Task(Of AccessToken)))
+  fullName.vb: ShikimoriSharp.ApiServices.RequestManager.New(System.Net.Http.HttpClient, ShikimoriSharp.ApiServices.TokenBucket, ShikimoriSharp.ApiServices.TokenBucket, ShikimoriSharp.Settings.ClientSettings, ShikimoriSharp.Bases.AccessToken, System.Func(Of ShikimoriSharp.Bases.AccessToken, System.Threading.Tasks.Task(Of ShikimoriSharp.Bases.AccessToken)))
+  name.vb: New(HttpClient, TokenBucket, TokenBucket, ClientSettings, AccessToken, Func(Of AccessToken, Task(Of AccessToken)))
+- uid: ShikimoriSharp.ApiServices.RequestManager.ResponseExecutor(System.String,System.String,System.Net.Http.HttpContent)
+  commentId: M:ShikimoriSharp.ApiServices.RequestManager.ResponseExecutor(System.String,System.String,System.Net.Http.HttpContent)
+  id: ResponseExecutor(System.String,System.String,System.Net.Http.HttpContent)
+  parent: ShikimoriSharp.ApiServices.RequestManager
+  langs:
+  - csharp
+  - vb
+  name: ResponseExecutor(string, string, HttpContent)
+  nameWithType: RequestManager.ResponseExecutor(string, string, HttpContent)
+  fullName: ShikimoriSharp.ApiServices.RequestManager.ResponseExecutor(string, string, System.Net.Http.HttpContent)
+  type: Method
+  source:
+    remote:
+      path: ShikimoriSharp/ApiServices/RequestManager.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: ResponseExecutor
+    path: ../ShikimoriSharp/ApiServices/RequestManager.cs
+    startLine: 93
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.ApiServices
+  summary: Выполняет запрос и применяет политику повторных попыток в случае сбоя.
+  example: []
+  syntax:
+    content: public Task<string> ResponseExecutor(string dest, string method, HttpContent data)
+    parameters:
+    - id: dest
+      type: System.String
+      description: URI назначения для запроса.
+    - id: method
+      type: System.String
+      description: HTTP метод (например, GET, POST).
+    - id: data
+      type: System.Net.Http.HttpContent
+      description: Данные запроса в формате <xref href="System.Net.Http.HttpContent" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Threading.Tasks.Task{System.String}
+      description: Задача, представляющая результат запроса в виде строки.
+    content.vb: Public Function ResponseExecutor(dest As String, method As String, data As HttpContent) As Task(Of String)
+  overload: ShikimoriSharp.ApiServices.RequestManager.ResponseExecutor*
+  exceptions:
+  - type: System.Exception
+    commentId: T:System.Exception
+    description: Выбрасывается при ошибке выполнения запроса или отсутствии ответа после повторных попыток.
+  nameWithType.vb: RequestManager.ResponseExecutor(String, String, HttpContent)
+  fullName.vb: ShikimoriSharp.ApiServices.RequestManager.ResponseExecutor(String, String, System.Net.Http.HttpContent)
+  name.vb: ResponseExecutor(String, String, HttpContent)
+- uid: ShikimoriSharp.ApiServices.RequestManager.ResponseAsType``1(System.String,System.String,System.Net.Http.HttpContent)
+  commentId: M:ShikimoriSharp.ApiServices.RequestManager.ResponseAsType``1(System.String,System.String,System.Net.Http.HttpContent)
+  id: ResponseAsType``1(System.String,System.String,System.Net.Http.HttpContent)
+  parent: ShikimoriSharp.ApiServices.RequestManager
+  langs:
+  - csharp
+  - vb
+  name: ResponseAsType<TResult>(string, string, HttpContent)
+  nameWithType: RequestManager.ResponseAsType<TResult>(string, string, HttpContent)
+  fullName: ShikimoriSharp.ApiServices.RequestManager.ResponseAsType<TResult>(string, string, System.Net.Http.HttpContent)
+  type: Method
+  source:
+    remote:
+      path: ShikimoriSharp/ApiServices/RequestManager.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: ResponseAsType
+    path: ../ShikimoriSharp/ApiServices/RequestManager.cs
+    startLine: 142
+  assemblies:
+  - ShikimoriSharp
+  namespace: ShikimoriSharp.ApiServices
+  summary: Выполняет запрос и десериализует ответ в указанный тип.
+  example: []
+  syntax:
+    content: public Task<TResult> ResponseAsType<TResult>(string dest, string method, HttpContent data)
+    parameters:
+    - id: dest
+      type: System.String
+      description: URI назначения для запроса.
+    - id: method
+      type: System.String
+      description: HTTP метод (например, GET, POST).
+    - id: data
+      type: System.Net.Http.HttpContent
+      description: Данные запроса в формате <xref href="System.Net.Http.HttpContent" data-throw-if-not-resolved="false"></xref>.
+    typeParameters:
+    - id: TResult
+      description: Тип, в который нужно десериализовать ответ.
+    return:
+      type: System.Threading.Tasks.Task{{TResult}}
+      description: Задача, представляющая результат запроса в виде объекта типа <code class="typeparamref">TResult</code>.
+    content.vb: Public Function ResponseAsType(Of TResult)(dest As String, method As String, data As HttpContent) As Task(Of TResult)
+  overload: ShikimoriSharp.ApiServices.RequestManager.ResponseAsType*
+  nameWithType.vb: RequestManager.ResponseAsType(Of TResult)(String, String, HttpContent)
+  fullName.vb: ShikimoriSharp.ApiServices.RequestManager.ResponseAsType(Of TResult)(String, String, System.Net.Http.HttpContent)
+  name.vb: ResponseAsType(Of TResult)(String, String, HttpContent)
+references:
+- uid: ShikimoriSharp.ApiServices
+  commentId: N:ShikimoriSharp.ApiServices
+  href: ShikimoriSharp.html
+  name: ShikimoriSharp.ApiServices
+  nameWithType: ShikimoriSharp.ApiServices
+  fullName: ShikimoriSharp.ApiServices
+  spec.csharp:
+  - uid: ShikimoriSharp
+    name: ShikimoriSharp
+    href: ShikimoriSharp.html
+  - name: .
+  - uid: ShikimoriSharp.ApiServices
+    name: ApiServices
+    href: ShikimoriSharp.ApiServices.html
+  spec.vb:
+  - uid: ShikimoriSharp
+    name: ShikimoriSharp
+    href: ShikimoriSharp.html
+  - name: .
+  - uid: ShikimoriSharp.ApiServices
+    name: ApiServices
+    href: ShikimoriSharp.ApiServices.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ShikimoriSharp.ApiServices.RequestManager
+  commentId: T:ShikimoriSharp.ApiServices.RequestManager
+  href: ShikimoriSharp.ApiServices.RequestManager.html
+  name: RequestManager
+  nameWithType: RequestManager
+  fullName: ShikimoriSharp.ApiServices.RequestManager
+- uid: ShikimoriSharp.ApiServices.TokenBucket
+  commentId: T:ShikimoriSharp.ApiServices.TokenBucket
+  parent: ShikimoriSharp.ApiServices
+  href: ShikimoriSharp.ApiServices.TokenBucket.html
+  name: TokenBucket
+  nameWithType: TokenBucket
+  fullName: ShikimoriSharp.ApiServices.TokenBucket
+- uid: ShikimoriSharp.ApiServices.RequestManager.#ctor*
+  commentId: Overload:ShikimoriSharp.ApiServices.RequestManager.#ctor
+  href: ShikimoriSharp.ApiServices.RequestManager.html#ShikimoriSharp_ApiServices_RequestManager__ctor_System_Net_Http_HttpClient_ShikimoriSharp_ApiServices_TokenBucket_ShikimoriSharp_ApiServices_TokenBucket_ShikimoriSharp_Settings_ClientSettings_ShikimoriSharp_Bases_AccessToken_System_Func_ShikimoriSharp_Bases_AccessToken_System_Threading_Tasks_Task_ShikimoriSharp_Bases_AccessToken___
+  name: RequestManager
+  nameWithType: RequestManager.RequestManager
+  fullName: ShikimoriSharp.ApiServices.RequestManager.RequestManager
+  nameWithType.vb: RequestManager.New
+  fullName.vb: ShikimoriSharp.ApiServices.RequestManager.New
+  name.vb: New
+- uid: System.Net.Http.HttpClient
+  commentId: T:System.Net.Http.HttpClient
+  parent: System.Net.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.http.httpclient
+  name: HttpClient
+  nameWithType: HttpClient
+  fullName: System.Net.Http.HttpClient
+- uid: ShikimoriSharp.Settings.ClientSettings
+  commentId: T:ShikimoriSharp.Settings.ClientSettings
+  parent: ShikimoriSharp.Settings
+  href: ShikimoriSharp.Settings.ClientSettings.html
+  name: ClientSettings
+  nameWithType: ClientSettings
+  fullName: ShikimoriSharp.Settings.ClientSettings
+- uid: ShikimoriSharp.Bases.AccessToken
+  commentId: T:ShikimoriSharp.Bases.AccessToken
+  parent: ShikimoriSharp.Bases
+  href: ShikimoriSharp.Bases.AccessToken.html
+  name: AccessToken
+  nameWithType: AccessToken
+  fullName: ShikimoriSharp.Bases.AccessToken
+- uid: System.Func{ShikimoriSharp.Bases.AccessToken,System.Threading.Tasks.Task{ShikimoriSharp.Bases.AccessToken}}
+  commentId: T:System.Func{ShikimoriSharp.Bases.AccessToken,System.Threading.Tasks.Task{ShikimoriSharp.Bases.AccessToken}}
+  parent: System
+  definition: System.Func`2
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<AccessToken, Task<AccessToken>>
+  nameWithType: Func<AccessToken, Task<AccessToken>>
+  fullName: System.Func<ShikimoriSharp.Bases.AccessToken, System.Threading.Tasks.Task<ShikimoriSharp.Bases.AccessToken>>
+  nameWithType.vb: Func(Of AccessToken, Task(Of AccessToken))
+  fullName.vb: System.Func(Of ShikimoriSharp.Bases.AccessToken, System.Threading.Tasks.Task(Of ShikimoriSharp.Bases.AccessToken))
+  name.vb: Func(Of AccessToken, Task(Of AccessToken))
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: ShikimoriSharp.Bases.AccessToken
+    name: AccessToken
+    href: ShikimoriSharp.Bases.AccessToken.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: ShikimoriSharp.Bases.AccessToken
+    name: AccessToken
+    href: ShikimoriSharp.Bases.AccessToken.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ShikimoriSharp.Bases.AccessToken
+    name: AccessToken
+    href: ShikimoriSharp.Bases.AccessToken.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ShikimoriSharp.Bases.AccessToken
+    name: AccessToken
+    href: ShikimoriSharp.Bases.AccessToken.html
+  - name: )
+  - name: )
+- uid: System.Net.Http
+  commentId: N:System.Net.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Net.Http
+  nameWithType: System.Net.Http
+  fullName: System.Net.Http
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.Http
+    name: Http
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.Http
+    name: Http
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http
+- uid: ShikimoriSharp.Settings
+  commentId: N:ShikimoriSharp.Settings
+  href: ShikimoriSharp.html
+  name: ShikimoriSharp.Settings
+  nameWithType: ShikimoriSharp.Settings
+  fullName: ShikimoriSharp.Settings
+  spec.csharp:
+  - uid: ShikimoriSharp
+    name: ShikimoriSharp
+    href: ShikimoriSharp.html
+  - name: .
+  - uid: ShikimoriSharp.Settings
+    name: Settings
+    href: ShikimoriSharp.Settings.html
+  spec.vb:
+  - uid: ShikimoriSharp
+    name: ShikimoriSharp
+    href: ShikimoriSharp.html
+  - name: .
+  - uid: ShikimoriSharp.Settings
+    name: Settings
+    href: ShikimoriSharp.Settings.html
+- uid: ShikimoriSharp.Bases
+  commentId: N:ShikimoriSharp.Bases
+  href: ShikimoriSharp.html
+  name: ShikimoriSharp.Bases
+  nameWithType: ShikimoriSharp.Bases
+  fullName: ShikimoriSharp.Bases
+  spec.csharp:
+  - uid: ShikimoriSharp
+    name: ShikimoriSharp
+    href: ShikimoriSharp.html
+  - name: .
+  - uid: ShikimoriSharp.Bases
+    name: Bases
+    href: ShikimoriSharp.Bases.html
+  spec.vb:
+  - uid: ShikimoriSharp
+    name: ShikimoriSharp
+    href: ShikimoriSharp.html
+  - name: .
+  - uid: ShikimoriSharp.Bases
+    name: Bases
+    href: ShikimoriSharp.Bases.html
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Net.Http.HttpContent
+  commentId: T:System.Net.Http.HttpContent
+  parent: System.Net.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.http.httpcontent
+  name: HttpContent
+  nameWithType: HttpContent
+  fullName: System.Net.Http.HttpContent
+- uid: System.Exception
+  commentId: T:System.Exception
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception
+  name: Exception
+  nameWithType: Exception
+  fullName: System.Exception
+- uid: ShikimoriSharp.ApiServices.RequestManager.ResponseExecutor*
+  commentId: Overload:ShikimoriSharp.ApiServices.RequestManager.ResponseExecutor
+  href: ShikimoriSharp.ApiServices.RequestManager.html#ShikimoriSharp_ApiServices_RequestManager_ResponseExecutor_System_String_System_String_System_Net_Http_HttpContent_
+  name: ResponseExecutor
+  nameWithType: RequestManager.ResponseExecutor
+  fullName: ShikimoriSharp.ApiServices.RequestManager.ResponseExecutor
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.Tasks.Task{System.String}
+  commentId: T:System.Threading.Tasks.Task{System.String}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<string>
+  nameWithType: Task<string>
+  fullName: System.Threading.Tasks.Task<string>
+  nameWithType.vb: Task(Of String)
+  fullName.vb: System.Threading.Tasks.Task(Of String)
+  name.vb: Task(Of String)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: ShikimoriSharp.ApiServices.RequestManager.ResponseAsType*
+  commentId: Overload:ShikimoriSharp.ApiServices.RequestManager.ResponseAsType
+  href: ShikimoriSharp.ApiServices.RequestManager.html#ShikimoriSharp_ApiServices_RequestManager_ResponseAsType__1_System_String_System_String_System_Net_Http_HttpContent_
+  name: ResponseAsType
+  nameWithType: RequestManager.ResponseAsType
+  fullName: ShikimoriSharp.ApiServices.RequestManager.ResponseAsType
+- uid: System.Threading.Tasks.Task{{TResult}}
+  commentId: T:System.Threading.Tasks.Task{``0}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )

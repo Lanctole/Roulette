@@ -20,7 +20,6 @@ public class ShikimoriApiConnectorService
     private readonly ShikimoriClient _client;
     private readonly ApplicationDbContext _context;
     private readonly ILogger<ShikimoriApiConnectorService> _logger;
-    private readonly ILogger<ApiBase> _loggerForApi;
 
     /// <summary>
     ///     Конструктор сервиса ShikimoriApiConnectorService.
@@ -30,6 +29,7 @@ public class ShikimoriApiConnectorService
     /// <param name="httpClientFactory">Фабрика HTTP-клиентов.</param>
     /// <param name="context">Контекст базы данных.</param>
     /// <param name="logger">Логгер для записи информации и ошибок.</param>
+    /// <param name="loggerForApi">Логгер для конструктора ShikimoriClient</param>
     public ShikimoriApiConnectorService(IConfiguration configuration, IDistributedCache cache,
         IHttpClientFactory httpClientFactory, ApplicationDbContext context, ILogger<ShikimoriApiConnectorService> logger, ILogger<ApiBase> loggerForApi)
     {
@@ -45,7 +45,6 @@ public class ShikimoriApiConnectorService
         _cache = cache;
         _context = context;
         _logger = logger;
-        _loggerForApi = loggerForApi;
         if (name == null || clientId == null || clientSecret == null)
         {
             throw new ArgumentException("Не все параметры аутентификации заданы.");
@@ -73,23 +72,48 @@ public class ShikimoriApiConnectorService
     {
         try
         {
-            var cachedData = await _cache.GetStringAsync(cacheKey);
+            string cachedData = null;
+            try
+            {
+                cachedData = await _cache.GetStringAsync(cacheKey);
+            }
+            catch (Exception cacheEx)
+            {
+                _logger.LogWarning(cacheEx, "Кэш недоступен, продолжаем без кэша для ключа {CacheKey}.", cacheKey);
+            }
+
             if (cachedData != null)
             {
                 _logger.LogInformation("Получены данные из кэша по ключу {CacheKey}.", cacheKey);
                 return JsonConvert.DeserializeObject<T>(cachedData);
             }
 
-            var id = ExtractIdFromCacheKey(cacheKey);
+            T dbData = default;
             if (fetchFromDbFunc != null)
             {
-                var dbData = await fetchFromDbFunc(id);
-                if (dbData != null)
+                try
                 {
-                    var serializedData = JsonConvert.SerializeObject(dbData);
-                    await _cache.SetStringAsync(cacheKey, serializedData);
-                    _logger.LogInformation("Получены данные из базы данных и сохранены в кэш по ключу {CacheKey}.", cacheKey);
-                    return dbData;
+                    var id = ExtractIdFromCacheKey(cacheKey);
+                    dbData = await fetchFromDbFunc(id);
+
+                    if (dbData != null)
+                    {
+                        var serializedData = JsonConvert.SerializeObject(dbData);
+                        try
+                        {
+                            await _cache.SetStringAsync(cacheKey, serializedData);
+                        }
+                        catch (Exception cacheEx)
+                        {
+                            _logger.LogWarning(cacheEx, "Ошибка сохранения данных в кэш для ключа {CacheKey}.", cacheKey);
+                        }
+                        _logger.LogInformation("Получены данные из базы данных и сохранены в кэш по ключу {CacheKey}.", cacheKey);
+                        return dbData;
+                    }
+                }
+                catch (Exception dbEx)
+                {
+                    _logger.LogWarning(dbEx, "База данных недоступна при попытке чтения по ключу {CacheKey}, продолжаем без базы данных.", cacheKey);
                 }
             }
 
@@ -98,19 +122,33 @@ public class ShikimoriApiConnectorService
 
             if (isForDb && saveToDbAction != null)
             {
-                saveToDbAction(apiData);
-                await _context.SaveChangesAsync();
-                _logger.LogInformation("Данные сохранены в базу данных и кэш по ключу {CacheKey}.", cacheKey);
+                try
+                {
+                    saveToDbAction(apiData);
+                    await _context.SaveChangesAsync();
+                    _logger.LogInformation("Данные сохранены в базу данных и кэш по ключу {CacheKey}.", cacheKey);
+                }
+                catch (Exception dbEx)
+                {
+                    _logger.LogError(dbEx, "Ошибка при сохранении данных в базу данных по ключу {CacheKey}.", cacheKey);
+                }
             }
 
-            await _cache.SetStringAsync(cacheKey, serializedApiData);
-            _logger.LogInformation("Получены данные из API и сохранены в кэш по ключу {CacheKey}.", cacheKey);
+            try
+            {
+                await _cache.SetStringAsync(cacheKey, serializedApiData);
+            }
+            catch (Exception cacheEx)
+            {
+                _logger.LogWarning(cacheEx, "Ошибка сохранения данных в кэш для ключа {CacheKey}.", cacheKey);
+            }
 
+            _logger.LogInformation("Получены данные из API и сохранены в кэш по ключу {CacheKey}.", cacheKey);
             return apiData;
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Ошибка при получении данных для ключа кэша {CacheKey}.", cacheKey);
+            _logger.LogError(ex, "Ошибка при получении данных по ключу {CacheKey} из всех источников (кэш, база данных, API).", cacheKey);
             throw;
         }
     }

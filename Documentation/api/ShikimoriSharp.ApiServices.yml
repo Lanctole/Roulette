@@ -1,0 +1,132 @@
+### YamlMime:ManagedReference
+items:
+- uid: ShikimoriSharp.ApiServices
+  commentId: N:ShikimoriSharp.ApiServices
+  id: ShikimoriSharp.ApiServices
+  children:
+  - ShikimoriSharp.ApiServices.Animes
+  - ShikimoriSharp.ApiServices.ApiBase
+  - ShikimoriSharp.ApiServices.ApiClient
+  - ShikimoriSharp.ApiServices.AuthorizationManager
+  - ShikimoriSharp.ApiServices.Genres
+  - ShikimoriSharp.ApiServices.Mangas
+  - ShikimoriSharp.ApiServices.Publishers
+  - ShikimoriSharp.ApiServices.Ranobes
+  - ShikimoriSharp.ApiServices.RequestManager
+  - ShikimoriSharp.ApiServices.ShikimoriClient
+  - ShikimoriSharp.ApiServices.Studios
+  - ShikimoriSharp.ApiServices.TokenBucket
+  langs:
+  - csharp
+  - vb
+  name: ShikimoriSharp.ApiServices
+  nameWithType: ShikimoriSharp.ApiServices
+  fullName: ShikimoriSharp.ApiServices
+  type: Namespace
+  assemblies:
+  - ShikimoriSharp
+references:
+- uid: ShikimoriSharp.ApiServices.Animes
+  commentId: T:ShikimoriSharp.ApiServices.Animes
+  parent: ShikimoriSharp.ApiServices
+  href: ShikimoriSharp.ApiServices.Animes.html
+  name: Animes
+  nameWithType: Animes
+  fullName: ShikimoriSharp.ApiServices.Animes
+- uid: ShikimoriSharp.ApiServices.ApiBase
+  commentId: T:ShikimoriSharp.ApiServices.ApiBase
+  parent: ShikimoriSharp.ApiServices
+  href: ShikimoriSharp.ApiServices.ApiBase.html
+  name: ApiBase
+  nameWithType: ApiBase
+  fullName: ShikimoriSharp.ApiServices.ApiBase
+- uid: ShikimoriSharp.ApiServices.ApiClient
+  commentId: T:ShikimoriSharp.ApiServices.ApiClient
+  parent: ShikimoriSharp.ApiServices
+  href: ShikimoriSharp.ApiServices.ApiClient.html
+  name: ApiClient
+  nameWithType: ApiClient
+  fullName: ShikimoriSharp.ApiServices.ApiClient
+- uid: ShikimoriSharp.ApiServices.AuthorizationManager
+  commentId: T:ShikimoriSharp.ApiServices.AuthorizationManager
+  parent: ShikimoriSharp.ApiServices
+  href: ShikimoriSharp.ApiServices.AuthorizationManager.html
+  name: AuthorizationManager
+  nameWithType: AuthorizationManager
+  fullName: ShikimoriSharp.ApiServices.AuthorizationManager
+- uid: ShikimoriSharp.ApiServices.Genres
+  commentId: T:ShikimoriSharp.ApiServices.Genres
+  parent: ShikimoriSharp.ApiServices
+  href: ShikimoriSharp.ApiServices.Genres.html
+  name: Genres
+  nameWithType: Genres
+  fullName: ShikimoriSharp.ApiServices.Genres
+- uid: ShikimoriSharp.ApiServices.Mangas
+  commentId: T:ShikimoriSharp.ApiServices.Mangas
+  parent: ShikimoriSharp.ApiServices
+  href: ShikimoriSharp.ApiServices.Mangas.html
+  name: Mangas
+  nameWithType: Mangas
+  fullName: ShikimoriSharp.ApiServices.Mangas
+- uid: ShikimoriSharp.ApiServices.Publishers
+  commentId: T:ShikimoriSharp.ApiServices.Publishers
+  parent: ShikimoriSharp.ApiServices
+  href: ShikimoriSharp.ApiServices.Publishers.html
+  name: Publishers
+  nameWithType: Publishers
+  fullName: ShikimoriSharp.ApiServices.Publishers
+- uid: ShikimoriSharp.ApiServices.Ranobes
+  commentId: T:ShikimoriSharp.ApiServices.Ranobes
+  parent: ShikimoriSharp.ApiServices
+  href: ShikimoriSharp.ApiServices.Ranobes.html
+  name: Ranobes
+  nameWithType: Ranobes
+  fullName: ShikimoriSharp.ApiServices.Ranobes
+- uid: ShikimoriSharp.ApiServices.RequestManager
+  commentId: T:ShikimoriSharp.ApiServices.RequestManager
+  href: ShikimoriSharp.ApiServices.RequestManager.html
+  name: RequestManager
+  nameWithType: RequestManager
+  fullName: ShikimoriSharp.ApiServices.RequestManager
+- uid: ShikimoriSharp.ApiServices.ShikimoriClient
+  commentId: T:ShikimoriSharp.ApiServices.ShikimoriClient
+  href: ShikimoriSharp.ApiServices.ShikimoriClient.html
+  name: ShikimoriClient
+  nameWithType: ShikimoriClient
+  fullName: ShikimoriSharp.ApiServices.ShikimoriClient
+- uid: ShikimoriSharp.ApiServices.Studios
+  commentId: T:ShikimoriSharp.ApiServices.Studios
+  parent: ShikimoriSharp.ApiServices
+  href: ShikimoriSharp.ApiServices.Studios.html
+  name: Studios
+  nameWithType: Studios
+  fullName: ShikimoriSharp.ApiServices.Studios
+- uid: ShikimoriSharp.ApiServices.TokenBucket
+  commentId: T:ShikimoriSharp.ApiServices.TokenBucket
+  parent: ShikimoriSharp.ApiServices
+  href: ShikimoriSharp.ApiServices.TokenBucket.html
+  name: TokenBucket
+  nameWithType: TokenBucket
+  fullName: ShikimoriSharp.ApiServices.TokenBucket
+- uid: ShikimoriSharp.ApiServices
+  commentId: N:ShikimoriSharp.ApiServices
+  href: ShikimoriSharp.html
+  name: ShikimoriSharp.ApiServices
+  nameWithType: ShikimoriSharp.ApiServices
+  fullName: ShikimoriSharp.ApiServices
+  spec.csharp:
+  - uid: ShikimoriSharp
+    name: ShikimoriSharp
+    href: ShikimoriSharp.html
+  - name: .
+  - uid: ShikimoriSharp.ApiServices
+    name: ApiServices
+    href: ShikimoriSharp.ApiServices.html
+  spec.vb:
+  - uid: ShikimoriSharp
+    name: ShikimoriSharp
+    href: ShikimoriSharp.html
+  - name: .
+  - uid: ShikimoriSharp.ApiServices
+    name: ApiServices
+    href: ShikimoriSharp.ApiServices.html

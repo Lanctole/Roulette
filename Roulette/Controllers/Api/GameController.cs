@@ -77,9 +77,20 @@ public class GameController : ControllerBase
         gameIdsQuery = queryProcessor.ApplySorting(gameIdsQuery, order);
 
         var gameIds = await gameIdsQuery.Select(g => g.AppID).Take(limit).ToListAsync();
-        var games = await _gameService.GetGamesAsync(gameIds, limit);
-
-        return Ok(games);
+        
+        try
+        {
+            var games = await _gameService.GetGamesAsync(gameIds, limit);
+            return Ok(games);
+        }
+        catch (InvalidOperationException operationExceptionEx)
+        {
+            return StatusCode(503, $"Ошибка запроса к API: {operationExceptionEx.Message}");
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, $"Внутренняя ошибка сервера: {ex.Message}");
+        }
     }
 
     /// <summary>

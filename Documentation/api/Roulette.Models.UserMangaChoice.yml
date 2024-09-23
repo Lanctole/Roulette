@@ -1,0 +1,632 @@
+### YamlMime:ManagedReference
+items:
+- uid: Roulette.Models.UserMangaChoice
+  commentId: T:Roulette.Models.UserMangaChoice
+  id: UserMangaChoice
+  parent: Roulette.Models
+  children:
+  - Roulette.Models.UserMangaChoice.ChosenAt
+  - Roulette.Models.UserMangaChoice.Id
+  - Roulette.Models.UserMangaChoice.Manga
+  - Roulette.Models.UserMangaChoice.MangaId
+  - Roulette.Models.UserMangaChoice.User
+  - Roulette.Models.UserMangaChoice.UserId
+  langs:
+  - csharp
+  - vb
+  name: UserMangaChoice
+  nameWithType: UserMangaChoice
+  fullName: Roulette.Models.UserMangaChoice
+  type: Class
+  source:
+    remote:
+      path: Roulette/Models/UserMangaChoice.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: UserMangaChoice
+    path: ../Roulette/Models/UserMangaChoice.cs
+    startLine: 5
+  assemblies:
+  - Roulette
+  namespace: Roulette.Models
+  syntax:
+    content: public class UserMangaChoice
+    content.vb: Public Class UserMangaChoice
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Roulette.Models.UserMangaChoice.Id
+  commentId: P:Roulette.Models.UserMangaChoice.Id
+  id: Id
+  parent: Roulette.Models.UserMangaChoice
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: UserMangaChoice.Id
+  fullName: Roulette.Models.UserMangaChoice.Id
+  type: Property
+  source:
+    remote:
+      path: Roulette/Models/UserMangaChoice.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Id
+    path: ../Roulette/Models/UserMangaChoice.cs
+    startLine: 7
+  assemblies:
+  - Roulette
+  namespace: Roulette.Models
+  syntax:
+    content: public int Id { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Id As Integer
+  overload: Roulette.Models.UserMangaChoice.Id*
+- uid: Roulette.Models.UserMangaChoice.UserId
+  commentId: P:Roulette.Models.UserMangaChoice.UserId
+  id: UserId
+  parent: Roulette.Models.UserMangaChoice
+  langs:
+  - csharp
+  - vb
+  name: UserId
+  nameWithType: UserMangaChoice.UserId
+  fullName: Roulette.Models.UserMangaChoice.UserId
+  type: Property
+  source:
+    remote:
+      path: Roulette/Models/UserMangaChoice.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: UserId
+    path: ../Roulette/Models/UserMangaChoice.cs
+    startLine: 8
+  assemblies:
+  - Roulette
+  namespace: Roulette.Models
+  syntax:
+    content: public string UserId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property UserId As String
+  overload: Roulette.Models.UserMangaChoice.UserId*
+- uid: Roulette.Models.UserMangaChoice.User
+  commentId: P:Roulette.Models.UserMangaChoice.User
+  id: User
+  parent: Roulette.Models.UserMangaChoice
+  langs:
+  - csharp
+  - vb
+  name: User
+  nameWithType: UserMangaChoice.User
+  fullName: Roulette.Models.UserMangaChoice.User
+  type: Property
+  source:
+    remote:
+      path: Roulette/Models/UserMangaChoice.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: User
+    path: ../Roulette/Models/UserMangaChoice.cs
+    startLine: 9
+  assemblies:
+  - Roulette
+  namespace: Roulette.Models
+  syntax:
+    content: public IdentityUser? User { get; set; }
+    parameters: []
+    return:
+      type: Microsoft.AspNetCore.Identity.IdentityUser
+    content.vb: Public Property User As IdentityUser
+  overload: Roulette.Models.UserMangaChoice.User*
+- uid: Roulette.Models.UserMangaChoice.MangaId
+  commentId: P:Roulette.Models.UserMangaChoice.MangaId
+  id: MangaId
+  parent: Roulette.Models.UserMangaChoice
+  langs:
+  - csharp
+  - vb
+  name: MangaId
+  nameWithType: UserMangaChoice.MangaId
+  fullName: Roulette.Models.UserMangaChoice.MangaId
+  type: Property
+  source:
+    remote:
+      path: Roulette/Models/UserMangaChoice.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: MangaId
+    path: ../Roulette/Models/UserMangaChoice.cs
+    startLine: 10
+  assemblies:
+  - Roulette
+  namespace: Roulette.Models
+  syntax:
+    content: public long MangaId { get; set; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public Property MangaId As Long
+  overload: Roulette.Models.UserMangaChoice.MangaId*
+- uid: Roulette.Models.UserMangaChoice.Manga
+  commentId: P:Roulette.Models.UserMangaChoice.Manga
+  id: Manga
+  parent: Roulette.Models.UserMangaChoice
+  langs:
+  - csharp
+  - vb
+  name: Manga
+  nameWithType: UserMangaChoice.Manga
+  fullName: Roulette.Models.UserMangaChoice.Manga
+  type: Property
+  source:
+    remote:
+      path: Roulette/Models/UserMangaChoice.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Manga
+    path: ../Roulette/Models/UserMangaChoice.cs
+    startLine: 11
+  assemblies:
+  - Roulette
+  namespace: Roulette.Models
+  syntax:
+    content: public MangaDto? Manga { get; set; }
+    parameters: []
+    return:
+      type: Roulette.DTOs.MangaDto
+    content.vb: Public Property Manga As MangaDto
+  overload: Roulette.Models.UserMangaChoice.Manga*
+- uid: Roulette.Models.UserMangaChoice.ChosenAt
+  commentId: P:Roulette.Models.UserMangaChoice.ChosenAt
+  id: ChosenAt
+  parent: Roulette.Models.UserMangaChoice
+  langs:
+  - csharp
+  - vb
+  name: ChosenAt
+  nameWithType: UserMangaChoice.ChosenAt
+  fullName: Roulette.Models.UserMangaChoice.ChosenAt
+  type: Property
+  source:
+    remote:
+      path: Roulette/Models/UserMangaChoice.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: ChosenAt
+    path: ../Roulette/Models/UserMangaChoice.cs
+    startLine: 12
+  assemblies:
+  - Roulette
+  namespace: Roulette.Models
+  syntax:
+    content: public DateTime ChosenAt { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: Public Property ChosenAt As Date
+  overload: Roulette.Models.UserMangaChoice.ChosenAt*
+references:
+- uid: Roulette.Models
+  commentId: N:Roulette.Models
+  href: Roulette.html
+  name: Roulette.Models
+  nameWithType: Roulette.Models
+  fullName: Roulette.Models
+  spec.csharp:
+  - uid: Roulette
+    name: Roulette
+    href: Roulette.html
+  - name: .
+  - uid: Roulette.Models
+    name: Models
+    href: Roulette.Models.html
+  spec.vb:
+  - uid: Roulette
+    name: Roulette
+    href: Roulette.html
+  - name: .
+  - uid: Roulette.Models
+    name: Models
+    href: Roulette.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Roulette.Models.UserMangaChoice.Id*
+  commentId: Overload:Roulette.Models.UserMangaChoice.Id
+  href: Roulette.Models.UserMangaChoice.html#Roulette_Models_UserMangaChoice_Id
+  name: Id
+  nameWithType: UserMangaChoice.Id
+  fullName: Roulette.Models.UserMangaChoice.Id
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Roulette.Models.UserMangaChoice.UserId*
+  commentId: Overload:Roulette.Models.UserMangaChoice.UserId
+  href: Roulette.Models.UserMangaChoice.html#Roulette_Models_UserMangaChoice_UserId
+  name: UserId
+  nameWithType: UserMangaChoice.UserId
+  fullName: Roulette.Models.UserMangaChoice.UserId
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Roulette.Models.UserMangaChoice.User*
+  commentId: Overload:Roulette.Models.UserMangaChoice.User
+  href: Roulette.Models.UserMangaChoice.html#Roulette_Models_UserMangaChoice_User
+  name: User
+  nameWithType: UserMangaChoice.User
+  fullName: Roulette.Models.UserMangaChoice.User
+- uid: Microsoft.AspNetCore.Identity.IdentityUser
+  commentId: T:Microsoft.AspNetCore.Identity.IdentityUser
+  parent: Microsoft.AspNetCore.Identity
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityuser
+  name: IdentityUser
+  nameWithType: IdentityUser
+  fullName: Microsoft.AspNetCore.Identity.IdentityUser
+- uid: Microsoft.AspNetCore.Identity
+  commentId: N:Microsoft.AspNetCore.Identity
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.AspNetCore.Identity
+  nameWithType: Microsoft.AspNetCore.Identity
+  fullName: Microsoft.AspNetCore.Identity
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore
+  - name: .
+  - uid: Microsoft.AspNetCore.Identity
+    name: Identity
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore
+  - name: .
+  - uid: Microsoft.AspNetCore.Identity
+    name: Identity
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity
+- uid: Roulette.Models.UserMangaChoice.MangaId*
+  commentId: Overload:Roulette.Models.UserMangaChoice.MangaId
+  href: Roulette.Models.UserMangaChoice.html#Roulette_Models_UserMangaChoice_MangaId
+  name: MangaId
+  nameWithType: UserMangaChoice.MangaId
+  fullName: Roulette.Models.UserMangaChoice.MangaId
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: Roulette.Models.UserMangaChoice.Manga*
+  commentId: Overload:Roulette.Models.UserMangaChoice.Manga
+  href: Roulette.Models.UserMangaChoice.html#Roulette_Models_UserMangaChoice_Manga
+  name: Manga
+  nameWithType: UserMangaChoice.Manga
+  fullName: Roulette.Models.UserMangaChoice.Manga
+- uid: Roulette.DTOs.MangaDto
+  commentId: T:Roulette.DTOs.MangaDto
+  parent: Roulette.DTOs
+  href: Roulette.DTOs.MangaDto.html
+  name: MangaDto
+  nameWithType: MangaDto
+  fullName: Roulette.DTOs.MangaDto
+- uid: Roulette.DTOs
+  commentId: N:Roulette.DTOs
+  href: Roulette.html
+  name: Roulette.DTOs
+  nameWithType: Roulette.DTOs
+  fullName: Roulette.DTOs
+  spec.csharp:
+  - uid: Roulette
+    name: Roulette
+    href: Roulette.html
+  - name: .
+  - uid: Roulette.DTOs
+    name: DTOs
+    href: Roulette.DTOs.html
+  spec.vb:
+  - uid: Roulette
+    name: Roulette
+    href: Roulette.html
+  - name: .
+  - uid: Roulette.DTOs
+    name: DTOs
+    href: Roulette.DTOs.html
+- uid: Roulette.Models.UserMangaChoice.ChosenAt*
+  commentId: Overload:Roulette.Models.UserMangaChoice.ChosenAt
+  href: Roulette.Models.UserMangaChoice.html#Roulette_Models_UserMangaChoice_ChosenAt
+  name: ChosenAt
+  nameWithType: UserMangaChoice.ChosenAt
+  fullName: Roulette.Models.UserMangaChoice.ChosenAt
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date

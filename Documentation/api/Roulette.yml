@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: Roulette
+  commentId: N:Roulette
+  id: Roulette
+  children:
+  - Roulette.Program
+  langs:
+  - csharp
+  - vb
+  name: Roulette
+  nameWithType: Roulette
+  fullName: Roulette
+  type: Namespace
+  assemblies:
+  - Roulette
+references:
+- uid: Roulette.Program
+  commentId: T:Roulette.Program
+  href: Roulette.Program.html
+  name: Program
+  nameWithType: Program
+  fullName: Roulette.Program

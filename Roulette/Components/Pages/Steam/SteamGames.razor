@@ -6,6 +6,7 @@
 @inject ApiClientService ApiClientService
 @inject NotificationService Notice
 @inject IJSRuntime Js
+@inject IMessageService Message
 
 <PageTitle>Games</PageTitle>
 <div class="page-title-mobile">
@@ -91,16 +92,29 @@
     private async Task SendSelected()
     {
         ShowCanvas = true;
+
         var gameUrl = BuildGameUrl();
-        Games = await ApiClientService.GetAsync<List<GameDto>>(gameUrl);
-
-        if (Games == null || Games.Count == 0)
+        try
         {
-            await OnEmptyAnswer();
-            return;
-        }
+            Games = await ApiClientService.GetAsync<List<GameDto>>(gameUrl);
 
-        TransferMediaPropsToSpinFunc(Games);
+            if (Games == null || Games.Count == 0)
+            {
+                await OnEmptyAnswer();
+                return;
+            }
+
+            TransferMediaPropsToSpinFunc(Games);
+        }
+        catch (HttpRequestException httpEx)
+        {
+            await Message.Error("К сожалению, что-то случилось с нашей базой данных. Попробуйте снова через некоторое время");
+        }
+        catch (Exception ex)
+        {
+            await Message.Error("Произошла ошибка при загрузке. Перезагрузите страницу или измените фильтры. Если проблема не исчезает - сообщите нам.");
+        }
+        
     }
 
     private string BuildGameUrl()

@@ -1,0 +1,61 @@
+### YamlMime:ManagedReference
+items:
+- uid: Roulette.Components.Layout
+  commentId: N:Roulette.Components.Layout
+  id: Roulette.Components.Layout
+  children:
+  - Roulette.Components.Layout.MainLayout
+  - Roulette.Components.Layout.NavMenu
+  langs:
+  - csharp
+  - vb
+  name: Roulette.Components.Layout
+  nameWithType: Roulette.Components.Layout
+  fullName: Roulette.Components.Layout
+  type: Namespace
+  assemblies:
+  - Roulette
+references:
+- uid: Roulette.Components.Layout.MainLayout
+  commentId: T:Roulette.Components.Layout.MainLayout
+  parent: Roulette.Components.Layout
+  href: Roulette.Components.Layout.MainLayout.html
+  name: MainLayout
+  nameWithType: MainLayout
+  fullName: Roulette.Components.Layout.MainLayout
+- uid: Roulette.Components.Layout.NavMenu
+  commentId: T:Roulette.Components.Layout.NavMenu
+  href: Roulette.Components.Layout.NavMenu.html
+  name: NavMenu
+  nameWithType: NavMenu
+  fullName: Roulette.Components.Layout.NavMenu
+- uid: Roulette.Components.Layout
+  commentId: N:Roulette.Components.Layout
+  href: Roulette.html
+  name: Roulette.Components.Layout
+  nameWithType: Roulette.Components.Layout
+  fullName: Roulette.Components.Layout
+  spec.csharp:
+  - uid: Roulette
+    name: Roulette
+    href: Roulette.html
+  - name: .
+  - uid: Roulette.Components
+    name: Components
+    href: Roulette.Components.html
+  - name: .
+  - uid: Roulette.Components.Layout
+    name: Layout
+    href: Roulette.Components.Layout.html
+  spec.vb:
+  - uid: Roulette
+    name: Roulette
+    href: Roulette.html
+  - name: .
+  - uid: Roulette.Components
+    name: Components
+    href: Roulette.Components.html
+  - name: .
+  - uid: Roulette.Components.Layout
+    name: Layout
+    href: Roulette.Components.Layout.html

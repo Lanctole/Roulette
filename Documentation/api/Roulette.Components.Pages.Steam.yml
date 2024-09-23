@@ -1,0 +1,37 @@
+### YamlMime:ManagedReference
+items:
+- uid: Roulette.Components.Pages.Steam
+  commentId: N:Roulette.Components.Pages.Steam
+  id: Roulette.Components.Pages.Steam
+  children:
+  - Roulette.Components.Pages.Steam.GameGenres
+  - Roulette.Components.Pages.Steam.GameLanguages
+  - Roulette.Components.Pages.Steam.SteamGames
+  langs:
+  - csharp
+  - vb
+  name: Roulette.Components.Pages.Steam
+  nameWithType: Roulette.Components.Pages.Steam
+  fullName: Roulette.Components.Pages.Steam
+  type: Namespace
+  assemblies:
+  - Roulette
+references:
+- uid: Roulette.Components.Pages.Steam.GameGenres
+  commentId: T:Roulette.Components.Pages.Steam.GameGenres
+  href: Roulette.Components.Pages.Steam.GameGenres.html
+  name: GameGenres
+  nameWithType: GameGenres
+  fullName: Roulette.Components.Pages.Steam.GameGenres
+- uid: Roulette.Components.Pages.Steam.GameLanguages
+  commentId: T:Roulette.Components.Pages.Steam.GameLanguages
+  href: Roulette.Components.Pages.Steam.GameLanguages.html
+  name: GameLanguages
+  nameWithType: GameLanguages
+  fullName: Roulette.Components.Pages.Steam.GameLanguages
+- uid: Roulette.Components.Pages.Steam.SteamGames
+  commentId: T:Roulette.Components.Pages.Steam.SteamGames
+  href: Roulette.Components.Pages.Steam.SteamGames.html
+  name: SteamGames
+  nameWithType: SteamGames
+  fullName: Roulette.Components.Pages.Steam.SteamGames

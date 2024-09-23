@@ -41,9 +41,18 @@ public class GameService
         foreach (var gameId in gameIds.Take(limit))
         {
             var cacheKey = $"Game:{gameId}";
+            GameDto gameFromDb = null;
             try
             {
-                var cachedGame = await _cache.GetStringAsync(cacheKey);
+                string cachedGame = null;
+                try
+                {
+                    cachedGame = await _cache.GetStringAsync(cacheKey);
+                }
+                catch (Exception cacheEx)
+                {
+                    _logger.LogWarning(cacheEx, "Кэш недоступен, продолжаем без кэша для ID {GameId}.", gameId);
+                }
 
                 if (cachedGame != null)
                 {
@@ -52,31 +61,45 @@ public class GameService
                     continue;
                 }
 
-                var gameFromDb = await _context.Games
-                    .Include(g => g.Genres)
-                    .Include(g => g.SupportedLanguages)
-                    .Where(g => g.AppID == gameId)
-                    .Select(g => new GameDto
-                    {
-                        AppID = g.AppID,
-                        Name = g.Name,
-                        Cost = g.Cost,
-                        ReleaseDate = g.ReleaseDate,
-                        ShortDescription = g.ShortDescription,
-                        HeaderImage = g.HeaderImage,
-                        SteamScore = g.SteamScore,
-                        MetacriticScore = g.MetacriticScore,
-                        Genres = g.Genres.Select(genre => genre.Name).ToList(),
-                        SupportedLanguages = g.SupportedLanguages.Select(lang => lang.Name).ToList()
-                    })
-                    .FirstOrDefaultAsync();
+                try
+                {
+                    gameFromDb = await _context.Games
+                        .Include(g => g.Genres)
+                        .Include(g => g.SupportedLanguages)
+                        .Where(g => g.AppID == gameId)
+                        .Select(g => new GameDto
+                        {
+                            AppID = g.AppID,
+                            Name = g.Name,
+                            Cost = g.Cost,
+                            ReleaseDate = g.ReleaseDate,
+                            ShortDescription = g.ShortDescription,
+                            HeaderImage = g.HeaderImage,
+                            SteamScore = g.SteamScore,
+                            MetacriticScore = g.MetacriticScore,
+                            Genres = g.Genres.Select(genre => genre.Name).ToList(),
+                            SupportedLanguages = g.SupportedLanguages.Select(lang => lang.Name).ToList()
+                        })
+                        .FirstOrDefaultAsync();
+                }
+                catch (Exception dbEx)
+                {
+                    _logger.LogError(dbEx, "Ошибка при получении игры из базы данных для ID {GameId}.", gameId);
+                    throw new InvalidOperationException($"Не удалось получить данные игры для ID {gameId} из базы данных.", dbEx);
+                }
 
                 if (gameFromDb != null)
                 {
                     var serializedGame = JsonConvert.SerializeObject(gameFromDb);
-                    await _cache.SetStringAsync(cacheKey, serializedGame);
-                    _logger.LogInformation(
-                        "Данные игры с ID {GameId} успешно получены из базы данных и сохранены в кэш.", gameId);
+                    try
+                    {
+                        await _cache.SetStringAsync(cacheKey, serializedGame);
+                    }
+                    catch (Exception cacheEx)
+                    {
+                        _logger.LogWarning(cacheEx, "Ошибка при сохранении данных игры в кэш для ID {GameId}.", gameId);
+                    }
+                    _logger.LogInformation("Данные игры с ID {GameId} успешно получены из базы данных и сохранены в кэш.", gameId);
                     games.Add(gameFromDb);
                 }
                 else
@@ -88,16 +111,20 @@ public class GameService
             {
                 _logger.LogError(jsonEx, "Ошибка десериализации данных игры из кэша для ID {GameId}.", gameId);
             }
-            catch (DbUpdateException dbEx)
-            {
-                _logger.LogError(dbEx, "Ошибка при работе с базой данных при получении игры с ID {GameId}.", gameId);
-            }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Произошла непредвиденная ошибка при получении игры с ID {GameId}.", gameId);
+                throw new InvalidOperationException($"Запрос не может быть обработан для игры с ID {gameId}", ex);
+            }
+
+            if (gameFromDb == null)
+            {
+                _logger.LogError($"Невозможно обработать запрос для игры с ID {gameId}: данные отсутствуют.");
+                throw new InvalidOperationException($"Невозможно обработать запрос для игры с ID {gameId}: данные отсутствуют.");
             }
         }
 
         return games;
     }
+
 }

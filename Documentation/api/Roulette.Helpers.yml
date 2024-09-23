@@ -1,0 +1,53 @@
+### YamlMime:ManagedReference
+items:
+- uid: Roulette.Helpers
+  commentId: N:Roulette.Helpers
+  id: Roulette.Helpers
+  children:
+  - Roulette.Helpers.EnumHelper
+  - Roulette.Helpers.ShikiDataHelper
+  langs:
+  - csharp
+  - vb
+  name: Roulette.Helpers
+  nameWithType: Roulette.Helpers
+  fullName: Roulette.Helpers
+  type: Namespace
+  assemblies:
+  - Roulette
+references:
+- uid: Roulette.Helpers.EnumHelper
+  commentId: T:Roulette.Helpers.EnumHelper
+  href: Roulette.Helpers.EnumHelper.html
+  name: EnumHelper
+  nameWithType: EnumHelper
+  fullName: Roulette.Helpers.EnumHelper
+- uid: Roulette.Helpers.ShikiDataHelper
+  commentId: T:Roulette.Helpers.ShikiDataHelper
+  parent: Roulette.Helpers
+  href: Roulette.Helpers.ShikiDataHelper.html
+  name: ShikiDataHelper
+  nameWithType: ShikiDataHelper
+  fullName: Roulette.Helpers.ShikiDataHelper
+- uid: Roulette.Helpers
+  commentId: N:Roulette.Helpers
+  href: Roulette.html
+  name: Roulette.Helpers
+  nameWithType: Roulette.Helpers
+  fullName: Roulette.Helpers
+  spec.csharp:
+  - uid: Roulette
+    name: Roulette
+    href: Roulette.html
+  - name: .
+  - uid: Roulette.Helpers
+    name: Helpers
+    href: Roulette.Helpers.html
+  spec.vb:
+  - uid: Roulette
+    name: Roulette
+    href: Roulette.html
+  - name: .
+  - uid: Roulette.Helpers
+    name: Helpers
+    href: Roulette.Helpers.html

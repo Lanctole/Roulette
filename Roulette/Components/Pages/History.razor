@@ -8,6 +8,7 @@
 @inject UserManager<IdentityUser> UserManager
 @inject ShikimoriApiConnectorService ShikimoriApiConnectorService
 @inject GameService GameService
+@inject IMessageService Message
 @attribute [Authorize]
 
 
@@ -285,13 +286,20 @@
         _paginatedGameDetails = new List<Tuple<GameDto, DateTime>>();
 
         var paginatedItems = gameHistory.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
-        foreach (var gameChoice in paginatedItems)
+        var ids = paginatedItems.Select(gameChoice => gameChoice.GameId).ToList();
+        try
         {
-            var ids = new List<long>();
-            ids.Add(gameChoice.GameId);
-            var gameDetails = await GameService.GetGamesAsync(ids, 1);
-            var firstGameDetail = gameDetails.ElementAt(0);
-            _paginatedGameDetails.Add(Tuple.Create(firstGameDetail, gameChoice.ChosenAt));
+            var gameDetails = await GameService.GetGamesAsync(ids, ids.Count);
+            for (int i = 0; i < paginatedItems.Count; i++)
+            {
+                var gameChoice = paginatedItems[i];
+                var gameDetail = gameDetails.ElementAt(i);
+                _paginatedGameDetails.Add(Tuple.Create(gameDetail, gameChoice.ChosenAt));
+            }
+        }
+        catch (Exception ex)
+        {
+            await Message.Error("Произошла ошибка. Не удалось загрузить историю.");
         }
     }
 

@@ -1,0 +1,902 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class LocalizedIdentityErrorDescriber | Roulette Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class LocalizedIdentityErrorDescriber | Roulette Documentation ">
+      
+      <meta name="description" content="Локализация сообщений об ошибках Identity">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Lanctole/Roulette/new/develop/apiSpec/new?filename=Roulette_Services_LocalizedIdentityErrorDescriber.md&amp;value=---%0Auid%3A%20Roulette.Services.LocalizedIdentityErrorDescriber%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="Roulette Documentation">
+            Roulette Documentation
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Roulette.Services.LocalizedIdentityErrorDescriber">
+
+
+
+  <h1 id="Roulette_Services_LocalizedIdentityErrorDescriber" data-uid="Roulette.Services.LocalizedIdentityErrorDescriber" class="text-break">
+Class LocalizedIdentityErrorDescriber  <a class="header-action link-secondary" title="View source" href="https://github.com/Lanctole/Roulette/blob/develop/Roulette/Services/LocalizedIdentityErrorDescriber.cs/#L8"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Roulette.html">Roulette</a>.<a class="xref" href="Roulette.Services.html">Services</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Roulette.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Локализация сообщений об ошибках Identity</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class LocalizedIdentityErrorDescriber : IdentityErrorDescriber</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber">IdentityErrorDescriber</a></div>
+      <div><span class="xref">LocalizedIdentityErrorDescriber</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.recoverycoderedemptionfailed">IdentityErrorDescriber.RecoveryCodeRedemptionFailed()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber.passwordrequiresuniquechars">IdentityErrorDescriber.PasswordRequiresUniqueChars(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Roulette_Services_LocalizedIdentityErrorDescriber_ConcurrencyFailure_" data-uid="Roulette.Services.LocalizedIdentityErrorDescriber.ConcurrencyFailure*"></a>
+
+  <h3 id="Roulette_Services_LocalizedIdentityErrorDescriber_ConcurrencyFailure" data-uid="Roulette.Services.LocalizedIdentityErrorDescriber.ConcurrencyFailure">
+  ConcurrencyFailure()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Lanctole/Roulette/blob/develop/Roulette/Services/LocalizedIdentityErrorDescriber.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a> indicating a concurrency failure.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IdentityError ConcurrencyFailure()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a></dt>
+    <dd><p>An <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a> indicating a concurrency failure.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Roulette_Services_LocalizedIdentityErrorDescriber_DefaultError_" data-uid="Roulette.Services.LocalizedIdentityErrorDescriber.DefaultError*"></a>
+
+  <h3 id="Roulette_Services_LocalizedIdentityErrorDescriber_DefaultError" data-uid="Roulette.Services.LocalizedIdentityErrorDescriber.DefaultError">
+  DefaultError()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Lanctole/Roulette/blob/develop/Roulette/Services/LocalizedIdentityErrorDescriber.cs/#L10"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the default <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IdentityError DefaultError()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a></dt>
+    <dd><p>The default <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Roulette_Services_LocalizedIdentityErrorDescriber_DuplicateEmail_" data-uid="Roulette.Services.LocalizedIdentityErrorDescriber.DuplicateEmail*"></a>
+
+  <h3 id="Roulette_Services_LocalizedIdentityErrorDescriber_DuplicateEmail_System_String_" data-uid="Roulette.Services.LocalizedIdentityErrorDescriber.DuplicateEmail(System.String)">
+  DuplicateEmail(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Lanctole/Roulette/blob/develop/Roulette/Services/LocalizedIdentityErrorDescriber.cs/#L82"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a> indicating the specified <code class="paramref">email</code> is already associated with an account.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IdentityError DuplicateEmail(string email)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>email</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The email that is already associated with an account.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a></dt>
+    <dd><p>An <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a> indicating the specified <code class="paramref">email</code> is already associated with an account.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Roulette_Services_LocalizedIdentityErrorDescriber_DuplicateRoleName_" data-uid="Roulette.Services.LocalizedIdentityErrorDescriber.DuplicateRoleName*"></a>
+
+  <h3 id="Roulette_Services_LocalizedIdentityErrorDescriber_DuplicateRoleName_System_String_" data-uid="Roulette.Services.LocalizedIdentityErrorDescriber.DuplicateRoleName(System.String)">
+  DuplicateRoleName(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Lanctole/Roulette/blob/develop/Roulette/Services/LocalizedIdentityErrorDescriber.cs/#L100"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a> indicating the specified <code class="paramref">role</code> name already exists.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IdentityError DuplicateRoleName(string role)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>role</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The duplicate role.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a></dt>
+    <dd><p>An <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a> indicating the specific role <code class="paramref">role</code> name already exists.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Roulette_Services_LocalizedIdentityErrorDescriber_DuplicateUserName_" data-uid="Roulette.Services.LocalizedIdentityErrorDescriber.DuplicateUserName*"></a>
+
+  <h3 id="Roulette_Services_LocalizedIdentityErrorDescriber_DuplicateUserName_System_String_" data-uid="Roulette.Services.LocalizedIdentityErrorDescriber.DuplicateUserName(System.String)">
+  DuplicateUserName(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Lanctole/Roulette/blob/develop/Roulette/Services/LocalizedIdentityErrorDescriber.cs/#L73"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a> indicating the specified <code class="paramref">userName</code> already exists.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IdentityError DuplicateUserName(string userName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>userName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The user name that already exists.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a></dt>
+    <dd><p>An <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a> indicating the specified <code class="paramref">userName</code> already exists.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Roulette_Services_LocalizedIdentityErrorDescriber_InvalidEmail_" data-uid="Roulette.Services.LocalizedIdentityErrorDescriber.InvalidEmail*"></a>
+
+  <h3 id="Roulette_Services_LocalizedIdentityErrorDescriber_InvalidEmail_System_String_" data-uid="Roulette.Services.LocalizedIdentityErrorDescriber.InvalidEmail(System.String)">
+  InvalidEmail(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Lanctole/Roulette/blob/develop/Roulette/Services/LocalizedIdentityErrorDescriber.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a> indicating the specified <code class="paramref">email</code> is invalid.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IdentityError InvalidEmail(string email)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>email</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The email that is invalid.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a></dt>
+    <dd><p>An <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a> indicating the specified <code class="paramref">email</code> is invalid.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Roulette_Services_LocalizedIdentityErrorDescriber_InvalidRoleName_" data-uid="Roulette.Services.LocalizedIdentityErrorDescriber.InvalidRoleName*"></a>
+
+  <h3 id="Roulette_Services_LocalizedIdentityErrorDescriber_InvalidRoleName_System_String_" data-uid="Roulette.Services.LocalizedIdentityErrorDescriber.InvalidRoleName(System.String)">
+  InvalidRoleName(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Lanctole/Roulette/blob/develop/Roulette/Services/LocalizedIdentityErrorDescriber.cs/#L91"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a> indicating the specified <code class="paramref">role</code> name is invalid.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IdentityError InvalidRoleName(string role)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>role</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The invalid role.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a></dt>
+    <dd><p>An <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a> indicating the specific role <code class="paramref">role</code> name is invalid.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Roulette_Services_LocalizedIdentityErrorDescriber_InvalidToken_" data-uid="Roulette.Services.LocalizedIdentityErrorDescriber.InvalidToken*"></a>
+
+  <h3 id="Roulette_Services_LocalizedIdentityErrorDescriber_InvalidToken" data-uid="Roulette.Services.LocalizedIdentityErrorDescriber.InvalidToken">
+  InvalidToken()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Lanctole/Roulette/blob/develop/Roulette/Services/LocalizedIdentityErrorDescriber.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a> indicating an invalid token.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IdentityError InvalidToken()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a></dt>
+    <dd><p>An <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a> indicating an invalid token.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Roulette_Services_LocalizedIdentityErrorDescriber_InvalidUserName_" data-uid="Roulette.Services.LocalizedIdentityErrorDescriber.InvalidUserName*"></a>
+
+  <h3 id="Roulette_Services_LocalizedIdentityErrorDescriber_InvalidUserName_System_String_" data-uid="Roulette.Services.LocalizedIdentityErrorDescriber.InvalidUserName(System.String)">
+  InvalidUserName(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Lanctole/Roulette/blob/develop/Roulette/Services/LocalizedIdentityErrorDescriber.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a> indicating the specified user <code class="paramref">userName</code> is invalid.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IdentityError InvalidUserName(string userName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>userName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The user name that is invalid.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a></dt>
+    <dd><p>An <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a> indicating the specified user <code class="paramref">userName</code> is invalid.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Roulette_Services_LocalizedIdentityErrorDescriber_LoginAlreadyAssociated_" data-uid="Roulette.Services.LocalizedIdentityErrorDescriber.LoginAlreadyAssociated*"></a>
+
+  <h3 id="Roulette_Services_LocalizedIdentityErrorDescriber_LoginAlreadyAssociated" data-uid="Roulette.Services.LocalizedIdentityErrorDescriber.LoginAlreadyAssociated">
+  LoginAlreadyAssociated()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Lanctole/Roulette/blob/develop/Roulette/Services/LocalizedIdentityErrorDescriber.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a> indicating an external login is already associated with an account.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IdentityError LoginAlreadyAssociated()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a></dt>
+    <dd><p>An <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a> indicating an external login is already associated with an account.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Roulette_Services_LocalizedIdentityErrorDescriber_PasswordMismatch_" data-uid="Roulette.Services.LocalizedIdentityErrorDescriber.PasswordMismatch*"></a>
+
+  <h3 id="Roulette_Services_LocalizedIdentityErrorDescriber_PasswordMismatch" data-uid="Roulette.Services.LocalizedIdentityErrorDescriber.PasswordMismatch">
+  PasswordMismatch()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Lanctole/Roulette/blob/develop/Roulette/Services/LocalizedIdentityErrorDescriber.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a> indicating a password mismatch.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IdentityError PasswordMismatch()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a></dt>
+    <dd><p>An <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a> indicating a password mismatch.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Roulette_Services_LocalizedIdentityErrorDescriber_PasswordRequiresDigit_" data-uid="Roulette.Services.LocalizedIdentityErrorDescriber.PasswordRequiresDigit*"></a>
+
+  <h3 id="Roulette_Services_LocalizedIdentityErrorDescriber_PasswordRequiresDigit" data-uid="Roulette.Services.LocalizedIdentityErrorDescriber.PasswordRequiresDigit">
+  PasswordRequiresDigit()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Lanctole/Roulette/blob/develop/Roulette/Services/LocalizedIdentityErrorDescriber.cs/#L163"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a> indicating a password entered does not contain a numeric character, which is required by the password policy.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IdentityError PasswordRequiresDigit()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a></dt>
+    <dd><p>An <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a> indicating a password entered does not contain a numeric character.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Roulette_Services_LocalizedIdentityErrorDescriber_PasswordRequiresLower_" data-uid="Roulette.Services.LocalizedIdentityErrorDescriber.PasswordRequiresLower*"></a>
+
+  <h3 id="Roulette_Services_LocalizedIdentityErrorDescriber_PasswordRequiresLower" data-uid="Roulette.Services.LocalizedIdentityErrorDescriber.PasswordRequiresLower">
+  PasswordRequiresLower()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Lanctole/Roulette/blob/develop/Roulette/Services/LocalizedIdentityErrorDescriber.cs/#L172"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a> indicating a password entered does not contain a lower case letter, which is required by the password policy.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IdentityError PasswordRequiresLower()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a></dt>
+    <dd><p>An <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a> indicating a password entered does not contain a lower case letter.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Roulette_Services_LocalizedIdentityErrorDescriber_PasswordRequiresNonAlphanumeric_" data-uid="Roulette.Services.LocalizedIdentityErrorDescriber.PasswordRequiresNonAlphanumeric*"></a>
+
+  <h3 id="Roulette_Services_LocalizedIdentityErrorDescriber_PasswordRequiresNonAlphanumeric" data-uid="Roulette.Services.LocalizedIdentityErrorDescriber.PasswordRequiresNonAlphanumeric">
+  PasswordRequiresNonAlphanumeric()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Lanctole/Roulette/blob/develop/Roulette/Services/LocalizedIdentityErrorDescriber.cs/#L154"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a> indicating a password entered does not contain a non-alphanumeric character, which is required by the password policy.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IdentityError PasswordRequiresNonAlphanumeric()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a></dt>
+    <dd><p>An <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a> indicating a password entered does not contain a non-alphanumeric character.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Roulette_Services_LocalizedIdentityErrorDescriber_PasswordRequiresUpper_" data-uid="Roulette.Services.LocalizedIdentityErrorDescriber.PasswordRequiresUpper*"></a>
+
+  <h3 id="Roulette_Services_LocalizedIdentityErrorDescriber_PasswordRequiresUpper" data-uid="Roulette.Services.LocalizedIdentityErrorDescriber.PasswordRequiresUpper">
+  PasswordRequiresUpper()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Lanctole/Roulette/blob/develop/Roulette/Services/LocalizedIdentityErrorDescriber.cs/#L181"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a> indicating a password entered does not contain an upper case letter, which is required by the password policy.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IdentityError PasswordRequiresUpper()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a></dt>
+    <dd><p>An <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a> indicating a password entered does not contain an upper case letter.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Roulette_Services_LocalizedIdentityErrorDescriber_PasswordTooShort_" data-uid="Roulette.Services.LocalizedIdentityErrorDescriber.PasswordTooShort*"></a>
+
+  <h3 id="Roulette_Services_LocalizedIdentityErrorDescriber_PasswordTooShort_System_Int32_" data-uid="Roulette.Services.LocalizedIdentityErrorDescriber.PasswordTooShort(System.Int32)">
+  PasswordTooShort(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Lanctole/Roulette/blob/develop/Roulette/Services/LocalizedIdentityErrorDescriber.cs/#L145"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a> indicating a password of the specified <code class="paramref">length</code> does not meet the minimum length requirements.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IdentityError PasswordTooShort(int length)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>length</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The length that is not long enough.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a></dt>
+    <dd><p>An <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a> indicating a password of the specified <code class="paramref">length</code> does not meet the minimum length requirements.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Roulette_Services_LocalizedIdentityErrorDescriber_UserAlreadyHasPassword_" data-uid="Roulette.Services.LocalizedIdentityErrorDescriber.UserAlreadyHasPassword*"></a>
+
+  <h3 id="Roulette_Services_LocalizedIdentityErrorDescriber_UserAlreadyHasPassword" data-uid="Roulette.Services.LocalizedIdentityErrorDescriber.UserAlreadyHasPassword">
+  UserAlreadyHasPassword()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Lanctole/Roulette/blob/develop/Roulette/Services/LocalizedIdentityErrorDescriber.cs/#L109"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a> indicating a user already has a password.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IdentityError UserAlreadyHasPassword()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a></dt>
+    <dd><p>An <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a> indicating a user already has a password.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Roulette_Services_LocalizedIdentityErrorDescriber_UserAlreadyInRole_" data-uid="Roulette.Services.LocalizedIdentityErrorDescriber.UserAlreadyInRole*"></a>
+
+  <h3 id="Roulette_Services_LocalizedIdentityErrorDescriber_UserAlreadyInRole_System_String_" data-uid="Roulette.Services.LocalizedIdentityErrorDescriber.UserAlreadyInRole(System.String)">
+  UserAlreadyInRole(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Lanctole/Roulette/blob/develop/Roulette/Services/LocalizedIdentityErrorDescriber.cs/#L127"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a> indicating a user is already in the specified <code class="paramref">role</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IdentityError UserAlreadyInRole(string role)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>role</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The duplicate role.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a></dt>
+    <dd><p>An <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a> indicating a user is already in the specified <code class="paramref">role</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Roulette_Services_LocalizedIdentityErrorDescriber_UserLockoutNotEnabled_" data-uid="Roulette.Services.LocalizedIdentityErrorDescriber.UserLockoutNotEnabled*"></a>
+
+  <h3 id="Roulette_Services_LocalizedIdentityErrorDescriber_UserLockoutNotEnabled" data-uid="Roulette.Services.LocalizedIdentityErrorDescriber.UserLockoutNotEnabled">
+  UserLockoutNotEnabled()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Lanctole/Roulette/blob/develop/Roulette/Services/LocalizedIdentityErrorDescriber.cs/#L118"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a> indicating user lockout is not enabled.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IdentityError UserLockoutNotEnabled()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a></dt>
+    <dd><p>An <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a> indicating user lockout is not enabled.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Roulette_Services_LocalizedIdentityErrorDescriber_UserNotInRole_" data-uid="Roulette.Services.LocalizedIdentityErrorDescriber.UserNotInRole*"></a>
+
+  <h3 id="Roulette_Services_LocalizedIdentityErrorDescriber_UserNotInRole_System_String_" data-uid="Roulette.Services.LocalizedIdentityErrorDescriber.UserNotInRole(System.String)">
+  UserNotInRole(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Lanctole/Roulette/blob/develop/Roulette/Services/LocalizedIdentityErrorDescriber.cs/#L136"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a> indicating a user is not in the specified <code class="paramref">role</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IdentityError UserNotInRole(string role)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>role</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The duplicate role.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a></dt>
+    <dd><p>An <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerror">IdentityError</a> indicating a user is not in the specified <code class="paramref">role</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Lanctole/Roulette/blob/develop/Roulette/Services/LocalizedIdentityErrorDescriber.cs/#L8" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

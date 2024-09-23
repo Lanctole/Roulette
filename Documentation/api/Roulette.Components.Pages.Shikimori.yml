@@ -1,0 +1,58 @@
+### YamlMime:ManagedReference
+items:
+- uid: Roulette.Components.Pages.Shikimori
+  commentId: N:Roulette.Components.Pages.Shikimori
+  id: Roulette.Components.Pages.Shikimori
+  children:
+  - Roulette.Components.Pages.Shikimori.Anime
+  - Roulette.Components.Pages.Shikimori.Genres
+  - Roulette.Components.Pages.Shikimori.Manga
+  - Roulette.Components.Pages.Shikimori.Publishers
+  - Roulette.Components.Pages.Shikimori.Ranobe
+  - Roulette.Components.Pages.Shikimori.Studios
+  langs:
+  - csharp
+  - vb
+  name: Roulette.Components.Pages.Shikimori
+  nameWithType: Roulette.Components.Pages.Shikimori
+  fullName: Roulette.Components.Pages.Shikimori
+  type: Namespace
+  assemblies:
+  - Roulette
+references:
+- uid: Roulette.Components.Pages.Shikimori.Studios
+  commentId: T:Roulette.Components.Pages.Shikimori.Studios
+  href: Roulette.Components.Pages.Shikimori.Studios.html
+  name: Studios
+  nameWithType: Studios
+  fullName: Roulette.Components.Pages.Shikimori.Studios
+- uid: Roulette.Components.Pages.Shikimori.Ranobe
+  commentId: T:Roulette.Components.Pages.Shikimori.Ranobe
+  href: Roulette.Components.Pages.Shikimori.Ranobe.html
+  name: Ranobe
+  nameWithType: Ranobe
+  fullName: Roulette.Components.Pages.Shikimori.Ranobe
+- uid: Roulette.Components.Pages.Shikimori.Genres
+  commentId: T:Roulette.Components.Pages.Shikimori.Genres
+  href: Roulette.Components.Pages.Shikimori.Genres.html
+  name: Genres
+  nameWithType: Genres
+  fullName: Roulette.Components.Pages.Shikimori.Genres
+- uid: Roulette.Components.Pages.Shikimori.Anime
+  commentId: T:Roulette.Components.Pages.Shikimori.Anime
+  href: Roulette.Components.Pages.Shikimori.Anime.html
+  name: Anime
+  nameWithType: Anime
+  fullName: Roulette.Components.Pages.Shikimori.Anime
+- uid: Roulette.Components.Pages.Shikimori.Publishers
+  commentId: T:Roulette.Components.Pages.Shikimori.Publishers
+  href: Roulette.Components.Pages.Shikimori.Publishers.html
+  name: Publishers
+  nameWithType: Publishers
+  fullName: Roulette.Components.Pages.Shikimori.Publishers
+- uid: Roulette.Components.Pages.Shikimori.Manga
+  commentId: T:Roulette.Components.Pages.Shikimori.Manga
+  href: Roulette.Components.Pages.Shikimori.Manga.html
+  name: Manga
+  nameWithType: Manga
+  fullName: Roulette.Components.Pages.Shikimori.Manga

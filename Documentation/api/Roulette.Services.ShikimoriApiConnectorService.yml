@@ -1,0 +1,1450 @@
+### YamlMime:ManagedReference
+items:
+- uid: Roulette.Services.ShikimoriApiConnectorService
+  commentId: T:Roulette.Services.ShikimoriApiConnectorService
+  id: ShikimoriApiConnectorService
+  parent: Roulette.Services
+  children:
+  - Roulette.Services.ShikimoriApiConnectorService.#ctor(Microsoft.Extensions.Configuration.IConfiguration,Microsoft.Extensions.Caching.Distributed.IDistributedCache,System.Net.Http.IHttpClientFactory,Roulette.Data.ApplicationDbContext,Microsoft.Extensions.Logging.ILogger{Roulette.Services.ShikimoriApiConnectorService},Microsoft.Extensions.Logging.ILogger{ShikimoriSharp.ApiServices.ApiBase})
+  - Roulette.Services.ShikimoriApiConnectorService.GetAnimeById(System.Int64)
+  - Roulette.Services.ShikimoriApiConnectorService.GetAnimes(ShikimoriSharp.Settings.AnimeRequestSettings)
+  - Roulette.Services.ShikimoriApiConnectorService.GetGenres
+  - Roulette.Services.ShikimoriApiConnectorService.GetMangaById(System.Int64)
+  - Roulette.Services.ShikimoriApiConnectorService.GetMangas(ShikimoriSharp.Settings.MangaRequestSettings)
+  - Roulette.Services.ShikimoriApiConnectorService.GetPublishers
+  - Roulette.Services.ShikimoriApiConnectorService.GetRanobeById(System.Int64)
+  - Roulette.Services.ShikimoriApiConnectorService.GetRanobes(ShikimoriSharp.Settings.RanobeRequestSettings)
+  - Roulette.Services.ShikimoriApiConnectorService.GetStudios
+  langs:
+  - csharp
+  - vb
+  name: ShikimoriApiConnectorService
+  nameWithType: ShikimoriApiConnectorService
+  fullName: Roulette.Services.ShikimoriApiConnectorService
+  type: Class
+  source:
+    remote:
+      path: Roulette/Services/ShikimoriApiConnectorService.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: ShikimoriApiConnectorService
+    path: ../Roulette/Services/ShikimoriApiConnectorService.cs
+    startLine: 16
+  assemblies:
+  - Roulette
+  namespace: Roulette.Services
+  summary: >-
+    Сервис для работы с API Shikimori и кэшем.
+
+    Обеспечивает получение данных о аниме, манге и ранобэ из API, базы данных или кэша.
+  example: []
+  syntax:
+    content: public class ShikimoriApiConnectorService
+    content.vb: Public Class ShikimoriApiConnectorService
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Roulette.Services.ShikimoriApiConnectorService.#ctor(Microsoft.Extensions.Configuration.IConfiguration,Microsoft.Extensions.Caching.Distributed.IDistributedCache,System.Net.Http.IHttpClientFactory,Roulette.Data.ApplicationDbContext,Microsoft.Extensions.Logging.ILogger{Roulette.Services.ShikimoriApiConnectorService},Microsoft.Extensions.Logging.ILogger{ShikimoriSharp.ApiServices.ApiBase})
+  commentId: M:Roulette.Services.ShikimoriApiConnectorService.#ctor(Microsoft.Extensions.Configuration.IConfiguration,Microsoft.Extensions.Caching.Distributed.IDistributedCache,System.Net.Http.IHttpClientFactory,Roulette.Data.ApplicationDbContext,Microsoft.Extensions.Logging.ILogger{Roulette.Services.ShikimoriApiConnectorService},Microsoft.Extensions.Logging.ILogger{ShikimoriSharp.ApiServices.ApiBase})
+  id: '#ctor(Microsoft.Extensions.Configuration.IConfiguration,Microsoft.Extensions.Caching.Distributed.IDistributedCache,System.Net.Http.IHttpClientFactory,Roulette.Data.ApplicationDbContext,Microsoft.Extensions.Logging.ILogger{Roulette.Services.ShikimoriApiConnectorService},Microsoft.Extensions.Logging.ILogger{ShikimoriSharp.ApiServices.ApiBase})'
+  parent: Roulette.Services.ShikimoriApiConnectorService
+  langs:
+  - csharp
+  - vb
+  name: ShikimoriApiConnectorService(IConfiguration, IDistributedCache, IHttpClientFactory, ApplicationDbContext, ILogger<ShikimoriApiConnectorService>, ILogger<ApiBase>)
+  nameWithType: ShikimoriApiConnectorService.ShikimoriApiConnectorService(IConfiguration, IDistributedCache, IHttpClientFactory, ApplicationDbContext, ILogger<ShikimoriApiConnectorService>, ILogger<ApiBase>)
+  fullName: Roulette.Services.ShikimoriApiConnectorService.ShikimoriApiConnectorService(Microsoft.Extensions.Configuration.IConfiguration, Microsoft.Extensions.Caching.Distributed.IDistributedCache, System.Net.Http.IHttpClientFactory, Roulette.Data.ApplicationDbContext, Microsoft.Extensions.Logging.ILogger<Roulette.Services.ShikimoriApiConnectorService>, Microsoft.Extensions.Logging.ILogger<ShikimoriSharp.ApiServices.ApiBase>)
+  type: Constructor
+  source:
+    remote:
+      path: Roulette/Services/ShikimoriApiConnectorService.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: .ctor
+    path: ../Roulette/Services/ShikimoriApiConnectorService.cs
+    startLine: 32
+  assemblies:
+  - Roulette
+  namespace: Roulette.Services
+  summary: Конструктор сервиса ShikimoriApiConnectorService.
+  example: []
+  syntax:
+    content: public ShikimoriApiConnectorService(IConfiguration configuration, IDistributedCache cache, IHttpClientFactory httpClientFactory, ApplicationDbContext context, ILogger<ShikimoriApiConnectorService> logger, ILogger<ApiBase> loggerForApi)
+    parameters:
+    - id: configuration
+      type: Microsoft.Extensions.Configuration.IConfiguration
+      description: Конфигурация приложения.
+    - id: cache
+      type: Microsoft.Extensions.Caching.Distributed.IDistributedCache
+      description: Кэш для распределенных данных.
+    - id: httpClientFactory
+      type: System.Net.Http.IHttpClientFactory
+      description: Фабрика HTTP-клиентов.
+    - id: context
+      type: Roulette.Data.ApplicationDbContext
+      description: Контекст базы данных.
+    - id: logger
+      type: Microsoft.Extensions.Logging.ILogger{Roulette.Services.ShikimoriApiConnectorService}
+      description: Логгер для записи информации и ошибок.
+    - id: loggerForApi
+      type: Microsoft.Extensions.Logging.ILogger{ShikimoriSharp.ApiServices.ApiBase}
+      description: Логгер для конструктора ShikimoriClient
+    content.vb: Public Sub New(configuration As IConfiguration, cache As IDistributedCache, httpClientFactory As IHttpClientFactory, context As ApplicationDbContext, logger As ILogger(Of ShikimoriApiConnectorService), loggerForApi As ILogger(Of ApiBase))
+  overload: Roulette.Services.ShikimoriApiConnectorService.#ctor*
+  nameWithType.vb: ShikimoriApiConnectorService.New(IConfiguration, IDistributedCache, IHttpClientFactory, ApplicationDbContext, ILogger(Of ShikimoriApiConnectorService), ILogger(Of ApiBase))
+  fullName.vb: Roulette.Services.ShikimoriApiConnectorService.New(Microsoft.Extensions.Configuration.IConfiguration, Microsoft.Extensions.Caching.Distributed.IDistributedCache, System.Net.Http.IHttpClientFactory, Roulette.Data.ApplicationDbContext, Microsoft.Extensions.Logging.ILogger(Of Roulette.Services.ShikimoriApiConnectorService), Microsoft.Extensions.Logging.ILogger(Of ShikimoriSharp.ApiServices.ApiBase))
+  name.vb: New(IConfiguration, IDistributedCache, IHttpClientFactory, ApplicationDbContext, ILogger(Of ShikimoriApiConnectorService), ILogger(Of ApiBase))
+- uid: Roulette.Services.ShikimoriApiConnectorService.GetAnimeById(System.Int64)
+  commentId: M:Roulette.Services.ShikimoriApiConnectorService.GetAnimeById(System.Int64)
+  id: GetAnimeById(System.Int64)
+  parent: Roulette.Services.ShikimoriApiConnectorService
+  langs:
+  - csharp
+  - vb
+  name: GetAnimeById(long)
+  nameWithType: ShikimoriApiConnectorService.GetAnimeById(long)
+  fullName: Roulette.Services.ShikimoriApiConnectorService.GetAnimeById(long)
+  type: Method
+  source:
+    remote:
+      path: Roulette/Services/ShikimoriApiConnectorService.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: GetAnimeById
+    path: ../Roulette/Services/ShikimoriApiConnectorService.cs
+    startLine: 171
+  assemblies:
+  - Roulette
+  namespace: Roulette.Services
+  summary: Получает аниме по идентификатору.
+  example: []
+  syntax:
+    content: public Task<AnimeId?> GetAnimeById(long id)
+    parameters:
+    - id: id
+      type: System.Int64
+      description: Идентификатор аниме.
+    return:
+      type: System.Threading.Tasks.Task{ShikimoriSharp.Classes.AnimeId}
+      description: Объект AnimeId.
+    content.vb: Public Function GetAnimeById(id As Long) As Task(Of AnimeId)
+  overload: Roulette.Services.ShikimoriApiConnectorService.GetAnimeById*
+  nameWithType.vb: ShikimoriApiConnectorService.GetAnimeById(Long)
+  fullName.vb: Roulette.Services.ShikimoriApiConnectorService.GetAnimeById(Long)
+  name.vb: GetAnimeById(Long)
+- uid: Roulette.Services.ShikimoriApiConnectorService.GetMangaById(System.Int64)
+  commentId: M:Roulette.Services.ShikimoriApiConnectorService.GetMangaById(System.Int64)
+  id: GetMangaById(System.Int64)
+  parent: Roulette.Services.ShikimoriApiConnectorService
+  langs:
+  - csharp
+  - vb
+  name: GetMangaById(long)
+  nameWithType: ShikimoriApiConnectorService.GetMangaById(long)
+  fullName: Roulette.Services.ShikimoriApiConnectorService.GetMangaById(long)
+  type: Method
+  source:
+    remote:
+      path: Roulette/Services/ShikimoriApiConnectorService.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: GetMangaById
+    path: ../Roulette/Services/ShikimoriApiConnectorService.cs
+    startLine: 208
+  assemblies:
+  - Roulette
+  namespace: Roulette.Services
+  summary: Получает мангу по идентификатору.
+  example: []
+  syntax:
+    content: public Task<MangaRanobeId?> GetMangaById(long id)
+    parameters:
+    - id: id
+      type: System.Int64
+      description: Идентификатор манги.
+    return:
+      type: System.Threading.Tasks.Task{ShikimoriSharp.Classes.MangaRanobeId}
+      description: Объект MangaRanobeId.
+    content.vb: Public Function GetMangaById(id As Long) As Task(Of MangaRanobeId)
+  overload: Roulette.Services.ShikimoriApiConnectorService.GetMangaById*
+  nameWithType.vb: ShikimoriApiConnectorService.GetMangaById(Long)
+  fullName.vb: Roulette.Services.ShikimoriApiConnectorService.GetMangaById(Long)
+  name.vb: GetMangaById(Long)
+- uid: Roulette.Services.ShikimoriApiConnectorService.GetRanobeById(System.Int64)
+  commentId: M:Roulette.Services.ShikimoriApiConnectorService.GetRanobeById(System.Int64)
+  id: GetRanobeById(System.Int64)
+  parent: Roulette.Services.ShikimoriApiConnectorService
+  langs:
+  - csharp
+  - vb
+  name: GetRanobeById(long)
+  nameWithType: ShikimoriApiConnectorService.GetRanobeById(long)
+  fullName: Roulette.Services.ShikimoriApiConnectorService.GetRanobeById(long)
+  type: Method
+  source:
+    remote:
+      path: Roulette/Services/ShikimoriApiConnectorService.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: GetRanobeById
+    path: ../Roulette/Services/ShikimoriApiConnectorService.cs
+    startLine: 245
+  assemblies:
+  - Roulette
+  namespace: Roulette.Services
+  summary: Получает ранобэ по идентификатору.
+  example: []
+  syntax:
+    content: public Task<MangaRanobeId?> GetRanobeById(long id)
+    parameters:
+    - id: id
+      type: System.Int64
+      description: Идентификатор ранобэ.
+    return:
+      type: System.Threading.Tasks.Task{ShikimoriSharp.Classes.MangaRanobeId}
+      description: Объект MangaRanobeId.
+    content.vb: Public Function GetRanobeById(id As Long) As Task(Of MangaRanobeId)
+  overload: Roulette.Services.ShikimoriApiConnectorService.GetRanobeById*
+  nameWithType.vb: ShikimoriApiConnectorService.GetRanobeById(Long)
+  fullName.vb: Roulette.Services.ShikimoriApiConnectorService.GetRanobeById(Long)
+  name.vb: GetRanobeById(Long)
+- uid: Roulette.Services.ShikimoriApiConnectorService.GetGenres
+  commentId: M:Roulette.Services.ShikimoriApiConnectorService.GetGenres
+  id: GetGenres
+  parent: Roulette.Services.ShikimoriApiConnectorService
+  langs:
+  - csharp
+  - vb
+  name: GetGenres()
+  nameWithType: ShikimoriApiConnectorService.GetGenres()
+  fullName: Roulette.Services.ShikimoriApiConnectorService.GetGenres()
+  type: Method
+  source:
+    remote:
+      path: Roulette/Services/ShikimoriApiConnectorService.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: GetGenres
+    path: ../Roulette/Services/ShikimoriApiConnectorService.cs
+    startLine: 281
+  assemblies:
+  - Roulette
+  namespace: Roulette.Services
+  summary: Получает список жанров аниме.
+  example: []
+  syntax:
+    content: public Task<Genre[]?> GetGenres()
+    return:
+      type: System.Threading.Tasks.Task{ShikimoriSharp.Classes.Genre[]}
+      description: Массив объектов Genre.
+    content.vb: Public Function GetGenres() As Task(Of Genre())
+  overload: Roulette.Services.ShikimoriApiConnectorService.GetGenres*
+- uid: Roulette.Services.ShikimoriApiConnectorService.GetStudios
+  commentId: M:Roulette.Services.ShikimoriApiConnectorService.GetStudios
+  id: GetStudios
+  parent: Roulette.Services.ShikimoriApiConnectorService
+  langs:
+  - csharp
+  - vb
+  name: GetStudios()
+  nameWithType: ShikimoriApiConnectorService.GetStudios()
+  fullName: Roulette.Services.ShikimoriApiConnectorService.GetStudios()
+  type: Method
+  source:
+    remote:
+      path: Roulette/Services/ShikimoriApiConnectorService.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: GetStudios
+    path: ../Roulette/Services/ShikimoriApiConnectorService.cs
+    startLine: 290
+  assemblies:
+  - Roulette
+  namespace: Roulette.Services
+  summary: Получает список студий.
+  example: []
+  syntax:
+    content: public Task<Studio[]?> GetStudios()
+    return:
+      type: System.Threading.Tasks.Task{ShikimoriSharp.Classes.Studio[]}
+      description: Массив объектов Studio.
+    content.vb: Public Function GetStudios() As Task(Of Studio())
+  overload: Roulette.Services.ShikimoriApiConnectorService.GetStudios*
+- uid: Roulette.Services.ShikimoriApiConnectorService.GetPublishers
+  commentId: M:Roulette.Services.ShikimoriApiConnectorService.GetPublishers
+  id: GetPublishers
+  parent: Roulette.Services.ShikimoriApiConnectorService
+  langs:
+  - csharp
+  - vb
+  name: GetPublishers()
+  nameWithType: ShikimoriApiConnectorService.GetPublishers()
+  fullName: Roulette.Services.ShikimoriApiConnectorService.GetPublishers()
+  type: Method
+  source:
+    remote:
+      path: Roulette/Services/ShikimoriApiConnectorService.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: GetPublishers
+    path: ../Roulette/Services/ShikimoriApiConnectorService.cs
+    startLine: 299
+  assemblies:
+  - Roulette
+  namespace: Roulette.Services
+  summary: Получает список издателей.
+  example: []
+  syntax:
+    content: public Task<Publisher[]?> GetPublishers()
+    return:
+      type: System.Threading.Tasks.Task{ShikimoriSharp.Classes.Publisher[]}
+      description: Массив объектов Publisher.
+    content.vb: Public Function GetPublishers() As Task(Of Publisher())
+  overload: Roulette.Services.ShikimoriApiConnectorService.GetPublishers*
+- uid: Roulette.Services.ShikimoriApiConnectorService.GetAnimes(ShikimoriSharp.Settings.AnimeRequestSettings)
+  commentId: M:Roulette.Services.ShikimoriApiConnectorService.GetAnimes(ShikimoriSharp.Settings.AnimeRequestSettings)
+  id: GetAnimes(ShikimoriSharp.Settings.AnimeRequestSettings)
+  parent: Roulette.Services.ShikimoriApiConnectorService
+  langs:
+  - csharp
+  - vb
+  name: GetAnimes(AnimeRequestSettings)
+  nameWithType: ShikimoriApiConnectorService.GetAnimes(AnimeRequestSettings)
+  fullName: Roulette.Services.ShikimoriApiConnectorService.GetAnimes(ShikimoriSharp.Settings.AnimeRequestSettings)
+  type: Method
+  source:
+    remote:
+      path: Roulette/Services/ShikimoriApiConnectorService.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: GetAnimes
+    path: ../Roulette/Services/ShikimoriApiConnectorService.cs
+    startLine: 309
+  assemblies:
+  - Roulette
+  namespace: Roulette.Services
+  summary: Получает список аниме по заданным параметрам.
+  example: []
+  syntax:
+    content: public Task<Anime[]> GetAnimes(AnimeRequestSettings settings)
+    parameters:
+    - id: settings
+      type: ShikimoriSharp.Settings.AnimeRequestSettings
+      description: Настройки запроса аниме.
+    return:
+      type: System.Threading.Tasks.Task{ShikimoriSharp.Classes.Anime[]}
+      description: Массив объектов Anime.
+    content.vb: Public Function GetAnimes(settings As AnimeRequestSettings) As Task(Of Anime())
+  overload: Roulette.Services.ShikimoriApiConnectorService.GetAnimes*
+- uid: Roulette.Services.ShikimoriApiConnectorService.GetMangas(ShikimoriSharp.Settings.MangaRequestSettings)
+  commentId: M:Roulette.Services.ShikimoriApiConnectorService.GetMangas(ShikimoriSharp.Settings.MangaRequestSettings)
+  id: GetMangas(ShikimoriSharp.Settings.MangaRequestSettings)
+  parent: Roulette.Services.ShikimoriApiConnectorService
+  langs:
+  - csharp
+  - vb
+  name: GetMangas(MangaRequestSettings)
+  nameWithType: ShikimoriApiConnectorService.GetMangas(MangaRequestSettings)
+  fullName: Roulette.Services.ShikimoriApiConnectorService.GetMangas(ShikimoriSharp.Settings.MangaRequestSettings)
+  type: Method
+  source:
+    remote:
+      path: Roulette/Services/ShikimoriApiConnectorService.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: GetMangas
+    path: ../Roulette/Services/ShikimoriApiConnectorService.cs
+    startLine: 319
+  assemblies:
+  - Roulette
+  namespace: Roulette.Services
+  summary: Получает список манги по заданным параметрам.
+  example: []
+  syntax:
+    content: public Task<Manga[]> GetMangas(MangaRequestSettings settings)
+    parameters:
+    - id: settings
+      type: ShikimoriSharp.Settings.MangaRequestSettings
+      description: Настройки запроса манги.
+    return:
+      type: System.Threading.Tasks.Task{ShikimoriSharp.Classes.Manga[]}
+      description: Массив объектов Manga.
+    content.vb: Public Function GetMangas(settings As MangaRequestSettings) As Task(Of Manga())
+  overload: Roulette.Services.ShikimoriApiConnectorService.GetMangas*
+- uid: Roulette.Services.ShikimoriApiConnectorService.GetRanobes(ShikimoriSharp.Settings.RanobeRequestSettings)
+  commentId: M:Roulette.Services.ShikimoriApiConnectorService.GetRanobes(ShikimoriSharp.Settings.RanobeRequestSettings)
+  id: GetRanobes(ShikimoriSharp.Settings.RanobeRequestSettings)
+  parent: Roulette.Services.ShikimoriApiConnectorService
+  langs:
+  - csharp
+  - vb
+  name: GetRanobes(RanobeRequestSettings)
+  nameWithType: ShikimoriApiConnectorService.GetRanobes(RanobeRequestSettings)
+  fullName: Roulette.Services.ShikimoriApiConnectorService.GetRanobes(ShikimoriSharp.Settings.RanobeRequestSettings)
+  type: Method
+  source:
+    remote:
+      path: Roulette/Services/ShikimoriApiConnectorService.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: GetRanobes
+    path: ../Roulette/Services/ShikimoriApiConnectorService.cs
+    startLine: 329
+  assemblies:
+  - Roulette
+  namespace: Roulette.Services
+  summary: Получает список ранобэ по заданным параметрам.
+  example: []
+  syntax:
+    content: public Task<Ranobe[]> GetRanobes(RanobeRequestSettings settings)
+    parameters:
+    - id: settings
+      type: ShikimoriSharp.Settings.RanobeRequestSettings
+      description: Настройки запроса ранобэ.
+    return:
+      type: System.Threading.Tasks.Task{ShikimoriSharp.Classes.Ranobe[]}
+      description: Массив объектов Ranobe.
+    content.vb: Public Function GetRanobes(settings As RanobeRequestSettings) As Task(Of Ranobe())
+  overload: Roulette.Services.ShikimoriApiConnectorService.GetRanobes*
+references:
+- uid: Roulette.Services
+  commentId: N:Roulette.Services
+  href: Roulette.html
+  name: Roulette.Services
+  nameWithType: Roulette.Services
+  fullName: Roulette.Services
+  spec.csharp:
+  - uid: Roulette
+    name: Roulette
+    href: Roulette.html
+  - name: .
+  - uid: Roulette.Services
+    name: Services
+    href: Roulette.Services.html
+  spec.vb:
+  - uid: Roulette
+    name: Roulette
+    href: Roulette.html
+  - name: .
+  - uid: Roulette.Services
+    name: Services
+    href: Roulette.Services.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Roulette.Services.ShikimoriApiConnectorService.#ctor*
+  commentId: Overload:Roulette.Services.ShikimoriApiConnectorService.#ctor
+  href: Roulette.Services.ShikimoriApiConnectorService.html#Roulette_Services_ShikimoriApiConnectorService__ctor_Microsoft_Extensions_Configuration_IConfiguration_Microsoft_Extensions_Caching_Distributed_IDistributedCache_System_Net_Http_IHttpClientFactory_Roulette_Data_ApplicationDbContext_Microsoft_Extensions_Logging_ILogger_Roulette_Services_ShikimoriApiConnectorService__Microsoft_Extensions_Logging_ILogger_ShikimoriSharp_ApiServices_ApiBase__
+  name: ShikimoriApiConnectorService
+  nameWithType: ShikimoriApiConnectorService.ShikimoriApiConnectorService
+  fullName: Roulette.Services.ShikimoriApiConnectorService.ShikimoriApiConnectorService
+  nameWithType.vb: ShikimoriApiConnectorService.New
+  fullName.vb: Roulette.Services.ShikimoriApiConnectorService.New
+  name.vb: New
+- uid: Microsoft.Extensions.Configuration.IConfiguration
+  commentId: T:Microsoft.Extensions.Configuration.IConfiguration
+  parent: Microsoft.Extensions.Configuration
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration.iconfiguration
+  name: IConfiguration
+  nameWithType: IConfiguration
+  fullName: Microsoft.Extensions.Configuration.IConfiguration
+- uid: Microsoft.Extensions.Caching.Distributed.IDistributedCache
+  commentId: T:Microsoft.Extensions.Caching.Distributed.IDistributedCache
+  parent: Microsoft.Extensions.Caching.Distributed
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.caching.distributed.idistributedcache
+  name: IDistributedCache
+  nameWithType: IDistributedCache
+  fullName: Microsoft.Extensions.Caching.Distributed.IDistributedCache
+- uid: System.Net.Http.IHttpClientFactory
+  commentId: T:System.Net.Http.IHttpClientFactory
+  parent: System.Net.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.http.ihttpclientfactory
+  name: IHttpClientFactory
+  nameWithType: IHttpClientFactory
+  fullName: System.Net.Http.IHttpClientFactory
+- uid: Roulette.Data.ApplicationDbContext
+  commentId: T:Roulette.Data.ApplicationDbContext
+  parent: Roulette.Data
+  href: Roulette.Data.ApplicationDbContext.html
+  name: ApplicationDbContext
+  nameWithType: ApplicationDbContext
+  fullName: Roulette.Data.ApplicationDbContext
+- uid: Microsoft.Extensions.Logging.ILogger{Roulette.Services.ShikimoriApiConnectorService}
+  commentId: T:Microsoft.Extensions.Logging.ILogger{Roulette.Services.ShikimoriApiConnectorService}
+  parent: Microsoft.Extensions.Logging
+  definition: Microsoft.Extensions.Logging.ILogger`1
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
+  name: ILogger<ShikimoriApiConnectorService>
+  nameWithType: ILogger<ShikimoriApiConnectorService>
+  fullName: Microsoft.Extensions.Logging.ILogger<Roulette.Services.ShikimoriApiConnectorService>
+  nameWithType.vb: ILogger(Of ShikimoriApiConnectorService)
+  fullName.vb: Microsoft.Extensions.Logging.ILogger(Of Roulette.Services.ShikimoriApiConnectorService)
+  name.vb: ILogger(Of ShikimoriApiConnectorService)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
+  - name: <
+  - uid: Roulette.Services.ShikimoriApiConnectorService
+    name: ShikimoriApiConnectorService
+    href: Roulette.Services.ShikimoriApiConnectorService.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Roulette.Services.ShikimoriApiConnectorService
+    name: ShikimoriApiConnectorService
+    href: Roulette.Services.ShikimoriApiConnectorService.html
+  - name: )
+- uid: Microsoft.Extensions.Logging.ILogger{ShikimoriSharp.ApiServices.ApiBase}
+  commentId: T:Microsoft.Extensions.Logging.ILogger{ShikimoriSharp.ApiServices.ApiBase}
+  parent: Microsoft.Extensions.Logging
+  definition: Microsoft.Extensions.Logging.ILogger`1
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
+  name: ILogger<ApiBase>
+  nameWithType: ILogger<ApiBase>
+  fullName: Microsoft.Extensions.Logging.ILogger<ShikimoriSharp.ApiServices.ApiBase>
+  nameWithType.vb: ILogger(Of ApiBase)
+  fullName.vb: Microsoft.Extensions.Logging.ILogger(Of ShikimoriSharp.ApiServices.ApiBase)
+  name.vb: ILogger(Of ApiBase)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
+  - name: <
+  - uid: ShikimoriSharp.ApiServices.ApiBase
+    name: ApiBase
+    href: ShikimoriSharp.ApiServices.ApiBase.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ShikimoriSharp.ApiServices.ApiBase
+    name: ApiBase
+    href: ShikimoriSharp.ApiServices.ApiBase.html
+  - name: )
+- uid: Microsoft.Extensions.Configuration
+  commentId: N:Microsoft.Extensions.Configuration
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.Extensions.Configuration
+  nameWithType: Microsoft.Extensions.Configuration
+  fullName: Microsoft.Extensions.Configuration
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Configuration
+    name: Configuration
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Configuration
+    name: Configuration
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration
+- uid: Microsoft.Extensions.Caching.Distributed
+  commentId: N:Microsoft.Extensions.Caching.Distributed
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.Extensions.Caching.Distributed
+  nameWithType: Microsoft.Extensions.Caching.Distributed
+  fullName: Microsoft.Extensions.Caching.Distributed
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Caching
+    name: Caching
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.caching
+  - name: .
+  - uid: Microsoft.Extensions.Caching.Distributed
+    name: Distributed
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.caching.distributed
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Caching
+    name: Caching
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.caching
+  - name: .
+  - uid: Microsoft.Extensions.Caching.Distributed
+    name: Distributed
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.caching.distributed
+- uid: System.Net.Http
+  commentId: N:System.Net.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Net.Http
+  nameWithType: System.Net.Http
+  fullName: System.Net.Http
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.Http
+    name: Http
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.Http
+    name: Http
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http
+- uid: Roulette.Data
+  commentId: N:Roulette.Data
+  href: Roulette.html
+  name: Roulette.Data
+  nameWithType: Roulette.Data
+  fullName: Roulette.Data
+  spec.csharp:
+  - uid: Roulette
+    name: Roulette
+    href: Roulette.html
+  - name: .
+  - uid: Roulette.Data
+    name: Data
+    href: Roulette.Data.html
+  spec.vb:
+  - uid: Roulette
+    name: Roulette
+    href: Roulette.html
+  - name: .
+  - uid: Roulette.Data
+    name: Data
+    href: Roulette.Data.html
+- uid: Microsoft.Extensions.Logging.ILogger`1
+  commentId: T:Microsoft.Extensions.Logging.ILogger`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
+  name: ILogger<TCategoryName>
+  nameWithType: ILogger<TCategoryName>
+  fullName: Microsoft.Extensions.Logging.ILogger<TCategoryName>
+  nameWithType.vb: ILogger(Of TCategoryName)
+  fullName.vb: Microsoft.Extensions.Logging.ILogger(Of TCategoryName)
+  name.vb: ILogger(Of TCategoryName)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
+  - name: <
+  - name: TCategoryName
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TCategoryName
+  - name: )
+- uid: Microsoft.Extensions.Logging
+  commentId: N:Microsoft.Extensions.Logging
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.Extensions.Logging
+  nameWithType: Microsoft.Extensions.Logging
+  fullName: Microsoft.Extensions.Logging
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging
+- uid: Roulette.Services.ShikimoriApiConnectorService.GetAnimeById*
+  commentId: Overload:Roulette.Services.ShikimoriApiConnectorService.GetAnimeById
+  href: Roulette.Services.ShikimoriApiConnectorService.html#Roulette_Services_ShikimoriApiConnectorService_GetAnimeById_System_Int64_
+  name: GetAnimeById
+  nameWithType: ShikimoriApiConnectorService.GetAnimeById
+  fullName: Roulette.Services.ShikimoriApiConnectorService.GetAnimeById
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: System.Threading.Tasks.Task{ShikimoriSharp.Classes.AnimeId}
+  commentId: T:System.Threading.Tasks.Task{ShikimoriSharp.Classes.AnimeId}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<AnimeId>
+  nameWithType: Task<AnimeId>
+  fullName: System.Threading.Tasks.Task<ShikimoriSharp.Classes.AnimeId>
+  nameWithType.vb: Task(Of AnimeId)
+  fullName.vb: System.Threading.Tasks.Task(Of ShikimoriSharp.Classes.AnimeId)
+  name.vb: Task(Of AnimeId)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: ShikimoriSharp.Classes.AnimeId
+    name: AnimeId
+    href: ShikimoriSharp.Classes.AnimeId.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ShikimoriSharp.Classes.AnimeId
+    name: AnimeId
+    href: ShikimoriSharp.Classes.AnimeId.html
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: Roulette.Services.ShikimoriApiConnectorService.GetMangaById*
+  commentId: Overload:Roulette.Services.ShikimoriApiConnectorService.GetMangaById
+  href: Roulette.Services.ShikimoriApiConnectorService.html#Roulette_Services_ShikimoriApiConnectorService_GetMangaById_System_Int64_
+  name: GetMangaById
+  nameWithType: ShikimoriApiConnectorService.GetMangaById
+  fullName: Roulette.Services.ShikimoriApiConnectorService.GetMangaById
+- uid: System.Threading.Tasks.Task{ShikimoriSharp.Classes.MangaRanobeId}
+  commentId: T:System.Threading.Tasks.Task{ShikimoriSharp.Classes.MangaRanobeId}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<MangaRanobeId>
+  nameWithType: Task<MangaRanobeId>
+  fullName: System.Threading.Tasks.Task<ShikimoriSharp.Classes.MangaRanobeId>
+  nameWithType.vb: Task(Of MangaRanobeId)
+  fullName.vb: System.Threading.Tasks.Task(Of ShikimoriSharp.Classes.MangaRanobeId)
+  name.vb: Task(Of MangaRanobeId)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: ShikimoriSharp.Classes.MangaRanobeId
+    name: MangaRanobeId
+    href: ShikimoriSharp.Classes.MangaRanobeId.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ShikimoriSharp.Classes.MangaRanobeId
+    name: MangaRanobeId
+    href: ShikimoriSharp.Classes.MangaRanobeId.html
+  - name: )
+- uid: Roulette.Services.ShikimoriApiConnectorService.GetRanobeById*
+  commentId: Overload:Roulette.Services.ShikimoriApiConnectorService.GetRanobeById
+  href: Roulette.Services.ShikimoriApiConnectorService.html#Roulette_Services_ShikimoriApiConnectorService_GetRanobeById_System_Int64_
+  name: GetRanobeById
+  nameWithType: ShikimoriApiConnectorService.GetRanobeById
+  fullName: Roulette.Services.ShikimoriApiConnectorService.GetRanobeById
+- uid: Roulette.Services.ShikimoriApiConnectorService.GetGenres*
+  commentId: Overload:Roulette.Services.ShikimoriApiConnectorService.GetGenres
+  href: Roulette.Services.ShikimoriApiConnectorService.html#Roulette_Services_ShikimoriApiConnectorService_GetGenres
+  name: GetGenres
+  nameWithType: ShikimoriApiConnectorService.GetGenres
+  fullName: Roulette.Services.ShikimoriApiConnectorService.GetGenres
+- uid: System.Threading.Tasks.Task{ShikimoriSharp.Classes.Genre[]}
+  commentId: T:System.Threading.Tasks.Task{ShikimoriSharp.Classes.Genre[]}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<Genre[]>
+  nameWithType: Task<Genre[]>
+  fullName: System.Threading.Tasks.Task<ShikimoriSharp.Classes.Genre[]>
+  nameWithType.vb: Task(Of Genre())
+  fullName.vb: System.Threading.Tasks.Task(Of ShikimoriSharp.Classes.Genre())
+  name.vb: Task(Of Genre())
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: ShikimoriSharp.Classes.Genre
+    name: Genre
+    href: ShikimoriSharp.Classes.Genre.html
+  - name: '['
+  - name: ']'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ShikimoriSharp.Classes.Genre
+    name: Genre
+    href: ShikimoriSharp.Classes.Genre.html
+  - name: (
+  - name: )
+  - name: )
+- uid: Roulette.Services.ShikimoriApiConnectorService.GetStudios*
+  commentId: Overload:Roulette.Services.ShikimoriApiConnectorService.GetStudios
+  href: Roulette.Services.ShikimoriApiConnectorService.html#Roulette_Services_ShikimoriApiConnectorService_GetStudios
+  name: GetStudios
+  nameWithType: ShikimoriApiConnectorService.GetStudios
+  fullName: Roulette.Services.ShikimoriApiConnectorService.GetStudios
+- uid: System.Threading.Tasks.Task{ShikimoriSharp.Classes.Studio[]}
+  commentId: T:System.Threading.Tasks.Task{ShikimoriSharp.Classes.Studio[]}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<Studio[]>
+  nameWithType: Task<Studio[]>
+  fullName: System.Threading.Tasks.Task<ShikimoriSharp.Classes.Studio[]>
+  nameWithType.vb: Task(Of Studio())
+  fullName.vb: System.Threading.Tasks.Task(Of ShikimoriSharp.Classes.Studio())
+  name.vb: Task(Of Studio())
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: ShikimoriSharp.Classes.Studio
+    name: Studio
+    href: ShikimoriSharp.Classes.Studio.html
+  - name: '['
+  - name: ']'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ShikimoriSharp.Classes.Studio
+    name: Studio
+    href: ShikimoriSharp.Classes.Studio.html
+  - name: (
+  - name: )
+  - name: )
+- uid: Roulette.Services.ShikimoriApiConnectorService.GetPublishers*
+  commentId: Overload:Roulette.Services.ShikimoriApiConnectorService.GetPublishers
+  href: Roulette.Services.ShikimoriApiConnectorService.html#Roulette_Services_ShikimoriApiConnectorService_GetPublishers
+  name: GetPublishers
+  nameWithType: ShikimoriApiConnectorService.GetPublishers
+  fullName: Roulette.Services.ShikimoriApiConnectorService.GetPublishers
+- uid: System.Threading.Tasks.Task{ShikimoriSharp.Classes.Publisher[]}
+  commentId: T:System.Threading.Tasks.Task{ShikimoriSharp.Classes.Publisher[]}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<Publisher[]>
+  nameWithType: Task<Publisher[]>
+  fullName: System.Threading.Tasks.Task<ShikimoriSharp.Classes.Publisher[]>
+  nameWithType.vb: Task(Of Publisher())
+  fullName.vb: System.Threading.Tasks.Task(Of ShikimoriSharp.Classes.Publisher())
+  name.vb: Task(Of Publisher())
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: ShikimoriSharp.Classes.Publisher
+    name: Publisher
+    href: ShikimoriSharp.Classes.Publisher.html
+  - name: '['
+  - name: ']'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ShikimoriSharp.Classes.Publisher
+    name: Publisher
+    href: ShikimoriSharp.Classes.Publisher.html
+  - name: (
+  - name: )
+  - name: )
+- uid: Roulette.Services.ShikimoriApiConnectorService.GetAnimes*
+  commentId: Overload:Roulette.Services.ShikimoriApiConnectorService.GetAnimes
+  href: Roulette.Services.ShikimoriApiConnectorService.html#Roulette_Services_ShikimoriApiConnectorService_GetAnimes_ShikimoriSharp_Settings_AnimeRequestSettings_
+  name: GetAnimes
+  nameWithType: ShikimoriApiConnectorService.GetAnimes
+  fullName: Roulette.Services.ShikimoriApiConnectorService.GetAnimes
+- uid: ShikimoriSharp.Settings.AnimeRequestSettings
+  commentId: T:ShikimoriSharp.Settings.AnimeRequestSettings
+  parent: ShikimoriSharp.Settings
+  href: ShikimoriSharp.Settings.AnimeRequestSettings.html
+  name: AnimeRequestSettings
+  nameWithType: AnimeRequestSettings
+  fullName: ShikimoriSharp.Settings.AnimeRequestSettings
+- uid: System.Threading.Tasks.Task{ShikimoriSharp.Classes.Anime[]}
+  commentId: T:System.Threading.Tasks.Task{ShikimoriSharp.Classes.Anime[]}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<Anime[]>
+  nameWithType: Task<Anime[]>
+  fullName: System.Threading.Tasks.Task<ShikimoriSharp.Classes.Anime[]>
+  nameWithType.vb: Task(Of Anime())
+  fullName.vb: System.Threading.Tasks.Task(Of ShikimoriSharp.Classes.Anime())
+  name.vb: Task(Of Anime())
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: ShikimoriSharp.Classes.Anime
+    name: Anime
+    href: ShikimoriSharp.Classes.Anime.html
+  - name: '['
+  - name: ']'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ShikimoriSharp.Classes.Anime
+    name: Anime
+    href: ShikimoriSharp.Classes.Anime.html
+  - name: (
+  - name: )
+  - name: )
+- uid: ShikimoriSharp.Settings
+  commentId: N:ShikimoriSharp.Settings
+  href: ShikimoriSharp.html
+  name: ShikimoriSharp.Settings
+  nameWithType: ShikimoriSharp.Settings
+  fullName: ShikimoriSharp.Settings
+  spec.csharp:
+  - uid: ShikimoriSharp
+    name: ShikimoriSharp
+    href: ShikimoriSharp.html
+  - name: .
+  - uid: ShikimoriSharp.Settings
+    name: Settings
+    href: ShikimoriSharp.Settings.html
+  spec.vb:
+  - uid: ShikimoriSharp
+    name: ShikimoriSharp
+    href: ShikimoriSharp.html
+  - name: .
+  - uid: ShikimoriSharp.Settings
+    name: Settings
+    href: ShikimoriSharp.Settings.html
+- uid: Roulette.Services.ShikimoriApiConnectorService.GetMangas*
+  commentId: Overload:Roulette.Services.ShikimoriApiConnectorService.GetMangas
+  href: Roulette.Services.ShikimoriApiConnectorService.html#Roulette_Services_ShikimoriApiConnectorService_GetMangas_ShikimoriSharp_Settings_MangaRequestSettings_
+  name: GetMangas
+  nameWithType: ShikimoriApiConnectorService.GetMangas
+  fullName: Roulette.Services.ShikimoriApiConnectorService.GetMangas
+- uid: ShikimoriSharp.Settings.MangaRequestSettings
+  commentId: T:ShikimoriSharp.Settings.MangaRequestSettings
+  parent: ShikimoriSharp.Settings
+  href: ShikimoriSharp.Settings.MangaRequestSettings.html
+  name: MangaRequestSettings
+  nameWithType: MangaRequestSettings
+  fullName: ShikimoriSharp.Settings.MangaRequestSettings
+- uid: System.Threading.Tasks.Task{ShikimoriSharp.Classes.Manga[]}
+  commentId: T:System.Threading.Tasks.Task{ShikimoriSharp.Classes.Manga[]}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<Manga[]>
+  nameWithType: Task<Manga[]>
+  fullName: System.Threading.Tasks.Task<ShikimoriSharp.Classes.Manga[]>
+  nameWithType.vb: Task(Of Manga())
+  fullName.vb: System.Threading.Tasks.Task(Of ShikimoriSharp.Classes.Manga())
+  name.vb: Task(Of Manga())
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: ShikimoriSharp.Classes.Manga
+    name: Manga
+    href: ShikimoriSharp.Classes.Manga.html
+  - name: '['
+  - name: ']'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ShikimoriSharp.Classes.Manga
+    name: Manga
+    href: ShikimoriSharp.Classes.Manga.html
+  - name: (
+  - name: )
+  - name: )
+- uid: Roulette.Services.ShikimoriApiConnectorService.GetRanobes*
+  commentId: Overload:Roulette.Services.ShikimoriApiConnectorService.GetRanobes
+  href: Roulette.Services.ShikimoriApiConnectorService.html#Roulette_Services_ShikimoriApiConnectorService_GetRanobes_ShikimoriSharp_Settings_RanobeRequestSettings_
+  name: GetRanobes
+  nameWithType: ShikimoriApiConnectorService.GetRanobes
+  fullName: Roulette.Services.ShikimoriApiConnectorService.GetRanobes
+- uid: ShikimoriSharp.Settings.RanobeRequestSettings
+  commentId: T:ShikimoriSharp.Settings.RanobeRequestSettings
+  parent: ShikimoriSharp.Settings
+  href: ShikimoriSharp.Settings.RanobeRequestSettings.html
+  name: RanobeRequestSettings
+  nameWithType: RanobeRequestSettings
+  fullName: ShikimoriSharp.Settings.RanobeRequestSettings
+- uid: System.Threading.Tasks.Task{ShikimoriSharp.Classes.Ranobe[]}
+  commentId: T:System.Threading.Tasks.Task{ShikimoriSharp.Classes.Ranobe[]}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<Ranobe[]>
+  nameWithType: Task<Ranobe[]>
+  fullName: System.Threading.Tasks.Task<ShikimoriSharp.Classes.Ranobe[]>
+  nameWithType.vb: Task(Of Ranobe())
+  fullName.vb: System.Threading.Tasks.Task(Of ShikimoriSharp.Classes.Ranobe())
+  name.vb: Task(Of Ranobe())
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: ShikimoriSharp.Classes.Ranobe
+    name: Ranobe
+    href: ShikimoriSharp.Classes.Ranobe.html
+  - name: '['
+  - name: ']'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ShikimoriSharp.Classes.Ranobe
+    name: Ranobe
+    href: ShikimoriSharp.Classes.Ranobe.html
+  - name: (
+  - name: )
+  - name: )

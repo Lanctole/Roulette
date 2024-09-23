@@ -1,0 +1,228 @@
+### YamlMime:ManagedReference
+items:
+- uid: Roulette.Models.BugReportStatus
+  commentId: T:Roulette.Models.BugReportStatus
+  id: BugReportStatus
+  parent: Roulette.Models
+  children:
+  - Roulette.Models.BugReportStatus.Deferred
+  - Roulette.Models.BugReportStatus.InProgress
+  - Roulette.Models.BugReportStatus.New
+  - Roulette.Models.BugReportStatus.Resolved
+  langs:
+  - csharp
+  - vb
+  name: BugReportStatus
+  nameWithType: BugReportStatus
+  fullName: Roulette.Models.BugReportStatus
+  type: Enum
+  source:
+    remote:
+      path: Roulette/Models/BugReportStatus.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: BugReportStatus
+    path: ../Roulette/Models/BugReportStatus.cs
+    startLine: 7
+  assemblies:
+  - Roulette
+  namespace: Roulette.Models
+  summary: Статусы отчёта о баге, используемые для отслеживания этапов обработки.
+  example: []
+  syntax:
+    content: public enum BugReportStatus
+    content.vb: Public Enum BugReportStatus
+- uid: Roulette.Models.BugReportStatus.New
+  commentId: F:Roulette.Models.BugReportStatus.New
+  id: New
+  parent: Roulette.Models.BugReportStatus
+  langs:
+  - csharp
+  - vb
+  name: New
+  nameWithType: BugReportStatus.New
+  fullName: Roulette.Models.BugReportStatus.New
+  type: Field
+  source:
+    remote:
+      path: Roulette/Models/BugReportStatus.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: New
+    path: ../Roulette/Models/BugReportStatus.cs
+    startLine: 9
+  assemblies:
+  - Roulette
+  namespace: Roulette.Models
+  syntax:
+    content: >-
+      [Display(Name = "Новое")]
+
+      New = 0
+    return:
+      type: Roulette.Models.BugReportStatus
+    content.vb: >-
+      <Display(Name:="Новое")>
+
+      New = 0
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.DisplayAttribute
+    ctor: System.ComponentModel.DataAnnotations.DisplayAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Name
+      type: System.String
+      value: Новое
+- uid: Roulette.Models.BugReportStatus.InProgress
+  commentId: F:Roulette.Models.BugReportStatus.InProgress
+  id: InProgress
+  parent: Roulette.Models.BugReportStatus
+  langs:
+  - csharp
+  - vb
+  name: InProgress
+  nameWithType: BugReportStatus.InProgress
+  fullName: Roulette.Models.BugReportStatus.InProgress
+  type: Field
+  source:
+    remote:
+      path: Roulette/Models/BugReportStatus.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: InProgress
+    path: ../Roulette/Models/BugReportStatus.cs
+    startLine: 12
+  assemblies:
+  - Roulette
+  namespace: Roulette.Models
+  syntax:
+    content: >-
+      [Display(Name = "В процессе")]
+
+      InProgress = 1
+    return:
+      type: Roulette.Models.BugReportStatus
+    content.vb: >-
+      <Display(Name:="В процессе")>
+
+      InProgress = 1
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.DisplayAttribute
+    ctor: System.ComponentModel.DataAnnotations.DisplayAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Name
+      type: System.String
+      value: В процессе
+- uid: Roulette.Models.BugReportStatus.Resolved
+  commentId: F:Roulette.Models.BugReportStatus.Resolved
+  id: Resolved
+  parent: Roulette.Models.BugReportStatus
+  langs:
+  - csharp
+  - vb
+  name: Resolved
+  nameWithType: BugReportStatus.Resolved
+  fullName: Roulette.Models.BugReportStatus.Resolved
+  type: Field
+  source:
+    remote:
+      path: Roulette/Models/BugReportStatus.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Resolved
+    path: ../Roulette/Models/BugReportStatus.cs
+    startLine: 15
+  assemblies:
+  - Roulette
+  namespace: Roulette.Models
+  syntax:
+    content: >-
+      [Display(Name = "Решено")]
+
+      Resolved = 2
+    return:
+      type: Roulette.Models.BugReportStatus
+    content.vb: >-
+      <Display(Name:="Решено")>
+
+      Resolved = 2
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.DisplayAttribute
+    ctor: System.ComponentModel.DataAnnotations.DisplayAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Name
+      type: System.String
+      value: Решено
+- uid: Roulette.Models.BugReportStatus.Deferred
+  commentId: F:Roulette.Models.BugReportStatus.Deferred
+  id: Deferred
+  parent: Roulette.Models.BugReportStatus
+  langs:
+  - csharp
+  - vb
+  name: Deferred
+  nameWithType: BugReportStatus.Deferred
+  fullName: Roulette.Models.BugReportStatus.Deferred
+  type: Field
+  source:
+    remote:
+      path: Roulette/Models/BugReportStatus.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Deferred
+    path: ../Roulette/Models/BugReportStatus.cs
+    startLine: 18
+  assemblies:
+  - Roulette
+  namespace: Roulette.Models
+  syntax:
+    content: >-
+      [Display(Name = "Отложено")]
+
+      Deferred = 3
+    return:
+      type: Roulette.Models.BugReportStatus
+    content.vb: >-
+      <Display(Name:="Отложено")>
+
+      Deferred = 3
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.DisplayAttribute
+    ctor: System.ComponentModel.DataAnnotations.DisplayAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Name
+      type: System.String
+      value: Отложено
+references:
+- uid: Roulette.Models
+  commentId: N:Roulette.Models
+  href: Roulette.html
+  name: Roulette.Models
+  nameWithType: Roulette.Models
+  fullName: Roulette.Models
+  spec.csharp:
+  - uid: Roulette
+    name: Roulette
+    href: Roulette.html
+  - name: .
+  - uid: Roulette.Models
+    name: Models
+    href: Roulette.Models.html
+  spec.vb:
+  - uid: Roulette
+    name: Roulette
+    href: Roulette.html
+  - name: .
+  - uid: Roulette.Models
+    name: Models
+    href: Roulette.Models.html
+- uid: Roulette.Models.BugReportStatus
+  commentId: T:Roulette.Models.BugReportStatus
+  parent: Roulette.Models
+  href: Roulette.Models.BugReportStatus.html
+  name: BugReportStatus
+  nameWithType: BugReportStatus
+  fullName: Roulette.Models.BugReportStatus
