@@ -27,7 +27,7 @@ jobs:
           docker save roulette_documentation:${{ github.event.inputs.docker_version }} -o roulette_documentation.tar
 
       - name: Upload Docker image to server
-        uses: appleboy/scp-action@v0.1.8
+        uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USER }}
