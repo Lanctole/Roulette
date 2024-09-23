@@ -14,26 +14,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Build Docker image for documentation
-        run: |
-          cd Documentation
-          docker build -t roulette_documentation:${{ github.event.inputs.docker_version }} .
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
 
-      - name: Save Docker image as tar
-        run: |
-          docker save roulette_documentation:${{ github.event.inputs.docker_version }} -o roulette_documentation.tar
-
-      - name: Upload Docker image to server
-        uses: appleboy/scp-action@v0.1.7
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
         with:
-          host: ${{ secrets.SERVER_HOST }}
-          username: ${{ secrets.SERVER_USER }}
-          password: ${{ secrets.SERVER_PASSWORD }}
-          source: roulette_documentation.tar
-          target: /tmp/roulette_documentation.tar
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+
+      - name: Build Docker image
+        run: |
+          docker build -t lanctole/roulette_documentation:${{ github.event.inputs.docker_version }} ./Documentation
+
+      - name: Push Docker image to Docker Hub
+        run: |
+          docker push lanctole/roulette_documentation:${{ github.event.inputs.docker_version }}
 
       - name: Deploy to server using SSH
         uses: appleboy/ssh-action@v0.1.8
@@ -50,8 +49,8 @@ jobs:
                 echo "No container named 'roulette_documentation' exists."
             fi
             
-            echo "Loading Docker image from tar..."
-            docker load -i /tmp/roulette_documentation.tar
-
+            echo "Pulling Docker image from Docker Hub..."
+            docker pull lanctole/roulette_documentation:${{ github.event.inputs.docker_version }}
+            
             echo "Running Docker container for documentation..."
-            docker run -d --name roulette_documentation -p 5100:80 roulette_documentation:${{ github.event.inputs.docker_version }}
+            docker run -d --name roulette_documentation -p 5100:80 lanctole/roulette_documentation:${{ github.event.inputs.docker_version }}
