@@ -202,10 +202,10 @@ public class Program
         else
         {
             app.UseExceptionHandler("/Home/Error");
-            //app.UseHsts();
+            app.UseHsts();
         }
 
-        //app.UseHttpsRedirection();
+        app.UseHttpsRedirection();
         app.UseForwardedHeaders(new ForwardedHeadersOptions
         {
             ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
