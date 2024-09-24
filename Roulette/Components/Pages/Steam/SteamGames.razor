@@ -55,7 +55,7 @@
     </Col>
 </Row>
 <div class="item">
-    <RollButtonComponent OnRoll="SendSelected"/>
+    <RollButtonComponent OnRoll="SendSelected" ShouldDelay="@_shouldDelay"/>
 </div>
 <Divider Orientation="left"></Divider>
 
@@ -69,6 +69,7 @@
 </Row>
 
 @code {
+    private bool _shouldDelay = true;
     protected (double, double) DefaultCost = (15, 60);
     protected (double, double) DefaultDate = (2010, 2020);
     protected (double, double) DefaultSteam = (70, 100);
@@ -100,18 +101,21 @@
 
             if (Games == null || Games.Count == 0)
             {
+                _shouldDelay = false;
                 await OnEmptyAnswer();
                 return;
             }
-
+            _shouldDelay = true;
             TransferMediaPropsToSpinFunc(Games);
         }
         catch (HttpRequestException httpEx)
         {
+            _shouldDelay = false;
             await Message.Error("К сожалению, что-то случилось с нашей базой данных. Попробуйте снова через некоторое время");
         }
         catch (Exception ex)
         {
+            _shouldDelay = false;
             await Message.Error("Произошла ошибка при загрузке. Перезагрузите страницу или измените фильтры. Если проблема не исчезает - сообщите нам.");
         }
         

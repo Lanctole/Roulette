@@ -10,6 +10,8 @@
 
     [Parameter]
     public EventCallback OnRoll { get; set; }
+    [Parameter]
+    public bool ShouldDelay { get; set; } = true;
 
     private async Task HandleClick()
     {
@@ -21,7 +23,10 @@
             await OnRoll.InvokeAsync(null);
         }
 
-        await Task.Delay(3000);
+        if (ShouldDelay)
+        {
+            await Task.Delay(3000);
+        }
 
         _isButtonDisabled = false;
         _buttonText = "Roll!";
