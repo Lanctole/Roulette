@@ -1,7 +1,7 @@
 ﻿namespace Roulette.Models;
 
 /// <summary>
-///     Настройки для взаимодействия с API Shikimori.
+///     Обслуживает загрузку ссылки на необходимый ресурс
 /// </summary>
 public class BaseUrlSettings
 {

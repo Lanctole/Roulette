@@ -22,9 +22,10 @@ public class SettingsService
     }
 
     /// <summary>
-    ///     Получает настройки для Shikimori.
+    ///     Получить адрес Shikimori.
     /// </summary>
-    /// <returns>Настройки Shikimori.</returns>
+    /// <returns>Возвращает экземпляр <see cref="BaseUrlSettings"/> с настройками базового URL.</returns>
+    /// <exception cref="InvalidOperationException"></exception>
     public BaseUrlSettings GetShikimoriSettings()
     {
         try
@@ -47,6 +48,11 @@ public class SettingsService
         }
     }
 
+    /// <summary>
+    ///     Получить адрес торрента
+    /// </summary>
+    /// <returns>Возвращает экземпляр <see cref="BaseUrlSettings"/> с настройками базового URL.</returns>
+    /// <exception cref="InvalidOperationException"></exception>
     public BaseUrlSettings GetTorrentSettings()
     {
         try
