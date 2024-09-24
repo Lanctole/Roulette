@@ -1,0 +1,87 @@
+﻿@inject IJSRuntime JS
+<span>@Label:</span>
+<AntDesign.InputNumber Style="@_inputStyle"
+                       @bind-Value="MinValue"
+                       Disabled="@_isFullWindow"
+                       TValue="double"
+                       Min="Min"
+                       Max="Max"
+                       Bordered="!_isFullWindow"
+                       Size="small"
+                       OnChange="OnInputChange" />
+<Slider class="responsive-slider" TValue="(double, double)"
+        Min="Min"
+        Max="Max"
+        DefaultValue="(MinValue, MaxValue)"
+        Style="flex-grow: 1; margin-left: 0; margin-right: 0;"
+        OnChange="OnChangeHandler"/>
+<AntDesign.InputNumber Style="@_inputStyle"
+                       @bind-Value="MaxValue"
+                       Disabled="@_isFullWindow"
+                       TValue="double"
+                       Min="Min"
+                       Max="Max"
+                       Bordered="!_isFullWindow"
+                       Size="small"
+                       OnChange="OnInputChange" />
+
+@code {
+
+    [Parameter]
+    public string Label { get; set; }
+
+    [Parameter]
+    public double Min { get; set; }
+
+    [Parameter]
+    public double Max { get; set; }
+
+    [Parameter]
+    public string Width { get; set; } = "60px";
+
+    [Parameter]
+    public double MinValue { get; set; }
+
+    [Parameter]
+    public double MaxValue { get; set; }
+
+    [Parameter]
+    public EventCallback<(double, double)> OnChange { get; set; }
+
+    private bool _isFullWindow=true;
+    private string _inputStyle = "border: none; background-color: transparent; width: 60px; margin-left: 1px; margin-right: -1px;";
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            _inputStyle = $"border: none; background-color: transparent; width: {Width}; margin-left: 1px; margin-right: -1px;";
+            _isFullWindow = await JS.InvokeAsync<bool>("getSizeForSliders");
+            if (!_isFullWindow)
+            {
+                Width = "60";
+                _inputStyle = $" background-color: white; width: {Width}; margin-left: 1px; margin-right: -1px;margin-bottom: 5px;";
+            }
+            
+            StateHasChanged();
+        }
+    }
+
+    private async Task OnChangeHandler((double, double) value)
+    {
+        await OnChange.InvokeAsync(value);
+    }
+
+    private async Task OnInputChange(double value)
+    {
+        if (value < MaxValue)
+        {
+            MinValue = value;
+        }
+        else
+        {
+            MaxValue = value;
+        }
+        await OnChange.InvokeAsync((MinValue, MaxValue));
+    }
+
+}

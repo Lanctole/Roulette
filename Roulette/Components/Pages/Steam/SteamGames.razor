@@ -24,38 +24,44 @@
 
 <Row Gutter="16">
     <Col Xs="24" Sm="12" Md="8">
-        <FilterSlider Title="Оценка на платформе Стим. Составляется из отношения положительных обзоров к общему числу обзоров.
-Поэтому наши данные могут немного отличаться. Сведите ползунки чтобы фильтровать по точному значению."
-                      Label="Оценка Steam"
-                      Min="0" Max="100"
-                      MinValue="@SteamMin" MaxValue="@SteamMax"
-                      OnChange="HandleSteamSliderChange"/>
-
-        <FilterSlider Title="Оценка на платформе Метакритик. Сведите ползунки чтобы фильтровать по точному значению."
-                      Label="Оценка Metacritic"
-                      Min="0" Max="100"
-                      MinValue="@MetacriticMin" MaxValue="@MetacriticMax"
-                      OnChange="HandleMetacriticSliderChange"/>
+        <div style="display: flex; align-items: center;">
+            <CustomTooltip Title="Оценка на платформе Стим. Составляется из отношения положительных обзоров к общему числу обзоров.
+Поэтому наши данные могут немного отличаться. Сведите ползунки чтобы фильтровать по точному значению."/>
+            <FilterSlider Label="Оценка Steam"
+                          Min="0" Max="100"
+                          MinValue="@SteamMin" MaxValue="@SteamMax"
+                          OnChange="HandleSteamSliderChange"/>
+        </div>
+        <div style="display: flex; align-items: center;">
+            <CustomTooltip Title="Оценка на платформе Метакритик. Сведите ползунки чтобы фильтровать по точному значению."/>
+            <FilterSlider Label="Оценка Metacritic"
+                          Min="0" Max="100"
+                          MinValue="@MetacriticMin" MaxValue="@MetacriticMax"
+                          OnChange="HandleMetacriticSliderChange"/>
+        </div>
     </Col>
 
     <Col Xs="24" Sm="12" Md="8">
-        <FilterSlider Title="Цена в долларах. Как вы знаете, цены часто указывают в виде 9,99 или 59,99. Эта проблема учтена,
-поэтому не обязательно задавать диапазон [59,60], можно просто указать число точное число. Сведите ползунки чтобы фильтровать по точному значению."
-                      Label="Цена ($)"
-                      Min="0" Max="100"
-                      MinValue="@CostMin" MaxValue="@CostMax"
-                      OnChange="HandleCostSliderChange"/>
-
-        <FilterSlider Title="Дата выхода. Сведите ползунки чтобы фильтровать по точному значению."
-                      Label="Дата выхода"
-                      Min="1997" Max="2024"
-                      Width="50px"
-                      MinValue="@DateFrom" MaxValue="@DateTo"
-                      OnChange="HandleDateSliderChange"/>
+        <div style="display: flex; align-items: center;">
+            <CustomTooltip Title="Цена в долларах. Как вы знаете, цены часто указывают в виде 9,99 или 59,99. Эта проблема учтена,
+поэтому не обязательно задавать диапазон [59,60], можно просто указать число точное число. Сведите ползунки чтобы фильтровать по точному значению."/>
+            <FilterSlider Label="Цена ($)"
+                          Min="0" Max="100"
+                          MinValue="@CostMin" MaxValue="@CostMax"
+                          OnChange="HandleCostSliderChange"/>
+        </div>
+        <div style="display: flex; align-items: center;">
+            <CustomTooltip Title="Дата выхода. Сведите ползунки чтобы фильтровать по точному значению."/>
+            <FilterSlider Label="Дата выхода"
+                          Min="1997" Max="2024"
+                          Width="50px"
+                          MinValue="@DateFrom" MaxValue="@DateTo"
+                          OnChange="HandleDateSliderChange"/>
+        </div>
     </Col>
 </Row>
 <div class="item">
-    <RollButtonComponent OnRoll="SendSelected"/>
+    <RollButtonComponent OnRoll="SendSelected" ShouldDelay="@_shouldDelay"/>
 </div>
 <Divider Orientation="left"></Divider>
 
@@ -69,8 +75,9 @@
 </Row>
 
 @code {
+    private bool _shouldDelay = true;
     protected (double, double) DefaultCost = (15, 60);
-    protected (double, double) DefaultDate = (2010, 2020);
+    protected (double, double) DefaultDate = (2010, 2024);
     protected (double, double) DefaultSteam = (70, 100);
     protected (double, double) DefaultMetacritic = (70, 100);
     protected List<string> SelectedGenres = new();
@@ -100,21 +107,23 @@
 
             if (Games == null || Games.Count == 0)
             {
+                _shouldDelay = false;
                 await OnEmptyAnswer();
                 return;
             }
-
+            _shouldDelay = true;
             TransferMediaPropsToSpinFunc(Games);
         }
         catch (HttpRequestException httpEx)
         {
+            _shouldDelay = false;
             await Message.Error("К сожалению, что-то случилось с нашей базой данных. Попробуйте снова через некоторое время");
         }
         catch (Exception ex)
         {
+            _shouldDelay = false;
             await Message.Error("Произошла ошибка при загрузке. Перезагрузите страницу или измените фильтры. Если проблема не исчезает - сообщите нам.");
         }
-        
     }
 
     private string BuildGameUrl()

@@ -22,14 +22,15 @@ public class SettingsService
     }
 
     /// <summary>
-    ///     Получает настройки для Shikimori.
+    ///     Получить адрес Shikimori.
     /// </summary>
-    /// <returns>Настройки Shikimori.</returns>
-    public ShikimoriSettings GetShikimoriSettings()
+    /// <returns>Возвращает экземпляр <see cref="BaseUrlSettings"/> с настройками базового URL.</returns>
+    /// <exception cref="InvalidOperationException"></exception>
+    public BaseUrlSettings GetShikimoriSettings()
     {
         try
         {
-            var settings = _configuration.GetSection("Shikimori").Get<ShikimoriSettings>();
+            var settings = _configuration.GetSection("Shikimori").Get<BaseUrlSettings>();
 
             if (settings == null)
             {
@@ -43,6 +44,33 @@ public class SettingsService
         catch (Exception ex)
         {
             _logger.LogError(ex, "Произошла ошибка при получении настроек Shikimori.");
+            throw;
+        }
+    }
+
+    /// <summary>
+    ///     Получить адрес торрента
+    /// </summary>
+    /// <returns>Возвращает экземпляр <see cref="BaseUrlSettings"/> с настройками базового URL.</returns>
+    /// <exception cref="InvalidOperationException"></exception>
+    public BaseUrlSettings GetTorrentSettings()
+    {
+        try
+        {
+            var settings = _configuration.GetSection("Torrent").Get<BaseUrlSettings>();
+
+            if (settings == null)
+            {
+                _logger.LogError("Не удалось загрузить настройки Torrent из конфигурации.");
+                throw new InvalidOperationException("Не удалось загрузить настройки Torrent.");
+            }
+
+            _logger.LogInformation("Настройки Torrent успешно загружены.");
+            return settings;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Произошла ошибка при получении настроек Torrent.");
             throw;
         }
     }

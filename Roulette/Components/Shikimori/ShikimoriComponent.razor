@@ -6,6 +6,7 @@
 @inject IMessageService Message
 
 @code {
+    protected bool _shouldDelay = true;
     protected bool ShowCanvas;
     protected string? SelectedScore;
     protected string? SelectedFromYear;
@@ -53,21 +54,24 @@
             var items = await ApiClientService.GetAsync<List<SmallRepresentation>>(url);
             if (items == null || items.Count == 0)
             {
+                _shouldDelay = false;
                 await ShowEmptyAnswerNotification();
                 return new List<SmallRepresentation>();
             }
-
+            _shouldDelay = true;
             var detailedItems = await GetDetailedItemsAsync(items, getDetailsFunc);
             TransferMediaPropsToSpinFunc(detailedItems);
             return detailedItems;
         }
         catch (HttpRequestException httpEx)
         {
+            _shouldDelay = false;
             await Message.Error("К сожалению, Shikimori не отвечает. Попробуйте снова через некоторое время");
             return new List<SmallRepresentation>();
         }
         catch (Exception ex)
         {
+            _shouldDelay = false;
             await Message.Error("Произошла ошибка при загрузке. Перезагрузите страницу или измените фильтры. Если проблема не исчезает - сообщите нам.");
             return new List<SmallRepresentation>();
         }
@@ -117,6 +121,11 @@
     {
         SetCanvasVisibilityToTrue();
         await SendSelected();
+    }
+
+    protected void HandleDateChange((double, double) newValue)
+    {
+        DateTuple = newValue;
     }
 
     protected virtual async Task SendSelected()
