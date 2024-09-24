@@ -121,6 +121,26 @@ h4 {
         border-color: #0056b3;
     }
 
+.btn-success {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 1px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    background-color: #28a745;
+    border: 1px solid #218838;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+    .btn-success:hover {
+        background-color: #5bc876;
+        border-color: #1e7e34;
+    }
+
 .description {
     margin: 1px;
 }

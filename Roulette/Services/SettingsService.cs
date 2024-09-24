@@ -25,11 +25,11 @@ public class SettingsService
     ///     Получает настройки для Shikimori.
     /// </summary>
     /// <returns>Настройки Shikimori.</returns>
-    public ShikimoriSettings GetShikimoriSettings()
+    public BaseUrlSettings GetShikimoriSettings()
     {
         try
         {
-            var settings = _configuration.GetSection("Shikimori").Get<ShikimoriSettings>();
+            var settings = _configuration.GetSection("Shikimori").Get<BaseUrlSettings>();
 
             if (settings == null)
             {
@@ -43,6 +43,28 @@ public class SettingsService
         catch (Exception ex)
         {
             _logger.LogError(ex, "Произошла ошибка при получении настроек Shikimori.");
+            throw;
+        }
+    }
+
+    public BaseUrlSettings GetTorrentSettings()
+    {
+        try
+        {
+            var settings = _configuration.GetSection("Torrent").Get<BaseUrlSettings>();
+
+            if (settings == null)
+            {
+                _logger.LogError("Не удалось загрузить настройки Torrent из конфигурации.");
+                throw new InvalidOperationException("Не удалось загрузить настройки Torrent.");
+            }
+
+            _logger.LogInformation("Настройки Torrent успешно загружены.");
+            return settings;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Произошла ошибка при получении настроек Torrent.");
             throw;
         }
     }

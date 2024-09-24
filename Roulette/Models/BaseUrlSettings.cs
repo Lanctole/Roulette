@@ -3,7 +3,7 @@
 /// <summary>
 ///     Настройки для взаимодействия с API Shikimori.
 /// </summary>
-public class ShikimoriSettings
+public class BaseUrlSettings
 {
     public string BaseUrl { get; set; } = string.Empty;
 }
