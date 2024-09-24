@@ -19,3 +19,7 @@
 window.getTooltipPlacement = function () {
     return window.innerWidth <= 768 ? 'right' : 'bottomLeft';
 };
+
+window.getSizeForSliders = function () {
+    return window.innerWidth <= 768 ? false : true;
+};

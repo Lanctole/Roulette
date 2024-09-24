@@ -430,4 +430,7 @@ main {
         text-align: center;
         margin-bottom: 20px;
     }
+    .responsive-slider {
+        display: none;
+    }
 }

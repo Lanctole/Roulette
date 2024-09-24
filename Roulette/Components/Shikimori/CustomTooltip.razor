@@ -1,0 +1,21 @@
+﻿@inject IJSRuntime JS
+<Tooltip Title="@Title">
+    <i class="bi bi-info-circle" style="margin-right: 10px;"></i>
+</Tooltip>
+
+@code {
+    [Parameter]
+    public string Title { get; set; }
+
+    private Placement _tooltipPlacement = Placement.BottomLeft;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            var placement = await JS.InvokeAsync<string>("getTooltipPlacement");
+            _tooltipPlacement = placement == "right" ? Placement.Right : Placement.BottomLeft;
+            StateHasChanged();
+        }
+    }
+}

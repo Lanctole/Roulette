@@ -45,25 +45,11 @@ tv-48 ~ от 40 и выше">
 
 <Col Xs="24" Sm="12" Md="8">
     <div style="display: flex; align-items: center;">
-        <span>Дата выхода:</span>
-        <AntDesign.InputNumber Style="border: none; background-color: transparent; width: 60px; margin-left: 1px; margin-right: -10px;"
-                           @bind-Value="@DateTuple.Item1"
-                               Disabled="true"
-                               TValue="double"
-                               Bordered="false"
-                               Size="small"/>
-        <Slider TValue="(double, double)"
-                Min="1950"
-                Max="2024"
-                DefaultValue="DateTuple"
-                Style="flex-grow: 1; margin-left: 0; margin-right: 0;"
-            @bind-Value="@DateTuple" />
-        <AntDesign.InputNumber Style="border: none; background-color: transparent; width: 60px; margin-left: 5px;"
-                           @bind-Value="@DateTuple.Item2"
-                               Disabled="true"
-                               TValue="double"
-                               Bordered="false"
-                               Size="small"/>
+        <FilterSlider Label="Дата выхода"
+                          Min="1950" Max="2024"
+                          Width="50px"
+                  MinValue="@DateTuple.Item1" MaxValue="@DateTuple.Item2"
+                  OnChange="HandleDateChange" />
     </div>
 </Col>
 <div class="item">

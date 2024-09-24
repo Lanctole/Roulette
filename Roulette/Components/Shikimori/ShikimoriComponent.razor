@@ -123,6 +123,11 @@
         await SendSelected();
     }
 
+    protected void HandleDateChange((double, double) newValue)
+    {
+        DateTuple = newValue;
+    }
+
     protected virtual async Task SendSelected()
     {
     }
