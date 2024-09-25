@@ -69,6 +69,11 @@ public class ApplicationDbContext : IdentityDbContext
     public DbSet<BugReport> BugReports { get; set; }
 
     /// <summary>
+    /// Набор данных для логов
+    /// </summary>
+    public DbSet<LogEntry> Logs { get; set; }
+
+    /// <summary>
     /// Конструктор контекста базы данных.
     /// </summary>
     /// <param name="options">Настройки контекста базы данных.</param>
