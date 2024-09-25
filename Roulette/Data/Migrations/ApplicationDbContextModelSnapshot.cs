@@ -34,7 +34,7 @@ namespace Roulette.Data.Migrations
 
                     b.HasIndex("GenresId");
 
-                    b.ToTable("GameGenre");
+                    b.ToTable("GameGenre", (string)null);
                 });
 
             modelBuilder.Entity("GameSupportedLanguage", b =>
@@ -49,7 +49,7 @@ namespace Roulette.Data.Migrations
 
                     b.HasIndex("SupportedLanguagesId");
 
-                    b.ToTable("GameSupportedLanguage");
+                    b.ToTable("GameSupportedLanguage", (string)null);
                 });
 
             modelBuilder.Entity("Games.Classes.Game", b =>
@@ -86,7 +86,7 @@ namespace Roulette.Data.Migrations
 
                     b.HasKey("AppID");
 
-                    b.ToTable("Games");
+                    b.ToTable("Games", (string)null);
                 });
 
             modelBuilder.Entity("Games.Classes.Genre", b =>
@@ -107,7 +107,7 @@ namespace Roulette.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Genres");
+                    b.ToTable("Genres", (string)null);
                 });
 
             modelBuilder.Entity("Games.Classes.SupportedLanguage", b =>
@@ -128,7 +128,7 @@ namespace Roulette.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("SupportedLanguages");
+                    b.ToTable("SupportedLanguages", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -409,7 +409,7 @@ namespace Roulette.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("BugReports");
+                    b.ToTable("BugReports", (string)null);
                 });
 
             modelBuilder.Entity("Roulette.Models.LogEntry", b =>
@@ -440,7 +440,7 @@ namespace Roulette.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Logs");
+                    b.ToTable("Logs", (string)null);
                 });
 
             modelBuilder.Entity("Roulette.Models.UserAnimeChoice", b =>
@@ -467,7 +467,7 @@ namespace Roulette.Data.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserAnimeChoices");
+                    b.ToTable("UserAnimeChoices", (string)null);
                 });
 
             modelBuilder.Entity("Roulette.Models.UserGameChoice", b =>
@@ -494,7 +494,7 @@ namespace Roulette.Data.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserGameChoices");
+                    b.ToTable("UserGameChoices", (string)null);
                 });
 
             modelBuilder.Entity("Roulette.Models.UserMangaChoice", b =>
@@ -521,7 +521,7 @@ namespace Roulette.Data.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserMangaChoices");
+                    b.ToTable("UserMangaChoices", (string)null);
                 });
 
             modelBuilder.Entity("Roulette.Models.UserRanobeChoice", b =>
@@ -548,7 +548,7 @@ namespace Roulette.Data.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserRanobeChoices");
+                    b.ToTable("UserRanobeChoices", (string)null);
                 });
 
             modelBuilder.Entity("GameGenre", b =>

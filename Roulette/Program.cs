@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using System.Text.Json.Serialization;
+using AntDesign;
 using Blazored.LocalStorage;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.HttpOverrides;
@@ -11,6 +12,7 @@ using Roulette.Components;
 using Roulette.Components.Account;
 using Roulette.Data;
 using Roulette.Helpers;
+using Roulette.Logging;
 using Roulette.Models;
 using Roulette.Services;
 
@@ -64,6 +66,7 @@ public class Program
         builder.Services.AddScoped<GameLanguageService>();
         builder.Services.AddScoped<UserChoiceHistoryService>();
         builder.Services.AddScoped<BugReportService>();
+        builder.Services.AddHostedService<LogCleanupService>();
     }
 
     private static void ConfigureHttpClients(WebApplicationBuilder builder)
@@ -170,6 +173,8 @@ public class Program
         builder.Logging.ClearProviders();
         builder.Logging.AddConsole();
         builder.Logging.AddDebug();
+        builder.Logging.AddProvider(new DatabaseLoggerProvider(builder.Services.BuildServiceProvider()));
+        builder.Logging.AddFilter<DatabaseLoggerProvider>("", LogLevel.Error);
     }
 
     private static void ConfigureSmtpSettings(WebApplicationBuilder builder)
