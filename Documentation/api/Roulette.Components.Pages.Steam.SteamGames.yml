@@ -124,7 +124,7 @@ items:
   source:
     id: DefaultCost
     path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Pages_Steam_SteamGames_razor.g.cs
-    startLine: 711
+    startLine: 745
   assemblies:
   - Roulette
   namespace: Roulette.Components.Pages.Steam
@@ -147,7 +147,7 @@ items:
   source:
     id: DefaultDate
     path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Pages_Steam_SteamGames_razor.g.cs
-    startLine: 712
+    startLine: 746
   assemblies:
   - Roulette
   namespace: Roulette.Components.Pages.Steam
@@ -170,7 +170,7 @@ items:
   source:
     id: DefaultSteam
     path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Pages_Steam_SteamGames_razor.g.cs
-    startLine: 713
+    startLine: 747
   assemblies:
   - Roulette
   namespace: Roulette.Components.Pages.Steam
@@ -193,7 +193,7 @@ items:
   source:
     id: DefaultMetacritic
     path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Pages_Steam_SteamGames_razor.g.cs
-    startLine: 714
+    startLine: 748
   assemblies:
   - Roulette
   namespace: Roulette.Components.Pages.Steam
@@ -216,7 +216,7 @@ items:
   source:
     id: SelectedGenres
     path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Pages_Steam_SteamGames_razor.g.cs
-    startLine: 715
+    startLine: 749
   assemblies:
   - Roulette
   namespace: Roulette.Components.Pages.Steam
@@ -239,7 +239,7 @@ items:
   source:
     id: SelectedGameLanguages
     path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Pages_Steam_SteamGames_razor.g.cs
-    startLine: 716
+    startLine: 750
   assemblies:
   - Roulette
   namespace: Roulette.Components.Pages.Steam
@@ -262,7 +262,7 @@ items:
   source:
     id: SteamMin
     path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Pages_Steam_SteamGames_razor.g.cs
-    startLine: 718
+    startLine: 752
   assemblies:
   - Roulette
   namespace: Roulette.Components.Pages.Steam
@@ -285,7 +285,7 @@ items:
   source:
     id: SteamMax
     path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Pages_Steam_SteamGames_razor.g.cs
-    startLine: 718
+    startLine: 752
   assemblies:
   - Roulette
   namespace: Roulette.Components.Pages.Steam
@@ -308,7 +308,7 @@ items:
   source:
     id: MetacriticMin
     path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Pages_Steam_SteamGames_razor.g.cs
-    startLine: 718
+    startLine: 752
   assemblies:
   - Roulette
   namespace: Roulette.Components.Pages.Steam
@@ -331,7 +331,7 @@ items:
   source:
     id: MetacriticMax
     path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Pages_Steam_SteamGames_razor.g.cs
-    startLine: 718
+    startLine: 752
   assemblies:
   - Roulette
   namespace: Roulette.Components.Pages.Steam
@@ -354,7 +354,7 @@ items:
   source:
     id: CostMin
     path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Pages_Steam_SteamGames_razor.g.cs
-    startLine: 718
+    startLine: 752
   assemblies:
   - Roulette
   namespace: Roulette.Components.Pages.Steam
@@ -377,7 +377,7 @@ items:
   source:
     id: CostMax
     path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Pages_Steam_SteamGames_razor.g.cs
-    startLine: 718
+    startLine: 752
   assemblies:
   - Roulette
   namespace: Roulette.Components.Pages.Steam
@@ -400,7 +400,7 @@ items:
   source:
     id: DateFrom
     path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Pages_Steam_SteamGames_razor.g.cs
-    startLine: 718
+    startLine: 752
   assemblies:
   - Roulette
   namespace: Roulette.Components.Pages.Steam
@@ -423,7 +423,7 @@ items:
   source:
     id: DateTo
     path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Pages_Steam_SteamGames_razor.g.cs
-    startLine: 718
+    startLine: 752
   assemblies:
   - Roulette
   namespace: Roulette.Components.Pages.Steam
@@ -446,7 +446,7 @@ items:
   source:
     id: SelectedFromYear
     path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Pages_Steam_SteamGames_razor.g.cs
-    startLine: 719
+    startLine: 753
   assemblies:
   - Roulette
   namespace: Roulette.Components.Pages.Steam
@@ -469,7 +469,7 @@ items:
   source:
     id: SelectedToYear
     path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Pages_Steam_SteamGames_razor.g.cs
-    startLine: 719
+    startLine: 753
   assemblies:
   - Roulette
   namespace: Roulette.Components.Pages.Steam
@@ -492,7 +492,7 @@ items:
   source:
     id: Games
     path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Pages_Steam_SteamGames_razor.g.cs
-    startLine: 720
+    startLine: 754
   assemblies:
   - Roulette
   namespace: Roulette.Components.Pages.Steam
@@ -515,7 +515,7 @@ items:
   source:
     id: ShowCanvas
     path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Pages_Steam_SteamGames_razor.g.cs
-    startLine: 721
+    startLine: 755
   assemblies:
   - Roulette
   namespace: Roulette.Components.Pages.Steam
@@ -538,7 +538,7 @@ items:
   source:
     id: OnInitializedAsync
     path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Pages_Steam_SteamGames_razor.g.cs
-    startLine: 723
+    startLine: 757
   assemblies:
   - Roulette
   namespace: Roulette.Components.Pages.Steam
@@ -574,7 +574,7 @@ items:
   source:
     id: OnSelectedGameGenresChanged
     path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Pages_Steam_SteamGames_razor.g.cs
-    startLine: 821
+    startLine: 857
   assemblies:
   - Roulette
   namespace: Roulette.Components.Pages.Steam
@@ -602,7 +602,7 @@ items:
   source:
     id: OnSelectedGameLanguagesChanged
     path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Pages_Steam_SteamGames_razor.g.cs
-    startLine: 826
+    startLine: 862
   assemblies:
   - Roulette
   namespace: Roulette.Components.Pages.Steam

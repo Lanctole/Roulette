@@ -7,6 +7,7 @@ items:
   children:
   - Roulette.Services.SettingsService.#ctor(Microsoft.Extensions.Configuration.IConfiguration,Microsoft.Extensions.Logging.ILogger{Roulette.Services.SettingsService})
   - Roulette.Services.SettingsService.GetShikimoriSettings
+  - Roulette.Services.SettingsService.GetTorrentSettings
   langs:
   - csharp
   - vb
@@ -96,19 +97,58 @@ items:
       repo: https://github.com/Lanctole/Roulette.git
     id: GetShikimoriSettings
     path: ../Roulette/Services/SettingsService.cs
-    startLine: 27
+    startLine: 28
   assemblies:
   - Roulette
   namespace: Roulette.Services
-  summary: Получает настройки для Shikimori.
+  summary: Получить адрес Shikimori.
   example: []
   syntax:
-    content: public ShikimoriSettings GetShikimoriSettings()
+    content: public BaseUrlSettings GetShikimoriSettings()
     return:
-      type: Roulette.Models.ShikimoriSettings
-      description: Настройки Shikimori.
-    content.vb: Public Function GetShikimoriSettings() As ShikimoriSettings
+      type: Roulette.Models.BaseUrlSettings
+      description: Возвращает экземпляр <xref href="Roulette.Models.BaseUrlSettings" data-throw-if-not-resolved="false"></xref> с настройками базового URL.
+    content.vb: Public Function GetShikimoriSettings() As BaseUrlSettings
   overload: Roulette.Services.SettingsService.GetShikimoriSettings*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: ''
+- uid: Roulette.Services.SettingsService.GetTorrentSettings
+  commentId: M:Roulette.Services.SettingsService.GetTorrentSettings
+  id: GetTorrentSettings
+  parent: Roulette.Services.SettingsService
+  langs:
+  - csharp
+  - vb
+  name: GetTorrentSettings()
+  nameWithType: SettingsService.GetTorrentSettings()
+  fullName: Roulette.Services.SettingsService.GetTorrentSettings()
+  type: Method
+  source:
+    remote:
+      path: Roulette/Services/SettingsService.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: GetTorrentSettings
+    path: ../Roulette/Services/SettingsService.cs
+    startLine: 55
+  assemblies:
+  - Roulette
+  namespace: Roulette.Services
+  summary: Получить адрес торрента
+  example: []
+  syntax:
+    content: public BaseUrlSettings GetTorrentSettings()
+    return:
+      type: Roulette.Models.BaseUrlSettings
+      description: Возвращает экземпляр <xref href="Roulette.Models.BaseUrlSettings" data-throw-if-not-resolved="false"></xref> с настройками базового URL.
+    content.vb: Public Function GetTorrentSettings() As BaseUrlSettings
+  overload: Roulette.Services.SettingsService.GetTorrentSettings*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: ''
 references:
 - uid: Roulette.Services
   commentId: N:Roulette.Services
@@ -527,19 +567,26 @@ references:
     name: Logging
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging
+- uid: Roulette.Models.BaseUrlSettings
+  commentId: T:Roulette.Models.BaseUrlSettings
+  parent: Roulette.Models
+  href: Roulette.Models.BaseUrlSettings.html
+  name: BaseUrlSettings
+  nameWithType: BaseUrlSettings
+  fullName: Roulette.Models.BaseUrlSettings
+- uid: System.InvalidOperationException
+  commentId: T:System.InvalidOperationException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.invalidoperationexception
+  name: InvalidOperationException
+  nameWithType: InvalidOperationException
+  fullName: System.InvalidOperationException
 - uid: Roulette.Services.SettingsService.GetShikimoriSettings*
   commentId: Overload:Roulette.Services.SettingsService.GetShikimoriSettings
   href: Roulette.Services.SettingsService.html#Roulette_Services_SettingsService_GetShikimoriSettings
   name: GetShikimoriSettings
   nameWithType: SettingsService.GetShikimoriSettings
   fullName: Roulette.Services.SettingsService.GetShikimoriSettings
-- uid: Roulette.Models.ShikimoriSettings
-  commentId: T:Roulette.Models.ShikimoriSettings
-  parent: Roulette.Models
-  href: Roulette.Models.ShikimoriSettings.html
-  name: ShikimoriSettings
-  nameWithType: ShikimoriSettings
-  fullName: Roulette.Models.ShikimoriSettings
 - uid: Roulette.Models
   commentId: N:Roulette.Models
   href: Roulette.html
@@ -562,3 +609,9 @@ references:
   - uid: Roulette.Models
     name: Models
     href: Roulette.Models.html
+- uid: Roulette.Services.SettingsService.GetTorrentSettings*
+  commentId: Overload:Roulette.Services.SettingsService.GetTorrentSettings
+  href: Roulette.Services.SettingsService.html#Roulette_Services_SettingsService_GetTorrentSettings
+  name: GetTorrentSettings
+  nameWithType: SettingsService.GetTorrentSettings
+  fullName: Roulette.Services.SettingsService.GetTorrentSettings

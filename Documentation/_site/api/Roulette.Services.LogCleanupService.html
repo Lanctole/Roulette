@@ -2,11 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class SettingsService | Roulette Documentation </title>
+      <title>Class LogCleanupService | Roulette Documentation </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class SettingsService | Roulette Documentation ">
+      <meta name="title" content="Class LogCleanupService | Roulette Documentation ">
       
-      <meta name="description" content="Сервис для получения настроек приложения.">
+      <meta name="description" content="Сервис для очистки старых записей логирования в фоновом режиме. Удаляет записи, которые были созданы более одного месяца назад.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/Lanctole/Roulette/new/develop/apiSpec/new?filename=Roulette_Services_SettingsService.md&amp;value=---%0Auid%3A%20Roulette.Services.SettingsService%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/Lanctole/Roulette/new/develop/apiSpec/new?filename=Roulette_Services_LogCleanupService.md&amp;value=---%0Auid%3A%20Roulette.Services.LogCleanupService%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -84,12 +84,12 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="Roulette.Services.SettingsService">
+        <article data-uid="Roulette.Services.LogCleanupService">
 
 
 
-  <h1 id="Roulette_Services_SettingsService" data-uid="Roulette.Services.SettingsService" class="text-break">
-Class SettingsService  <a class="header-action link-secondary" title="View source" href="https://github.com/Lanctole/Roulette/blob/develop/Roulette/Services/SettingsService.cs/#L8"><i class="bi bi-code-slash"></i></a>
+  <h1 id="Roulette_Services_LogCleanupService" data-uid="Roulette.Services.LogCleanupService" class="text-break">
+Class LogCleanupService  <a class="header-action link-secondary" title="View source" href="https://github.com/Lanctole/Roulette/blob/develop/Roulette/Services/LogCleanupService.cs/#L9"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,12 +97,13 @@ Class SettingsService  <a class="header-action link-secondary" title="View sourc
   <dl><dt>Assembly</dt><dd>Roulette.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Сервис для получения настроек приложения.</p>
+  <div class="markdown summary"><p>Сервис для очистки старых записей логирования в фоновом режиме.
+Удаляет записи, которые были созданы более одного месяца назад.</p>
 </div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class SettingsService</code></pre>
+    <pre><code class="lang-csharp hljs">public class LogCleanupService : BackgroundService, IHostedService, IDisposable</code></pre>
   </div>
 
 
@@ -112,15 +113,35 @@ Class SettingsService  <a class="header-action link-secondary" title="View sourc
     <dt>Inheritance</dt>
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-      <div><span class="xref">SettingsService</span></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.backgroundservice">BackgroundService</a></div>
+      <div><span class="xref">LogCleanupService</span></div>
     </dd>
   </dl>
 
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.ihostedservice">IHostedService</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
 
 
   <dl class="typelist inheritedMembers">
     <dt>Inherited Members</dt>
     <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.backgroundservice.dispose">BackgroundService.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.backgroundservice.startasync">BackgroundService.StartAsync(CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.backgroundservice.stopasync">BackgroundService.StopAsync(CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.backgroundservice.executetask">BackgroundService.ExecuteTask</a>
+    </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
     </div>
@@ -153,29 +174,24 @@ Class SettingsService  <a class="header-action link-secondary" title="View sourc
 </h2>
 
 
-  <a id="Roulette_Services_SettingsService__ctor_" data-uid="Roulette.Services.SettingsService.#ctor*"></a>
+  <a id="Roulette_Services_LogCleanupService__ctor_" data-uid="Roulette.Services.LogCleanupService.#ctor*"></a>
 
-  <h3 id="Roulette_Services_SettingsService__ctor_Microsoft_Extensions_Configuration_IConfiguration_Microsoft_Extensions_Logging_ILogger_Roulette_Services_SettingsService__" data-uid="Roulette.Services.SettingsService.#ctor(Microsoft.Extensions.Configuration.IConfiguration,Microsoft.Extensions.Logging.ILogger{Roulette.Services.SettingsService})">
-  SettingsService(IConfiguration, ILogger&lt;SettingsService&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Lanctole/Roulette/blob/develop/Roulette/Services/SettingsService.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Roulette_Services_LogCleanupService__ctor_System_IServiceProvider_" data-uid="Roulette.Services.LogCleanupService.#ctor(System.IServiceProvider)">
+  LogCleanupService(IServiceProvider)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Lanctole/Roulette/blob/develop/Roulette/Services/LogCleanupService.cs/#L13"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Инициализирует новый экземпляр <a class="xref" href="Roulette.Services.SettingsService.html">SettingsService</a>.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SettingsService(IConfiguration configuration, ILogger&lt;SettingsService&gt; logger)</code></pre>
+    <pre><code class="lang-csharp hljs">public LogCleanupService(IServiceProvider serviceProvider)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>configuration</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration.iconfiguration">IConfiguration</a></dt>
-    <dd><p>Экземпляр конфигурации приложения.</p>
-</dd>
-    <dt><code>logger</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1">ILogger</a>&lt;<a class="xref" href="Roulette.Services.SettingsService.html">SettingsService</a>&gt;</dt>
-    <dd><p>Логгер для записи информации и ошибок.</p>
-</dd>
+    <dt><code>serviceProvider</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a></dt>
+    <dd></dd>
   </dl>
 
 
@@ -193,79 +209,41 @@ Class SettingsService  <a class="header-action link-secondary" title="View sourc
 </h2>
 
 
-  <a id="Roulette_Services_SettingsService_GetShikimoriSettings_" data-uid="Roulette.Services.SettingsService.GetShikimoriSettings*"></a>
+  <a id="Roulette_Services_LogCleanupService_ExecuteAsync_" data-uid="Roulette.Services.LogCleanupService.ExecuteAsync*"></a>
 
-  <h3 id="Roulette_Services_SettingsService_GetShikimoriSettings" data-uid="Roulette.Services.SettingsService.GetShikimoriSettings">
-  GetShikimoriSettings()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Lanctole/Roulette/blob/develop/Roulette/Services/SettingsService.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Roulette_Services_LogCleanupService_ExecuteAsync_System_Threading_CancellationToken_" data-uid="Roulette.Services.LogCleanupService.ExecuteAsync(System.Threading.CancellationToken)">
+  ExecuteAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Lanctole/Roulette/blob/develop/Roulette/Services/LogCleanupService.cs/#L22"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Получить адрес Shikimori.</p>
+  <div class="markdown level1 summary"><p>Выполняет асинхронную операцию очистки старых записей логирования.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public BaseUrlSettings GetShikimoriSettings()</code></pre>
+    <pre><code class="lang-csharp hljs">protected override Task ExecuteAsync(CancellationToken stoppingToken)</code></pre>
   </div>
 
-
-  <h4 class="section">Returns</h4>
+  <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="Roulette.Models.BaseUrlSettings.html">BaseUrlSettings</a></dt>
-    <dd><p>Возвращает экземпляр <a class="xref" href="Roulette.Models.BaseUrlSettings.html">BaseUrlSettings</a> с настройками базового URL.</p>
+    <dt><code>stoppingToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>Токен отмены для управления остановкой службы.</p>
 </dd>
   </dl>
 
-
-
-
-
-
-
-
-  <h4 class="section">Exceptions</h4>
+  <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
     <dd></dd>
   </dl>
 
 
 
-  <a id="Roulette_Services_SettingsService_GetTorrentSettings_" data-uid="Roulette.Services.SettingsService.GetTorrentSettings*"></a>
-
-  <h3 id="Roulette_Services_SettingsService_GetTorrentSettings" data-uid="Roulette.Services.SettingsService.GetTorrentSettings">
-  GetTorrentSettings()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Lanctole/Roulette/blob/develop/Roulette/Services/SettingsService.cs/#L56"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Получить адрес торрента</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public BaseUrlSettings GetTorrentSettings()</code></pre>
-  </div>
-
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="Roulette.Models.BaseUrlSettings.html">BaseUrlSettings</a></dt>
-    <dd><p>Возвращает экземпляр <a class="xref" href="Roulette.Models.BaseUrlSettings.html">BaseUrlSettings</a> с настройками базового URL.</p>
-</dd>
-  </dl>
 
 
 
 
 
-
-
-
-  <h4 class="section">Exceptions</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
-    <dd></dd>
-  </dl>
 
 
 
@@ -273,7 +251,7 @@ Class SettingsService  <a class="header-action link-secondary" title="View sourc
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/Lanctole/Roulette/blob/develop/Roulette/Services/SettingsService.cs/#L8" class="edit-link">Edit this page</a>
+          <a href="https://github.com/Lanctole/Roulette/blob/develop/Roulette/Services/LogCleanupService.cs/#L9" class="edit-link">Edit this page</a>
         </div>
 
 

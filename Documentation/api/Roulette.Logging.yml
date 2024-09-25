@@ -1,0 +1,30 @@
+### YamlMime:ManagedReference
+items:
+- uid: Roulette.Logging
+  commentId: N:Roulette.Logging
+  id: Roulette.Logging
+  children:
+  - Roulette.Logging.DatabaseLogger
+  - Roulette.Logging.DatabaseLoggerProvider
+  langs:
+  - csharp
+  - vb
+  name: Roulette.Logging
+  nameWithType: Roulette.Logging
+  fullName: Roulette.Logging
+  type: Namespace
+  assemblies:
+  - Roulette
+references:
+- uid: Roulette.Logging.DatabaseLogger
+  commentId: T:Roulette.Logging.DatabaseLogger
+  href: Roulette.Logging.DatabaseLogger.html
+  name: DatabaseLogger
+  nameWithType: DatabaseLogger
+  fullName: Roulette.Logging.DatabaseLogger
+- uid: Roulette.Logging.DatabaseLoggerProvider
+  commentId: T:Roulette.Logging.DatabaseLoggerProvider
+  href: Roulette.Logging.DatabaseLoggerProvider.html
+  name: DatabaseLoggerProvider
+  nameWithType: DatabaseLoggerProvider
+  fullName: Roulette.Logging.DatabaseLoggerProvider

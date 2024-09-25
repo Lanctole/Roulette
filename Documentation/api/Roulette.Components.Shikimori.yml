@@ -4,8 +4,10 @@ items:
   commentId: N:Roulette.Components.Shikimori
   id: Roulette.Components.Shikimori
   children:
+  - Roulette.Components.Shikimori.CustomTooltip
   - Roulette.Components.Shikimori.DurationComponent
   - Roulette.Components.Shikimori.EnumSelector`1
+  - Roulette.Components.Shikimori.FilterSlider
   - Roulette.Components.Shikimori.MangaSelectKindComponent
   - Roulette.Components.Shikimori.MediaComponent`1
   - Roulette.Components.Shikimori.MediaList`1
@@ -27,6 +29,31 @@ items:
   assemblies:
   - Roulette
 references:
+- uid: Roulette.Components.Shikimori.CustomTooltip
+  commentId: T:Roulette.Components.Shikimori.CustomTooltip
+  href: Roulette.Components.Shikimori.CustomTooltip.html
+  name: CustomTooltip
+  nameWithType: CustomTooltip
+  fullName: Roulette.Components.Shikimori.CustomTooltip
+- uid: Roulette.Components.Shikimori.YearSelectionComponent
+  commentId: T:Roulette.Components.Shikimori.YearSelectionComponent
+  href: Roulette.Components.Shikimori.YearSelectionComponent.html
+  name: YearSelectionComponent
+  nameWithType: YearSelectionComponent
+  fullName: Roulette.Components.Shikimori.YearSelectionComponent
+- uid: Roulette.Components.Shikimori.RollButtonComponent
+  commentId: T:Roulette.Components.Shikimori.RollButtonComponent
+  href: Roulette.Components.Shikimori.RollButtonComponent.html
+  name: RollButtonComponent
+  nameWithType: RollButtonComponent
+  fullName: Roulette.Components.Shikimori.RollButtonComponent
+- uid: Roulette.Components.Shikimori.ShikimoriComponent
+  commentId: T:Roulette.Components.Shikimori.ShikimoriComponent
+  parent: Roulette.Components.Shikimori
+  href: Roulette.Components.Shikimori.ShikimoriComponent.html
+  name: ShikimoriComponent
+  nameWithType: ShikimoriComponent
+  fullName: Roulette.Components.Shikimori.ShikimoriComponent
 - uid: Roulette.Components.Shikimori.MediaComponent`1
   commentId: T:Roulette.Components.Shikimori.MediaComponent`1
   href: Roulette.Components.Shikimori.MediaComponent-1.html
@@ -51,6 +78,98 @@ references:
   - name: Of
   - name: " "
   - name: T
+  - name: )
+- uid: Roulette.Components.Shikimori.RatingComponent
+  commentId: T:Roulette.Components.Shikimori.RatingComponent
+  href: Roulette.Components.Shikimori.RatingComponent.html
+  name: RatingComponent
+  nameWithType: RatingComponent
+  fullName: Roulette.Components.Shikimori.RatingComponent
+- uid: Roulette.Components.Shikimori.FilterSlider
+  commentId: T:Roulette.Components.Shikimori.FilterSlider
+  href: Roulette.Components.Shikimori.FilterSlider.html
+  name: FilterSlider
+  nameWithType: FilterSlider
+  fullName: Roulette.Components.Shikimori.FilterSlider
+- uid: Roulette.Components.Shikimori.SelectComponent`2
+  commentId: T:Roulette.Components.Shikimori.SelectComponent`2
+  href: Roulette.Components.Shikimori.SelectComponent-2.html
+  name: SelectComponent<TValue, T>
+  nameWithType: SelectComponent<TValue, T>
+  fullName: Roulette.Components.Shikimori.SelectComponent<TValue, T>
+  nameWithType.vb: SelectComponent(Of TValue, T)
+  fullName.vb: Roulette.Components.Shikimori.SelectComponent(Of TValue, T)
+  name.vb: SelectComponent(Of TValue, T)
+  spec.csharp:
+  - uid: Roulette.Components.Shikimori.SelectComponent`2
+    name: SelectComponent
+    href: Roulette.Components.Shikimori.SelectComponent-2.html
+  - name: <
+  - name: TValue
+  - name: ','
+  - name: " "
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Roulette.Components.Shikimori.SelectComponent`2
+    name: SelectComponent
+    href: Roulette.Components.Shikimori.SelectComponent-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TValue
+  - name: ','
+  - name: " "
+  - name: T
+  - name: )
+- uid: Roulette.Components.Shikimori.WheelComponent
+  commentId: T:Roulette.Components.Shikimori.WheelComponent
+  href: Roulette.Components.Shikimori.WheelComponent.html
+  name: WheelComponent
+  nameWithType: WheelComponent
+  fullName: Roulette.Components.Shikimori.WheelComponent
+- uid: Roulette.Components.Shikimori.MangaSelectKindComponent
+  commentId: T:Roulette.Components.Shikimori.MangaSelectKindComponent
+  href: Roulette.Components.Shikimori.MangaSelectKindComponent.html
+  name: MangaSelectKindComponent
+  nameWithType: MangaSelectKindComponent
+  fullName: Roulette.Components.Shikimori.MangaSelectKindComponent
+- uid: Roulette.Components.Shikimori.MinimalScoreComponent
+  commentId: T:Roulette.Components.Shikimori.MinimalScoreComponent
+  href: Roulette.Components.Shikimori.MinimalScoreComponent.html
+  name: MinimalScoreComponent
+  nameWithType: MinimalScoreComponent
+  fullName: Roulette.Components.Shikimori.MinimalScoreComponent
+- uid: Roulette.Components.Shikimori.DurationComponent
+  commentId: T:Roulette.Components.Shikimori.DurationComponent
+  href: Roulette.Components.Shikimori.DurationComponent.html
+  name: DurationComponent
+  nameWithType: DurationComponent
+  fullName: Roulette.Components.Shikimori.DurationComponent
+- uid: Roulette.Components.Shikimori.EnumSelector`1
+  commentId: T:Roulette.Components.Shikimori.EnumSelector`1
+  href: Roulette.Components.Shikimori.EnumSelector-1.html
+  name: EnumSelector<TEnum>
+  nameWithType: EnumSelector<TEnum>
+  fullName: Roulette.Components.Shikimori.EnumSelector<TEnum>
+  nameWithType.vb: EnumSelector(Of TEnum)
+  fullName.vb: Roulette.Components.Shikimori.EnumSelector(Of TEnum)
+  name.vb: EnumSelector(Of TEnum)
+  spec.csharp:
+  - uid: Roulette.Components.Shikimori.EnumSelector`1
+    name: EnumSelector
+    href: Roulette.Components.Shikimori.EnumSelector-1.html
+  - name: <
+  - name: TEnum
+  - name: '>'
+  spec.vb:
+  - uid: Roulette.Components.Shikimori.EnumSelector`1
+    name: EnumSelector
+    href: Roulette.Components.Shikimori.EnumSelector-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEnum
   - name: )
 - uid: Roulette.Components.Shikimori.MediaList`1
   commentId: T:Roulette.Components.Shikimori.MediaList`1
@@ -83,111 +202,6 @@ references:
   name: SelectKindComponent
   nameWithType: SelectKindComponent
   fullName: Roulette.Components.Shikimori.SelectKindComponent
-- uid: Roulette.Components.Shikimori.EnumSelector`1
-  commentId: T:Roulette.Components.Shikimori.EnumSelector`1
-  href: Roulette.Components.Shikimori.EnumSelector-1.html
-  name: EnumSelector<TEnum>
-  nameWithType: EnumSelector<TEnum>
-  fullName: Roulette.Components.Shikimori.EnumSelector<TEnum>
-  nameWithType.vb: EnumSelector(Of TEnum)
-  fullName.vb: Roulette.Components.Shikimori.EnumSelector(Of TEnum)
-  name.vb: EnumSelector(Of TEnum)
-  spec.csharp:
-  - uid: Roulette.Components.Shikimori.EnumSelector`1
-    name: EnumSelector
-    href: Roulette.Components.Shikimori.EnumSelector-1.html
-  - name: <
-  - name: TEnum
-  - name: '>'
-  spec.vb:
-  - uid: Roulette.Components.Shikimori.EnumSelector`1
-    name: EnumSelector
-    href: Roulette.Components.Shikimori.EnumSelector-1.html
-  - name: (
-  - name: Of
-  - name: " "
-  - name: TEnum
-  - name: )
-- uid: Roulette.Components.Shikimori.MinimalScoreComponent
-  commentId: T:Roulette.Components.Shikimori.MinimalScoreComponent
-  href: Roulette.Components.Shikimori.MinimalScoreComponent.html
-  name: MinimalScoreComponent
-  nameWithType: MinimalScoreComponent
-  fullName: Roulette.Components.Shikimori.MinimalScoreComponent
-- uid: Roulette.Components.Shikimori.RollButtonComponent
-  commentId: T:Roulette.Components.Shikimori.RollButtonComponent
-  href: Roulette.Components.Shikimori.RollButtonComponent.html
-  name: RollButtonComponent
-  nameWithType: RollButtonComponent
-  fullName: Roulette.Components.Shikimori.RollButtonComponent
-- uid: Roulette.Components.Shikimori.DurationComponent
-  commentId: T:Roulette.Components.Shikimori.DurationComponent
-  href: Roulette.Components.Shikimori.DurationComponent.html
-  name: DurationComponent
-  nameWithType: DurationComponent
-  fullName: Roulette.Components.Shikimori.DurationComponent
-- uid: Roulette.Components.Shikimori.YearSelectionComponent
-  commentId: T:Roulette.Components.Shikimori.YearSelectionComponent
-  href: Roulette.Components.Shikimori.YearSelectionComponent.html
-  name: YearSelectionComponent
-  nameWithType: YearSelectionComponent
-  fullName: Roulette.Components.Shikimori.YearSelectionComponent
-- uid: Roulette.Components.Shikimori.WheelComponent
-  commentId: T:Roulette.Components.Shikimori.WheelComponent
-  href: Roulette.Components.Shikimori.WheelComponent.html
-  name: WheelComponent
-  nameWithType: WheelComponent
-  fullName: Roulette.Components.Shikimori.WheelComponent
-- uid: Roulette.Components.Shikimori.RatingComponent
-  commentId: T:Roulette.Components.Shikimori.RatingComponent
-  href: Roulette.Components.Shikimori.RatingComponent.html
-  name: RatingComponent
-  nameWithType: RatingComponent
-  fullName: Roulette.Components.Shikimori.RatingComponent
-- uid: Roulette.Components.Shikimori.ShikimoriComponent
-  commentId: T:Roulette.Components.Shikimori.ShikimoriComponent
-  parent: Roulette.Components.Shikimori
-  href: Roulette.Components.Shikimori.ShikimoriComponent.html
-  name: ShikimoriComponent
-  nameWithType: ShikimoriComponent
-  fullName: Roulette.Components.Shikimori.ShikimoriComponent
-- uid: Roulette.Components.Shikimori.SelectComponent`2
-  commentId: T:Roulette.Components.Shikimori.SelectComponent`2
-  href: Roulette.Components.Shikimori.SelectComponent-2.html
-  name: SelectComponent<TValue, T>
-  nameWithType: SelectComponent<TValue, T>
-  fullName: Roulette.Components.Shikimori.SelectComponent<TValue, T>
-  nameWithType.vb: SelectComponent(Of TValue, T)
-  fullName.vb: Roulette.Components.Shikimori.SelectComponent(Of TValue, T)
-  name.vb: SelectComponent(Of TValue, T)
-  spec.csharp:
-  - uid: Roulette.Components.Shikimori.SelectComponent`2
-    name: SelectComponent
-    href: Roulette.Components.Shikimori.SelectComponent-2.html
-  - name: <
-  - name: TValue
-  - name: ','
-  - name: " "
-  - name: T
-  - name: '>'
-  spec.vb:
-  - uid: Roulette.Components.Shikimori.SelectComponent`2
-    name: SelectComponent
-    href: Roulette.Components.Shikimori.SelectComponent-2.html
-  - name: (
-  - name: Of
-  - name: " "
-  - name: TValue
-  - name: ','
-  - name: " "
-  - name: T
-  - name: )
-- uid: Roulette.Components.Shikimori.MangaSelectKindComponent
-  commentId: T:Roulette.Components.Shikimori.MangaSelectKindComponent
-  href: Roulette.Components.Shikimori.MangaSelectKindComponent.html
-  name: MangaSelectKindComponent
-  nameWithType: MangaSelectKindComponent
-  fullName: Roulette.Components.Shikimori.MangaSelectKindComponent
 - uid: Roulette.Components.Shikimori
   commentId: N:Roulette.Components.Shikimori
   href: Roulette.html

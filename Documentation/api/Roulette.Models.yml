@@ -4,16 +4,17 @@ items:
   commentId: N:Roulette.Models
   id: Roulette.Models
   children:
+  - Roulette.Models.BaseUrlSettings
   - Roulette.Models.BugReport
   - Roulette.Models.BugReportStatus
   - Roulette.Models.ErrorViewModel
   - Roulette.Models.LabeledValue
+  - Roulette.Models.LogEntry
   - Roulette.Models.MediaType
   - Roulette.Models.PaginatedAnimeHistory
   - Roulette.Models.PaginatedGameHistory
   - Roulette.Models.PaginatedMangaHistory
   - Roulette.Models.PaginatedRanobeHistory
-  - Roulette.Models.ShikimoriSettings
   - Roulette.Models.SmtpSettings
   - Roulette.Models.UserAnimeChoice
   - Roulette.Models.UserGameChoice
@@ -29,6 +30,13 @@ items:
   assemblies:
   - Roulette
 references:
+- uid: Roulette.Models.BaseUrlSettings
+  commentId: T:Roulette.Models.BaseUrlSettings
+  parent: Roulette.Models
+  href: Roulette.Models.BaseUrlSettings.html
+  name: BaseUrlSettings
+  nameWithType: BaseUrlSettings
+  fullName: Roulette.Models.BaseUrlSettings
 - uid: Roulette.Models.BugReport
   commentId: T:Roulette.Models.BugReport
   parent: Roulette.Models
@@ -55,6 +63,12 @@ references:
   name: LabeledValue
   nameWithType: LabeledValue
   fullName: Roulette.Models.LabeledValue
+- uid: Roulette.Models.LogEntry
+  commentId: T:Roulette.Models.LogEntry
+  href: Roulette.Models.LogEntry.html
+  name: LogEntry
+  nameWithType: LogEntry
+  fullName: Roulette.Models.LogEntry
 - uid: Roulette.Models.MediaType
   commentId: T:Roulette.Models.MediaType
   parent: Roulette.Models
@@ -86,13 +100,6 @@ references:
   name: PaginatedRanobeHistory
   nameWithType: PaginatedRanobeHistory
   fullName: Roulette.Models.PaginatedRanobeHistory
-- uid: Roulette.Models.ShikimoriSettings
-  commentId: T:Roulette.Models.ShikimoriSettings
-  parent: Roulette.Models
-  href: Roulette.Models.ShikimoriSettings.html
-  name: ShikimoriSettings
-  nameWithType: ShikimoriSettings
-  fullName: Roulette.Models.ShikimoriSettings
 - uid: Roulette.Models.SmtpSettings
   commentId: T:Roulette.Models.SmtpSettings
   href: Roulette.Models.SmtpSettings.html

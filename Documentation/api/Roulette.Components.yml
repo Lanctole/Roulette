@@ -7,7 +7,6 @@ items:
   - Roulette.Components.AntiforgeryTokenInput
   - Roulette.Components.App
   - Roulette.Components.ErrorReportWidget
-  - Roulette.Components.FilterSlider
   - Roulette.Components.Routes
   - Roulette.Components._Imports
   langs:
@@ -20,39 +19,33 @@ items:
   assemblies:
   - Roulette
 references:
-- uid: Roulette.Components._Imports
-  commentId: T:Roulette.Components._Imports
-  href: Roulette.Components._Imports.html
-  name: _Imports
-  nameWithType: _Imports
-  fullName: Roulette.Components._Imports
-- uid: Roulette.Components.ErrorReportWidget
-  commentId: T:Roulette.Components.ErrorReportWidget
-  href: Roulette.Components.ErrorReportWidget.html
-  name: ErrorReportWidget
-  nameWithType: ErrorReportWidget
-  fullName: Roulette.Components.ErrorReportWidget
-- uid: Roulette.Components.FilterSlider
-  commentId: T:Roulette.Components.FilterSlider
-  href: Roulette.Components.FilterSlider.html
-  name: FilterSlider
-  nameWithType: FilterSlider
-  fullName: Roulette.Components.FilterSlider
-- uid: Roulette.Components.AntiforgeryTokenInput
-  commentId: T:Roulette.Components.AntiforgeryTokenInput
-  href: Roulette.Components.AntiforgeryTokenInput.html
-  name: AntiforgeryTokenInput
-  nameWithType: AntiforgeryTokenInput
-  fullName: Roulette.Components.AntiforgeryTokenInput
-- uid: Roulette.Components.Routes
-  commentId: T:Roulette.Components.Routes
-  href: Roulette.Components.Routes.html
-  name: Routes
-  nameWithType: Routes
-  fullName: Roulette.Components.Routes
 - uid: Roulette.Components.App
   commentId: T:Roulette.Components.App
   href: Roulette.Components.App.html
   name: App
   nameWithType: App
   fullName: Roulette.Components.App
+- uid: Roulette.Components.AntiforgeryTokenInput
+  commentId: T:Roulette.Components.AntiforgeryTokenInput
+  href: Roulette.Components.AntiforgeryTokenInput.html
+  name: AntiforgeryTokenInput
+  nameWithType: AntiforgeryTokenInput
+  fullName: Roulette.Components.AntiforgeryTokenInput
+- uid: Roulette.Components.ErrorReportWidget
+  commentId: T:Roulette.Components.ErrorReportWidget
+  href: Roulette.Components.ErrorReportWidget.html
+  name: ErrorReportWidget
+  nameWithType: ErrorReportWidget
+  fullName: Roulette.Components.ErrorReportWidget
+- uid: Roulette.Components.Routes
+  commentId: T:Roulette.Components.Routes
+  href: Roulette.Components.Routes.html
+  name: Routes
+  nameWithType: Routes
+  fullName: Roulette.Components.Routes
+- uid: Roulette.Components._Imports
+  commentId: T:Roulette.Components._Imports
+  href: Roulette.Components._Imports.html
+  name: _Imports
+  nameWithType: _Imports
+  fullName: Roulette.Components._Imports

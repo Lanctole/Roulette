@@ -1,34 +1,34 @@
 ### YamlMime:ManagedReference
 items:
-- uid: Roulette.Program
-  commentId: T:Roulette.Program
-  id: Program
-  parent: Roulette
+- uid: Roulette.Models.BaseUrlSettings
+  commentId: T:Roulette.Models.BaseUrlSettings
+  id: BaseUrlSettings
+  parent: Roulette.Models
   children:
-  - Roulette.Program.Main(System.String[])
+  - Roulette.Models.BaseUrlSettings.BaseUrl
   langs:
   - csharp
   - vb
-  name: Program
-  nameWithType: Program
-  fullName: Roulette.Program
+  name: BaseUrlSettings
+  nameWithType: BaseUrlSettings
+  fullName: Roulette.Models.BaseUrlSettings
   type: Class
   source:
     remote:
-      path: Roulette/Program.cs
+      path: Roulette/Models/BaseUrlSettings.cs
       branch: develop
       repo: https://github.com/Lanctole/Roulette.git
-    id: Program
-    path: ../Roulette/Program.cs
-    startLine: 23
+    id: BaseUrlSettings
+    path: ../Roulette/Models/BaseUrlSettings.cs
+    startLine: 5
   assemblies:
   - Roulette
-  namespace: Roulette
-  summary: Главный класс
+  namespace: Roulette.Models
+  summary: Обслуживает загрузку ссылки на необходимый ресурс
   example: []
   syntax:
-    content: public class Program
-    content.vb: Public Class Program
+    content: public class BaseUrlSettings
+    content.vb: Public Class BaseUrlSettings
   inheritance:
   - System.Object
   inheritedMembers:
@@ -39,52 +39,58 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: Roulette.Program.Main(System.String[])
-  commentId: M:Roulette.Program.Main(System.String[])
-  id: Main(System.String[])
-  parent: Roulette.Program
+- uid: Roulette.Models.BaseUrlSettings.BaseUrl
+  commentId: P:Roulette.Models.BaseUrlSettings.BaseUrl
+  id: BaseUrl
+  parent: Roulette.Models.BaseUrlSettings
   langs:
   - csharp
   - vb
-  name: Main(string[])
-  nameWithType: Program.Main(string[])
-  fullName: Roulette.Program.Main(string[])
-  type: Method
+  name: BaseUrl
+  nameWithType: BaseUrlSettings.BaseUrl
+  fullName: Roulette.Models.BaseUrlSettings.BaseUrl
+  type: Property
   source:
     remote:
-      path: Roulette/Program.cs
+      path: Roulette/Models/BaseUrlSettings.cs
       branch: develop
       repo: https://github.com/Lanctole/Roulette.git
-    id: Main
-    path: ../Roulette/Program.cs
-    startLine: 30
+    id: BaseUrl
+    path: ../Roulette/Models/BaseUrlSettings.cs
+    startLine: 7
   assemblies:
   - Roulette
-  namespace: Roulette
-  summary: Точка входа в приложение
-  example: []
+  namespace: Roulette.Models
   syntax:
-    content: public static void Main(string[] args)
-    parameters:
-    - id: args
-      type: System.String[]
-      description: ''
-    content.vb: Public Shared Sub Main(args As String())
-  overload: Roulette.Program.Main*
-  exceptions:
-  - type: System.InvalidOperationException
-    commentId: T:System.InvalidOperationException
-    description: ''
-  nameWithType.vb: Program.Main(String())
-  fullName.vb: Roulette.Program.Main(String())
-  name.vb: Main(String())
+    content: public string BaseUrl { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property BaseUrl As String
+  overload: Roulette.Models.BaseUrlSettings.BaseUrl*
 references:
-- uid: Roulette
-  commentId: N:Roulette
+- uid: Roulette.Models
+  commentId: N:Roulette.Models
   href: Roulette.html
-  name: Roulette
-  nameWithType: Roulette
-  fullName: Roulette
+  name: Roulette.Models
+  nameWithType: Roulette.Models
+  fullName: Roulette.Models
+  spec.csharp:
+  - uid: Roulette
+    name: Roulette
+    href: Roulette.html
+  - name: .
+  - uid: Roulette.Models
+    name: Models
+    href: Roulette.Models.html
+  spec.vb:
+  - uid: Roulette
+    name: Roulette
+    href: Roulette.html
+  - name: .
+  - uid: Roulette.Models
+    name: Models
+    href: Roulette.Models.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -322,39 +328,20 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: System.InvalidOperationException
-  commentId: T:System.InvalidOperationException
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.invalidoperationexception
-  name: InvalidOperationException
-  nameWithType: InvalidOperationException
-  fullName: System.InvalidOperationException
-- uid: Roulette.Program.Main*
-  commentId: Overload:Roulette.Program.Main
-  href: Roulette.Program.html#Roulette_Program_Main_System_String___
-  name: Main
-  nameWithType: Program.Main
-  fullName: Roulette.Program.Main
-- uid: System.String[]
+- uid: Roulette.Models.BaseUrlSettings.BaseUrl*
+  commentId: Overload:Roulette.Models.BaseUrlSettings.BaseUrl
+  href: Roulette.Models.BaseUrlSettings.html#Roulette_Models_BaseUrlSettings_BaseUrl
+  name: BaseUrl
+  nameWithType: BaseUrlSettings.BaseUrl
+  fullName: Roulette.Models.BaseUrlSettings.BaseUrl
+- uid: System.String
+  commentId: T:System.String
+  parent: System
   isExternal: true
   href: https://learn.microsoft.com/dotnet/api/system.string
-  name: string[]
-  nameWithType: string[]
-  fullName: string[]
-  nameWithType.vb: String()
-  fullName.vb: String()
-  name.vb: String()
-  spec.csharp:
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: '['
-  - name: ']'
-  spec.vb:
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: (
-  - name: )
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

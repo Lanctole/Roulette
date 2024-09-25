@@ -2,11 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class SettingsService | Roulette Documentation </title>
+      <title>Class DatabaseLoggerProvider | Roulette Documentation </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class SettingsService | Roulette Documentation ">
+      <meta name="title" content="Class DatabaseLoggerProvider | Roulette Documentation ">
       
-      <meta name="description" content="Сервис для получения настроек приложения.">
+      
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/Lanctole/Roulette/new/develop/apiSpec/new?filename=Roulette_Services_SettingsService.md&amp;value=---%0Auid%3A%20Roulette.Services.SettingsService%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/Lanctole/Roulette/new/develop/apiSpec/new?filename=Roulette_Logging_DatabaseLoggerProvider.md&amp;value=---%0Auid%3A%20Roulette.Logging.DatabaseLoggerProvider%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -84,25 +84,24 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="Roulette.Services.SettingsService">
+        <article data-uid="Roulette.Logging.DatabaseLoggerProvider">
 
 
 
-  <h1 id="Roulette_Services_SettingsService" data-uid="Roulette.Services.SettingsService" class="text-break">
-Class SettingsService  <a class="header-action link-secondary" title="View source" href="https://github.com/Lanctole/Roulette/blob/develop/Roulette/Services/SettingsService.cs/#L8"><i class="bi bi-code-slash"></i></a>
+  <h1 id="Roulette_Logging_DatabaseLoggerProvider" data-uid="Roulette.Logging.DatabaseLoggerProvider" class="text-break">
+Class DatabaseLoggerProvider  <a class="header-action link-secondary" title="View source" href="https://github.com/Lanctole/Roulette/blob/develop/Roulette/Logging/DatabaseLoggerProvider.cs/#L5"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="Roulette.html">Roulette</a>.<a class="xref" href="Roulette.Services.html">Services</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Roulette.html">Roulette</a>.<a class="xref" href="Roulette.Logging.html">Logging</a></dd></dl>
   <dl><dt>Assembly</dt><dd>Roulette.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Сервис для получения настроек приложения.</p>
-</div>
+  <div class="markdown summary"></div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class SettingsService</code></pre>
+    <pre><code class="lang-csharp hljs">public class DatabaseLoggerProvider : ILoggerProvider, IDisposable</code></pre>
   </div>
 
 
@@ -112,10 +111,17 @@ Class SettingsService  <a class="header-action link-secondary" title="View sourc
     <dt>Inheritance</dt>
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-      <div><span class="xref">SettingsService</span></div>
+      <div><span class="xref">DatabaseLoggerProvider</span></div>
     </dd>
   </dl>
 
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.iloggerprovider">ILoggerProvider</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
 
 
   <dl class="typelist inheritedMembers">
@@ -153,29 +159,24 @@ Class SettingsService  <a class="header-action link-secondary" title="View sourc
 </h2>
 
 
-  <a id="Roulette_Services_SettingsService__ctor_" data-uid="Roulette.Services.SettingsService.#ctor*"></a>
+  <a id="Roulette_Logging_DatabaseLoggerProvider__ctor_" data-uid="Roulette.Logging.DatabaseLoggerProvider.#ctor*"></a>
 
-  <h3 id="Roulette_Services_SettingsService__ctor_Microsoft_Extensions_Configuration_IConfiguration_Microsoft_Extensions_Logging_ILogger_Roulette_Services_SettingsService__" data-uid="Roulette.Services.SettingsService.#ctor(Microsoft.Extensions.Configuration.IConfiguration,Microsoft.Extensions.Logging.ILogger{Roulette.Services.SettingsService})">
-  SettingsService(IConfiguration, ILogger&lt;SettingsService&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Lanctole/Roulette/blob/develop/Roulette/Services/SettingsService.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Roulette_Logging_DatabaseLoggerProvider__ctor_System_IServiceProvider_" data-uid="Roulette.Logging.DatabaseLoggerProvider.#ctor(System.IServiceProvider)">
+  DatabaseLoggerProvider(IServiceProvider)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Lanctole/Roulette/blob/develop/Roulette/Logging/DatabaseLoggerProvider.cs/#L10"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Инициализирует новый экземпляр <a class="xref" href="Roulette.Services.SettingsService.html">SettingsService</a>.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SettingsService(IConfiguration configuration, ILogger&lt;SettingsService&gt; logger)</code></pre>
+    <pre><code class="lang-csharp hljs">public DatabaseLoggerProvider(IServiceProvider serviceProvider)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>configuration</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration.iconfiguration">IConfiguration</a></dt>
-    <dd><p>Экземпляр конфигурации приложения.</p>
-</dd>
-    <dt><code>logger</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1">ILogger</a>&lt;<a class="xref" href="Roulette.Services.SettingsService.html">SettingsService</a>&gt;</dt>
-    <dd><p>Логгер для записи информации и ошибок.</p>
-</dd>
+    <dt><code>serviceProvider</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a></dt>
+    <dd></dd>
   </dl>
 
 
@@ -193,26 +194,32 @@ Class SettingsService  <a class="header-action link-secondary" title="View sourc
 </h2>
 
 
-  <a id="Roulette_Services_SettingsService_GetShikimoriSettings_" data-uid="Roulette.Services.SettingsService.GetShikimoriSettings*"></a>
+  <a id="Roulette_Logging_DatabaseLoggerProvider_CreateLogger_" data-uid="Roulette.Logging.DatabaseLoggerProvider.CreateLogger*"></a>
 
-  <h3 id="Roulette_Services_SettingsService_GetShikimoriSettings" data-uid="Roulette.Services.SettingsService.GetShikimoriSettings">
-  GetShikimoriSettings()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Lanctole/Roulette/blob/develop/Roulette/Services/SettingsService.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Roulette_Logging_DatabaseLoggerProvider_CreateLogger_System_String_" data-uid="Roulette.Logging.DatabaseLoggerProvider.CreateLogger(System.String)">
+  CreateLogger(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Lanctole/Roulette/blob/develop/Roulette/Logging/DatabaseLoggerProvider.cs/#L15"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Получить адрес Shikimori.</p>
+  <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger">ILogger</a> instance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public BaseUrlSettings GetShikimoriSettings()</code></pre>
+    <pre><code class="lang-csharp hljs">public ILogger CreateLogger(string categoryName)</code></pre>
   </div>
 
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>categoryName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The category name for messages produced by the logger.</p>
+</dd>
+  </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="Roulette.Models.BaseUrlSettings.html">BaseUrlSettings</a></dt>
-    <dd><p>Возвращает экземпляр <a class="xref" href="Roulette.Models.BaseUrlSettings.html">BaseUrlSettings</a> с настройками базового URL.</p>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger">ILogger</a></dt>
+    <dd><p>The instance of <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger">ILogger</a> that was created.</p>
 </dd>
   </dl>
 
@@ -223,36 +230,25 @@ Class SettingsService  <a class="header-action link-secondary" title="View sourc
 
 
 
-  <h4 class="section">Exceptions</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
-    <dd></dd>
-  </dl>
 
 
 
-  <a id="Roulette_Services_SettingsService_GetTorrentSettings_" data-uid="Roulette.Services.SettingsService.GetTorrentSettings*"></a>
+  <a id="Roulette_Logging_DatabaseLoggerProvider_Dispose_" data-uid="Roulette.Logging.DatabaseLoggerProvider.Dispose*"></a>
 
-  <h3 id="Roulette_Services_SettingsService_GetTorrentSettings" data-uid="Roulette.Services.SettingsService.GetTorrentSettings">
-  GetTorrentSettings()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Lanctole/Roulette/blob/develop/Roulette/Services/SettingsService.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Roulette_Logging_DatabaseLoggerProvider_Dispose" data-uid="Roulette.Logging.DatabaseLoggerProvider.Dispose">
+  Dispose()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Lanctole/Roulette/blob/develop/Roulette/Logging/DatabaseLoggerProvider.cs/#L21"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Получить адрес торрента</p>
+  <div class="markdown level1 summary"><p>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public BaseUrlSettings GetTorrentSettings()</code></pre>
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
   </div>
 
 
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="Roulette.Models.BaseUrlSettings.html">BaseUrlSettings</a></dt>
-    <dd><p>Возвращает экземпляр <a class="xref" href="Roulette.Models.BaseUrlSettings.html">BaseUrlSettings</a> с настройками базового URL.</p>
-</dd>
-  </dl>
 
 
 
@@ -261,11 +257,6 @@ Class SettingsService  <a class="header-action link-secondary" title="View sourc
 
 
 
-  <h4 class="section">Exceptions</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
-    <dd></dd>
-  </dl>
 
 
 
@@ -273,7 +264,7 @@ Class SettingsService  <a class="header-action link-secondary" title="View sourc
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/Lanctole/Roulette/blob/develop/Roulette/Services/SettingsService.cs/#L8" class="edit-link">Edit this page</a>
+          <a href="https://github.com/Lanctole/Roulette/blob/develop/Roulette/Logging/DatabaseLoggerProvider.cs/#L5" class="edit-link">Edit this page</a>
         </div>
 
 

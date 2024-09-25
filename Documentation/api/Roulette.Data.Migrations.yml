@@ -15,8 +15,10 @@ items:
   - Roulette.Data.Migrations.ChangeReleaseDateToDate
   - Roulette.Data.Migrations.ConstIDToUserRoles
   - Roulette.Data.Migrations.CreateBugReportsTable
+  - Roulette.Data.Migrations.DeleteEventIdAndEndpointFromLogs
   - Roulette.Data.Migrations.DropGenresAndLanguagesFromGamesTable
   - Roulette.Data.Migrations.InitialCreate
+  - Roulette.Data.Migrations.InitialCreateLogging
   - Roulette.Data.Migrations.LanguagesAndGenresDataTransfer
   - Roulette.Data.Migrations.RenamePctPosTotalToScore
   - Roulette.Data.Migrations.SeparateLanguagesAndGenres
@@ -140,3 +142,15 @@ references:
   name: AddBugReportStatusEnum
   nameWithType: AddBugReportStatusEnum
   fullName: Roulette.Data.Migrations.AddBugReportStatusEnum
+- uid: Roulette.Data.Migrations.InitialCreateLogging
+  commentId: T:Roulette.Data.Migrations.InitialCreateLogging
+  href: Roulette.Data.Migrations.InitialCreateLogging.html
+  name: InitialCreateLogging
+  nameWithType: InitialCreateLogging
+  fullName: Roulette.Data.Migrations.InitialCreateLogging
+- uid: Roulette.Data.Migrations.DeleteEventIdAndEndpointFromLogs
+  commentId: T:Roulette.Data.Migrations.DeleteEventIdAndEndpointFromLogs
+  href: Roulette.Data.Migrations.DeleteEventIdAndEndpointFromLogs.html
+  name: DeleteEventIdAndEndpointFromLogs
+  nameWithType: DeleteEventIdAndEndpointFromLogs
+  fullName: Roulette.Data.Migrations.DeleteEventIdAndEndpointFromLogs

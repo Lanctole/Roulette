@@ -2460,6 +2460,54 @@ references:
   commentId: N:Roulette.Components.Shikimori
   fullName: Roulette.Components.Shikimori
   nameWithType: Roulette.Components.Shikimori
+- uid: Roulette.Components.Shikimori.CustomTooltip
+  name: CustomTooltip
+  href: api/Roulette.Components.Shikimori.CustomTooltip.html
+  commentId: T:Roulette.Components.Shikimori.CustomTooltip
+  fullName: Roulette.Components.Shikimori.CustomTooltip
+  nameWithType: CustomTooltip
+- uid: Roulette.Components.Shikimori.CustomTooltip.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
+  name: BuildRenderTree(RenderTreeBuilder)
+  href: api/Roulette.Components.Shikimori.CustomTooltip.html#Roulette_Components_Shikimori_CustomTooltip_BuildRenderTree_Microsoft_AspNetCore_Components_Rendering_RenderTreeBuilder_
+  commentId: M:Roulette.Components.Shikimori.CustomTooltip.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
+  fullName: Roulette.Components.Shikimori.CustomTooltip.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
+  nameWithType: CustomTooltip.BuildRenderTree(RenderTreeBuilder)
+- uid: Roulette.Components.Shikimori.CustomTooltip.BuildRenderTree*
+  name: BuildRenderTree
+  href: api/Roulette.Components.Shikimori.CustomTooltip.html#Roulette_Components_Shikimori_CustomTooltip_BuildRenderTree_
+  commentId: Overload:Roulette.Components.Shikimori.CustomTooltip.BuildRenderTree
+  isSpec: "True"
+  fullName: Roulette.Components.Shikimori.CustomTooltip.BuildRenderTree
+  nameWithType: CustomTooltip.BuildRenderTree
+- uid: Roulette.Components.Shikimori.CustomTooltip.OnAfterRenderAsync(System.Boolean)
+  name: OnAfterRenderAsync(bool)
+  href: api/Roulette.Components.Shikimori.CustomTooltip.html#Roulette_Components_Shikimori_CustomTooltip_OnAfterRenderAsync_System_Boolean_
+  commentId: M:Roulette.Components.Shikimori.CustomTooltip.OnAfterRenderAsync(System.Boolean)
+  name.vb: OnAfterRenderAsync(Boolean)
+  fullName: Roulette.Components.Shikimori.CustomTooltip.OnAfterRenderAsync(bool)
+  fullName.vb: Roulette.Components.Shikimori.CustomTooltip.OnAfterRenderAsync(Boolean)
+  nameWithType: CustomTooltip.OnAfterRenderAsync(bool)
+  nameWithType.vb: CustomTooltip.OnAfterRenderAsync(Boolean)
+- uid: Roulette.Components.Shikimori.CustomTooltip.OnAfterRenderAsync*
+  name: OnAfterRenderAsync
+  href: api/Roulette.Components.Shikimori.CustomTooltip.html#Roulette_Components_Shikimori_CustomTooltip_OnAfterRenderAsync_
+  commentId: Overload:Roulette.Components.Shikimori.CustomTooltip.OnAfterRenderAsync
+  isSpec: "True"
+  fullName: Roulette.Components.Shikimori.CustomTooltip.OnAfterRenderAsync
+  nameWithType: CustomTooltip.OnAfterRenderAsync
+- uid: Roulette.Components.Shikimori.CustomTooltip.Title
+  name: Title
+  href: api/Roulette.Components.Shikimori.CustomTooltip.html#Roulette_Components_Shikimori_CustomTooltip_Title
+  commentId: P:Roulette.Components.Shikimori.CustomTooltip.Title
+  fullName: Roulette.Components.Shikimori.CustomTooltip.Title
+  nameWithType: CustomTooltip.Title
+- uid: Roulette.Components.Shikimori.CustomTooltip.Title*
+  name: Title
+  href: api/Roulette.Components.Shikimori.CustomTooltip.html#Roulette_Components_Shikimori_CustomTooltip_Title_
+  commentId: Overload:Roulette.Components.Shikimori.CustomTooltip.Title
+  isSpec: "True"
+  fullName: Roulette.Components.Shikimori.CustomTooltip.Title
+  nameWithType: CustomTooltip.Title
 - uid: Roulette.Components.Shikimori.DurationComponent
   name: DurationComponent
   href: api/Roulette.Components.Shikimori.DurationComponent.html
@@ -2612,6 +2660,132 @@ references:
   fullName.vb: Roulette.Components.Shikimori.EnumSelector(Of TEnum).SelectedValueChanged
   nameWithType: EnumSelector<TEnum>.SelectedValueChanged
   nameWithType.vb: EnumSelector(Of TEnum).SelectedValueChanged
+- uid: Roulette.Components.Shikimori.FilterSlider
+  name: FilterSlider
+  href: api/Roulette.Components.Shikimori.FilterSlider.html
+  commentId: T:Roulette.Components.Shikimori.FilterSlider
+  fullName: Roulette.Components.Shikimori.FilterSlider
+  nameWithType: FilterSlider
+- uid: Roulette.Components.Shikimori.FilterSlider.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
+  name: BuildRenderTree(RenderTreeBuilder)
+  href: api/Roulette.Components.Shikimori.FilterSlider.html#Roulette_Components_Shikimori_FilterSlider_BuildRenderTree_Microsoft_AspNetCore_Components_Rendering_RenderTreeBuilder_
+  commentId: M:Roulette.Components.Shikimori.FilterSlider.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
+  fullName: Roulette.Components.Shikimori.FilterSlider.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
+  nameWithType: FilterSlider.BuildRenderTree(RenderTreeBuilder)
+- uid: Roulette.Components.Shikimori.FilterSlider.BuildRenderTree*
+  name: BuildRenderTree
+  href: api/Roulette.Components.Shikimori.FilterSlider.html#Roulette_Components_Shikimori_FilterSlider_BuildRenderTree_
+  commentId: Overload:Roulette.Components.Shikimori.FilterSlider.BuildRenderTree
+  isSpec: "True"
+  fullName: Roulette.Components.Shikimori.FilterSlider.BuildRenderTree
+  nameWithType: FilterSlider.BuildRenderTree
+- uid: Roulette.Components.Shikimori.FilterSlider.Label
+  name: Label
+  href: api/Roulette.Components.Shikimori.FilterSlider.html#Roulette_Components_Shikimori_FilterSlider_Label
+  commentId: P:Roulette.Components.Shikimori.FilterSlider.Label
+  fullName: Roulette.Components.Shikimori.FilterSlider.Label
+  nameWithType: FilterSlider.Label
+- uid: Roulette.Components.Shikimori.FilterSlider.Label*
+  name: Label
+  href: api/Roulette.Components.Shikimori.FilterSlider.html#Roulette_Components_Shikimori_FilterSlider_Label_
+  commentId: Overload:Roulette.Components.Shikimori.FilterSlider.Label
+  isSpec: "True"
+  fullName: Roulette.Components.Shikimori.FilterSlider.Label
+  nameWithType: FilterSlider.Label
+- uid: Roulette.Components.Shikimori.FilterSlider.Max
+  name: Max
+  href: api/Roulette.Components.Shikimori.FilterSlider.html#Roulette_Components_Shikimori_FilterSlider_Max
+  commentId: P:Roulette.Components.Shikimori.FilterSlider.Max
+  fullName: Roulette.Components.Shikimori.FilterSlider.Max
+  nameWithType: FilterSlider.Max
+- uid: Roulette.Components.Shikimori.FilterSlider.Max*
+  name: Max
+  href: api/Roulette.Components.Shikimori.FilterSlider.html#Roulette_Components_Shikimori_FilterSlider_Max_
+  commentId: Overload:Roulette.Components.Shikimori.FilterSlider.Max
+  isSpec: "True"
+  fullName: Roulette.Components.Shikimori.FilterSlider.Max
+  nameWithType: FilterSlider.Max
+- uid: Roulette.Components.Shikimori.FilterSlider.MaxValue
+  name: MaxValue
+  href: api/Roulette.Components.Shikimori.FilterSlider.html#Roulette_Components_Shikimori_FilterSlider_MaxValue
+  commentId: P:Roulette.Components.Shikimori.FilterSlider.MaxValue
+  fullName: Roulette.Components.Shikimori.FilterSlider.MaxValue
+  nameWithType: FilterSlider.MaxValue
+- uid: Roulette.Components.Shikimori.FilterSlider.MaxValue*
+  name: MaxValue
+  href: api/Roulette.Components.Shikimori.FilterSlider.html#Roulette_Components_Shikimori_FilterSlider_MaxValue_
+  commentId: Overload:Roulette.Components.Shikimori.FilterSlider.MaxValue
+  isSpec: "True"
+  fullName: Roulette.Components.Shikimori.FilterSlider.MaxValue
+  nameWithType: FilterSlider.MaxValue
+- uid: Roulette.Components.Shikimori.FilterSlider.Min
+  name: Min
+  href: api/Roulette.Components.Shikimori.FilterSlider.html#Roulette_Components_Shikimori_FilterSlider_Min
+  commentId: P:Roulette.Components.Shikimori.FilterSlider.Min
+  fullName: Roulette.Components.Shikimori.FilterSlider.Min
+  nameWithType: FilterSlider.Min
+- uid: Roulette.Components.Shikimori.FilterSlider.Min*
+  name: Min
+  href: api/Roulette.Components.Shikimori.FilterSlider.html#Roulette_Components_Shikimori_FilterSlider_Min_
+  commentId: Overload:Roulette.Components.Shikimori.FilterSlider.Min
+  isSpec: "True"
+  fullName: Roulette.Components.Shikimori.FilterSlider.Min
+  nameWithType: FilterSlider.Min
+- uid: Roulette.Components.Shikimori.FilterSlider.MinValue
+  name: MinValue
+  href: api/Roulette.Components.Shikimori.FilterSlider.html#Roulette_Components_Shikimori_FilterSlider_MinValue
+  commentId: P:Roulette.Components.Shikimori.FilterSlider.MinValue
+  fullName: Roulette.Components.Shikimori.FilterSlider.MinValue
+  nameWithType: FilterSlider.MinValue
+- uid: Roulette.Components.Shikimori.FilterSlider.MinValue*
+  name: MinValue
+  href: api/Roulette.Components.Shikimori.FilterSlider.html#Roulette_Components_Shikimori_FilterSlider_MinValue_
+  commentId: Overload:Roulette.Components.Shikimori.FilterSlider.MinValue
+  isSpec: "True"
+  fullName: Roulette.Components.Shikimori.FilterSlider.MinValue
+  nameWithType: FilterSlider.MinValue
+- uid: Roulette.Components.Shikimori.FilterSlider.OnAfterRenderAsync(System.Boolean)
+  name: OnAfterRenderAsync(bool)
+  href: api/Roulette.Components.Shikimori.FilterSlider.html#Roulette_Components_Shikimori_FilterSlider_OnAfterRenderAsync_System_Boolean_
+  commentId: M:Roulette.Components.Shikimori.FilterSlider.OnAfterRenderAsync(System.Boolean)
+  name.vb: OnAfterRenderAsync(Boolean)
+  fullName: Roulette.Components.Shikimori.FilterSlider.OnAfterRenderAsync(bool)
+  fullName.vb: Roulette.Components.Shikimori.FilterSlider.OnAfterRenderAsync(Boolean)
+  nameWithType: FilterSlider.OnAfterRenderAsync(bool)
+  nameWithType.vb: FilterSlider.OnAfterRenderAsync(Boolean)
+- uid: Roulette.Components.Shikimori.FilterSlider.OnAfterRenderAsync*
+  name: OnAfterRenderAsync
+  href: api/Roulette.Components.Shikimori.FilterSlider.html#Roulette_Components_Shikimori_FilterSlider_OnAfterRenderAsync_
+  commentId: Overload:Roulette.Components.Shikimori.FilterSlider.OnAfterRenderAsync
+  isSpec: "True"
+  fullName: Roulette.Components.Shikimori.FilterSlider.OnAfterRenderAsync
+  nameWithType: FilterSlider.OnAfterRenderAsync
+- uid: Roulette.Components.Shikimori.FilterSlider.OnChange
+  name: OnChange
+  href: api/Roulette.Components.Shikimori.FilterSlider.html#Roulette_Components_Shikimori_FilterSlider_OnChange
+  commentId: P:Roulette.Components.Shikimori.FilterSlider.OnChange
+  fullName: Roulette.Components.Shikimori.FilterSlider.OnChange
+  nameWithType: FilterSlider.OnChange
+- uid: Roulette.Components.Shikimori.FilterSlider.OnChange*
+  name: OnChange
+  href: api/Roulette.Components.Shikimori.FilterSlider.html#Roulette_Components_Shikimori_FilterSlider_OnChange_
+  commentId: Overload:Roulette.Components.Shikimori.FilterSlider.OnChange
+  isSpec: "True"
+  fullName: Roulette.Components.Shikimori.FilterSlider.OnChange
+  nameWithType: FilterSlider.OnChange
+- uid: Roulette.Components.Shikimori.FilterSlider.Width
+  name: Width
+  href: api/Roulette.Components.Shikimori.FilterSlider.html#Roulette_Components_Shikimori_FilterSlider_Width
+  commentId: P:Roulette.Components.Shikimori.FilterSlider.Width
+  fullName: Roulette.Components.Shikimori.FilterSlider.Width
+  nameWithType: FilterSlider.Width
+- uid: Roulette.Components.Shikimori.FilterSlider.Width*
+  name: Width
+  href: api/Roulette.Components.Shikimori.FilterSlider.html#Roulette_Components_Shikimori_FilterSlider_Width_
+  commentId: Overload:Roulette.Components.Shikimori.FilterSlider.Width
+  isSpec: "True"
+  fullName: Roulette.Components.Shikimori.FilterSlider.Width
+  nameWithType: FilterSlider.Width
 - uid: Roulette.Components.Shikimori.MangaSelectKindComponent
   name: MangaSelectKindComponent
   href: api/Roulette.Components.Shikimori.MangaSelectKindComponent.html
@@ -3002,6 +3176,19 @@ references:
   isSpec: "True"
   fullName: Roulette.Components.Shikimori.RollButtonComponent.OnRoll
   nameWithType: RollButtonComponent.OnRoll
+- uid: Roulette.Components.Shikimori.RollButtonComponent.ShouldDelay
+  name: ShouldDelay
+  href: api/Roulette.Components.Shikimori.RollButtonComponent.html#Roulette_Components_Shikimori_RollButtonComponent_ShouldDelay
+  commentId: P:Roulette.Components.Shikimori.RollButtonComponent.ShouldDelay
+  fullName: Roulette.Components.Shikimori.RollButtonComponent.ShouldDelay
+  nameWithType: RollButtonComponent.ShouldDelay
+- uid: Roulette.Components.Shikimori.RollButtonComponent.ShouldDelay*
+  name: ShouldDelay
+  href: api/Roulette.Components.Shikimori.RollButtonComponent.html#Roulette_Components_Shikimori_RollButtonComponent_ShouldDelay_
+  commentId: Overload:Roulette.Components.Shikimori.RollButtonComponent.ShouldDelay
+  isSpec: "True"
+  fullName: Roulette.Components.Shikimori.RollButtonComponent.ShouldDelay
+  nameWithType: RollButtonComponent.ShouldDelay
 - uid: Roulette.Components.Shikimori.SelectComponent`2
   name: SelectComponent<TValue, T>
   href: api/Roulette.Components.Shikimori.SelectComponent-2.html
@@ -3265,6 +3452,22 @@ references:
   isSpec: "True"
   fullName: Roulette.Components.Shikimori.ShikimoriComponent.GetMediaItemsAsync
   nameWithType: ShikimoriComponent.GetMediaItemsAsync
+- uid: Roulette.Components.Shikimori.ShikimoriComponent.HandleDateChange(System.ValueTuple{System.Double,System.Double})
+  name: HandleDateChange((double, double))
+  href: api/Roulette.Components.Shikimori.ShikimoriComponent.html#Roulette_Components_Shikimori_ShikimoriComponent_HandleDateChange_System_ValueTuple_System_Double_System_Double__
+  commentId: M:Roulette.Components.Shikimori.ShikimoriComponent.HandleDateChange(System.ValueTuple{System.Double,System.Double})
+  name.vb: HandleDateChange((Double, Double))
+  fullName: Roulette.Components.Shikimori.ShikimoriComponent.HandleDateChange((double, double))
+  fullName.vb: Roulette.Components.Shikimori.ShikimoriComponent.HandleDateChange((Double, Double))
+  nameWithType: ShikimoriComponent.HandleDateChange((double, double))
+  nameWithType.vb: ShikimoriComponent.HandleDateChange((Double, Double))
+- uid: Roulette.Components.Shikimori.ShikimoriComponent.HandleDateChange*
+  name: HandleDateChange
+  href: api/Roulette.Components.Shikimori.ShikimoriComponent.html#Roulette_Components_Shikimori_ShikimoriComponent_HandleDateChange_
+  commentId: Overload:Roulette.Components.Shikimori.ShikimoriComponent.HandleDateChange
+  isSpec: "True"
+  fullName: Roulette.Components.Shikimori.ShikimoriComponent.HandleDateChange
+  nameWithType: ShikimoriComponent.HandleDateChange
 - uid: Roulette.Components.Shikimori.ShikimoriComponent.Limit
   name: Limit
   href: api/Roulette.Components.Shikimori.ShikimoriComponent.html#Roulette_Components_Shikimori_ShikimoriComponent_Limit
@@ -3374,6 +3577,12 @@ references:
   commentId: F:Roulette.Components.Shikimori.ShikimoriComponent.ShowCanvas
   fullName: Roulette.Components.Shikimori.ShikimoriComponent.ShowCanvas
   nameWithType: ShikimoriComponent.ShowCanvas
+- uid: Roulette.Components.Shikimori.ShikimoriComponent._shouldDelay
+  name: _shouldDelay
+  href: api/Roulette.Components.Shikimori.ShikimoriComponent.html#Roulette_Components_Shikimori_ShikimoriComponent__shouldDelay
+  commentId: F:Roulette.Components.Shikimori.ShikimoriComponent._shouldDelay
+  fullName: Roulette.Components.Shikimori.ShikimoriComponent._shouldDelay
+  nameWithType: ShikimoriComponent._shouldDelay
 - uid: Roulette.Components.Shikimori.WheelComponent
   name: WheelComponent
   href: api/Roulette.Components.Shikimori.WheelComponent.html
@@ -4326,6 +4535,19 @@ references:
   isSpec: "True"
   fullName: Roulette.Data.ApplicationDbContext.Genres
   nameWithType: ApplicationDbContext.Genres
+- uid: Roulette.Data.ApplicationDbContext.Logs
+  name: Logs
+  href: api/Roulette.Data.ApplicationDbContext.html#Roulette_Data_ApplicationDbContext_Logs
+  commentId: P:Roulette.Data.ApplicationDbContext.Logs
+  fullName: Roulette.Data.ApplicationDbContext.Logs
+  nameWithType: ApplicationDbContext.Logs
+- uid: Roulette.Data.ApplicationDbContext.Logs*
+  name: Logs
+  href: api/Roulette.Data.ApplicationDbContext.html#Roulette_Data_ApplicationDbContext_Logs_
+  commentId: Overload:Roulette.Data.ApplicationDbContext.Logs
+  isSpec: "True"
+  fullName: Roulette.Data.ApplicationDbContext.Logs
+  nameWithType: ApplicationDbContext.Logs
 - uid: Roulette.Data.ApplicationDbContext.Mangas
   name: Mangas
   href: api/Roulette.Data.ApplicationDbContext.html#Roulette_Data_ApplicationDbContext_Mangas
@@ -4931,6 +5153,51 @@ references:
   isSpec: "True"
   fullName: Roulette.Data.Migrations.CreateBugReportsTable.Up
   nameWithType: CreateBugReportsTable.Up
+- uid: Roulette.Data.Migrations.DeleteEventIdAndEndpointFromLogs
+  name: DeleteEventIdAndEndpointFromLogs
+  href: api/Roulette.Data.Migrations.DeleteEventIdAndEndpointFromLogs.html
+  commentId: T:Roulette.Data.Migrations.DeleteEventIdAndEndpointFromLogs
+  fullName: Roulette.Data.Migrations.DeleteEventIdAndEndpointFromLogs
+  nameWithType: DeleteEventIdAndEndpointFromLogs
+- uid: Roulette.Data.Migrations.DeleteEventIdAndEndpointFromLogs.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)
+  name: BuildTargetModel(ModelBuilder)
+  href: api/Roulette.Data.Migrations.DeleteEventIdAndEndpointFromLogs.html#Roulette_Data_Migrations_DeleteEventIdAndEndpointFromLogs_BuildTargetModel_Microsoft_EntityFrameworkCore_ModelBuilder_
+  commentId: M:Roulette.Data.Migrations.DeleteEventIdAndEndpointFromLogs.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)
+  fullName: Roulette.Data.Migrations.DeleteEventIdAndEndpointFromLogs.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)
+  nameWithType: DeleteEventIdAndEndpointFromLogs.BuildTargetModel(ModelBuilder)
+- uid: Roulette.Data.Migrations.DeleteEventIdAndEndpointFromLogs.BuildTargetModel*
+  name: BuildTargetModel
+  href: api/Roulette.Data.Migrations.DeleteEventIdAndEndpointFromLogs.html#Roulette_Data_Migrations_DeleteEventIdAndEndpointFromLogs_BuildTargetModel_
+  commentId: Overload:Roulette.Data.Migrations.DeleteEventIdAndEndpointFromLogs.BuildTargetModel
+  isSpec: "True"
+  fullName: Roulette.Data.Migrations.DeleteEventIdAndEndpointFromLogs.BuildTargetModel
+  nameWithType: DeleteEventIdAndEndpointFromLogs.BuildTargetModel
+- uid: Roulette.Data.Migrations.DeleteEventIdAndEndpointFromLogs.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)
+  name: Down(MigrationBuilder)
+  href: api/Roulette.Data.Migrations.DeleteEventIdAndEndpointFromLogs.html#Roulette_Data_Migrations_DeleteEventIdAndEndpointFromLogs_Down_Microsoft_EntityFrameworkCore_Migrations_MigrationBuilder_
+  commentId: M:Roulette.Data.Migrations.DeleteEventIdAndEndpointFromLogs.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)
+  fullName: Roulette.Data.Migrations.DeleteEventIdAndEndpointFromLogs.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)
+  nameWithType: DeleteEventIdAndEndpointFromLogs.Down(MigrationBuilder)
+- uid: Roulette.Data.Migrations.DeleteEventIdAndEndpointFromLogs.Down*
+  name: Down
+  href: api/Roulette.Data.Migrations.DeleteEventIdAndEndpointFromLogs.html#Roulette_Data_Migrations_DeleteEventIdAndEndpointFromLogs_Down_
+  commentId: Overload:Roulette.Data.Migrations.DeleteEventIdAndEndpointFromLogs.Down
+  isSpec: "True"
+  fullName: Roulette.Data.Migrations.DeleteEventIdAndEndpointFromLogs.Down
+  nameWithType: DeleteEventIdAndEndpointFromLogs.Down
+- uid: Roulette.Data.Migrations.DeleteEventIdAndEndpointFromLogs.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)
+  name: Up(MigrationBuilder)
+  href: api/Roulette.Data.Migrations.DeleteEventIdAndEndpointFromLogs.html#Roulette_Data_Migrations_DeleteEventIdAndEndpointFromLogs_Up_Microsoft_EntityFrameworkCore_Migrations_MigrationBuilder_
+  commentId: M:Roulette.Data.Migrations.DeleteEventIdAndEndpointFromLogs.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)
+  fullName: Roulette.Data.Migrations.DeleteEventIdAndEndpointFromLogs.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)
+  nameWithType: DeleteEventIdAndEndpointFromLogs.Up(MigrationBuilder)
+- uid: Roulette.Data.Migrations.DeleteEventIdAndEndpointFromLogs.Up*
+  name: Up
+  href: api/Roulette.Data.Migrations.DeleteEventIdAndEndpointFromLogs.html#Roulette_Data_Migrations_DeleteEventIdAndEndpointFromLogs_Up_
+  commentId: Overload:Roulette.Data.Migrations.DeleteEventIdAndEndpointFromLogs.Up
+  isSpec: "True"
+  fullName: Roulette.Data.Migrations.DeleteEventIdAndEndpointFromLogs.Up
+  nameWithType: DeleteEventIdAndEndpointFromLogs.Up
 - uid: Roulette.Data.Migrations.DropGenresAndLanguagesFromGamesTable
   name: DropGenresAndLanguagesFromGamesTable
   href: api/Roulette.Data.Migrations.DropGenresAndLanguagesFromGamesTable.html
@@ -5021,6 +5288,51 @@ references:
   isSpec: "True"
   fullName: Roulette.Data.Migrations.InitialCreate.Up
   nameWithType: InitialCreate.Up
+- uid: Roulette.Data.Migrations.InitialCreateLogging
+  name: InitialCreateLogging
+  href: api/Roulette.Data.Migrations.InitialCreateLogging.html
+  commentId: T:Roulette.Data.Migrations.InitialCreateLogging
+  fullName: Roulette.Data.Migrations.InitialCreateLogging
+  nameWithType: InitialCreateLogging
+- uid: Roulette.Data.Migrations.InitialCreateLogging.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)
+  name: BuildTargetModel(ModelBuilder)
+  href: api/Roulette.Data.Migrations.InitialCreateLogging.html#Roulette_Data_Migrations_InitialCreateLogging_BuildTargetModel_Microsoft_EntityFrameworkCore_ModelBuilder_
+  commentId: M:Roulette.Data.Migrations.InitialCreateLogging.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)
+  fullName: Roulette.Data.Migrations.InitialCreateLogging.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)
+  nameWithType: InitialCreateLogging.BuildTargetModel(ModelBuilder)
+- uid: Roulette.Data.Migrations.InitialCreateLogging.BuildTargetModel*
+  name: BuildTargetModel
+  href: api/Roulette.Data.Migrations.InitialCreateLogging.html#Roulette_Data_Migrations_InitialCreateLogging_BuildTargetModel_
+  commentId: Overload:Roulette.Data.Migrations.InitialCreateLogging.BuildTargetModel
+  isSpec: "True"
+  fullName: Roulette.Data.Migrations.InitialCreateLogging.BuildTargetModel
+  nameWithType: InitialCreateLogging.BuildTargetModel
+- uid: Roulette.Data.Migrations.InitialCreateLogging.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)
+  name: Down(MigrationBuilder)
+  href: api/Roulette.Data.Migrations.InitialCreateLogging.html#Roulette_Data_Migrations_InitialCreateLogging_Down_Microsoft_EntityFrameworkCore_Migrations_MigrationBuilder_
+  commentId: M:Roulette.Data.Migrations.InitialCreateLogging.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)
+  fullName: Roulette.Data.Migrations.InitialCreateLogging.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)
+  nameWithType: InitialCreateLogging.Down(MigrationBuilder)
+- uid: Roulette.Data.Migrations.InitialCreateLogging.Down*
+  name: Down
+  href: api/Roulette.Data.Migrations.InitialCreateLogging.html#Roulette_Data_Migrations_InitialCreateLogging_Down_
+  commentId: Overload:Roulette.Data.Migrations.InitialCreateLogging.Down
+  isSpec: "True"
+  fullName: Roulette.Data.Migrations.InitialCreateLogging.Down
+  nameWithType: InitialCreateLogging.Down
+- uid: Roulette.Data.Migrations.InitialCreateLogging.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)
+  name: Up(MigrationBuilder)
+  href: api/Roulette.Data.Migrations.InitialCreateLogging.html#Roulette_Data_Migrations_InitialCreateLogging_Up_Microsoft_EntityFrameworkCore_Migrations_MigrationBuilder_
+  commentId: M:Roulette.Data.Migrations.InitialCreateLogging.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)
+  fullName: Roulette.Data.Migrations.InitialCreateLogging.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)
+  nameWithType: InitialCreateLogging.Up(MigrationBuilder)
+- uid: Roulette.Data.Migrations.InitialCreateLogging.Up*
+  name: Up
+  href: api/Roulette.Data.Migrations.InitialCreateLogging.html#Roulette_Data_Migrations_InitialCreateLogging_Up_
+  commentId: Overload:Roulette.Data.Migrations.InitialCreateLogging.Up
+  isSpec: "True"
+  fullName: Roulette.Data.Migrations.InitialCreateLogging.Up
+  nameWithType: InitialCreateLogging.Up
 - uid: Roulette.Data.Migrations.LanguagesAndGenresDataTransfer
   name: LanguagesAndGenresDataTransfer
   href: api/Roulette.Data.Migrations.LanguagesAndGenresDataTransfer.html
@@ -5306,12 +5618,161 @@ references:
   isSpec: "True"
   fullName: Roulette.Helpers.ShikiDataHelper.TransformGenres
   nameWithType: ShikiDataHelper.TransformGenres
+- uid: Roulette.Logging
+  name: Roulette.Logging
+  href: api/Roulette.Logging.html
+  commentId: N:Roulette.Logging
+  fullName: Roulette.Logging
+  nameWithType: Roulette.Logging
+- uid: Roulette.Logging.DatabaseLogger
+  name: DatabaseLogger
+  href: api/Roulette.Logging.DatabaseLogger.html
+  commentId: T:Roulette.Logging.DatabaseLogger
+  fullName: Roulette.Logging.DatabaseLogger
+  nameWithType: DatabaseLogger
+- uid: Roulette.Logging.DatabaseLogger.#ctor(Roulette.Data.ApplicationDbContext,System.String)
+  name: DatabaseLogger(ApplicationDbContext, string)
+  href: api/Roulette.Logging.DatabaseLogger.html#Roulette_Logging_DatabaseLogger__ctor_Roulette_Data_ApplicationDbContext_System_String_
+  commentId: M:Roulette.Logging.DatabaseLogger.#ctor(Roulette.Data.ApplicationDbContext,System.String)
+  name.vb: New(ApplicationDbContext, String)
+  fullName: Roulette.Logging.DatabaseLogger.DatabaseLogger(Roulette.Data.ApplicationDbContext, string)
+  fullName.vb: Roulette.Logging.DatabaseLogger.New(Roulette.Data.ApplicationDbContext, String)
+  nameWithType: DatabaseLogger.DatabaseLogger(ApplicationDbContext, string)
+  nameWithType.vb: DatabaseLogger.New(ApplicationDbContext, String)
+- uid: Roulette.Logging.DatabaseLogger.#ctor*
+  name: DatabaseLogger
+  href: api/Roulette.Logging.DatabaseLogger.html#Roulette_Logging_DatabaseLogger__ctor_
+  commentId: Overload:Roulette.Logging.DatabaseLogger.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: Roulette.Logging.DatabaseLogger.DatabaseLogger
+  fullName.vb: Roulette.Logging.DatabaseLogger.New
+  nameWithType: DatabaseLogger.DatabaseLogger
+  nameWithType.vb: DatabaseLogger.New
+- uid: Roulette.Logging.DatabaseLogger.BeginScope*
+  name: BeginScope
+  href: api/Roulette.Logging.DatabaseLogger.html#Roulette_Logging_DatabaseLogger_BeginScope_
+  commentId: Overload:Roulette.Logging.DatabaseLogger.BeginScope
+  isSpec: "True"
+  fullName: Roulette.Logging.DatabaseLogger.BeginScope
+  nameWithType: DatabaseLogger.BeginScope
+- uid: Roulette.Logging.DatabaseLogger.BeginScope``1(``0)
+  name: BeginScope<TState>(TState)
+  href: api/Roulette.Logging.DatabaseLogger.html#Roulette_Logging_DatabaseLogger_BeginScope__1___0_
+  commentId: M:Roulette.Logging.DatabaseLogger.BeginScope``1(``0)
+  name.vb: BeginScope(Of TState)(TState)
+  fullName: Roulette.Logging.DatabaseLogger.BeginScope<TState>(TState)
+  fullName.vb: Roulette.Logging.DatabaseLogger.BeginScope(Of TState)(TState)
+  nameWithType: DatabaseLogger.BeginScope<TState>(TState)
+  nameWithType.vb: DatabaseLogger.BeginScope(Of TState)(TState)
+- uid: Roulette.Logging.DatabaseLogger.IsEnabled(Microsoft.Extensions.Logging.LogLevel)
+  name: IsEnabled(LogLevel)
+  href: api/Roulette.Logging.DatabaseLogger.html#Roulette_Logging_DatabaseLogger_IsEnabled_Microsoft_Extensions_Logging_LogLevel_
+  commentId: M:Roulette.Logging.DatabaseLogger.IsEnabled(Microsoft.Extensions.Logging.LogLevel)
+  fullName: Roulette.Logging.DatabaseLogger.IsEnabled(Microsoft.Extensions.Logging.LogLevel)
+  nameWithType: DatabaseLogger.IsEnabled(LogLevel)
+- uid: Roulette.Logging.DatabaseLogger.IsEnabled*
+  name: IsEnabled
+  href: api/Roulette.Logging.DatabaseLogger.html#Roulette_Logging_DatabaseLogger_IsEnabled_
+  commentId: Overload:Roulette.Logging.DatabaseLogger.IsEnabled
+  isSpec: "True"
+  fullName: Roulette.Logging.DatabaseLogger.IsEnabled
+  nameWithType: DatabaseLogger.IsEnabled
+- uid: Roulette.Logging.DatabaseLogger.Log*
+  name: Log
+  href: api/Roulette.Logging.DatabaseLogger.html#Roulette_Logging_DatabaseLogger_Log_
+  commentId: Overload:Roulette.Logging.DatabaseLogger.Log
+  isSpec: "True"
+  fullName: Roulette.Logging.DatabaseLogger.Log
+  nameWithType: DatabaseLogger.Log
+- uid: Roulette.Logging.DatabaseLogger.Log``1(Microsoft.Extensions.Logging.LogLevel,Microsoft.Extensions.Logging.EventId,``0,System.Exception,System.Func{``0,System.Exception,System.String})
+  name: Log<TState>(LogLevel, EventId, TState, Exception, Func<TState, Exception, string>)
+  href: api/Roulette.Logging.DatabaseLogger.html#Roulette_Logging_DatabaseLogger_Log__1_Microsoft_Extensions_Logging_LogLevel_Microsoft_Extensions_Logging_EventId___0_System_Exception_System_Func___0_System_Exception_System_String__
+  commentId: M:Roulette.Logging.DatabaseLogger.Log``1(Microsoft.Extensions.Logging.LogLevel,Microsoft.Extensions.Logging.EventId,``0,System.Exception,System.Func{``0,System.Exception,System.String})
+  name.vb: Log(Of TState)(LogLevel, EventId, TState, Exception, Func(Of TState, Exception, String))
+  fullName: Roulette.Logging.DatabaseLogger.Log<TState>(Microsoft.Extensions.Logging.LogLevel, Microsoft.Extensions.Logging.EventId, TState, System.Exception, System.Func<TState, System.Exception, string>)
+  fullName.vb: Roulette.Logging.DatabaseLogger.Log(Of TState)(Microsoft.Extensions.Logging.LogLevel, Microsoft.Extensions.Logging.EventId, TState, System.Exception, System.Func(Of TState, System.Exception, String))
+  nameWithType: DatabaseLogger.Log<TState>(LogLevel, EventId, TState, Exception, Func<TState, Exception, string>)
+  nameWithType.vb: DatabaseLogger.Log(Of TState)(LogLevel, EventId, TState, Exception, Func(Of TState, Exception, String))
+- uid: Roulette.Logging.DatabaseLoggerProvider
+  name: DatabaseLoggerProvider
+  href: api/Roulette.Logging.DatabaseLoggerProvider.html
+  commentId: T:Roulette.Logging.DatabaseLoggerProvider
+  fullName: Roulette.Logging.DatabaseLoggerProvider
+  nameWithType: DatabaseLoggerProvider
+- uid: Roulette.Logging.DatabaseLoggerProvider.#ctor(System.IServiceProvider)
+  name: DatabaseLoggerProvider(IServiceProvider)
+  href: api/Roulette.Logging.DatabaseLoggerProvider.html#Roulette_Logging_DatabaseLoggerProvider__ctor_System_IServiceProvider_
+  commentId: M:Roulette.Logging.DatabaseLoggerProvider.#ctor(System.IServiceProvider)
+  name.vb: New(IServiceProvider)
+  fullName: Roulette.Logging.DatabaseLoggerProvider.DatabaseLoggerProvider(System.IServiceProvider)
+  fullName.vb: Roulette.Logging.DatabaseLoggerProvider.New(System.IServiceProvider)
+  nameWithType: DatabaseLoggerProvider.DatabaseLoggerProvider(IServiceProvider)
+  nameWithType.vb: DatabaseLoggerProvider.New(IServiceProvider)
+- uid: Roulette.Logging.DatabaseLoggerProvider.#ctor*
+  name: DatabaseLoggerProvider
+  href: api/Roulette.Logging.DatabaseLoggerProvider.html#Roulette_Logging_DatabaseLoggerProvider__ctor_
+  commentId: Overload:Roulette.Logging.DatabaseLoggerProvider.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: Roulette.Logging.DatabaseLoggerProvider.DatabaseLoggerProvider
+  fullName.vb: Roulette.Logging.DatabaseLoggerProvider.New
+  nameWithType: DatabaseLoggerProvider.DatabaseLoggerProvider
+  nameWithType.vb: DatabaseLoggerProvider.New
+- uid: Roulette.Logging.DatabaseLoggerProvider.CreateLogger(System.String)
+  name: CreateLogger(string)
+  href: api/Roulette.Logging.DatabaseLoggerProvider.html#Roulette_Logging_DatabaseLoggerProvider_CreateLogger_System_String_
+  commentId: M:Roulette.Logging.DatabaseLoggerProvider.CreateLogger(System.String)
+  name.vb: CreateLogger(String)
+  fullName: Roulette.Logging.DatabaseLoggerProvider.CreateLogger(string)
+  fullName.vb: Roulette.Logging.DatabaseLoggerProvider.CreateLogger(String)
+  nameWithType: DatabaseLoggerProvider.CreateLogger(string)
+  nameWithType.vb: DatabaseLoggerProvider.CreateLogger(String)
+- uid: Roulette.Logging.DatabaseLoggerProvider.CreateLogger*
+  name: CreateLogger
+  href: api/Roulette.Logging.DatabaseLoggerProvider.html#Roulette_Logging_DatabaseLoggerProvider_CreateLogger_
+  commentId: Overload:Roulette.Logging.DatabaseLoggerProvider.CreateLogger
+  isSpec: "True"
+  fullName: Roulette.Logging.DatabaseLoggerProvider.CreateLogger
+  nameWithType: DatabaseLoggerProvider.CreateLogger
+- uid: Roulette.Logging.DatabaseLoggerProvider.Dispose
+  name: Dispose()
+  href: api/Roulette.Logging.DatabaseLoggerProvider.html#Roulette_Logging_DatabaseLoggerProvider_Dispose
+  commentId: M:Roulette.Logging.DatabaseLoggerProvider.Dispose
+  fullName: Roulette.Logging.DatabaseLoggerProvider.Dispose()
+  nameWithType: DatabaseLoggerProvider.Dispose()
+- uid: Roulette.Logging.DatabaseLoggerProvider.Dispose*
+  name: Dispose
+  href: api/Roulette.Logging.DatabaseLoggerProvider.html#Roulette_Logging_DatabaseLoggerProvider_Dispose_
+  commentId: Overload:Roulette.Logging.DatabaseLoggerProvider.Dispose
+  isSpec: "True"
+  fullName: Roulette.Logging.DatabaseLoggerProvider.Dispose
+  nameWithType: DatabaseLoggerProvider.Dispose
 - uid: Roulette.Models
   name: Roulette.Models
   href: api/Roulette.Models.html
   commentId: N:Roulette.Models
   fullName: Roulette.Models
   nameWithType: Roulette.Models
+- uid: Roulette.Models.BaseUrlSettings
+  name: BaseUrlSettings
+  href: api/Roulette.Models.BaseUrlSettings.html
+  commentId: T:Roulette.Models.BaseUrlSettings
+  fullName: Roulette.Models.BaseUrlSettings
+  nameWithType: BaseUrlSettings
+- uid: Roulette.Models.BaseUrlSettings.BaseUrl
+  name: BaseUrl
+  href: api/Roulette.Models.BaseUrlSettings.html#Roulette_Models_BaseUrlSettings_BaseUrl
+  commentId: P:Roulette.Models.BaseUrlSettings.BaseUrl
+  fullName: Roulette.Models.BaseUrlSettings.BaseUrl
+  nameWithType: BaseUrlSettings.BaseUrl
+- uid: Roulette.Models.BaseUrlSettings.BaseUrl*
+  name: BaseUrl
+  href: api/Roulette.Models.BaseUrlSettings.html#Roulette_Models_BaseUrlSettings_BaseUrl_
+  commentId: Overload:Roulette.Models.BaseUrlSettings.BaseUrl
+  isSpec: "True"
+  fullName: Roulette.Models.BaseUrlSettings.BaseUrl
+  nameWithType: BaseUrlSettings.BaseUrl
 - uid: Roulette.Models.BugReport
   name: BugReport
   href: api/Roulette.Models.BugReport.html
@@ -5509,6 +5970,90 @@ references:
   isSpec: "True"
   fullName: Roulette.Models.LabeledValue.Value
   nameWithType: LabeledValue.Value
+- uid: Roulette.Models.LogEntry
+  name: LogEntry
+  href: api/Roulette.Models.LogEntry.html
+  commentId: T:Roulette.Models.LogEntry
+  fullName: Roulette.Models.LogEntry
+  nameWithType: LogEntry
+- uid: Roulette.Models.LogEntry.Exception
+  name: Exception
+  href: api/Roulette.Models.LogEntry.html#Roulette_Models_LogEntry_Exception
+  commentId: P:Roulette.Models.LogEntry.Exception
+  fullName: Roulette.Models.LogEntry.Exception
+  nameWithType: LogEntry.Exception
+- uid: Roulette.Models.LogEntry.Exception*
+  name: Exception
+  href: api/Roulette.Models.LogEntry.html#Roulette_Models_LogEntry_Exception_
+  commentId: Overload:Roulette.Models.LogEntry.Exception
+  isSpec: "True"
+  fullName: Roulette.Models.LogEntry.Exception
+  nameWithType: LogEntry.Exception
+- uid: Roulette.Models.LogEntry.Id
+  name: Id
+  href: api/Roulette.Models.LogEntry.html#Roulette_Models_LogEntry_Id
+  commentId: P:Roulette.Models.LogEntry.Id
+  fullName: Roulette.Models.LogEntry.Id
+  nameWithType: LogEntry.Id
+- uid: Roulette.Models.LogEntry.Id*
+  name: Id
+  href: api/Roulette.Models.LogEntry.html#Roulette_Models_LogEntry_Id_
+  commentId: Overload:Roulette.Models.LogEntry.Id
+  isSpec: "True"
+  fullName: Roulette.Models.LogEntry.Id
+  nameWithType: LogEntry.Id
+- uid: Roulette.Models.LogEntry.LogLevel
+  name: LogLevel
+  href: api/Roulette.Models.LogEntry.html#Roulette_Models_LogEntry_LogLevel
+  commentId: P:Roulette.Models.LogEntry.LogLevel
+  fullName: Roulette.Models.LogEntry.LogLevel
+  nameWithType: LogEntry.LogLevel
+- uid: Roulette.Models.LogEntry.LogLevel*
+  name: LogLevel
+  href: api/Roulette.Models.LogEntry.html#Roulette_Models_LogEntry_LogLevel_
+  commentId: Overload:Roulette.Models.LogEntry.LogLevel
+  isSpec: "True"
+  fullName: Roulette.Models.LogEntry.LogLevel
+  nameWithType: LogEntry.LogLevel
+- uid: Roulette.Models.LogEntry.Logger
+  name: Logger
+  href: api/Roulette.Models.LogEntry.html#Roulette_Models_LogEntry_Logger
+  commentId: P:Roulette.Models.LogEntry.Logger
+  fullName: Roulette.Models.LogEntry.Logger
+  nameWithType: LogEntry.Logger
+- uid: Roulette.Models.LogEntry.Logger*
+  name: Logger
+  href: api/Roulette.Models.LogEntry.html#Roulette_Models_LogEntry_Logger_
+  commentId: Overload:Roulette.Models.LogEntry.Logger
+  isSpec: "True"
+  fullName: Roulette.Models.LogEntry.Logger
+  nameWithType: LogEntry.Logger
+- uid: Roulette.Models.LogEntry.Message
+  name: Message
+  href: api/Roulette.Models.LogEntry.html#Roulette_Models_LogEntry_Message
+  commentId: P:Roulette.Models.LogEntry.Message
+  fullName: Roulette.Models.LogEntry.Message
+  nameWithType: LogEntry.Message
+- uid: Roulette.Models.LogEntry.Message*
+  name: Message
+  href: api/Roulette.Models.LogEntry.html#Roulette_Models_LogEntry_Message_
+  commentId: Overload:Roulette.Models.LogEntry.Message
+  isSpec: "True"
+  fullName: Roulette.Models.LogEntry.Message
+  nameWithType: LogEntry.Message
+- uid: Roulette.Models.LogEntry.Timestamp
+  name: Timestamp
+  href: api/Roulette.Models.LogEntry.html#Roulette_Models_LogEntry_Timestamp
+  commentId: P:Roulette.Models.LogEntry.Timestamp
+  fullName: Roulette.Models.LogEntry.Timestamp
+  nameWithType: LogEntry.Timestamp
+- uid: Roulette.Models.LogEntry.Timestamp*
+  name: Timestamp
+  href: api/Roulette.Models.LogEntry.html#Roulette_Models_LogEntry_Timestamp_
+  commentId: Overload:Roulette.Models.LogEntry.Timestamp
+  isSpec: "True"
+  fullName: Roulette.Models.LogEntry.Timestamp
+  nameWithType: LogEntry.Timestamp
 - uid: Roulette.Models.MediaType
   name: MediaType
   href: api/Roulette.Models.MediaType.html
@@ -6882,6 +7427,44 @@ references:
   isSpec: "True"
   fullName: Roulette.Services.LocalizedIdentityErrorDescriber.UserNotInRole
   nameWithType: LocalizedIdentityErrorDescriber.UserNotInRole
+- uid: Roulette.Services.LogCleanupService
+  name: LogCleanupService
+  href: api/Roulette.Services.LogCleanupService.html
+  commentId: T:Roulette.Services.LogCleanupService
+  fullName: Roulette.Services.LogCleanupService
+  nameWithType: LogCleanupService
+- uid: Roulette.Services.LogCleanupService.#ctor(System.IServiceProvider)
+  name: LogCleanupService(IServiceProvider)
+  href: api/Roulette.Services.LogCleanupService.html#Roulette_Services_LogCleanupService__ctor_System_IServiceProvider_
+  commentId: M:Roulette.Services.LogCleanupService.#ctor(System.IServiceProvider)
+  name.vb: New(IServiceProvider)
+  fullName: Roulette.Services.LogCleanupService.LogCleanupService(System.IServiceProvider)
+  fullName.vb: Roulette.Services.LogCleanupService.New(System.IServiceProvider)
+  nameWithType: LogCleanupService.LogCleanupService(IServiceProvider)
+  nameWithType.vb: LogCleanupService.New(IServiceProvider)
+- uid: Roulette.Services.LogCleanupService.#ctor*
+  name: LogCleanupService
+  href: api/Roulette.Services.LogCleanupService.html#Roulette_Services_LogCleanupService__ctor_
+  commentId: Overload:Roulette.Services.LogCleanupService.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: Roulette.Services.LogCleanupService.LogCleanupService
+  fullName.vb: Roulette.Services.LogCleanupService.New
+  nameWithType: LogCleanupService.LogCleanupService
+  nameWithType.vb: LogCleanupService.New
+- uid: Roulette.Services.LogCleanupService.ExecuteAsync(System.Threading.CancellationToken)
+  name: ExecuteAsync(CancellationToken)
+  href: api/Roulette.Services.LogCleanupService.html#Roulette_Services_LogCleanupService_ExecuteAsync_System_Threading_CancellationToken_
+  commentId: M:Roulette.Services.LogCleanupService.ExecuteAsync(System.Threading.CancellationToken)
+  fullName: Roulette.Services.LogCleanupService.ExecuteAsync(System.Threading.CancellationToken)
+  nameWithType: LogCleanupService.ExecuteAsync(CancellationToken)
+- uid: Roulette.Services.LogCleanupService.ExecuteAsync*
+  name: ExecuteAsync
+  href: api/Roulette.Services.LogCleanupService.html#Roulette_Services_LogCleanupService_ExecuteAsync_
+  commentId: Overload:Roulette.Services.LogCleanupService.ExecuteAsync
+  isSpec: "True"
+  fullName: Roulette.Services.LogCleanupService.ExecuteAsync
+  nameWithType: LogCleanupService.ExecuteAsync
 - uid: Roulette.Services.SettingsService
   name: SettingsService
   href: api/Roulette.Services.SettingsService.html
@@ -6920,6 +7503,19 @@ references:
   isSpec: "True"
   fullName: Roulette.Services.SettingsService.GetShikimoriSettings
   nameWithType: SettingsService.GetShikimoriSettings
+- uid: Roulette.Services.SettingsService.GetTorrentSettings
+  name: GetTorrentSettings()
+  href: api/Roulette.Services.SettingsService.html#Roulette_Services_SettingsService_GetTorrentSettings
+  commentId: M:Roulette.Services.SettingsService.GetTorrentSettings
+  fullName: Roulette.Services.SettingsService.GetTorrentSettings()
+  nameWithType: SettingsService.GetTorrentSettings()
+- uid: Roulette.Services.SettingsService.GetTorrentSettings*
+  name: GetTorrentSettings
+  href: api/Roulette.Services.SettingsService.html#Roulette_Services_SettingsService_GetTorrentSettings_
+  commentId: Overload:Roulette.Services.SettingsService.GetTorrentSettings
+  isSpec: "True"
+  fullName: Roulette.Services.SettingsService.GetTorrentSettings
+  nameWithType: SettingsService.GetTorrentSettings
 - uid: Roulette.Services.ShikimoriApiConnectorService
   name: ShikimoriApiConnectorService
   href: api/Roulette.Services.ShikimoriApiConnectorService.html
