@@ -67,6 +67,7 @@ public class Program
         builder.Services.AddScoped<UserChoiceHistoryService>();
         builder.Services.AddScoped<BugReportService>();
         builder.Services.AddHostedService<LogCleanupService>();
+        builder.Services.AddScoped<MovieApiService>();
     }
 
     private static void ConfigureHttpClients(WebApplicationBuilder builder)
@@ -91,6 +92,20 @@ public class Program
             {
                 ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true
             });
+
+        var kinopoiskBaseUrl = builder.Configuration["Kinopoisk:BaseUrl"];
+        var apiKey = builder.Configuration["Kinopoisk:Auth"];
+        builder.Services.AddHttpClient<MovieApiService>(client =>
+        {
+            client.BaseAddress = new Uri(kinopoiskBaseUrl);
+            client.DefaultRequestHeaders.Add("accept", "application/json");
+            client.DefaultRequestHeaders.Add("X-API-KEY", apiKey);
+        })
+        .SetHandlerLifetime(TimeSpan.FromMinutes(1))
+        .ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
+        {
+            ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true
+        });
     }
 
     private static void ConfigureAuthentication(WebApplicationBuilder builder)
