@@ -3,7 +3,7 @@
 @using Roulette.Services
 @using Roulette.Models
 @using Microsoft.AspNetCore.Authorization
-@inject ApiClientService ApiClientService
+@inject GenreService GenreService
 @inject IMessageService Message
 
 @attribute [Authorize(Roles = "admin")]
@@ -29,7 +29,8 @@
     {
         try
         {
-            return await ApiClientService.GetGenresAsync();
+            if(IsAnime) return await GenreService.GetAnimeGenresAsync();
+            return await GenreService.GetMangaGenresAsync();
         }
         catch (Exception e)
         {
@@ -40,9 +41,7 @@
 
     private LabeledValue TransformGenre(GenreModel genre)
     {
-        return IsAnime
-            ? new LabeledValue(genre.Ids.Min().ToString(), genre.Russian)
-            : new LabeledValue(genre.Ids.Max().ToString(), genre.Russian);
+        return new LabeledValue(genre.Id.ToString(), genre.Russian);
     }
 
     private void UpdateSelectedGenres(string selectedValues)
