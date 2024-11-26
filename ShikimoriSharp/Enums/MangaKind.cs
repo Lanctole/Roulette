@@ -1,12 +1,48 @@
-﻿namespace ShikimoriSharp.Enums;
+﻿using System.ComponentModel;
+
+namespace ShikimoriSharp.Enums;
 
 public enum MangaKind
 {
+    /// <summary>
+    /// Манга — японские комиксы.
+    /// </summary>
+    [Description("Манга — японские комиксы")]
     manga,
+
+    /// <summary>
+    /// Манхва — корейские комиксы.
+    /// </summary>
+    [Description("Манхва — корейские комиксы")]
     manhwa,
+
+    /// <summary>
+    /// Манхуа — китайские комиксы.
+    /// </summary>
+    [Description("Манхуа — китайские комиксы")]
     manhua,
+
+    /// <summary>
+    /// Лайт-новелла — японский жанр литературы, ориентированный на подростков и молодёжь.
+    /// </summary>
+    [Description("Лайт-новелла — японский жанр литературы, ориентированный на подростков и молодёжь")]
     light_novel,
+
+    /// <summary>
+    /// Роман — более общий жанр литературы, без специфики для манги.
+    /// </summary>
+    [Description("Роман — более общий жанр литературы")]
     novel,
+
+    /// <summary>
+    /// One-shot — манга или комикс, выпущенные в одном выпуске.
+    /// </summary>
+    [Description("One-shot — манга или комикс, выпущенные в одном выпуске")]
     one_shot,
+
+    /// <summary>
+    /// Додзинси — японские фанатские работы, обычно создаваемые по мотивам существующих произведений.
+    /// </summary>
+    [Description("Додзинси — японские фанатские работы")]
     doujin
 }
