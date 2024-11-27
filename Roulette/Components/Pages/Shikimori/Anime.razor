@@ -3,7 +3,7 @@
 @using Roulette.Services
 @using Roulette.Models
 @inherits ShikimoriComponent
-@inject ApiClientService ApiClientService
+@inject AnimeService AnimeService
 @inject IJSRuntime Js
 
 <PageTitle>Anime</PageTitle>
@@ -28,7 +28,7 @@
         <DurationComponent @bind-SelectedValue="_selectedDuration"/>
     </Col>
     <Col Xs="24" Sm="12" Md="8">
-        <Studios SelectedStudiosChanged="OnSelectedStudiosChanged"/>
+        @* <Studios SelectedStudiosChanged="OnSelectedStudiosChanged"/> *@
     </Col>
     <Col Xs="24" Sm="12" Md="8">
         <div style="display: flex; align-items: center;">
@@ -71,7 +71,7 @@ tv-48 ~ от 40 и выше">
     private string? _selectedKind;
     private string? _selectedDuration;
 
-    private List<string> _selectedStudios = new();
+    // private List<string> _selectedStudios = new();
     private List<SmallRepresentation>? _animes;
     private Placement _tooltipPlacement = Placement.BottomLeft;
 
@@ -85,26 +85,52 @@ tv-48 ~ от 40 и выше">
         }
     }
 
-    private void OnSelectedStudiosChanged(List<string> selectedStudios)
-    {
-        _selectedStudios = selectedStudios;
-    }
+    // private void OnSelectedStudiosChanged(List<string> selectedStudios)
+    // {
+    //     _selectedStudios = selectedStudios;
+    // }
 
     protected override async Task SendSelected()
     {
         ShowCanvas = true;
-        var studios = string.Join(",", _selectedStudios);
-        var aniUrl =
-            $"rating={_selectedRating}&" +
-            $"kind={_selectedKind}&" +
-            $"studio={studios}&" +
-            $"duration={_selectedDuration}&";
+        SetSeason();
 
-        _animes = await GetMediaItemsAsync($"anime/animes?{aniUrl}", async id =>
+        var filters = new Dictionary<string, string>();
+        if (!string.IsNullOrEmpty(_selectedRating))
+            filters.Add("rating", $"\"{_selectedRating}\"");
+        if (!string.IsNullOrEmpty(_selectedKind))
+            filters.Add("kind", $"\"{_selectedKind}\"");
+        if (!string.IsNullOrEmpty(_selectedDuration))
+            filters.Add("duration", $"\"{_selectedDuration}\"");
+        if (!string.IsNullOrEmpty(SelectedScore))
+            filters.Add("score", $"{SelectedScore}");
+        if (!string.IsNullOrEmpty(Season))
+            filters.Add("season", $"\"{Season}\"");
+        if (SelectedGenres.Count > 0)
+            filters.Add("genre", $"\"{string.Join(",", SelectedGenres)}\"");
+        filters.Add("order", SelectedOrder);
+        filters.Add("limit", Limit.ToString());
+        filters.Add("page", Page.ToString());
+
+        var filterString = string.Join(", ", filters.Select(f => $"{f.Key}: {f.Value}"));
+
+        try
         {
-            var url = $"anime/animes/{id}";
-            return await ApiClientService.GetAnimeByIdAsync(url);
-        });
+            var animes = await AnimeService.GetAnimesAsync(filterString);
+            if (animes.Count == 0)
+            {
+                await ShowEmptyAnswerNotification();
+                return;
+            }
+
+            List<SmallRepresentation> smallRepresentations = animes.Cast<SmallRepresentation>().ToList();
+            TransferMediaPropsToSpinFunc(smallRepresentations);
+            _animes = smallRepresentations;
+        }
+        catch (Exception ex)
+        {
+            await ShowErrorMessage("Ошибка при загрузке данных. Попробуйте позже.");
+        }
     }
 
 }

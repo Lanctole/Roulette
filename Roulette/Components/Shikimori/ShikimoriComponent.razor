@@ -25,7 +25,7 @@
         SelectedGenres = selectedGenres;
     }
 
-    private async Task ShowEmptyAnswerNotification()
+    protected async Task ShowEmptyAnswerNotification()
     {
         RenderFragment customIcon = @<Icon Type="meh" Theme="outline" Style="color:#FFC000;"></Icon>;
         await Notice.Open(new NotificationConfig
@@ -77,7 +77,12 @@
         }
     }
 
-    private void SetSeason()
+    protected async Task ShowErrorMessage(string message)
+    {
+        await Message.Error(message);
+    }
+
+    protected void SetSeason()
     {
         SelectedFromYear = DateTuple.Item1.ToString();
         SelectedToYear = DateTuple.Item2.ToString();
@@ -105,7 +110,7 @@
         return detailedItems;
     }
 
-    private void TransferMediaPropsToSpinFunc(List<SmallRepresentation> detailedItems)
+    protected void TransferMediaPropsToSpinFunc(List<SmallRepresentation> detailedItems)
     {
         var mediaName = detailedItems.ToDictionary(media => media.Id, media => string.IsNullOrWhiteSpace(media.Russian) ? media.Name : media.Russian);
         Js.InvokeVoidAsync("startSpin", mediaName);

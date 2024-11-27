@@ -12,7 +12,7 @@
         <div class="col-md-4">
             @if (Item is SmallRepresentation smallRep)
             {
-                <img src="@($"{_baseUrlShikimori}{smallRep.Image.Original}")" alt="@smallRep.Name" class="img-fluid"/>
+                <img src="@($"{smallRep.Image.Original}")" alt="@smallRep.Name" class="img-fluid"/>
             }
             else if (Item is GameDto gameDto)
             {
@@ -88,7 +88,7 @@
                 <div class="line-container">
                     <div class="line">
                         <div class="key">Дата выхода:</div>
-                        <div class="value">@basis.AiredOn?.ToString("yyyy-MM-dd")</div>
+                        <div class="value">@basis.AiredOn.ToString()</div>
                     </div>
                 </div>
             }
@@ -97,21 +97,21 @@
                 <div class="line-container">
                     <div class="line">
                         <div class="key">Жанры:</div>
-                        <div class="value">@string.Join(", ", IdBasis.Genres.Select(s => s.Russian))</div>
+                        <div class="value">@IdBasis.Genres</div>
                     </div>
                 </div>
 
                 <div class="line-container">
                     <div class="line">
                         <div class="key">По-английски:</div>
-                        <div class="value">@string.Join(", ", IdBasis.English.Select(s => s))</div>
+                        <div class="value">@IdBasis.English</div>
                     </div>
                 </div>
 
                 <div class="line-container">
                     <div class="line">
                         <div class="key">По-японски:</div>
-                        <div class="value">@string.Join(", ", IdBasis.Japanese.Select(s => s))</div>
+                        <div class="value">@IdBasis.Japanese</div>
                     </div>
                 </div>
 
@@ -140,7 +140,7 @@
 
                     <div class="line-container">
                         <div class="line">
-                            <div class="key">Рейтинг:</div>
+                            <div class="key">Возрастной рейтинг:</div>
                             <div class="value">@animeId.Rating</div>
                         </div>
                     </div>
@@ -183,10 +183,10 @@
     @if (Item is AnimeMangaRanobeIdBase smallRepDesc)
     {
         <div class="key">Описание:</div>
-        <div class="description">@CleanDescription(smallRepDesc.Description)</div>
+        <div class="description">@((MarkupString)smallRepDesc.DescriptionHtml)</div>
         <br/>
-        <a href="@($"{_baseUrlShikimori}{smallRepDesc.Url}")" target="_blank" class="btn-primary">Подробнее</a>
-        <a href="@($"{_baseUrlTorrent}?nm={string.Join(", ", smallRepDesc.English.Select(s => s))}|{smallRepDesc.Russian}|{smallRepDesc.Name}&o=10&s=2")" target="_blank" class="btn-success">Rutracker</a>
+        <a href="@($"{smallRepDesc.Url}")" target="_blank" class="btn-primary">Подробнее</a>
+        <a href="@($"{_baseUrlTorrent}?nm={smallRepDesc.English}|{smallRepDesc.Russian}|{smallRepDesc.Name}&o=10&s=2")" target="_blank" class="btn-success">Rutracker</a>
     }
     else if (Item is GameDto gameDto)
     {
@@ -213,18 +213,6 @@
         _baseUrlTorrent = SettingsService.GetTorrentSettings().BaseUrl;
     }
 
-    /// <summary>
-    /// Очищает описание от лишних символов.
-    /// </summary>
-    /// <param name="input">Исходная строка.</param>
-    /// <returns>Очищенная строка.</returns>
-    public static string CleanDescription(string input)
-    {
-        if (string.IsNullOrWhiteSpace(input))
-            return string.Empty;
-        var pattern = @"\[[^\]]*\]";
-        return Regex.Replace(input, pattern, string.Empty);
-    }
 
     private void CalculateScore(AnimeMangaRanobeBase basis)
     {
