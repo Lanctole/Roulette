@@ -1,6 +1,5 @@
 ﻿using Games.Enums;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Roulette.Data;
 using Roulette.Services;
 
@@ -69,18 +68,16 @@ public class GameController : ControllerBase
         [FromQuery] GameOrder? order = null,
         [FromQuery] int limit = 5)
     {
-        var gameIdsQuery = _context.Games.AsQueryable();
-        var queryProcessor = new GameQueryProcessor();
-        gameIdsQuery = queryProcessor.ApplyFilters(gameIdsQuery, genres, supportedLanguages, metacriticScoreMin,
-            metacriticScoreMax,
-            steamScoreMin, steamScoreMax, minCost, maxCost, releaseDateStart, releaseDateEnd);
-        gameIdsQuery = queryProcessor.ApplySorting(gameIdsQuery, order);
-
-        var gameIds = await gameIdsQuery.Select(g => g.AppID).Take(limit).ToListAsync();
-        
         try
         {
+            var gameIdsQuery = _gameService.ApplyFilters(genres, supportedLanguages,
+                metacriticScoreMin, metacriticScoreMax, steamScoreMin, steamScoreMax,
+                minCost, maxCost, releaseDateStart, releaseDateEnd);
+
+            gameIdsQuery = _gameService.ApplySorting(gameIdsQuery, order);
+            var gameIds = await _gameService.GetGameIdsAsync(gameIdsQuery, limit);
             var games = await _gameService.GetGamesAsync(gameIds, limit);
+
             return Ok(games);
         }
         catch (InvalidOperationException operationExceptionEx)

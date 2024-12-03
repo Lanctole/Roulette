@@ -30,12 +30,12 @@ namespace Roulette.Controllers.Api
             return Ok(countries);
         }
         
-        [HttpGet("movies")]
-        public async Task<IActionResult> GetMovies()
-        {
-            var movies = await _movieService.GetMoviesAsync();
-            return Ok(movies);
-        }
+        //[HttpGet("movies")]
+        //public async Task<IActionResult> GetMovies()
+        //{
+        //    var movies = await _movieService.GetMoviesAsync();
+        //    return Ok(movies);
+        //}
 
     }
 }

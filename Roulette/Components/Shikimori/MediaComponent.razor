@@ -1,4 +1,5 @@
 ﻿@inject SettingsService SettingsService
+@inject ImageCacheService ImageCacheService
 @using ShikimoriSharp.Bases
 @using ShikimoriSharp.Classes
 @using Roulette.Services
@@ -12,11 +13,11 @@
         <div class="col-md-4">
             @if (Item is SmallRepresentation smallRep)
             {
-                <img src="@($"{smallRep.Image.Original}")" alt="@smallRep.Name" class="img-fluid"/>
+                <img src="@GetImageUrl(smallRep.Image.Original)" alt="@smallRep.Name" class="img-fluid" />
             }
             else if (Item is GameDto gameDto)
             {
-                <img src="@($"{gameDto.HeaderImage}")" alt="@gameDto.Name" class="img-fluid"/>
+                <img src="@GetImageUrl(gameDto.HeaderImage)" alt="@gameDto.Name" class="img-fluid" />
             }
         </div>
         <div class="col-md-8">
@@ -97,7 +98,7 @@
                 <div class="line-container">
                     <div class="line">
                         <div class="key">Жанры:</div>
-                        <div class="value">@IdBasis.Genres</div>
+                        <div class="value">@IdBasis.GetGenres()</div>
                     </div>
                 </div>
 
@@ -206,6 +207,13 @@
     private string? _baseUrlShikimori;
     private string? _baseUrlTorrent;
     private decimal _scoreDecimal;
+    [Parameter]
+    public Dictionary<string, string> ImageCache { get; set; } = new();
+
+    private string GetImageUrl(string imageUrl)
+    {
+        return ImageCache.TryGetValue(imageUrl, out var cachedUrl) ? cachedUrl : imageUrl;
+    }
 
     protected override void OnInitialized()
     {
