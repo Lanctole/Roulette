@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using System.Linq;
+using Newtonsoft.Json;
 using ShikimoriSharp.Classes;
 
 namespace ShikimoriSharp.Bases;
@@ -19,4 +20,10 @@ public class AnimeMangaRanobeIdBase : AnimeMangaRanobeBase
 
     [JsonProperty("genres")] public Genre?[] Genres { get; set; }
 
+    public string GetGenres()
+    {
+        return Genres != null
+            ? string.Join(", ", Genres.Where(g => g != null).Select(g => g.Russian))
+            : string.Empty;
+    }
 }
