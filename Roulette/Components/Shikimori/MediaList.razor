@@ -2,6 +2,7 @@
 @inject UserChoiceHistoryService UserChoiceHistoryService
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject UserManager<IdentityUser> UserManager
+@inject ImageCacheService ImageCacheService
 @using Roulette.Models
 @using Roulette.Services
 @using ShikimoriSharp.Bases
@@ -11,13 +12,13 @@
 @if (MediaItems != null && MediaItems.Any())
 {
     object? selectedMediaItem = MediaItems
-        .FirstOrDefault(mediaItem => 
+        .FirstOrDefault(mediaItem =>
             (mediaItem is SmallRepresentation smallRep && smallRep.Id == SelectedID) ||
             (mediaItem is GameDto gameDto && gameDto.AppID == SelectedID));
 
     if (selectedMediaItem != null)
     {
-        <MediaComponent Item="selectedMediaItem"/>
+        <MediaComponent Item="selectedMediaItem" ImageCache="@_imageCache"/>
     }
 }
 
@@ -32,12 +33,44 @@
     [Parameter]
     public MediaType MediaType { get; set; }
 
+    private Dictionary<string, string> _imageCache = new();
+    private HashSet<T> _processedItems = new();
+
     private DotNetObjectReference<MediaList<T>>? dotNetObjectRef;
     private long SelectedID { get; set; }
 
-    /// <summary>
-    /// Инициализация компонента.
-    /// </summary>
+    protected override async Task OnParametersSetAsync()
+    {
+        if (MediaItems != null)
+        {
+            foreach (var item in MediaItems)
+            {
+                if (_processedItems.Contains(item))
+                    continue;
+
+                _processedItems.Add(item);
+                await PreloadImageAsync(item);
+            }
+        }
+    }
+
+    private async Task PreloadImageAsync(T item)
+    {
+        var imageUrl = item switch
+        {
+            SmallRepresentation smallRep => smallRep.Image.Original,
+            GameDto gameDto => gameDto.HeaderImage,
+            _ => null
+            };
+
+        if (!string.IsNullOrEmpty(imageUrl))
+        {
+            var cachedImage = await ImageCacheService.GetImageFromCacheAsync(imageUrl);
+            _imageCache[imageUrl] = cachedImage ?? imageUrl;
+            StateHasChanged();
+        }
+    }
+
     protected override void OnInitialized()
     {
         MediaItems ??= new List<T>();
@@ -45,10 +78,11 @@
         JS.InvokeVoidAsync("registerDotNetObject", dotNetObjectRef);
     }
 
-    /// <summary>
-    /// Обработка изменения идентификатора медиаэлемента.
-    /// </summary>
-    /// <param name="input">Идентификатор медиаэлемента.</param>
+    private string GetImageUrl(string imageUrl)
+    {
+        return _imageCache.TryGetValue(imageUrl, out var cachedUrl) ? cachedUrl : "/path-to-default-image.jpg";
+    }
+
     [JSInvokable]
     public async Task<string> ChangeID(int input)
     {
@@ -71,9 +105,6 @@
                     case MediaType.Manga:
                         await UserChoiceHistoryService.AddMangaToHistoryAsync(userId, input);
                         break;
-                    case MediaType.Ranobe:
-                        await UserChoiceHistoryService.AddRanobeToHistoryAsync(userId, input);
-                        break;
                     case MediaType.Game:
                         await UserChoiceHistoryService.AddGameToHistoryAsync(userId, input);
                         break;
@@ -89,5 +120,4 @@
     {
         dotNetObjectRef?.Dispose();
     }
-
 }

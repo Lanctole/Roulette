@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Games.Classes;
+using Games.Enums;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Distributed;
 using Newtonsoft.Json;
 using Roulette.Data;
@@ -6,21 +8,12 @@ using Roulette.DTOs;
 
 namespace Roulette.Services;
 
-/// <summary>
-///     Сервис для работы с играми.
-/// </summary>
 public class GameService
 {
     private readonly IDistributedCache _cache;
     private readonly ApplicationDbContext _context;
     private readonly ILogger<GameService> _logger;
 
-    /// <summary>
-    ///     Инициализирует новый экземпляр <see cref="GameService" />.
-    /// </summary>
-    /// <param name="context">Контекст базы данных.</param>
-    /// <param name="cache">Кеш распределенной памяти.</param>
-    /// <param name="logger">Логгер для записи информации и ошибок.</param>
     public GameService(ApplicationDbContext context, IDistributedCache cache, ILogger<GameService> logger)
     {
         _context = context;
@@ -28,12 +21,121 @@ public class GameService
         _logger = logger;
     }
 
-    /// <summary>
-    ///     Получает список игр по их идентификаторам.
-    /// </summary>
-    /// <param name="gameIds">Список идентификаторов игр.</param>
-    /// <param name="limit">Максимальное количество игр для возвращения.</param>
-    /// <returns>Список объектов <see cref="GameDto" />.</returns>
+    public async Task<List<long>> GetGameIdsAsync(IQueryable<Game> gameIdsQuery, int limit)
+    {
+        try
+        {
+            return await gameIdsQuery
+                .Select(g => g.AppID)
+                .Take(limit)
+                .ToListAsync();
+        }
+        catch (Exception ex)
+        {
+            throw new InvalidOperationException("Ошибка при получении идентификаторов игр.", ex);
+        }
+    }
+
+    public IQueryable<Game> ApplyFilters(
+        string? genres,
+        string? supportedLanguages,
+        int? metacriticScoreMin,
+        int? metacriticScoreMax,
+        int? steamScoreMin,
+        int? steamScoreMax,
+        double? minCost,
+        double? maxCost,
+        string? releaseDateStart,
+        string? releaseDateEnd)
+    {
+        var query = _context.Games.AsQueryable();
+        if (!string.IsNullOrWhiteSpace(genres))
+        {
+            var genreIds = genres.Split(',').Select(g => int.Parse(g.Trim())).ToList();
+            query = query.Where(g => g.Genres.Select(genre => genre.Id).Intersect(genreIds).Count() == genreIds.Count);
+        }
+
+        if (!string.IsNullOrWhiteSpace(supportedLanguages))
+        {
+            var languageIds = supportedLanguages.Split(',').Select(l => int.Parse(l.Trim())).ToList();
+            query = query.Where(g =>
+                g.SupportedLanguages.Select(lang => lang.Id).Intersect(languageIds).Count() == languageIds.Count);
+        }
+
+        if (metacriticScoreMin.HasValue || metacriticScoreMax.HasValue)
+        {
+            if (metacriticScoreMin.HasValue)
+                query = query.Where(g => g.MetacriticScore >= metacriticScoreMin.Value);
+            if (metacriticScoreMax.HasValue)
+                query = query.Where(g => g.MetacriticScore <= metacriticScoreMax.Value);
+        }
+
+        if (steamScoreMin.HasValue || steamScoreMax.HasValue)
+        {
+            if (steamScoreMin.HasValue)
+                query = query.Where(g => g.SteamScore >= steamScoreMin.Value);
+            if (steamScoreMax.HasValue)
+                query = query.Where(g => g.SteamScore <= steamScoreMax.Value);
+        }
+
+        if (minCost.HasValue && maxCost.HasValue && minCost == maxCost)
+        {
+            query = query.Where(g => g.Cost >= minCost.Value - 1 && g.Cost <= maxCost.Value);
+        }
+        else
+        {
+            if (minCost.HasValue)
+                query = query.Where(g => g.Cost >= minCost.Value);
+
+            if (maxCost.HasValue)
+                query = query.Where(g => g.Cost <= maxCost.Value);
+        }
+
+
+        if (DateTime.TryParse(releaseDateStart, out var startDate))
+        {
+            startDate = startDate.ToUniversalTime();
+            query = query.Where(g => g.ReleaseDate >= startDate);
+        }
+
+        if (DateTime.TryParse(releaseDateEnd, out var endDate))
+        {
+            endDate = endDate.ToUniversalTime();
+            query = query.Where(g => g.ReleaseDate <= endDate);
+        }
+
+        return query;
+    }
+
+    public IQueryable<Game> ApplySorting(
+        IQueryable<Game> query,
+        GameOrder? order)
+    {
+        switch (order)
+        {
+            case GameOrder.Id:
+                query = query.OrderBy(g => g.AppID);
+                break;
+            case GameOrder.SteamScore:
+                query = query.OrderByDescending(g => g.SteamScore);
+                break;
+            case GameOrder.Name:
+                query = query.OrderBy(g => g.Name);
+                break;
+            case GameOrder.ReleaseDate:
+                query = query.OrderBy(g => g.ReleaseDate);
+                break;
+            case GameOrder.Random:
+                query = query.OrderBy(g => EF.Functions.Random());
+                break;
+            default:
+                query = query.OrderBy(g => g.Name);
+                break;
+        }
+
+        return query;
+    }
+
     public async Task<IEnumerable<GameDto>> GetGamesAsync(List<long> gameIds, int limit)
     {
         var games = new List<GameDto>();

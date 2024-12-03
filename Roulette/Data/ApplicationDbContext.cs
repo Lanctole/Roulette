@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Roulette.DTOs;
 using Roulette.Models;
+using ShikimoriSharp.Classes;
 using Genre = Games.Classes.Genre;
 
 namespace Roulette.Data;
@@ -24,6 +25,7 @@ public class ApplicationDbContext : IdentityDbContext
     public DbSet<MangaDto> Mangas { get; set; }
 
     public DbSet<RanobeDto> Ranobes { get; set; }
+
 
     /// <summary>
     /// Набор данных для выбора игр пользователями.

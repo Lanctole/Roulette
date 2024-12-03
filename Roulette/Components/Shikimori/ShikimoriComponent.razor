@@ -1,6 +1,4 @@
 ﻿@using ShikimoriSharp.Bases
-@using Roulette.Services
-@inject ApiClientService ApiClientService
 @inject NotificationService Notice
 @inject IJSRuntime Js
 @inject IMessageService Message
@@ -11,7 +9,7 @@
     protected string? SelectedScore;
     protected string? SelectedFromYear;
     protected string? SelectedToYear;
-    protected (double, double) DateTuple = (1995, 2024);
+    protected (double, double) DateTuple = (2012, 2024);
     protected string? Season;
     protected bool GetDetailedData;
     protected List<string> SelectedGenres = new();
@@ -25,7 +23,7 @@
         SelectedGenres = selectedGenres;
     }
 
-    private async Task ShowEmptyAnswerNotification()
+    protected async Task ShowEmptyAnswerNotification()
     {
         RenderFragment customIcon = @<Icon Type="meh" Theme="outline" Style="color:#FFC000;"></Icon>;
         await Notice.Open(new NotificationConfig
@@ -36,48 +34,12 @@
         });
     }
 
-    /// <summary>
-    ///     Асинхронный метод получения медиа-элементов.
-    /// </summary>
-    /// <param name="endpoint">Конечная точка API.</param>
-    /// <param name="getDetailsFunc">Функция получения деталей медиа.</param>
-    /// <returns>Список медиа-элементов.</returns>
-    protected async Task<List<SmallRepresentation>> GetMediaItemsAsync(string endpoint, Func<long, Task<SmallRepresentation>> getDetailsFunc)
+    protected async Task ShowErrorMessage(string message)
     {
-        try
-        {
-            SetSeason();
-
-            var genres = string.Join(",", SelectedGenres);
-            var url = BuildUrl(endpoint, genres);
-
-            var items = await ApiClientService.GetAsync<List<SmallRepresentation>>(url);
-            if (items == null || items.Count == 0)
-            {
-                _shouldDelay = false;
-                await ShowEmptyAnswerNotification();
-                return new List<SmallRepresentation>();
-            }
-            _shouldDelay = true;
-            var detailedItems = await GetDetailedItemsAsync(items, getDetailsFunc);
-            TransferMediaPropsToSpinFunc(detailedItems);
-            return detailedItems;
-        }
-        catch (HttpRequestException httpEx)
-        {
-            _shouldDelay = false;
-            await Message.Error("К сожалению, Shikimori не отвечает. Попробуйте снова через некоторое время");
-            return new List<SmallRepresentation>();
-        }
-        catch (Exception ex)
-        {
-            _shouldDelay = false;
-            await Message.Error("Произошла ошибка при загрузке. Перезагрузите страницу или измените фильтры. Если проблема не исчезает - сообщите нам.");
-            return new List<SmallRepresentation>();
-        }
+        await Message.Error(message);
     }
 
-    private void SetSeason()
+    protected void SetSeason()
     {
         SelectedFromYear = DateTuple.Item1.ToString();
         SelectedToYear = DateTuple.Item2.ToString();
@@ -89,23 +51,7 @@
         }
     }
 
-    private string BuildUrl(string endpoint, string genres)
-    {
-        return $"{endpoint}score={SelectedScore}&season={Season}&genre={genres}&order={SelectedOrder}&limit={Limit}&page={Page}";
-    }
-
-    private async Task<List<SmallRepresentation>> GetDetailedItemsAsync(List<SmallRepresentation> items, Func<long, Task<SmallRepresentation>> getDetailsFunc)
-    {
-        var detailedItems = new List<SmallRepresentation>();
-        foreach (var item in items)
-        {
-            var detailedItem = await getDetailsFunc(item.Id);
-            detailedItems.Add(detailedItem);
-        }
-        return detailedItems;
-    }
-
-    private void TransferMediaPropsToSpinFunc(List<SmallRepresentation> detailedItems)
+    protected void TransferMediaPropsToSpinFunc(List<SmallRepresentation> detailedItems)
     {
         var mediaName = detailedItems.ToDictionary(media => media.Id, media => string.IsNullOrWhiteSpace(media.Russian) ? media.Name : media.Russian);
         Js.InvokeVoidAsync("startSpin", mediaName);

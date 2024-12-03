@@ -1,0 +1,16 @@
+networks:
+  default:
+    driver: bridge
+services:
+  roulette:
+    image: ${DOCKER_REGISTRY-}roulette
+    build:
+      context: .
+      dockerfile: Roulette/Dockerfile
+
+  shikimoriservice:
+    image: ${DOCKER_REGISTRY-}shikimoriservice
+    build:
+      context: .
+      dockerfile: ShikimoriService/Dockerfile
+

@@ -1,8 +1,5 @@
 ﻿namespace Roulette.DTOs;
 
-/// <summary>
-/// Модель данных для игр.
-/// </summary>
 public class GameDto
 {
     public long AppID { get; set; }

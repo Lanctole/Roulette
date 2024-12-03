@@ -3,7 +3,7 @@ using Roulette.Models.Shiki;
 using ShikimoriSharp.Classes;
 
 namespace Roulette.Services;
-
+//TODO : есть вероятность что можно безопасно удалить
 /// <summary>
 ///     Сервис для выполнения запросов к API и обработки ответов.
 /// </summary>
@@ -68,61 +68,10 @@ public class ApiClientService
         }
     }
 
-    /// <summary>
-    ///     Получает список студий аниме.
-    /// </summary>
-    /// <returns>Список студий аниме.</returns>
-    public async Task<List<Studio>> GetStudiosAsync()
-    {
-        return await GetAsync<List<Studio>>("anime/studios");
-    }
-
-    /// <summary>
-    ///     Получает список жанров аниме.
-    /// </summary>
-    /// <returns>Список жанров аниме.</returns>
-    public async Task<List<GenreModel>> GetGenresAsync()
-    {
-        return await GetAsync<List<GenreModel>>("anime/genres");
-    }
 
 
-    /// <summary>
-    ///     Получает информацию о манге по указанному URL.
-    /// </summary>
-    /// <param name="url">URL манги.</param>
-    /// <returns>Объект манги.</returns>
-    public async Task<MangaRanobeId> GetMangaByIdAsync(string url) //-V3013
-    {
-        return await GetAsync<MangaRanobeId>(url);
-    }
 
-    /// <summary>
-    ///     Получает информацию о ранобе по указанному URL.
-    /// </summary>
-    /// <param name="url">URL ранобе.</param>
-    /// <returns>Объект ранобе.</returns>
-    public async Task<MangaRanobeId> GetRanobeByIdAsync(string url)
-    {
-        return await GetAsync<MangaRanobeId>(url);
-    }
 
-    /// <summary>
-    ///     Получает информацию о аниме по указанному URL.
-    /// </summary>
-    /// <param name="url">URL аниме.</param>
-    /// <returns>Объект аниме.</returns>
-    public async Task<AnimeId> GetAnimeByIdAsync(string url)
-    {
-        return await GetAsync<AnimeId>(url);
-    }
 
-    /// <summary>
-    ///     Получает список издателей манги.
-    /// </summary>
-    /// <returns>Список издателей манги.</returns>
-    public async Task<List<Publisher>> GetPublishersAsync()
-    {
-        return await GetAsync<List<Publisher>>("manga/publishers");
-    }
+
 }
