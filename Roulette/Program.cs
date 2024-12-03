@@ -57,7 +57,6 @@ public class Program
         builder.Services.AddRazorComponents().AddInteractiveServerComponents();
         builder.Services.AddAntDesign();
         builder.Services.AddMemoryCache();
-        builder.Services.AddScoped<ShikimoriApiConnectorService>();
         builder.Services.AddScoped<ShikiDataHelper>();
         builder.Services.AddSingleton<ApiClientService>();
         builder.Services.AddSingleton<SettingsService>();
@@ -66,26 +65,20 @@ public class Program
         builder.Services.AddScoped<GameLanguageService>();
         builder.Services.AddScoped<UserChoiceHistoryService>();
         builder.Services.AddScoped<BugReportService>();
-        builder.Services.AddHostedService<LogCleanupService>();
+        builder.Services.AddScoped<ApiConnectorService>();
+        builder.Services.AddScoped<GenreService>();
+        builder.Services.AddScoped<AnimeService>();
+        builder.Services.AddScoped<MangaService>();
+        builder.Services.AddScoped<ImageCacheService>();
+        //builder.Services.AddHostedService<LogCleanupService>();
         builder.Services.AddScoped<MovieApiService>();
     }
 
     private static void ConfigureHttpClients(WebApplicationBuilder builder)
     {
-        var shikimoriBaseUrl = Environment.GetEnvironmentVariable("Shikimori:BaseUrl") ??
-                               builder.Configuration.GetSection("Shikimori:BaseUrl").Value;
-        builder.Services.AddHttpClient<ShikimoriApiConnectorService>(client =>
-            {
-                client.BaseAddress = new Uri(shikimoriBaseUrl);
-                client.DefaultRequestHeaders.Add("Accept", "application/json");
-            }).SetHandlerLifetime(TimeSpan.FromMinutes(1))
-            .ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
-            {
-                ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true
-            });
-
         var apiUrl = Environment.GetEnvironmentVariable("ApiBaseAddress") ??
                      builder.Configuration["ApiBaseAddress"];
+
         builder.Services.AddHttpClient<ApiClientService>(client => { client.BaseAddress = new Uri(apiUrl); })
             .SetHandlerLifetime(TimeSpan.FromMinutes(1))
             .ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
@@ -95,6 +88,7 @@ public class Program
 
         var kinopoiskBaseUrl = builder.Configuration["Kinopoisk:BaseUrl"];
         var apiKey = builder.Configuration["Kinopoisk:Auth"];
+
         builder.Services.AddHttpClient<MovieApiService>(client =>
         {
             client.BaseAddress = new Uri(kinopoiskBaseUrl);
@@ -106,6 +100,21 @@ public class Program
         {
             ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true
         });
+
+        builder.Services.AddHttpClient<ImageCacheService>()
+            .SetHandlerLifetime(TimeSpan.FromMinutes(1))
+            .ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
+            {
+                ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true
+            });
+        
+        builder.Services.AddHttpClient<ApiConnectorService>()
+            .SetHandlerLifetime(TimeSpan.FromMinutes(1))
+            .ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
+            {
+                ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true
+            });
+
     }
 
     private static void ConfigureAuthentication(WebApplicationBuilder builder)

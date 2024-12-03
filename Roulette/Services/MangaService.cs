@@ -1,49 +1,48 @@
-﻿using Microsoft.Extensions.Caching.Distributed;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Distributed;
 using Newtonsoft.Json;
+using Polly;
 using Roulette.Data;
 using Roulette.DTOs;
 using ShikimoriSharp.Classes;
 
 namespace Roulette.Services;
 
-public class AnimeService : ShikimoriBaseService
+public class MangaService : ShikimoriBaseService
 {
     private readonly ApiConnectorService _apiConnectorService;
 
-    public AnimeService(ApiConnectorService apiConnectorService, IDistributedCache cache, ApplicationDbContext context, ILogger<AnimeService> logger) : base(cache, context, logger)
+    public MangaService(ApiConnectorService apiConnectorService, IDistributedCache cache, ApplicationDbContext context, ILogger<MangaService> logger) : base(cache, context, logger)
     {
         _apiConnectorService = apiConnectorService;
     }
 
-    public async Task<List<AnimeId>> GetAnimesByIdsAsync(IEnumerable<long> ids)
+    public async Task<List<MangaRanobeId>> GetMangasByIdsAsync(IEnumerable<long> ids)
     {
         return await GetOrFetchDataAsync(
             ids,
-            async missingIds => await GetAnimesAsync(CreateFilterString(missingIds)),
-            async id => await _context.Animes.AnyAsync(a => a.Id == id),
+            async missingIds => await GetMangasAsync(CreateFilterString(missingIds)),
+            async id => await _context.Mangas.AnyAsync(m => m.Id == id),
             async id =>
             {
-                var cacheKey = $"Anime:{id}";
+                var cacheKey = $"Manga:{id}";
                 var cachedData = await _cache.GetStringAsync(cacheKey);
-                return cachedData != null ? JsonConvert.DeserializeObject<AnimeId>(cachedData) : null;
+                return cachedData != null ? JsonConvert.DeserializeObject<MangaRanobeId>(cachedData) : null;
             }
         );
     }
 
-    public async Task<List<AnimeId>> GetAnimesAsync(string filterString)
+    public async Task<List<MangaRanobeId>> GetMangasAsync(string filterString)
     {
         var query = $@"
             {{
-              animes({filterString}) {{
-                episodes
-                rating
-                duration
-                updatedAt
-                studios {{
-                  id
-                  name
+              mangas({filterString}) {{
+                chapters
+                publishers{{
+                    id
+                    name
                 }}
+                volumes
                 english
                 japanese
                 synonyms
@@ -74,23 +73,23 @@ public class AnimeService : ShikimoriBaseService
             }}";
 
         var response = await _apiConnectorService.SendGraphQLQueryAsync(query);
-        var animeResponse = JsonConvert.DeserializeObject<AnimeResponse>(response);
-        _ = CacheAndSaveToDBAnimesAsync(animeResponse.Animes);
-        return animeResponse.Animes;
+        var mangaResponse = JsonConvert.DeserializeObject<MangaResponse>(response);
+        _ = CacheAndSaveToDBMangasAsync(mangaResponse.Mangas);
+        return mangaResponse.Mangas;
     }
 
-    private async Task CacheAndSaveToDBAnimesAsync(List<AnimeId> animes)
+    private async Task CacheAndSaveToDBMangasAsync(List<MangaRanobeId> mangas)
     {
         try
         {
-            foreach (var anime in animes)
+            foreach (var manga in mangas)
             {
-                var cacheKey = $"Anime:{anime.Id}";
+                var cacheKey = $"Manga:{manga.Id}";
 
                 var cachedData = await _cache.GetStringAsync(cacheKey);
                 if (cachedData == null)
                 {
-                    var serializedData = JsonConvert.SerializeObject(anime);
+                    var serializedData = JsonConvert.SerializeObject(manga);
                     var cacheOptions = new DistributedCacheEntryOptions
                     {
                         AbsoluteExpirationRelativeToNow = TimeSpan.FromDays(7)
@@ -98,13 +97,13 @@ public class AnimeService : ShikimoriBaseService
                     await _cache.SetStringAsync(cacheKey, serializedData, cacheOptions);
                 }
 
-                var existsInDb = await _context.Animes.AnyAsync(m => m.Id == anime.Id);
+                var existsInDb = await _context.Mangas.AnyAsync(m => m.Id == manga.Id);
                 if (!existsInDb)
                 {
-                    await _context.Animes.AddAsync(new AnimeDto
+                    await _context.Mangas.AddAsync(new MangaDto
                     {
-                        Id = anime.Id,
-                        Content = JsonConvert.SerializeObject(anime)
+                        Id = manga.Id,
+                        Content = JsonConvert.SerializeObject(manga)
                     });
                 }
             }
@@ -113,13 +112,14 @@ public class AnimeService : ShikimoriBaseService
         }
         catch (Exception ex)
         {
-            _logger.LogWarning(ex, "Ошибка при обработке данных аниме для кэша и базы данных.");
+            _logger.LogWarning(ex, "Ошибка при обработке данных манги для кэша и базы данных.");
         }
     }
+
 }
 
-public class AnimeResponse
+public class MangaResponse
 {
-    [JsonProperty("animes")]
-    public List<AnimeId> Animes { get; set; }
+    [JsonProperty("mangas")]
+    public List<MangaRanobeId> Mangas { get; set; }
 }

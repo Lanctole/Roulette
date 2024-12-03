@@ -34,9 +34,9 @@ namespace Roulette.Services
             return await GetValuesByFieldAsync("v1/movie/possible-values-by-field?field=countries.name");
         }
         
-        public async Task<List<Movie>> GetMoviesAsync()
-        {
-            return await GetValuesByFieldAsync("v1.4/movie/random");
-        }
+        //public async Task<List<Movie>> GetMoviesAsync()
+        //{
+        //    return await GetValuesByFieldAsync("v1.4/movie/random");
+        //}
     }
 }
