@@ -2,6 +2,7 @@
 @using ShikimoriSharp.Bases
 @using Roulette.Services
 @using Roulette.Models
+@using Image = ShikimoriSharp.Bases.Image
 @inherits ShikimoriComponent
 @inject MangaService MangaService
 @inject ImageCacheService ImageCacheService
@@ -79,7 +80,14 @@
                 return;
             }
 
-            List<SmallRepresentation> smallRepresentations = mangas.Cast<SmallRepresentation>().ToList();
+            List<SmallRepresentation> smallRepresentations = mangas.Select(manga =>
+            {
+                manga.Image ??= new Image
+                    {
+                        Original = "https://shikimori.one/assets/globals/missing/main.png",
+                    };
+                return manga;
+            }).Cast<SmallRepresentation>().ToList();
             var tasks = smallRepresentations
                 .Where(manga => !string.IsNullOrEmpty(manga.Image.Original))
                 .Select(manga => ImageCacheService.SaveImageToCacheAsync(manga.Image.Original));
