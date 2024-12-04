@@ -3,7 +3,7 @@
 /// <summary>
 ///  Модель данных для манги. Избыточные свойства заключаются в поле Content
 /// </summary>
-public class MangaDto
+public class MangaDto : IShikimoriContentDto
 {
     public long Id { get; set; }
     public string Content { get; set; }

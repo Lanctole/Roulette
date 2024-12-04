@@ -772,6 +772,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Shikimori.CustomTooltip.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Shikimori.CustomTooltip.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Roulette.Components.Shikimori.DurationComponent.yml",
       "output": {
         ".html": {
@@ -786,6 +796,16 @@
       "output": {
         ".html": {
           "relative_path": "api/Roulette.Components.Shikimori.EnumSelector-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Components.Shikimori.FilterSlider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Components.Shikimori.FilterSlider.html"
         }
       },
       "version": ""
@@ -1202,6 +1222,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Data.Migrations.DeleteEventIdAndEndpointFromLogs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Data.Migrations.DeleteEventIdAndEndpointFromLogs.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Roulette.Data.Migrations.DropGenresAndLanguagesFromGamesTable.yml",
       "output": {
         ".html": {
@@ -1216,6 +1246,16 @@
       "output": {
         ".html": {
           "relative_path": "api/Roulette.Data.Migrations.InitialCreate.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Data.Migrations.InitialCreateLogging.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Data.Migrations.InitialCreateLogging.html"
         }
       },
       "version": ""
@@ -1322,6 +1362,46 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Logging.DatabaseLogger.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Logging.DatabaseLogger.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Logging.DatabaseLoggerProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Logging.DatabaseLoggerProvider.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Logging.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Logging.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Models.BaseUrlSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Models.BaseUrlSettings.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Roulette.Models.BugReport.yml",
       "output": {
         ".html": {
@@ -1356,6 +1436,16 @@
       "output": {
         ".html": {
           "relative_path": "api/Roulette.Models.LabeledValue.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Models.LogEntry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Models.LogEntry.html"
         }
       },
       "version": ""
@@ -1586,6 +1676,16 @@
       "output": {
         ".html": {
           "relative_path": "api/Roulette.Services.LocalizedIdentityErrorDescriber.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Roulette.Services.LogCleanupService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Roulette.Services.LogCleanupService.html"
         }
       },
       "version": ""

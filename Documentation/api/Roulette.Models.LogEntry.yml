@@ -1,0 +1,594 @@
+### YamlMime:ManagedReference
+items:
+- uid: Roulette.Models.LogEntry
+  commentId: T:Roulette.Models.LogEntry
+  id: LogEntry
+  parent: Roulette.Models
+  children:
+  - Roulette.Models.LogEntry.Exception
+  - Roulette.Models.LogEntry.Id
+  - Roulette.Models.LogEntry.LogLevel
+  - Roulette.Models.LogEntry.Logger
+  - Roulette.Models.LogEntry.Message
+  - Roulette.Models.LogEntry.Timestamp
+  langs:
+  - csharp
+  - vb
+  name: LogEntry
+  nameWithType: LogEntry
+  fullName: Roulette.Models.LogEntry
+  type: Class
+  source:
+    remote:
+      path: Roulette/Models/LogEntry.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: LogEntry
+    path: ../Roulette/Models/LogEntry.cs
+    startLine: 5
+  assemblies:
+  - Roulette
+  namespace: Roulette.Models
+  summary: Модель для хранения логов в БД
+  example: []
+  syntax:
+    content: public class LogEntry
+    content.vb: Public Class LogEntry
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Roulette.Models.LogEntry.Id
+  commentId: P:Roulette.Models.LogEntry.Id
+  id: Id
+  parent: Roulette.Models.LogEntry
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: LogEntry.Id
+  fullName: Roulette.Models.LogEntry.Id
+  type: Property
+  source:
+    remote:
+      path: Roulette/Models/LogEntry.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Id
+    path: ../Roulette/Models/LogEntry.cs
+    startLine: 7
+  assemblies:
+  - Roulette
+  namespace: Roulette.Models
+  syntax:
+    content: public int Id { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Id As Integer
+  overload: Roulette.Models.LogEntry.Id*
+- uid: Roulette.Models.LogEntry.Timestamp
+  commentId: P:Roulette.Models.LogEntry.Timestamp
+  id: Timestamp
+  parent: Roulette.Models.LogEntry
+  langs:
+  - csharp
+  - vb
+  name: Timestamp
+  nameWithType: LogEntry.Timestamp
+  fullName: Roulette.Models.LogEntry.Timestamp
+  type: Property
+  source:
+    remote:
+      path: Roulette/Models/LogEntry.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Timestamp
+    path: ../Roulette/Models/LogEntry.cs
+    startLine: 8
+  assemblies:
+  - Roulette
+  namespace: Roulette.Models
+  syntax:
+    content: public DateTime Timestamp { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: Public Property Timestamp As Date
+  overload: Roulette.Models.LogEntry.Timestamp*
+- uid: Roulette.Models.LogEntry.LogLevel
+  commentId: P:Roulette.Models.LogEntry.LogLevel
+  id: LogLevel
+  parent: Roulette.Models.LogEntry
+  langs:
+  - csharp
+  - vb
+  name: LogLevel
+  nameWithType: LogEntry.LogLevel
+  fullName: Roulette.Models.LogEntry.LogLevel
+  type: Property
+  source:
+    remote:
+      path: Roulette/Models/LogEntry.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: LogLevel
+    path: ../Roulette/Models/LogEntry.cs
+    startLine: 9
+  assemblies:
+  - Roulette
+  namespace: Roulette.Models
+  syntax:
+    content: public LogLevel LogLevel { get; set; }
+    parameters: []
+    return:
+      type: Microsoft.Extensions.Logging.LogLevel
+    content.vb: Public Property LogLevel As LogLevel
+  overload: Roulette.Models.LogEntry.LogLevel*
+- uid: Roulette.Models.LogEntry.Message
+  commentId: P:Roulette.Models.LogEntry.Message
+  id: Message
+  parent: Roulette.Models.LogEntry
+  langs:
+  - csharp
+  - vb
+  name: Message
+  nameWithType: LogEntry.Message
+  fullName: Roulette.Models.LogEntry.Message
+  type: Property
+  source:
+    remote:
+      path: Roulette/Models/LogEntry.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Message
+    path: ../Roulette/Models/LogEntry.cs
+    startLine: 10
+  assemblies:
+  - Roulette
+  namespace: Roulette.Models
+  syntax:
+    content: public string Message { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Message As String
+  overload: Roulette.Models.LogEntry.Message*
+- uid: Roulette.Models.LogEntry.Exception
+  commentId: P:Roulette.Models.LogEntry.Exception
+  id: Exception
+  parent: Roulette.Models.LogEntry
+  langs:
+  - csharp
+  - vb
+  name: Exception
+  nameWithType: LogEntry.Exception
+  fullName: Roulette.Models.LogEntry.Exception
+  type: Property
+  source:
+    remote:
+      path: Roulette/Models/LogEntry.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Exception
+    path: ../Roulette/Models/LogEntry.cs
+    startLine: 11
+  assemblies:
+  - Roulette
+  namespace: Roulette.Models
+  syntax:
+    content: public string Exception { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Exception As String
+  overload: Roulette.Models.LogEntry.Exception*
+- uid: Roulette.Models.LogEntry.Logger
+  commentId: P:Roulette.Models.LogEntry.Logger
+  id: Logger
+  parent: Roulette.Models.LogEntry
+  langs:
+  - csharp
+  - vb
+  name: Logger
+  nameWithType: LogEntry.Logger
+  fullName: Roulette.Models.LogEntry.Logger
+  type: Property
+  source:
+    remote:
+      path: Roulette/Models/LogEntry.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Logger
+    path: ../Roulette/Models/LogEntry.cs
+    startLine: 12
+  assemblies:
+  - Roulette
+  namespace: Roulette.Models
+  syntax:
+    content: public string Logger { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Logger As String
+  overload: Roulette.Models.LogEntry.Logger*
+references:
+- uid: Roulette.Models
+  commentId: N:Roulette.Models
+  href: Roulette.html
+  name: Roulette.Models
+  nameWithType: Roulette.Models
+  fullName: Roulette.Models
+  spec.csharp:
+  - uid: Roulette
+    name: Roulette
+    href: Roulette.html
+  - name: .
+  - uid: Roulette.Models
+    name: Models
+    href: Roulette.Models.html
+  spec.vb:
+  - uid: Roulette
+    name: Roulette
+    href: Roulette.html
+  - name: .
+  - uid: Roulette.Models
+    name: Models
+    href: Roulette.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Roulette.Models.LogEntry.Id*
+  commentId: Overload:Roulette.Models.LogEntry.Id
+  href: Roulette.Models.LogEntry.html#Roulette_Models_LogEntry_Id
+  name: Id
+  nameWithType: LogEntry.Id
+  fullName: Roulette.Models.LogEntry.Id
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Roulette.Models.LogEntry.Timestamp*
+  commentId: Overload:Roulette.Models.LogEntry.Timestamp
+  href: Roulette.Models.LogEntry.html#Roulette_Models_LogEntry_Timestamp
+  name: Timestamp
+  nameWithType: LogEntry.Timestamp
+  fullName: Roulette.Models.LogEntry.Timestamp
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: Roulette.Models.LogEntry.LogLevel*
+  commentId: Overload:Roulette.Models.LogEntry.LogLevel
+  href: Roulette.Models.LogEntry.html#Roulette_Models_LogEntry_LogLevel
+  name: LogLevel
+  nameWithType: LogEntry.LogLevel
+  fullName: Roulette.Models.LogEntry.LogLevel
+- uid: Microsoft.Extensions.Logging.LogLevel
+  commentId: T:Microsoft.Extensions.Logging.LogLevel
+  parent: Microsoft.Extensions.Logging
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.loglevel
+  name: LogLevel
+  nameWithType: LogLevel
+  fullName: Microsoft.Extensions.Logging.LogLevel
+- uid: Microsoft.Extensions.Logging
+  commentId: N:Microsoft.Extensions.Logging
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.Extensions.Logging
+  nameWithType: Microsoft.Extensions.Logging
+  fullName: Microsoft.Extensions.Logging
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging
+- uid: Roulette.Models.LogEntry.Message*
+  commentId: Overload:Roulette.Models.LogEntry.Message
+  href: Roulette.Models.LogEntry.html#Roulette_Models_LogEntry_Message
+  name: Message
+  nameWithType: LogEntry.Message
+  fullName: Roulette.Models.LogEntry.Message
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Roulette.Models.LogEntry.Exception*
+  commentId: Overload:Roulette.Models.LogEntry.Exception
+  href: Roulette.Models.LogEntry.html#Roulette_Models_LogEntry_Exception
+  name: Exception
+  nameWithType: LogEntry.Exception
+  fullName: Roulette.Models.LogEntry.Exception
+- uid: Roulette.Models.LogEntry.Logger*
+  commentId: Overload:Roulette.Models.LogEntry.Logger
+  href: Roulette.Models.LogEntry.html#Roulette_Models_LogEntry_Logger
+  name: Logger
+  nameWithType: LogEntry.Logger
+  fullName: Roulette.Models.LogEntry.Logger

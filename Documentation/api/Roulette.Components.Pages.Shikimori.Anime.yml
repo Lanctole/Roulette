@@ -40,6 +40,7 @@ items:
   - Microsoft.AspNetCore.Components.IHandleEvent
   - Microsoft.AspNetCore.Components.IHandleAfterRender
   inheritedMembers:
+  - Roulette.Components.Shikimori.ShikimoriComponent._shouldDelay
   - Roulette.Components.Shikimori.ShikimoriComponent.ShowCanvas
   - Roulette.Components.Shikimori.ShikimoriComponent.SelectedScore
   - Roulette.Components.Shikimori.ShikimoriComponent.SelectedFromYear
@@ -55,6 +56,7 @@ items:
   - Roulette.Components.Shikimori.ShikimoriComponent.GetMediaItemsAsync(System.String,System.Func{System.Int64,System.Threading.Tasks.Task{ShikimoriSharp.Bases.SmallRepresentation}})
   - Roulette.Components.Shikimori.ShikimoriComponent.SetCanvasVisibilityToTrue
   - Roulette.Components.Shikimori.ShikimoriComponent.OnRollButtonClick
+  - Roulette.Components.Shikimori.ShikimoriComponent.HandleDateChange(System.ValueTuple{System.Double,System.Double})
   - Microsoft.AspNetCore.Components.ComponentBase.OnInitialized
   - Microsoft.AspNetCore.Components.ComponentBase.OnInitializedAsync
   - Microsoft.AspNetCore.Components.ComponentBase.OnParametersSet
@@ -121,7 +123,7 @@ items:
   source:
     id: OnAfterRenderAsync
     path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Pages_Shikimori_Anime_razor.g.cs
-    startLine: 800
+    startLine: 748
   assemblies:
   - Roulette
   namespace: Roulette.Components.Pages.Shikimori
@@ -182,7 +184,7 @@ items:
   source:
     id: SendSelected
     path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Pages_Shikimori_Anime_razor.g.cs
-    startLine: 815
+    startLine: 763
   assemblies:
   - Roulette
   namespace: Roulette.Components.Pages.Shikimori
@@ -283,6 +285,13 @@ references:
   name: IHandleAfterRender
   nameWithType: IHandleAfterRender
   fullName: Microsoft.AspNetCore.Components.IHandleAfterRender
+- uid: Roulette.Components.Shikimori.ShikimoriComponent._shouldDelay
+  commentId: F:Roulette.Components.Shikimori.ShikimoriComponent._shouldDelay
+  parent: Roulette.Components.Shikimori.ShikimoriComponent
+  href: Roulette.Components.Shikimori.ShikimoriComponent.html#Roulette_Components_Shikimori_ShikimoriComponent__shouldDelay
+  name: _shouldDelay
+  nameWithType: ShikimoriComponent._shouldDelay
+  fullName: Roulette.Components.Shikimori.ShikimoriComponent._shouldDelay
 - uid: Roulette.Components.Shikimori.ShikimoriComponent.ShowCanvas
   commentId: F:Roulette.Components.Shikimori.ShikimoriComponent.ShowCanvas
   parent: Roulette.Components.Shikimori.ShikimoriComponent
@@ -521,6 +530,53 @@ references:
     name: OnRollButtonClick
     href: Roulette.Components.Shikimori.ShikimoriComponent.html#Roulette_Components_Shikimori_ShikimoriComponent_OnRollButtonClick
   - name: (
+  - name: )
+- uid: Roulette.Components.Shikimori.ShikimoriComponent.HandleDateChange(System.ValueTuple{System.Double,System.Double})
+  commentId: M:Roulette.Components.Shikimori.ShikimoriComponent.HandleDateChange(System.ValueTuple{System.Double,System.Double})
+  parent: Roulette.Components.Shikimori.ShikimoriComponent
+  isExternal: true
+  href: Roulette.Components.Shikimori.ShikimoriComponent.html#Roulette_Components_Shikimori_ShikimoriComponent_HandleDateChange_System_ValueTuple_System_Double_System_Double__
+  name: HandleDateChange((double, double))
+  nameWithType: ShikimoriComponent.HandleDateChange((double, double))
+  fullName: Roulette.Components.Shikimori.ShikimoriComponent.HandleDateChange((double, double))
+  nameWithType.vb: ShikimoriComponent.HandleDateChange((Double, Double))
+  fullName.vb: Roulette.Components.Shikimori.ShikimoriComponent.HandleDateChange((Double, Double))
+  name.vb: HandleDateChange((Double, Double))
+  spec.csharp:
+  - uid: Roulette.Components.Shikimori.ShikimoriComponent.HandleDateChange(System.ValueTuple{System.Double,System.Double})
+    name: HandleDateChange
+    href: Roulette.Components.Shikimori.ShikimoriComponent.html#Roulette_Components_Shikimori_ShikimoriComponent_HandleDateChange_System_ValueTuple_System_Double_System_Double__
+  - name: (
+  - name: (
+  - uid: System.Double
+    name: double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: ','
+  - name: " "
+  - uid: System.Double
+    name: double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: )
+  - name: )
+  spec.vb:
+  - uid: Roulette.Components.Shikimori.ShikimoriComponent.HandleDateChange(System.ValueTuple{System.Double,System.Double})
+    name: HandleDateChange
+    href: Roulette.Components.Shikimori.ShikimoriComponent.html#Roulette_Components_Shikimori_ShikimoriComponent_HandleDateChange_System_ValueTuple_System_Double_System_Double__
+  - name: (
+  - name: (
+  - uid: System.Double
+    name: Double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: ','
+  - name: " "
+  - uid: System.Double
+    name: Double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: )
   - name: )
 - uid: Microsoft.AspNetCore.Components.ComponentBase.OnInitialized
   commentId: M:Microsoft.AspNetCore.Components.ComponentBase.OnInitialized

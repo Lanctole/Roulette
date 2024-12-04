@@ -13,6 +13,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Games", "Games\Games.csproj
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{7392704D-6659-4594-9860-52D8318F81B8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShikimoriService", "ShikimoriService\ShikimoriService.csproj", "{9060822E-989C-4F24-B981-95430DE5C76F}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{ECCB969D-4349-4E0B-BEB5-3F590EE117FF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +39,14 @@ Global
 		{E75F2A81-3B67-45E6-9568-B3432B6CEB2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E75F2A81-3B67-45E6-9568-B3432B6CEB2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E75F2A81-3B67-45E6-9568-B3432B6CEB2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9060822E-989C-4F24-B981-95430DE5C76F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9060822E-989C-4F24-B981-95430DE5C76F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9060822E-989C-4F24-B981-95430DE5C76F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9060822E-989C-4F24-B981-95430DE5C76F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECCB969D-4349-4E0B-BEB5-3F590EE117FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECCB969D-4349-4E0B-BEB5-3F590EE117FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECCB969D-4349-4E0B-BEB5-3F590EE117FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECCB969D-4349-4E0B-BEB5-3F590EE117FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

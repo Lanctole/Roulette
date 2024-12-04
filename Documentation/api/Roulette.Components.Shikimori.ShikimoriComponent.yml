@@ -9,6 +9,7 @@ items:
   - Roulette.Components.Shikimori.ShikimoriComponent.DateTuple
   - Roulette.Components.Shikimori.ShikimoriComponent.GetDetailedData
   - Roulette.Components.Shikimori.ShikimoriComponent.GetMediaItemsAsync(System.String,System.Func{System.Int64,System.Threading.Tasks.Task{ShikimoriSharp.Bases.SmallRepresentation}})
+  - Roulette.Components.Shikimori.ShikimoriComponent.HandleDateChange(System.ValueTuple{System.Double,System.Double})
   - Roulette.Components.Shikimori.ShikimoriComponent.Limit
   - Roulette.Components.Shikimori.ShikimoriComponent.OnRollButtonClick
   - Roulette.Components.Shikimori.ShikimoriComponent.OnSelectedGenresChanged(System.Collections.Generic.List{System.String})
@@ -22,6 +23,7 @@ items:
   - Roulette.Components.Shikimori.ShikimoriComponent.SendSelected
   - Roulette.Components.Shikimori.ShikimoriComponent.SetCanvasVisibilityToTrue
   - Roulette.Components.Shikimori.ShikimoriComponent.ShowCanvas
+  - Roulette.Components.Shikimori.ShikimoriComponent._shouldDelay
   langs:
   - csharp
   - vb
@@ -98,6 +100,29 @@ items:
     content.vb: Protected Overrides Sub BuildRenderTree(__builder As RenderTreeBuilder)
   overridden: Microsoft.AspNetCore.Components.ComponentBase.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
   overload: Roulette.Components.Shikimori.ShikimoriComponent.BuildRenderTree*
+- uid: Roulette.Components.Shikimori.ShikimoriComponent._shouldDelay
+  commentId: F:Roulette.Components.Shikimori.ShikimoriComponent._shouldDelay
+  id: _shouldDelay
+  parent: Roulette.Components.Shikimori.ShikimoriComponent
+  langs:
+  - csharp
+  - vb
+  name: _shouldDelay
+  nameWithType: ShikimoriComponent._shouldDelay
+  fullName: Roulette.Components.Shikimori.ShikimoriComponent._shouldDelay
+  type: Field
+  source:
+    id: _shouldDelay
+    path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Shikimori_ShikimoriComponent_razor.g.cs
+    startLine: 151
+  assemblies:
+  - Roulette
+  namespace: Roulette.Components.Shikimori
+  syntax:
+    content: protected bool _shouldDelay
+    return:
+      type: System.Boolean
+    content.vb: Protected _shouldDelay As Boolean
 - uid: Roulette.Components.Shikimori.ShikimoriComponent.ShowCanvas
   commentId: F:Roulette.Components.Shikimori.ShikimoriComponent.ShowCanvas
   id: ShowCanvas
@@ -112,7 +137,7 @@ items:
   source:
     id: ShowCanvas
     path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Shikimori_ShikimoriComponent_razor.g.cs
-    startLine: 151
+    startLine: 152
   assemblies:
   - Roulette
   namespace: Roulette.Components.Shikimori
@@ -135,7 +160,7 @@ items:
   source:
     id: SelectedScore
     path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Shikimori_ShikimoriComponent_razor.g.cs
-    startLine: 152
+    startLine: 153
   assemblies:
   - Roulette
   namespace: Roulette.Components.Shikimori
@@ -158,7 +183,7 @@ items:
   source:
     id: SelectedFromYear
     path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Shikimori_ShikimoriComponent_razor.g.cs
-    startLine: 153
+    startLine: 154
   assemblies:
   - Roulette
   namespace: Roulette.Components.Shikimori
@@ -181,7 +206,7 @@ items:
   source:
     id: SelectedToYear
     path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Shikimori_ShikimoriComponent_razor.g.cs
-    startLine: 154
+    startLine: 155
   assemblies:
   - Roulette
   namespace: Roulette.Components.Shikimori
@@ -204,7 +229,7 @@ items:
   source:
     id: DateTuple
     path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Shikimori_ShikimoriComponent_razor.g.cs
-    startLine: 155
+    startLine: 156
   assemblies:
   - Roulette
   namespace: Roulette.Components.Shikimori
@@ -227,7 +252,7 @@ items:
   source:
     id: Season
     path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Shikimori_ShikimoriComponent_razor.g.cs
-    startLine: 156
+    startLine: 157
   assemblies:
   - Roulette
   namespace: Roulette.Components.Shikimori
@@ -250,7 +275,7 @@ items:
   source:
     id: GetDetailedData
     path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Shikimori_ShikimoriComponent_razor.g.cs
-    startLine: 157
+    startLine: 158
   assemblies:
   - Roulette
   namespace: Roulette.Components.Shikimori
@@ -273,7 +298,7 @@ items:
   source:
     id: SelectedGenres
     path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Shikimori_ShikimoriComponent_razor.g.cs
-    startLine: 158
+    startLine: 159
   assemblies:
   - Roulette
   namespace: Roulette.Components.Shikimori
@@ -296,7 +321,7 @@ items:
   source:
     id: SelectedOrder
     path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Shikimori_ShikimoriComponent_razor.g.cs
-    startLine: 159
+    startLine: 160
   assemblies:
   - Roulette
   namespace: Roulette.Components.Shikimori
@@ -319,7 +344,7 @@ items:
   source:
     id: Limit
     path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Shikimori_ShikimoriComponent_razor.g.cs
-    startLine: 160
+    startLine: 161
   assemblies:
   - Roulette
   namespace: Roulette.Components.Shikimori
@@ -342,7 +367,7 @@ items:
   source:
     id: Page
     path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Shikimori_ShikimoriComponent_razor.g.cs
-    startLine: 161
+    startLine: 162
   assemblies:
   - Roulette
   namespace: Roulette.Components.Shikimori
@@ -365,7 +390,7 @@ items:
   source:
     id: OnSelectedGenresChanged
     path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Shikimori_ShikimoriComponent_razor.g.cs
-    startLine: 164
+    startLine: 165
   assemblies:
   - Roulette
   namespace: Roulette.Components.Shikimori
@@ -393,7 +418,7 @@ items:
   source:
     id: GetMediaItemsAsync
     path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Shikimori_ShikimoriComponent_razor.g.cs
-    startLine: 201
+    startLine: 202
   assemblies:
   - Roulette
   namespace: Roulette.Components.Shikimori
@@ -430,7 +455,7 @@ items:
   source:
     id: SetCanvasVisibilityToTrue
     path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Shikimori_ShikimoriComponent_razor.g.cs
-    startLine: 268
+    startLine: 272
   assemblies:
   - Roulette
   namespace: Roulette.Components.Shikimori
@@ -452,7 +477,7 @@ items:
   source:
     id: OnRollButtonClick
     path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Shikimori_ShikimoriComponent_razor.g.cs
-    startLine: 273
+    startLine: 277
   assemblies:
   - Roulette
   namespace: Roulette.Components.Shikimori
@@ -462,6 +487,34 @@ items:
       type: System.Threading.Tasks.Task
     content.vb: Protected Function OnRollButtonClick() As Task
   overload: Roulette.Components.Shikimori.ShikimoriComponent.OnRollButtonClick*
+- uid: Roulette.Components.Shikimori.ShikimoriComponent.HandleDateChange(System.ValueTuple{System.Double,System.Double})
+  commentId: M:Roulette.Components.Shikimori.ShikimoriComponent.HandleDateChange(System.ValueTuple{System.Double,System.Double})
+  id: HandleDateChange(System.ValueTuple{System.Double,System.Double})
+  parent: Roulette.Components.Shikimori.ShikimoriComponent
+  langs:
+  - csharp
+  - vb
+  name: HandleDateChange((double, double))
+  nameWithType: ShikimoriComponent.HandleDateChange((double, double))
+  fullName: Roulette.Components.Shikimori.ShikimoriComponent.HandleDateChange((double, double))
+  type: Method
+  source:
+    id: HandleDateChange
+    path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Shikimori_ShikimoriComponent_razor.g.cs
+    startLine: 283
+  assemblies:
+  - Roulette
+  namespace: Roulette.Components.Shikimori
+  syntax:
+    content: protected void HandleDateChange((double, double) newValue)
+    parameters:
+    - id: newValue
+      type: System.ValueTuple{System.Double,System.Double}
+    content.vb: Protected Sub HandleDateChange(newValue As (Double, Double))
+  overload: Roulette.Components.Shikimori.ShikimoriComponent.HandleDateChange*
+  nameWithType.vb: ShikimoriComponent.HandleDateChange((Double, Double))
+  fullName.vb: Roulette.Components.Shikimori.ShikimoriComponent.HandleDateChange((Double, Double))
+  name.vb: HandleDateChange((Double, Double))
 - uid: Roulette.Components.Shikimori.ShikimoriComponent.SendSelected
   commentId: M:Roulette.Components.Shikimori.ShikimoriComponent.SendSelected
   id: SendSelected
@@ -476,7 +529,7 @@ items:
   source:
     id: SendSelected
     path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Shikimori_ShikimoriComponent_razor.g.cs
-    startLine: 279
+    startLine: 288
   assemblies:
   - Roulette
   namespace: Roulette.Components.Shikimori
@@ -1671,6 +1724,12 @@ references:
   name: Task
   nameWithType: Task
   fullName: System.Threading.Tasks.Task
+- uid: Roulette.Components.Shikimori.ShikimoriComponent.HandleDateChange*
+  commentId: Overload:Roulette.Components.Shikimori.ShikimoriComponent.HandleDateChange
+  href: Roulette.Components.Shikimori.ShikimoriComponent.html#Roulette_Components_Shikimori_ShikimoriComponent_HandleDateChange_System_ValueTuple_System_Double_System_Double__
+  name: HandleDateChange
+  nameWithType: ShikimoriComponent.HandleDateChange
+  fullName: Roulette.Components.Shikimori.ShikimoriComponent.HandleDateChange
 - uid: Roulette.Components.Shikimori.ShikimoriComponent.SendSelected*
   commentId: Overload:Roulette.Components.Shikimori.ShikimoriComponent.SendSelected
   href: Roulette.Components.Shikimori.ShikimoriComponent.html#Roulette_Components_Shikimori_ShikimoriComponent_SendSelected

@@ -390,14 +390,16 @@ namespace Roulette.Data.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(10000)
+                        .HasColumnType("character varying(10000)");
 
                     b.Property<int>("Status")
                         .HasColumnType("integer");
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("timestamp with time zone");
@@ -410,6 +412,37 @@ namespace Roulette.Data.Migrations
                     b.ToTable("BugReports");
                 });
 
+            modelBuilder.Entity("Roulette.Models.LogEntry", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Exception")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("LogLevel")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Logger")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Message")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("Timestamp")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Logs");
+                });
+
             modelBuilder.Entity("Roulette.Models.UserAnimeChoice", b =>
                 {
                     b.Property<int>("Id")
@@ -418,7 +451,10 @@ namespace Roulette.Data.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<long>("AnimeId")
+                    b.Property<int>("AnimeId")
+                        .HasColumnType("integer");
+
+                    b.Property<long?>("AnimeId1")
                         .HasColumnType("bigint");
 
                     b.Property<DateTime>("ChosenAt")
@@ -430,7 +466,7 @@ namespace Roulette.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AnimeId");
+                    b.HasIndex("AnimeId1");
 
                     b.HasIndex("UserId");
 
@@ -475,7 +511,10 @@ namespace Roulette.Data.Migrations
                     b.Property<DateTime>("ChosenAt")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<long>("MangaId")
+                    b.Property<int>("MangaId")
+                        .HasColumnType("integer");
+
+                    b.Property<long?>("MangaId1")
                         .HasColumnType("bigint");
 
                     b.Property<string>("UserId")
@@ -484,7 +523,7 @@ namespace Roulette.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("MangaId");
+                    b.HasIndex("MangaId1");
 
                     b.HasIndex("UserId");
 
@@ -603,9 +642,7 @@ namespace Roulette.Data.Migrations
                 {
                     b.HasOne("Roulette.DTOs.AnimeDto", "Anime")
                         .WithMany()
-                        .HasForeignKey("AnimeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("AnimeId1");
 
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
                         .WithMany()
@@ -641,9 +678,7 @@ namespace Roulette.Data.Migrations
                 {
                     b.HasOne("Roulette.DTOs.MangaDto", "Manga")
                         .WithMany()
-                        .HasForeignKey("MangaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("MangaId1");
 
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
                         .WithMany()

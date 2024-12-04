@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Roulette.DTOs;
 using Roulette.Models;
+using ShikimoriSharp.Classes;
 using Genre = Games.Classes.Genre;
 
 namespace Roulette.Data;
@@ -13,35 +14,18 @@ namespace Roulette.Data;
 /// </summary>
 public class ApplicationDbContext : IdentityDbContext
 {
-    /// <summary>
-    /// Набор данных для игр.
-    /// </summary>
     public DbSet<Game> Games { get; set; }
 
-    /// <summary>
-    /// Набор данных для жанров.
-    /// </summary>
     public DbSet<Genre> Genres { get; set; }
 
-    /// <summary>
-    /// Набор данных для поддерживаемых языков.
-    /// </summary>
     public DbSet<SupportedLanguage> SupportedLanguages { get; set; }
 
-    /// <summary>
-    /// Набор данных для аниме.
-    /// </summary>
     public DbSet<AnimeDto> Animes { get; set; }
 
-    /// <summary>
-    /// Набор данных для манги.
-    /// </summary>
     public DbSet<MangaDto> Mangas { get; set; }
 
-    /// <summary>
-    /// Набор данных для ранобэ.
-    /// </summary>
     public DbSet<RanobeDto> Ranobes { get; set; }
+
 
     /// <summary>
     /// Набор данных для выбора игр пользователями.
@@ -63,11 +47,10 @@ public class ApplicationDbContext : IdentityDbContext
     /// </summary>
     public DbSet<UserRanobeChoice> UserRanobeChoices { get; set; }
 
-    /// <summary>
-    /// Набор данных для отчетов о баге.
-    /// </summary>
     public DbSet<BugReport> BugReports { get; set; }
 
+    public DbSet<LogEntry> Logs { get; set; }
+    
     /// <summary>
     /// Конструктор контекста базы данных.
     /// </summary>
@@ -77,10 +60,6 @@ public class ApplicationDbContext : IdentityDbContext
     {
     }
 
-    /// <summary>
-    /// Конфигурация модели данных.
-    /// </summary>
-    /// <param name="modelBuilder">Модель данных.</param>
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<AnimeDto>()

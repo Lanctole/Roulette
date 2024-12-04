@@ -10,6 +10,7 @@ items:
   - Roulette.Data.ApplicationDbContext.BugReports
   - Roulette.Data.ApplicationDbContext.Games
   - Roulette.Data.ApplicationDbContext.Genres
+  - Roulette.Data.ApplicationDbContext.Logs
   - Roulette.Data.ApplicationDbContext.Mangas
   - Roulette.Data.ApplicationDbContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)
   - Roulette.Data.ApplicationDbContext.Ranobes
@@ -138,12 +139,10 @@ items:
       repo: https://github.com/Lanctole/Roulette.git
     id: Games
     path: ../Roulette/Data/ApplicationDbContext.cs
-    startLine: 18
+    startLine: 15
   assemblies:
   - Roulette
   namespace: Roulette.Data
-  summary: Набор данных для игр.
-  example: []
   syntax:
     content: public DbSet<Game> Games { get; set; }
     parameters: []
@@ -169,12 +168,10 @@ items:
       repo: https://github.com/Lanctole/Roulette.git
     id: Genres
     path: ../Roulette/Data/ApplicationDbContext.cs
-    startLine: 23
+    startLine: 17
   assemblies:
   - Roulette
   namespace: Roulette.Data
-  summary: Набор данных для жанров.
-  example: []
   syntax:
     content: public DbSet<Genre> Genres { get; set; }
     parameters: []
@@ -200,12 +197,10 @@ items:
       repo: https://github.com/Lanctole/Roulette.git
     id: SupportedLanguages
     path: ../Roulette/Data/ApplicationDbContext.cs
-    startLine: 28
+    startLine: 19
   assemblies:
   - Roulette
   namespace: Roulette.Data
-  summary: Набор данных для поддерживаемых языков.
-  example: []
   syntax:
     content: public DbSet<SupportedLanguage> SupportedLanguages { get; set; }
     parameters: []
@@ -231,12 +226,10 @@ items:
       repo: https://github.com/Lanctole/Roulette.git
     id: Animes
     path: ../Roulette/Data/ApplicationDbContext.cs
-    startLine: 33
+    startLine: 21
   assemblies:
   - Roulette
   namespace: Roulette.Data
-  summary: Набор данных для аниме.
-  example: []
   syntax:
     content: public DbSet<AnimeDto> Animes { get; set; }
     parameters: []
@@ -262,12 +255,10 @@ items:
       repo: https://github.com/Lanctole/Roulette.git
     id: Mangas
     path: ../Roulette/Data/ApplicationDbContext.cs
-    startLine: 38
+    startLine: 23
   assemblies:
   - Roulette
   namespace: Roulette.Data
-  summary: Набор данных для манги.
-  example: []
   syntax:
     content: public DbSet<MangaDto> Mangas { get; set; }
     parameters: []
@@ -293,12 +284,10 @@ items:
       repo: https://github.com/Lanctole/Roulette.git
     id: Ranobes
     path: ../Roulette/Data/ApplicationDbContext.cs
-    startLine: 43
+    startLine: 25
   assemblies:
   - Roulette
   namespace: Roulette.Data
-  summary: Набор данных для ранобэ.
-  example: []
   syntax:
     content: public DbSet<RanobeDto> Ranobes { get; set; }
     parameters: []
@@ -324,7 +313,7 @@ items:
       repo: https://github.com/Lanctole/Roulette.git
     id: UserGameChoices
     path: ../Roulette/Data/ApplicationDbContext.cs
-    startLine: 48
+    startLine: 30
   assemblies:
   - Roulette
   namespace: Roulette.Data
@@ -355,7 +344,7 @@ items:
       repo: https://github.com/Lanctole/Roulette.git
     id: UserAnimeChoices
     path: ../Roulette/Data/ApplicationDbContext.cs
-    startLine: 53
+    startLine: 35
   assemblies:
   - Roulette
   namespace: Roulette.Data
@@ -386,7 +375,7 @@ items:
       repo: https://github.com/Lanctole/Roulette.git
     id: UserMangaChoices
     path: ../Roulette/Data/ApplicationDbContext.cs
-    startLine: 58
+    startLine: 40
   assemblies:
   - Roulette
   namespace: Roulette.Data
@@ -417,7 +406,7 @@ items:
       repo: https://github.com/Lanctole/Roulette.git
     id: UserRanobeChoices
     path: ../Roulette/Data/ApplicationDbContext.cs
-    startLine: 63
+    startLine: 45
   assemblies:
   - Roulette
   namespace: Roulette.Data
@@ -448,12 +437,10 @@ items:
       repo: https://github.com/Lanctole/Roulette.git
     id: BugReports
     path: ../Roulette/Data/ApplicationDbContext.cs
-    startLine: 68
+    startLine: 47
   assemblies:
   - Roulette
   namespace: Roulette.Data
-  summary: Набор данных для отчетов о баге.
-  example: []
   syntax:
     content: public DbSet<BugReport> BugReports { get; set; }
     parameters: []
@@ -461,6 +448,35 @@ items:
       type: Microsoft.EntityFrameworkCore.DbSet{Roulette.Models.BugReport}
     content.vb: Public Property BugReports As DbSet(Of BugReport)
   overload: Roulette.Data.ApplicationDbContext.BugReports*
+- uid: Roulette.Data.ApplicationDbContext.Logs
+  commentId: P:Roulette.Data.ApplicationDbContext.Logs
+  id: Logs
+  parent: Roulette.Data.ApplicationDbContext
+  langs:
+  - csharp
+  - vb
+  name: Logs
+  nameWithType: ApplicationDbContext.Logs
+  fullName: Roulette.Data.ApplicationDbContext.Logs
+  type: Property
+  source:
+    remote:
+      path: Roulette/Data/ApplicationDbContext.cs
+      branch: develop
+      repo: https://github.com/Lanctole/Roulette.git
+    id: Logs
+    path: ../Roulette/Data/ApplicationDbContext.cs
+    startLine: 49
+  assemblies:
+  - Roulette
+  namespace: Roulette.Data
+  syntax:
+    content: public DbSet<LogEntry> Logs { get; set; }
+    parameters: []
+    return:
+      type: Microsoft.EntityFrameworkCore.DbSet{Roulette.Models.LogEntry}
+    content.vb: Public Property Logs As DbSet(Of LogEntry)
+  overload: Roulette.Data.ApplicationDbContext.Logs*
 - uid: Roulette.Data.ApplicationDbContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{Roulette.Data.ApplicationDbContext})
   commentId: M:Roulette.Data.ApplicationDbContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{Roulette.Data.ApplicationDbContext})
   id: '#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{Roulette.Data.ApplicationDbContext})'
@@ -479,7 +495,7 @@ items:
       repo: https://github.com/Lanctole/Roulette.git
     id: .ctor
     path: ../Roulette/Data/ApplicationDbContext.cs
-    startLine: 74
+    startLine: 55
   assemblies:
   - Roulette
   namespace: Roulette.Data
@@ -514,18 +530,17 @@ items:
       repo: https://github.com/Lanctole/Roulette.git
     id: OnModelCreating
     path: ../Roulette/Data/ApplicationDbContext.cs
-    startLine: 83
+    startLine: 60
   assemblies:
   - Roulette
   namespace: Roulette.Data
-  summary: Конфигурация модели данных.
+  summary: Configures the schema needed for the identity framework.
   example: []
   syntax:
     content: protected override void OnModelCreating(ModelBuilder modelBuilder)
     parameters:
     - id: modelBuilder
       type: Microsoft.EntityFrameworkCore.ModelBuilder
-      description: Модель данных.
     content.vb: Protected Overrides Sub OnModelCreating(modelBuilder As ModelBuilder)
   overridden: Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityDbContext{Microsoft.AspNetCore.Identity.IdentityUser,Microsoft.AspNetCore.Identity.IdentityRole,System.String,Microsoft.AspNetCore.Identity.IdentityUserClaim{System.String},Microsoft.AspNetCore.Identity.IdentityUserRole{System.String},Microsoft.AspNetCore.Identity.IdentityUserLogin{System.String},Microsoft.AspNetCore.Identity.IdentityRoleClaim{System.String},Microsoft.AspNetCore.Identity.IdentityUserToken{System.String}}.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)
   overload: Roulette.Data.ApplicationDbContext.OnModelCreating*
@@ -4266,6 +4281,45 @@ references:
   - uid: Roulette.Models.BugReport
     name: BugReport
     href: Roulette.Models.BugReport.html
+  - name: )
+- uid: Roulette.Data.ApplicationDbContext.Logs*
+  commentId: Overload:Roulette.Data.ApplicationDbContext.Logs
+  href: Roulette.Data.ApplicationDbContext.html#Roulette_Data_ApplicationDbContext_Logs
+  name: Logs
+  nameWithType: ApplicationDbContext.Logs
+  fullName: Roulette.Data.ApplicationDbContext.Logs
+- uid: Microsoft.EntityFrameworkCore.DbSet{Roulette.Models.LogEntry}
+  commentId: T:Microsoft.EntityFrameworkCore.DbSet{Roulette.Models.LogEntry}
+  parent: Microsoft.EntityFrameworkCore
+  definition: Microsoft.EntityFrameworkCore.DbSet`1
+  href: https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbset-1
+  name: DbSet<LogEntry>
+  nameWithType: DbSet<LogEntry>
+  fullName: Microsoft.EntityFrameworkCore.DbSet<Roulette.Models.LogEntry>
+  nameWithType.vb: DbSet(Of LogEntry)
+  fullName.vb: Microsoft.EntityFrameworkCore.DbSet(Of Roulette.Models.LogEntry)
+  name.vb: DbSet(Of LogEntry)
+  spec.csharp:
+  - uid: Microsoft.EntityFrameworkCore.DbSet`1
+    name: DbSet
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbset-1
+  - name: <
+  - uid: Roulette.Models.LogEntry
+    name: LogEntry
+    href: Roulette.Models.LogEntry.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.EntityFrameworkCore.DbSet`1
+    name: DbSet
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbset-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Roulette.Models.LogEntry
+    name: LogEntry
+    href: Roulette.Models.LogEntry.html
   - name: )
 - uid: Roulette.Data.ApplicationDbContext.#ctor*
   commentId: Overload:Roulette.Data.ApplicationDbContext.#ctor

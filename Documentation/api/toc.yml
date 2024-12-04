@@ -33,8 +33,6 @@ items:
     name: App
   - uid: Roulette.Components.ErrorReportWidget
     name: ErrorReportWidget
-  - uid: Roulette.Components.FilterSlider
-    name: FilterSlider
   - uid: Roulette.Components.Routes
     name: Routes
   - uid: Roulette.Components._Imports
@@ -175,10 +173,14 @@ items:
 - uid: Roulette.Components.Shikimori
   name: Roulette.Components.Shikimori
   items:
+  - uid: Roulette.Components.Shikimori.CustomTooltip
+    name: CustomTooltip
   - uid: Roulette.Components.Shikimori.DurationComponent
     name: DurationComponent
   - uid: Roulette.Components.Shikimori.EnumSelector`1
     name: EnumSelector<TEnum>
+  - uid: Roulette.Components.Shikimori.FilterSlider
+    name: FilterSlider
   - uid: Roulette.Components.Shikimori.MangaSelectKindComponent
     name: MangaSelectKindComponent
   - uid: Roulette.Components.Shikimori.MediaComponent`1
@@ -264,10 +266,14 @@ items:
     name: ConstIDToUserRoles
   - uid: Roulette.Data.Migrations.CreateBugReportsTable
     name: CreateBugReportsTable
+  - uid: Roulette.Data.Migrations.DeleteEventIdAndEndpointFromLogs
+    name: DeleteEventIdAndEndpointFromLogs
   - uid: Roulette.Data.Migrations.DropGenresAndLanguagesFromGamesTable
     name: DropGenresAndLanguagesFromGamesTable
   - uid: Roulette.Data.Migrations.InitialCreate
     name: InitialCreate
+  - uid: Roulette.Data.Migrations.InitialCreateLogging
+    name: InitialCreateLogging
   - uid: Roulette.Data.Migrations.LanguagesAndGenresDataTransfer
     name: LanguagesAndGenresDataTransfer
   - uid: Roulette.Data.Migrations.RenamePctPosTotalToScore
@@ -285,9 +291,18 @@ items:
     name: EnumHelper
   - uid: Roulette.Helpers.ShikiDataHelper
     name: ShikiDataHelper
+- uid: Roulette.Logging
+  name: Roulette.Logging
+  items:
+  - uid: Roulette.Logging.DatabaseLogger
+    name: DatabaseLogger
+  - uid: Roulette.Logging.DatabaseLoggerProvider
+    name: DatabaseLoggerProvider
 - uid: Roulette.Models
   name: Roulette.Models
   items:
+  - uid: Roulette.Models.BaseUrlSettings
+    name: BaseUrlSettings
   - uid: Roulette.Models.BugReport
     name: BugReport
   - uid: Roulette.Models.BugReportStatus
@@ -296,6 +311,8 @@ items:
     name: ErrorViewModel
   - uid: Roulette.Models.LabeledValue
     name: LabeledValue
+  - uid: Roulette.Models.LogEntry
+    name: LogEntry
   - uid: Roulette.Models.MediaType
     name: MediaType
   - uid: Roulette.Models.PaginatedAnimeHistory
@@ -306,8 +323,6 @@ items:
     name: PaginatedMangaHistory
   - uid: Roulette.Models.PaginatedRanobeHistory
     name: PaginatedRanobeHistory
-  - uid: Roulette.Models.ShikimoriSettings
-    name: ShikimoriSettings
   - uid: Roulette.Models.SmtpSettings
     name: SmtpSettings
   - uid: Roulette.Models.UserAnimeChoice
@@ -342,6 +357,8 @@ items:
     name: GameService
   - uid: Roulette.Services.LocalizedIdentityErrorDescriber
     name: LocalizedIdentityErrorDescriber
+  - uid: Roulette.Services.LogCleanupService
+    name: LogCleanupService
   - uid: Roulette.Services.SettingsService
     name: SettingsService
   - uid: Roulette.Services.ShikimoriApiConnectorService

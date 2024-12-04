@@ -20,7 +20,7 @@ items:
       repo: https://github.com/Lanctole/Roulette.git
     id: Program
     path: ../Roulette/Program.cs
-    startLine: 21
+    startLine: 23
   assemblies:
   - Roulette
   namespace: Roulette
@@ -57,7 +57,7 @@ items:
       repo: https://github.com/Lanctole/Roulette.git
     id: Main
     path: ../Roulette/Program.cs
-    startLine: 28
+    startLine: 30
   assemblies:
   - Roulette
   namespace: Roulette

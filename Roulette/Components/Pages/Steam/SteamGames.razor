@@ -3,7 +3,8 @@
 @using Roulette.Models
 @using Roulette.Services
 @using Games.Enums
-@inject ApiClientService ApiClientService
+@inject GameService GameService
+@inject ImageCacheService ImageCacheService
 @inject NotificationService Notice
 @inject IJSRuntime Js
 @inject IMessageService Message
@@ -87,6 +88,7 @@
     protected string? SelectedFromYear, SelectedToYear;
     protected List<GameDto>? Games;
     protected bool ShowCanvas;
+    protected int limit = 5;
 
     protected override async Task OnInitializedAsync()
     {
@@ -100,10 +102,12 @@
     {
         ShowCanvas = true;
 
-        var gameUrl = BuildGameUrl();
+        
         try
         {
-            Games = await ApiClientService.GetAsync<List<GameDto>>(gameUrl);
+            var gameIds = await RequestGameIdsAsync();
+            var games = await GameService.GetGamesAsync(gameIds, limit);
+            Games = games.ToList();
 
             if (Games == null || Games.Count == 0)
             {
@@ -111,13 +115,14 @@
                 await OnEmptyAnswer();
                 return;
             }
+
+            var tasks = Games
+                .Where(game => !string.IsNullOrEmpty(game.HeaderImage))
+                .Select(game => ImageCacheService.SaveImageToCacheAsync(game.HeaderImage));
+
+            Task.WhenAll(tasks);
             _shouldDelay = true;
             TransferMediaPropsToSpinFunc(Games);
-        }
-        catch (HttpRequestException httpEx)
-        {
-            _shouldDelay = false;
-            await Message.Error("К сожалению, что-то случилось с нашей базой данных. Попробуйте снова через некоторое время");
         }
         catch (Exception ex)
         {
@@ -126,7 +131,7 @@
         }
     }
 
-    private string BuildGameUrl()
+    private async Task<List<long>> RequestGameIdsAsync()
     {
         var genres = string.Join(",", SelectedGenres);
         var languages = string.Join(",", SelectedGameLanguages);
@@ -135,21 +140,12 @@
         SelectedFromYear = $"{DateFrom}-01-01";
         SelectedToYear = $"{DateTo}-12-31";
 
-        var gameUrl =
-            $"game/games?" +
-            $"genres={genres}&" +
-            $"metacriticScoreMin={(int?)MetacriticMin}&" +
-            $"metacriticScoreMax={(int?)MetacriticMax}&" +
-            $"steamScoreMin={(int?)SteamMin}&" +
-            $"steamScoreMax={(int?)SteamMax}&" +
-            $"releaseDateStart={SelectedFromYear}&" +
-            $"releaseDateEnd={SelectedToYear}&" +
-            $"supportedLanguages={languages}&" +
-            $"minCost={CostMin}&" +
-            $"maxCost={CostMax}&" +
-            $"order={order}";
+        var gameIdsQuery = GameService.ApplyFilters(genres, languages,
+    (int?)MetacriticMin, (int?)MetacriticMax, (int?)SteamMin, (int?)SteamMax,
+    CostMin, CostMax, SelectedFromYear, SelectedToYear);
 
-        return gameUrl;
+        gameIdsQuery = GameService.ApplySorting(gameIdsQuery, order);
+        return await GameService.GetGameIdsAsync(gameIdsQuery, limit);
     }
 
     private void TransferMediaPropsToSpinFunc(List<GameDto> detailedItems)

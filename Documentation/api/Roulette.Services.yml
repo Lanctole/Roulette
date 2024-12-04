@@ -12,6 +12,7 @@ items:
   - Roulette.Services.GameQueryProcessor
   - Roulette.Services.GameService
   - Roulette.Services.LocalizedIdentityErrorDescriber
+  - Roulette.Services.LogCleanupService
   - Roulette.Services.SettingsService
   - Roulette.Services.ShikimoriApiConnectorService
   - Roulette.Services.UserChoiceHistoryService
@@ -76,6 +77,12 @@ references:
   name: LocalizedIdentityErrorDescriber
   nameWithType: LocalizedIdentityErrorDescriber
   fullName: Roulette.Services.LocalizedIdentityErrorDescriber
+- uid: Roulette.Services.LogCleanupService
+  commentId: T:Roulette.Services.LogCleanupService
+  href: Roulette.Services.LogCleanupService.html
+  name: LogCleanupService
+  nameWithType: LogCleanupService
+  fullName: Roulette.Services.LogCleanupService
 - uid: Roulette.Services.SettingsService
   commentId: T:Roulette.Services.SettingsService
   href: Roulette.Services.SettingsService.html

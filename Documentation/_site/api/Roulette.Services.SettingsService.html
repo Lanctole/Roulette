@@ -197,22 +197,22 @@ Class SettingsService  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="Roulette_Services_SettingsService_GetShikimoriSettings" data-uid="Roulette.Services.SettingsService.GetShikimoriSettings">
   GetShikimoriSettings()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Lanctole/Roulette/blob/develop/Roulette/Services/SettingsService.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Lanctole/Roulette/blob/develop/Roulette/Services/SettingsService.cs/#L29"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Получает настройки для Shikimori.</p>
+  <div class="markdown level1 summary"><p>Получить адрес Shikimori.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ShikimoriSettings GetShikimoriSettings()</code></pre>
+    <pre><code class="lang-csharp hljs">public BaseUrlSettings GetShikimoriSettings()</code></pre>
   </div>
 
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="Roulette.Models.ShikimoriSettings.html">ShikimoriSettings</a></dt>
-    <dd><p>Настройки Shikimori.</p>
+    <dt><a class="xref" href="Roulette.Models.BaseUrlSettings.html">BaseUrlSettings</a></dt>
+    <dd><p>Возвращает экземпляр <a class="xref" href="Roulette.Models.BaseUrlSettings.html">BaseUrlSettings</a> с настройками базового URL.</p>
 </dd>
   </dl>
 
@@ -223,6 +223,49 @@ Class SettingsService  <a class="header-action link-secondary" title="View sourc
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+  <a id="Roulette_Services_SettingsService_GetTorrentSettings_" data-uid="Roulette.Services.SettingsService.GetTorrentSettings*"></a>
+
+  <h3 id="Roulette_Services_SettingsService_GetTorrentSettings" data-uid="Roulette.Services.SettingsService.GetTorrentSettings">
+  GetTorrentSettings()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Lanctole/Roulette/blob/develop/Roulette/Services/SettingsService.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Получить адрес торрента</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BaseUrlSettings GetTorrentSettings()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Roulette.Models.BaseUrlSettings.html">BaseUrlSettings</a></dt>
+    <dd><p>Возвращает экземпляр <a class="xref" href="Roulette.Models.BaseUrlSettings.html">BaseUrlSettings</a> с настройками базового URL.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd></dd>
+  </dl>
 
 
 

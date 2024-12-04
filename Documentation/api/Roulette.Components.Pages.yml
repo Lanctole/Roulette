@@ -20,18 +20,30 @@ items:
   assemblies:
   - Roulette
 references:
-- uid: Roulette.Components.Pages.Home
-  commentId: T:Roulette.Components.Pages.Home
-  href: Roulette.Components.Pages.Home.html
-  name: Home
-  nameWithType: Home
-  fullName: Roulette.Components.Pages.Home
 - uid: Roulette.Components.Pages.BugReportList
   commentId: T:Roulette.Components.Pages.BugReportList
   href: Roulette.Components.Pages.BugReportList.html
   name: BugReportList
   nameWithType: BugReportList
   fullName: Roulette.Components.Pages.BugReportList
+- uid: Roulette.Components.Pages.Auth
+  commentId: T:Roulette.Components.Pages.Auth
+  href: Roulette.Components.Pages.Auth.html
+  name: Auth
+  nameWithType: Auth
+  fullName: Roulette.Components.Pages.Auth
+- uid: Roulette.Components.Pages.Home
+  commentId: T:Roulette.Components.Pages.Home
+  href: Roulette.Components.Pages.Home.html
+  name: Home
+  nameWithType: Home
+  fullName: Roulette.Components.Pages.Home
+- uid: Roulette.Components.Pages.Error
+  commentId: T:Roulette.Components.Pages.Error
+  href: Roulette.Components.Pages.Error.html
+  name: Error
+  nameWithType: Error
+  fullName: Roulette.Components.Pages.Error
 - uid: Roulette.Components.Pages.History
   commentId: T:Roulette.Components.Pages.History
   href: Roulette.Components.Pages.History.html
@@ -44,15 +56,3 @@ references:
   name: Admin
   nameWithType: Admin
   fullName: Roulette.Components.Pages.Admin
-- uid: Roulette.Components.Pages.Auth
-  commentId: T:Roulette.Components.Pages.Auth
-  href: Roulette.Components.Pages.Auth.html
-  name: Auth
-  nameWithType: Auth
-  fullName: Roulette.Components.Pages.Auth
-- uid: Roulette.Components.Pages.Error
-  commentId: T:Roulette.Components.Pages.Error
-  href: Roulette.Components.Pages.Error.html
-  name: Error
-  nameWithType: Error
-  fullName: Roulette.Components.Pages.Error

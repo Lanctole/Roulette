@@ -1,0 +1,6 @@
+@ShikimoriService_HostAddress = http://localhost:5170
+
+GET {{ShikimoriService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

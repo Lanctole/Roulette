@@ -101,7 +101,7 @@ items:
   source:
     id: Item
     path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Shikimori_MediaComponent_razor.g.cs
-    startLine: 880
+    startLine: 910
   assemblies:
   - Roulette
   namespace: Roulette.Components.Shikimori
@@ -138,7 +138,7 @@ items:
   source:
     id: OnInitialized
     path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Shikimori_MediaComponent_razor.g.cs
-    startLine: 886
+    startLine: 917
   assemblies:
   - Roulette
   namespace: Roulette.Components.Shikimori
@@ -168,7 +168,7 @@ items:
   source:
     id: CleanDescription
     path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Shikimori_MediaComponent_razor.g.cs
-    startLine: 896
+    startLine: 928
   assemblies:
   - Roulette
   namespace: Roulette.Components.Shikimori

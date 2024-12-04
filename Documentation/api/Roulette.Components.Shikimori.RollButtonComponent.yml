@@ -7,6 +7,7 @@ items:
   children:
   - Roulette.Components.Shikimori.RollButtonComponent.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
   - Roulette.Components.Shikimori.RollButtonComponent.OnRoll
+  - Roulette.Components.Shikimori.RollButtonComponent.ShouldDelay
   langs:
   - csharp
   - vb
@@ -110,6 +111,41 @@ items:
 
       Public Property OnRoll As EventCallback
   overload: Roulette.Components.Shikimori.RollButtonComponent.OnRoll*
+  attributes:
+  - type: Microsoft.AspNetCore.Components.ParameterAttribute
+    ctor: Microsoft.AspNetCore.Components.ParameterAttribute.#ctor
+    arguments: []
+- uid: Roulette.Components.Shikimori.RollButtonComponent.ShouldDelay
+  commentId: P:Roulette.Components.Shikimori.RollButtonComponent.ShouldDelay
+  id: ShouldDelay
+  parent: Roulette.Components.Shikimori.RollButtonComponent
+  langs:
+  - csharp
+  - vb
+  name: ShouldDelay
+  nameWithType: RollButtonComponent.ShouldDelay
+  fullName: Roulette.Components.Shikimori.RollButtonComponent.ShouldDelay
+  type: Property
+  source:
+    id: ShouldDelay
+    path: Microsoft.CodeAnalysis.Razor.Compiler\Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator\Components_Shikimori_RollButtonComponent_razor.g.cs
+    startLine: 179
+  assemblies:
+  - Roulette
+  namespace: Roulette.Components.Shikimori
+  syntax:
+    content: >-
+      [Parameter]
+
+      public bool ShouldDelay { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <Parameter>
+
+      Public Property ShouldDelay As Boolean
+  overload: Roulette.Components.Shikimori.RollButtonComponent.ShouldDelay*
   attributes:
   - type: Microsoft.AspNetCore.Components.ParameterAttribute
     ctor: Microsoft.AspNetCore.Components.ParameterAttribute.#ctor
@@ -891,3 +927,20 @@ references:
   name: EventCallback
   nameWithType: EventCallback
   fullName: Microsoft.AspNetCore.Components.EventCallback
+- uid: Roulette.Components.Shikimori.RollButtonComponent.ShouldDelay*
+  commentId: Overload:Roulette.Components.Shikimori.RollButtonComponent.ShouldDelay
+  href: Roulette.Components.Shikimori.RollButtonComponent.html#Roulette_Components_Shikimori_RollButtonComponent_ShouldDelay
+  name: ShouldDelay
+  nameWithType: RollButtonComponent.ShouldDelay
+  fullName: Roulette.Components.Shikimori.RollButtonComponent.ShouldDelay
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean

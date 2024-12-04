@@ -2,9 +2,10 @@
 @using ShikimoriSharp.Bases
 @using Roulette.Services
 @using Roulette.Models
+@using Image = ShikimoriSharp.Bases.Image
 @inherits ShikimoriComponent
-@inject ApiClientService ApiClientService
-
+@inject MangaService MangaService
+@inject ImageCacheService ImageCacheService
 
 <PageTitle>Manga</PageTitle>
 <div class="page-title-mobile">
@@ -17,20 +18,12 @@
     <Col Xs="24" Sm="12" Md="8">
         <MinimalScoreComponent @bind-SelectedScore="SelectedScore"/>
     </Col>
-
-</Row>
-<Divider Orientation="left"></Divider>
-
-<Row Gutter="16">
-
     <Col Xs="24" Sm="12" Md="8">
-        <Publishers SelectedPublishersChanged="OnSelectedPublishersChanged"/>
-    </Col>
-    <Col Xs="24" Sm="12" Md="8">
-        <SelectKindComponent IsAnime="false" @bind-SelectedValue="_selectedKind"/>
+    <SelectKindComponent IsAnime="false" @bind-SelectedValue="_selectedKind" />
     </Col>
 </Row>
 <Divider Orientation="left"></Divider>
+
 <Col Xs="24" Sm="12" Md="8">
     <div style="display: flex; align-items: center;">
         <FilterSlider Label="Дата выхода"
@@ -56,26 +49,56 @@
 
 @code {
     private string? _selectedKind;
-    private List<string> _selectedPublishers = new();
     private List<SmallRepresentation>? _mangas;
-
-    private void OnSelectedPublishersChanged(List<string> selectedPublishers)
-    {
-        _selectedPublishers = selectedPublishers;
-    }
 
     protected override async Task SendSelected()
     {
         ShowCanvas = true;
-        var publishers = string.Join(",", _selectedPublishers);
-        var mangaUrl =
-            $"publisher={publishers}&" +
-            $"kind={_selectedKind}&";
-        _mangas = await GetMediaItemsAsync($"manga/mangas?{mangaUrl}", async id =>
-        {
-            var url = $"manga/mangas/{id}";
-            return await ApiClientService.GetMangaByIdAsync(url);
-        });
-    }
+        SetSeason();
 
+        var filters = new Dictionary<string, string>();
+        if (!string.IsNullOrEmpty(_selectedKind))
+            filters.Add("kind", $"\"{_selectedKind}\"");
+        if (!string.IsNullOrEmpty(SelectedScore))
+            filters.Add("score", $"{SelectedScore}");
+        if (!string.IsNullOrEmpty(Season))
+            filters.Add("season", $"\"{Season}\"");
+        if (SelectedGenres.Count > 0)
+            filters.Add("genre", $"\"{string.Join(",", SelectedGenres)}\"");
+        filters.Add("order", SelectedOrder);
+        filters.Add("limit", Limit.ToString());
+        filters.Add("page", Page.ToString());
+
+        var filterString = string.Join(", ", filters.Select(f => $"{f.Key}: {f.Value}"));
+
+        try
+        {
+            var mangas = await MangaService.GetMangasAsync(filterString);
+            if (mangas.Count == 0)
+            {
+                await ShowEmptyAnswerNotification();
+                return;
+            }
+
+            List<SmallRepresentation> smallRepresentations = mangas.Select(manga =>
+            {
+                manga.Image ??= new Image
+                    {
+                        Original = "https://shikimori.one/assets/globals/missing/main.png",
+                    };
+                return manga;
+            }).Cast<SmallRepresentation>().ToList();
+            var tasks = smallRepresentations
+                .Where(manga => !string.IsNullOrEmpty(manga.Image.Original))
+                .Select(manga => ImageCacheService.SaveImageToCacheAsync(manga.Image.Original));
+
+            Task.WhenAll(tasks);
+            TransferMediaPropsToSpinFunc(smallRepresentations);
+            _mangas = smallRepresentations;
+        }
+        catch (Exception ex)
+        {
+            await ShowErrorMessage("Ошибка при загрузке данных. Попробуйте позже.");
+        }
+    }
 }
